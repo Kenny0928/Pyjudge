@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyJudge — Online Judge</title>
+
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+
+  <!-- Pyodide -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #334155;
+      --border: #475569;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #06b6d4;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --easy: #22c55e;
+      --medium: #f59e0b;
+      --hard: #ef4444;
+      --radius: 8px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ─── Header ─── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    .badge-pyodide {
+      margin-left: auto;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pyodide-loading {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--warning);
+    }
+
+    .pyodide-ready {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--success);
+    }
+
+    .pyodide-error {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .dot.pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.3
+      }
+    }
+
+    /* ─── Views ─── */
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    /* ─── Problem List ─── */
+    #view-list {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 120px;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .problem-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .problem-table th {
+      background: var(--surface2);
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .problem-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .problem-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .problem-table tr:hover td {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .problem-title-link {
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .problem-title-link:hover {
+      color: #60a5fa;
+      text-decoration: underline;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-easy {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--easy);
+    }
+
+    .badge-medium {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--medium);
+    }
+
+    .badge-hard {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--hard);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: var(--surface2);
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .ac-rate {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .status-icon {
+      font-size: 1rem;
+    }
+
+    /* ─── Problem Detail ─── */
+    #view-problem {
+      display: none;
+      flex-direction: column;
+      height: calc(100vh - 56px);
+    }
+
+    #view-problem.active {
+      display: flex;
+    }
+
+    .problem-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .problem-header-title {
+      font-size: 1rem;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .split-layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Left panel */
+    .desc-panel {
+      width: 42%;
+      min-width: 320px;
+      overflow-y: auto;
+      padding: 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .desc-panel h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .desc-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .desc-meta span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .desc-panel p,
+    .desc-panel li {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .desc-panel ul {
+      padding-left: 20px;
+    }
+
+    .sample-block {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .sample-block-header {
+      background: var(--surface2);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .sample-block pre {
+      padding: 12px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      color: #e2e8f0;
+    }
+
+    .limits-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .limit-item {
+      background: var(--surface2);
+      border-radius: var(--radius);
+      padding: 8px 14px;
+      font-size: 0.8rem;
+    }
+
+    .limit-item strong {
+      color: var(--accent);
+    }
+
+    /* Right panel */
+    .editor-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .editor-toolbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-select {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+    }
+
+    .editor-area {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .editor-area .CodeMirror {
+      height: 100%;
+      font-size: 13.5px;
+      font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+    }
+
+    /* ── CodeMirror gutter 根本修正 ──
+       根本原因：
+         1. view-problem 初始為 display:none，CodeMirror 在不可見狀態下
+            無法測量 gutter 寬度，導致程式碼行沒有足夠的左邊距。
+         2. position:absolute 的強制覆寫可能與 CM 內部計算互相干擾。
+       解法：
+         - 只覆寫顏色與 z-index，不覆寫 position（讓 CM 自己管）
+         - 在切換到題目 view 後呼叫 editor.refresh() 重新測量
+    */
+    .CodeMirror {
+      position: relative !important;
+      overflow: hidden !important;
+      /* 讓 gutter 正確 clip */
+    }
+
+    .CodeMirror-gutters {
+      background: #282a36 !important;
+      /* Dracula 背景色，不透明 */
+      border-right: 1px solid rgba(248, 248, 242, 0.08) !important;
+      z-index: 3 !important;
+      white-space: nowrap !important;
+      min-height: 100% !important;
+      /* ⚠️ 不覆寫 position/left/top：讓 CodeMirror 自行計算 */
+    }
+
+    .CodeMirror-linenumber {
+      padding: 0 10px 0 8px !important;
+      min-width: 24px !important;
+      text-align: right !important;
+      color: #6272a4 !important;
+      white-space: nowrap !important;
+    }
+
+    /* 確保程式碼區域不從 gutter 下方開始 */
+    .CodeMirror-sizer {
+      position: relative !important;
+      border-right: 1px solid transparent !important;
+    }
+
+    .CodeMirror-scroll {
+      /* 維持 CM 預設 overflow 行為，不強制覆寫 */
+      outline: none;
+    }
+
+    .CodeMirror-lines {
+      padding: 4px 0 !important;
+    }
+
+    .submit-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 8px 20px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-primary:disabled {
+      background: var(--surface2);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .submit-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* Results */
+    .results-panel {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      max-height: 260px;
+      overflow-y: auto;
+      padding: 12px 16px;
+    }
+
+    .results-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .verdict-banner {
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .verdict-AC {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .verdict-WA {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .verdict-RE {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .verdict-TLE {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .verdict-PE {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--info);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .tc-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tc-chip {
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .tc-chip:hover {
+      filter: brightness(1.2);
+    }
+
+    .tc-AC {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--success);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+
+    .tc-WA {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+
+    .tc-RE {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+
+    .tc-TLE {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .tc-running {
+      background: var(--surface2);
+      color: var(--text-muted);
+    }
+
+    .error-block {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #fca5a5;
+      white-space: pre-wrap;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    .diff-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .diff-side {
+      background: #0f172a;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .diff-side-header {
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .diff-expected .diff-side-header {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--success);
+    }
+
+    .diff-actual .diff-side-header {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+    }
+
+    .diff-side pre {
+      padding: 8px 10px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      max-height: 80px;
+      overflow-y: auto;
+    }
+
+    /* Running spinner overlay */
+    .running-overlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .running-overlay.show {
+      display: flex;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--surface2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .running-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--surface2);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border);
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s;
+      z-index: 9999;
+      max-width: 320px;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    code {
+      background: var(--surface2);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85em;
+      color: #93c5fd;
+    }
+
+    @media (max-width: 768px) {
+      .split-layout {
+        flex-direction: column;
+      }
+
+      .desc-panel {
+        width: 100%;
+        height: 40%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════ Header ══════════════ -->
+  <header>
+    <a class="logo" onclick="showView('list')" href="#">
+      <span>🐍</span> PyJudge
+    </a>
+    <span class="nav-link active" onclick="showView('list')">題目列表</span>
+    <div id="pyodide-badge" class="badge-pyodide pyodide-loading">
+      <div class="dot pulse"></div>
+      <span id="pyodide-status">載入 Python 環境中…</span>
+    </div>
+  </header>
+
+  <!-- ══════════════ View: Problem List ══════════════ -->
+  <div id="view-list" class="view active">
+    <div id="view-list-inner">
+      <div class="page-title">📋 題目列表</div>
+      <div class="stats-bar" id="stats-bar"></div>
+      <table class="problem-table">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>題目名稱</th>
+            <th style="width:120px">標籤</th>
+            <th style="width:90px">難度</th>
+            <th style="width:90px">通過率</th>
+            <th style="width:60px">狀態</th>
+          </tr>
+        </thead>
+        <tbody id="problem-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════ View: Problem Detail ══════════════ -->
+  <div id="view-problem" class="view">
+    <div class="problem-header">
+      <button class="back-btn" onclick="showView('list')">← 返回列表</button>
+      <div class="problem-header-title" id="problem-header-title">—</div>
+    </div>
+    <div class="split-layout">
+      <!-- Left: Description -->
+      <div class="desc-panel" id="desc-panel">
+        <h1 id="p-title">—</h1>
+        <div class="desc-meta" id="p-meta"></div>
+        <div class="section-title">題目說明</div>
+        <div id="p-desc"></div>
+        <div class="section-title">輸入格式</div>
+        <div id="p-input-fmt"></div>
+        <div class="section-title">輸出格式</div>
+        <div id="p-output-fmt"></div>
+        <div class="section-title">限制</div>
+        <div class="limits-row">
+          <div class="limit-item">⏱ 時間限制：<strong id="p-time">—</strong></div>
+          <div class="limit-item">💾 記憶體限制：<strong id="p-mem">—</strong></div>
+        </div>
+        <div id="p-constraints"></div>
+        <div class="section-title">範例輸入 / 輸出</div>
+        <div id="p-samples"></div>
+      </div>
+
+      <!-- Right: Editor + Results -->
+      <div class="editor-panel">
+        <div class="editor-toolbar">
+          <select class="lang-select" disabled>
+            <option>🐍 Python 3</option>
+          </select>
+          <button class="btn btn-secondary" onclick="resetCode()" style="padding:4px 12px;font-size:0.8rem;">重置</button>
+        </div>
+        <div class="editor-area" style="position:relative;">
+          <textarea id="code-editor"></textarea>
+          <div class="running-overlay" id="running-overlay">
+            <div class="spinner"></div>
+            <div class="running-text" id="running-text">評測中…</div>
+          </div>
+        </div>
+        <div class="submit-bar">
+          <button class="btn btn-primary" id="submit-btn" onclick="submitCode()" disabled>
+            ▶ 提交程式碼
+          </button>
+          <button class="btn btn-secondary" onclick="runSample()">
+            🧪 測試範例
+          </button>
+          <span class="submit-hint" id="submit-hint">請等待 Python 環境載入完成</span>
+        </div>
+        <div class="results-panel" id="results-panel" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+  <script>
+    // ═══════════════════════════════════════════════
+    //  PROBLEM LOADER  （資料來自 problems/*.json）
+    // ═══════════════════════════════════════════════
+
+    // 編輯器空白起始樣板（不含答案）
+    const STARTER_TEMPLATE = `# 在此輸入你的 Python 程式碼\n\n`;
+
+    async function fetchManifest() {
+      const res = await fetch('problems/index.json');
+      if (!res.ok) throw new Error('無法載入題目清單');
+      return res.json();
+    }
+
+    async function fetchProblem(id) {
+      const idStr = String(id).padStart(3, '0');
+      const res = await fetch(`problems/${idStr}.json`);
+      if (!res.ok) throw new Error(`無法載入題目 ${idStr}`);
+      return res.json();
+    }
+
+    // ─── 以下保留給向下相容，不再使用 ───
+    // ─── 移除硬編碼資料，改由 JSON 載入 ───
+    // 此處保留題目完整資料做為本機開啟（file://）時的備援，但不包含解答程式碼（避免洩漏答案）
+    const PROBLEMS_DATA = {
+      1: {
+        "id": 1,
+        "title": "A+B 問題",
+        "difficulty": "Easy",
+        "tags": ["數學", "輸入輸出"],
+        "description": "<p>給定兩個整數 <code>A</code> 和 <code>B</code>，請計算並輸出 <code>A + B</code> 的值。</p><p>這是最經典的程式設計入門題，主要測試你是否能正確讀取輸入並輸出結果。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：如何讀取輸入？</p><p style='font-size:0.85rem;'>如果題目沒有規定數值在哪一行，你可以使用以下方式一次讀取所有數字：</p><pre style='font-size:0.75rem;margin-top:4px;'>import sys\ntokens = sys.stdin.read().split()\na = int(tokens[0])\nb = int(tokens[1])</pre></div>",
+        "inputFormat": "<p>包含兩個整數 <code>A</code> 和 <code>B</code>，這兩個數可能位在同一行（以空格分隔），也可能位在不同行。</p>",
+        "outputFormat": "<p>一行，輸出 <code>A + B</code> 的值。</p>",
+        "constraints": "<ul><li>−10<sup>9</sup> ≤ A, B ≤ 10<sup>9</sup></li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "3 5",
+        "sampleOutput": "8",
+        "testCases": [
+          { "input": "3 5", "output": "8" },
+          { "input": "0\n0", "output": "0" },
+          { "input": "-7\n3", "output": "-4" },
+          { "input": "1000000000 1000000000", "output": "2000000000" },
+          { "input": "-500000000\n500000000", "output": "0" }
+        ]
+      },
+      2: {
+        "id": 2,
+        "title": "FizzBuzz",
+        "difficulty": "Easy",
+        "tags": ["條件判斷", "迴圈"],
+        "description": "<p>給定正整數 <code>N</code>，請從 <code>1</code> 到 <code>N</code> 依序輸出，但：</p><ul><li>若數字是 <strong>3 的倍數</strong>，輸出 <code>Fizz</code></li><li>若數字是 <strong>5 的倍數</strong>，輸出 <code>Buzz</code></li><li>若數字是 <strong>15 的倍數</strong>，輸出 <code>FizzBuzz</code></li><li>否則，輸出該數字本身</li></ul>",
+        "inputFormat": "<p>一行，包含正整數 <code>N</code>。</p>",
+        "outputFormat": "<p>共 <code>N</code> 行，每行輸出對應的結果。</p>",
+        "constraints": "<ul><li>1 ≤ N ≤ 100</li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "15",
+        "sampleOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz",
+        "testCases": [
+          { "input": "15", "output": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz" },
+          { "input": "5", "output": "1\n2\nFizz\n4\nBuzz" },
+          { "input": "1", "output": "1" },
+          { "input": "30", "output": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz\nFizz\n22\n23\nFizz\nBuzz\n26\nFizz\n28\n29\nFizzBuzz" }
+        ]
+      },
+      3: {
+        "id": 3,
+        "title": "最大公因數",
+        "difficulty": "Easy",
+        "tags": ["數學", "遞迴"],
+        "description": "<p>給定兩個正整數 <code>A</code> 和 <code>B</code>，請求出它們的<strong>最大公因數（GCD）</strong>。</p><p>你可以使用輾轉相除法（歐幾里得算法）來完成這題。</p>",
+        "inputFormat": "<p>一行，包含兩個正整數 <code>A</code> 和 <code>B</code>，以空格分隔。</p>",
+        "outputFormat": "<p>一行，輸出 <code>A</code> 和 <code>B</code> 的最大公因數。</p>",
+        "constraints": "<ul><li>1 ≤ A, B ≤ 10<sup>9</sup></li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "12 8",
+        "sampleOutput": "4",
+        "testCases": [
+          { "input": "12 8", "output": "4" },
+          { "input": "100 75", "output": "25" },
+          { "input": "1 1", "output": "1" },
+          { "input": "999999937 1", "output": "1" },
+          { "input": "48 36", "output": "12" },
+          { "input": "7 13", "output": "1" }
+        ]
+      },
+      4: {
+        "id": 4,
+        "title": "質數判斷",
+        "difficulty": "Medium",
+        "tags": ["數學", "質數"],
+        "description": "<p>給定 <code>T</code> 筆查詢，每筆查詢包含一個正整數 <code>N</code>，請判斷 <code>N</code> 是否為<strong>質數</strong>。</p><p>質數定義：大於 1 且只能被 1 和自身整除的整數。</p>",
+        "inputFormat": "<p>第一行為正整數 <code>T</code>（查詢數量）。</p><p>接下來 <code>T</code> 行，每行包含一個正整數 <code>N</code>。</p>",
+        "outputFormat": "<p>共 <code>T</code> 行，若 <code>N</code> 是質數輸出 <code>Yes</code>，否則輸出 <code>No</code>。</p>",
+        "constraints": "<ul><li>1 ≤ T ≤ 100</li><li>1 ≤ N ≤ 10<sup>7</sup></li></ul>",
+        "timeLimit": 2,
+        "memoryLimit": 256,
+        "sampleInput": "5\n1\n2\n3\n4\n17",
+        "sampleOutput": "No\nYes\nYes\nNo\nYes",
+        "testCases": [
+          { "input": "5\n1\n2\n3\n4\n17", "output": "No\nYes\nYes\nNo\nYes" },
+          { "input": "3\n97\n100\n9999991", "output": "Yes\nNo\nYes" },
+          { "input": "4\n1\n2\n1000000\n999983", "output": "No\nYes\nNo\nYes" }
+        ]
+      },
+      5: {
+        "id": 5,
+        "title": "費氏數列第 N 項",
+        "difficulty": "Easy",
+        "tags": ["動態規劃", "數學"],
+        "description": "<p>費氏數列（Fibonacci Sequence）定義如下：</p><ul><li>F(1) = 1</li><li>F(2) = 1</li><li>F(N) = F(N-1) + F(N-2)，對所有 N ≥ 3</li></ul><p>給定正整數 <code>N</code>，請計算費氏數列的第 <code>N</code> 項。</p>",
+        "inputFormat": "<p>一行，包含正整數 <code>N</code>。</p>",
+        "outputFormat": "<p>一行，輸出費氏數列第 <code>N</code> 項的值。</p>",
+        "constraints": "<ul><li>1 ≤ N ≤ 50</li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "10",
+        "sampleOutput": "55",
+        "testCases": [
+          { "input": "1", "output": "1" },
+          { "input": "2", "output": "1" },
+          { "input": "10", "output": "55" },
+          { "input": "20", "output": "6765" },
+          { "input": "50", "output": "12586269025" }
+        ]
+      },
+      6: {
+        "id": 6,
+        "title": "反轉字串",
+        "difficulty": "Easy",
+        "tags": ["字串"],
+        "description": "<p>給定一個字串 <code>S</code>，請將其反轉後輸出。</p><p>字串只包含英文字母和數字，不含空格。</p>",
+        "inputFormat": "<p>一行，包含字串 <code>S</code>。</p>",
+        "outputFormat": "<p>一行，輸出反轉後的字串。</p>",
+        "constraints": "<ul><li>1 ≤ |S| ≤ 10<sup>5</sup></li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "hello",
+        "sampleOutput": "olleh",
+        "testCases": [
+          { "input": "hello", "output": "olleh" },
+          { "input": "12345", "output": "54321" },
+          { "input": "a", "output": "a" },
+          { "input": "abcdefghij", "output": "jihgfedcba" },
+          { "input": "PyJudge2025", "output": "5202eguJyP" }
+        ]
+      },
+      7: {
+        "id": 7,
+        "title": "兩數之和",
+        "difficulty": "Medium",
+        "tags": ["陣列", "雜湊"],
+        "description": "<p>給定一個長度為 <code>N</code> 的整數陣列，以及一個目標值 <code>T</code>。</p><p>請找出陣列中<strong>兩個不同位置</strong>的數字，使其和等於 <code>T</code>，並輸出這兩個數字的<strong>索引</strong>（從 0 開始），以較小的索引在前。</p><p>保證答案唯一且一定存在。</p>",
+        "inputFormat": "<p>第一行：整數 <code>N</code> 和目標值 <code>T</code>，以空格分隔。</p><p>第二行：<code>N</code> 個整數，以空格分隔。</p>",
+        "outputFormat": "<p>一行，輸出兩個索引 <code>i j</code>（<code>i &lt; j</code>），以空格分隔。</p>",
+        "constraints": "<ul><li>2 ≤ N ≤ 10<sup>5</sup></li><li>−10<sup>9</sup> ≤ 陣列元素 ≤ 10<sup>9</sup></li><li>−2×10<sup>9</sup> ≤ T ≤ 2×10<sup>9</sup></li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "4 9\n2 7 11 15",
+        "sampleOutput": "0 1",
+        "testCases": [
+          { "input": "4 9\n2 7 11 15", "output": "0 1" },
+          { "input": "3 6\n3 2 4", "output": "1 2" },
+          { "input": "2 6\n3 3", "output": "0 1" },
+          { "input": "5 0\n-3 4 3 90 1", "output": "0 2" }
+        ]
+      },
+      8: {
+        "id": 8,
+        "title": "智慧停車場管理員",
+        "difficulty": "Easy",
+        "tags": ["二維陣列", "陣列"],
+        "description": "<p>城市中一座多層立體停車場共有 M 層樓，每層有 N 個車位。管理系統會即時記錄每個車位的使用狀況。請寫一個程式，幫助管理員快速掌握整座停車場的空位分佈情形：計算空位總數，並找出哪一層樓的空位最多，方便引導車輛直接前往該層。</p><p>停車場的每個車位以數字表示：<strong>0 代表空位，1 代表已停車</strong>。樓層編號由上而下從第 1 層開始。若有多個樓層的空位數相同且並列最多，則輸出<strong>編號最小</strong>的樓層。</p>",
+        "inputFormat": "<ul><li>第一行：兩個正整數 M 和 N（1 ≤ M ≤ 10，1 ≤ N ≤ 10），以半形空格分隔，分別代表樓層數與每層車位數</li><li>第二行至第 M+1 行：每行輸入 N 個整數（0 或 1），以半形空格分隔，代表該層各車位的狀態</li></ul>",
+        "outputFormat": "<ul><li>第一行：整數的空位總數（整數）</li><li>第二行：空位最多的樓層編號，以及該層的空位數，兩者以半形空格分隔</li></ul>",
+        "constraints": "<ul><li>1 ≤ M ≤ 10</li><li>1 ≤ N ≤ 10</li></ul>",
+        "timeLimit": 1,
+        "memoryLimit": 256,
+        "sampleInput": "3 4\n1 0 1 0\n0 0 0 1\n1 1 0 0",
+        "sampleOutput": "7\n2 3",
+        "testCases": [
+          { "input": "3 4\n1 0 1 0\n0 0 0 1\n1 1 0 0", "output": "7\n2 3" },
+          { "input": "3 3\n1 0 0\n0 1 0\n1 0 1", "output": "5\n1 2" },
+          { "input": "1 5\n0 0 0 0 0", "output": "5\n1 5" },
+          { "input": "2 4\n1 1 1 1\n1 1 1 1", "output": "0\n1 0" }
+        ]
+      }
+    };
+    const PROBLEMS = [];
+
+
+    // ═══════════════════════════════════════════════
+    //  STATE
+    // ═══════════════════════════════════════════════
+    let pyodide = null;
+    let editor = null;
+    let currentProblem = null;
+    let problemManifest = [];           // 從 problems/index.json 載入
+    let problemCache = {};           // id → 完整 JSON，避免重複 fetch
+    let solvedSet = new Set(JSON.parse(localStorage.getItem('solved') || '[]'));
+
+    // ═══════════════════════════════════════════════
+    //  PYODIDE INIT
+    // ═══════════════════════════════════════════════
+    async function initPyodide() {
+      try {
+        pyodide = await loadPyodide({
+          indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/"
+        });
+        // Setup I/O helpers once
+        await pyodide.runPythonAsync(`
+import sys, io, builtins as _builtins
+
+_input_lines = []
+_input_idx   = [0]
+
+def _custom_input(prompt=""):
+    if _input_idx[0] < len(_input_lines):
+        res = _input_lines[_input_idx[0]]
+        _input_idx[0] += 1
+        return res
+    raise EOFError("EOF when reading a line")
+
+_builtins.input = _custom_input
+
+class MockStdin:
+    def read(self, n=-1):
+        res = "\\n".join(_input_lines[_input_idx[0]:])
+        _input_idx[0] = len(_input_lines)
+        return res
+    def readline(self):
+        try: return _custom_input() + "\\n"
+        except EOFError: return ""
+    def __iter__(self):
+        while _input_idx[0] < len(_input_lines):
+            yield self.readline()
+
+sys.stdin = MockStdin()
+`);
+        setBadge('ready');
+        setSubmitEnabled(true);
+        toast('🐍 Python 環境已就緒！');
+      } catch (e) {
+        setBadge('error');
+        console.error(e);
+      }
+    }
+
+    function setBadge(state) {
+      const badge = document.getElementById('pyodide-badge');
+      const status = document.getElementById('pyodide-status');
+      const dot = badge.querySelector('.dot');
+      badge.className = 'badge-pyodide';
+      dot.className = 'dot';
+      if (state === 'ready') {
+        badge.classList.add('pyodide-ready');
+        status.textContent = 'Python 已就緒';
+        document.getElementById('submit-hint').textContent = '';
+      } else if (state === 'error') {
+        badge.classList.add('pyodide-error');
+        status.textContent = '載入失敗，請重新整理';
+        document.getElementById('submit-hint').textContent = '環境載入失敗';
+      } else {
+        badge.classList.add('pyodide-loading');
+        status.textContent = '載入 Python 環境中…';
+        dot.classList.add('pulse');
+      }
+    }
+
+    function setSubmitEnabled(v) {
+      const btn = document.getElementById('submit-btn');
+      if (btn) btn.disabled = !v;
+      if (!v) document.getElementById('submit-hint').textContent = '請等待 Python 環境載入完成';
+    }
+
+    // ═══════════════════════════════════════════════
+    //  RUN PYTHON
+    // ═══════════════════════════════════════════════
+    async function runPython(code, inputStr) {
+      const lines = inputStr === '' ? [] : inputStr.split('\n');
+      // Set input lines
+      pyodide.globals.set('__lines__', lines);
+      await pyodide.runPythonAsync(`
+_input_lines = list(__lines__)
+_input_idx[0] = 0
+_stdout = io.StringIO()
+_stderr = io.StringIO()
+sys.stdout = _stdout
+sys.stderr = _stderr
+`);
+      const t0 = performance.now();
+      await pyodide.runPythonAsync(code);
+      const elapsed = performance.now() - t0;
+      const output = await pyodide.runPythonAsync(`_stdout.getvalue()`);
+      const errout = await pyodide.runPythonAsync(`_stderr.getvalue()`);
+      // Restore stdout
+      await pyodide.runPythonAsync(`sys.stdout = sys.__stdout__`);
+      return { output, errout, elapsed };
+    }
+
+    // ═══════════════════════════════════════════════
+    //  JUDGE
+    // ═══════════════════════════════════════════════
+    async function judgeAll(problem, code) {
+      const results = [];
+      for (let i = 0; i < problem.testCases.length; i++) {
+        const tc = problem.testCases[i];
+        try {
+          const { output, errout, elapsed } = await runPython(code, tc.input);
+          const actual = output.trimEnd();
+          const expected = tc.output.trimEnd();
+          if (elapsed > problem.timeLimit * 1000) {
+            results.push({ status: 'TLE', elapsed, actual, expected });
+          } else if (errout.trim()) {
+            results.push({ status: 'RE', elapsed, error: errout, actual, expected });
+          } else if (actual === expected) {
+            results.push({ status: 'AC', elapsed, actual, expected });
+          } else {
+            results.push({ status: 'WA', elapsed, actual, expected });
+          }
+        } catch (e) {
+          results.push({ status: 'RE', elapsed: 0, error: e.message, actual: '', expected: tc.output });
+        }
+        // Update chip as we go
+        renderResultsPartial(results, problem.testCases.length);
+      }
+      return results;
+    }
+
+    // ═══════════════════════════════════════════════
+    //  SUBMIT
+    // ═══════════════════════════════════════════════
+    async function submitCode() {
+      if (!pyodide) { toast('⚠️ Python 環境尚未就緒'); return; }
+      const code = editor.getValue();
+      if (!code.trim()) { toast('⚠️ 請先輸入程式碼'); return; }
+
+      setSubmitEnabled(false);
+      showRunning(true, '評測中，請稍候…');
+      document.getElementById('results-panel').style.display = 'block';
+      renderResultsLoading(currentProblem.testCases.length);
+
+      try {
+        const results = await judgeAll(currentProblem, code);
+        showRunning(false);
+        renderResultsFinal(results, currentProblem);
+        const allAC = results.every(r => r.status === 'AC');
+        if (allAC) {
+          solvedSet.add(currentProblem.id);
+          localStorage.setItem('solved', JSON.stringify([...solvedSet]));
+          toast('🎉 恭喜！所有測資通過！');
+        }
+      } catch (e) {
+        showRunning(false);
+        renderError('系統錯誤：' + e.message);
+      } finally {
+        setSubmitEnabled(true);
+      }
+    }
+
+    async function runSample() {
+      if (!pyodide) { toast('⚠️ Python 環境尚未就緒'); return; }
+      const code = editor.getValue();
+      if (!code.trim()) { toast('⚠️ 請先輸入程式碼'); return; }
+
+      setSubmitEnabled(false);
+      showRunning(true, '執行範例測資…');
+      document.getElementById('results-panel').style.display = 'block';
+
+      try {
+        const { output, errout, elapsed } = await runPython(code, currentProblem.sampleInput);
+        showRunning(false);
+        renderSampleResult(output, errout, elapsed, currentProblem.sampleOutput);
+      } catch (e) {
+        showRunning(false);
+        renderError('執行錯誤：' + e.message);
+      } finally {
+        setSubmitEnabled(true);
+      }
+    }
+
+    // ═══════════════════════════════════════════════
+    //  RENDER RESULTS
+    // ═══════════════════════════════════════════════
+    const STATUS_LABEL = { AC: '✓ AC', WA: '✗ WA', TLE: '⏱ TLE', RE: '💥 RE' };
+    const STATUS_DESC = { AC: '全部通過', WA: '答案錯誤', TLE: '超過時間限制', RE: '執行時期錯誤' };
+
+    function renderResultsLoading(n) {
+      const panel = document.getElementById('results-panel');
+      let chips = '';
+      for (let i = 0; i < n; i++) chips += `<div class="tc-chip tc-running" id="tc-chip-${i}">測資 ${i + 1}</div>`;
+      panel.innerHTML = `<div class="results-title">評測結果</div><div class="tc-grid" id="tc-grid">${chips}</div>`;
+    }
+
+    function renderResultsPartial(results, total) {
+      results.forEach((r, i) => {
+        const chip = document.getElementById('tc-chip-' + i);
+        if (chip) {
+          const t = r.elapsed ? ` (${r.elapsed.toFixed(0)}ms)` : '';
+          chip.className = `tc-chip tc-${r.status}`;
+          chip.textContent = `測資 ${i + 1} ${STATUS_LABEL[r.status]}${t}`;
+        }
+      });
+    }
+
+    function renderResultsFinal(results, problem) {
+      const panel = document.getElementById('results-panel');
+      const allAC = results.every(r => r.status === 'AC');
+      const worstStatus = allAC ? 'AC' :
+        results.find(r => r.status === 'RE') ? 'RE' :
+          results.find(r => r.status === 'TLE') ? 'TLE' : 'WA';
+      const passCount = results.filter(r => r.status === 'AC').length;
+      const maxTime = Math.max(...results.map(r => r.elapsed || 0));
+
+      let html = `<div class="results-title">評測結果</div>`;
+      html += `<div class="verdict-banner verdict-${worstStatus}">
+    <span style="font-size:1.3rem">${allAC ? '🎉' : '❌'}</span>
+    <span>${STATUS_LABEL[worstStatus]} — ${passCount}/${results.length} 通過</span>
+    <span style="margin-left:auto;font-size:0.8rem;font-weight:400;color:inherit;opacity:0.8">最長 ${maxTime.toFixed(0)} ms</span>
+  </div>`;
+      html += `<div class="tc-grid">`;
+      results.forEach((r, i) => {
+        const t = r.elapsed ? ` · ${r.elapsed.toFixed(0)}ms` : '';
+        html += `<div class="tc-chip tc-${r.status}" onclick="showTcDetail(${i})" title="點擊查看詳情">
+      測資 ${i + 1} ${STATUS_LABEL[r.status]}${t}
+    </div>`;
+      });
+      html += `</div>`;
+
+      // Show first non-AC detail
+      const firstBad = results.findIndex(r => r.status !== 'AC');
+      if (firstBad >= 0) {
+        html += renderTcDetail(results[firstBad], firstBad);
+      }
+
+      panel.innerHTML = html;
+      window._lastResults = results;
+    }
+
+    function renderTcDetail(r, i) {
+      let html = `<div style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);">
+    ── 測資 ${i + 1} 詳情 ──
+  </div>`;
+      if (r.status === 'RE' || r.error) {
+        html += `<div class="error-block">${escHtml(r.error || '未知錯誤')}</div>`;
+      } else if (r.status === 'WA') {
+        html += `<div class="diff-block">
+      <div class="diff-side diff-expected">
+        <div class="diff-side-header">期望輸出</div>
+        <pre>${escHtml(r.expected)}</pre>
+      </div>
+      <div class="diff-side diff-actual">
+        <div class="diff-side-header">你的輸出</div>
+        <pre>${escHtml(r.actual)}</pre>
+      </div>
+    </div>`;
+      } else if (r.status === 'TLE') {
+        html += `<div style="color:var(--warning);font-size:0.85rem;margin-top:8px;">
+      ⏱ 執行時間 ${r.elapsed?.toFixed(0)} ms，超過時間限制 ${currentProblem.timeLimit * 1000} ms
+    </div>`;
+      }
+      return html;
+    }
+
+    function showTcDetail(idx) {
+      const r = window._lastResults?.[idx];
+      if (!r) return;
+      const panel = document.getElementById('results-panel');
+      const existing = panel.querySelector('.tc-detail');
+      if (existing) existing.remove();
+      const div = document.createElement('div');
+      div.className = 'tc-detail';
+      div.innerHTML = renderTcDetail(r, idx);
+      panel.appendChild(div);
+      div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function renderSampleResult(output, errout, elapsed, expected) {
+      const panel = document.getElementById('results-panel');
+      const actual = output.trimEnd();
+      const exp = expected.trimEnd();
+      const ok = actual === exp;
+      let html = `<div class="results-title">範例測試結果</div>`;
+      html += `<div class="verdict-banner ${ok ? 'verdict-AC' : errout.trim() ? 'verdict-RE' : 'verdict-WA'}">
+    ${ok ? '✓ 範例輸出正確' : errout.trim() ? '💥 執行時期錯誤' : '✗ 範例輸出不符'}
+    <span style="margin-left:auto;font-size:0.8rem;font-weight:400;opacity:0.8">${elapsed.toFixed(0)} ms</span>
+  </div>`;
+      if (errout.trim()) {
+        html += `<div class="error-block">${escHtml(errout)}</div>`;
+      } else {
+        html += `<div class="diff-block">
+      <div class="diff-side diff-expected">
+        <div class="diff-side-header">期望輸出</div>
+        <pre>${escHtml(exp)}</pre>
+      </div>
+      <div class="diff-side ${ok ? 'diff-expected' : 'diff-actual'}">
+        <div class="diff-side-header">你的輸出</div>
+        <pre>${escHtml(actual || '(無輸出)')}</pre>
+      </div>
+    </div>`;
+      }
+      panel.innerHTML = html;
+    }
+
+    function renderError(msg) {
+      const panel = document.getElementById('results-panel');
+      panel.innerHTML = `<div class="results-title">系統錯誤</div>
+    <div class="verdict-banner verdict-RE">💥 ${escHtml(msg)}</div>`;
+    }
+
+    // ═══════════════════════════════════════════════
+    //  VIEWS
+    // ═══════════════════════════════════════════════
+    function showView(name) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById('view-' + name).classList.add('active');
+      if (name === 'list') renderProblemList();
+      if (name === 'problem' && editor) {
+        // 切換到題目頁後，等瀏覽器完成 layout 再讓 CodeMirror 重新計算
+        // gutter 寬度與 sizer 左邊距，這才是行號滲入程式碼的根本解法
+        requestAnimationFrame(() => {
+          editor.refresh();
+          const editorArea = document.querySelector('.editor-area');
+          if (editorArea && editorArea.offsetHeight > 0) {
+            editor.setSize('100%', editorArea.offsetHeight + 'px');
+          }
+        });
+      }
+    }
+
+    function renderProblemList() {
+      const list = problemManifest;
+      // Stats
+      const statsBar = document.getElementById('stats-bar');
+      statsBar.innerHTML = `
+    <div class="stat-card">
+      <div class="stat-value">${list.length}</div>
+      <div class="stat-label">題目數</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--success)">${solvedSet.size}</div>
+      <div class="stat-label">已解題</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--medium)">${list.filter(p => p.difficulty === 'Medium').length}</div>
+      <div class="stat-label">中等難度</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--info)">${list.filter(p => p.difficulty === 'Easy').length}</div>
+      <div class="stat-label">簡單難度</div>
+    </div>
+  `;
+
+      // Table
+      const tbody = document.getElementById('problem-tbody');
+      if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:32px">
+      載入題目中…
+    </td></tr>`;
+        return;
+      }
+      tbody.innerHTML = list.map(p => {
+        const solved = solvedSet.has(p.id);
+        const diff = p.difficulty.toLowerCase();
+        const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+        const status = solved ? '<span class="status-icon" title="已通過">✅</span>' : '';
+        return `<tr>
+      <td style="color:var(--text-muted);font-weight:600">${String(p.id).padStart(3, '0')}</td>
+      <td><span class="problem-title-link" onclick="openProblem(${p.id})">${escHtml(p.title)}</span></td>
+      <td>${tags}</td>
+      <td><span class="badge badge-${diff}">${p.difficulty}</span></td>
+      <td class="ac-rate">—</td>
+      <td>${status}</td>
+    </tr>`;
+      }).join('');
+    }
+
+    async function openProblem(id) {
+      // 先切換到題目頁，顯示載入中
+      showView('problem');
+      document.getElementById('problem-header-title').textContent = '載入中…';
+      document.getElementById('p-title').textContent = '載入中…';
+      document.getElementById('p-desc').innerHTML = '<p style="color:var(--text-muted)">正在載入題目資料…</p>';
+      document.getElementById('results-panel').style.display = 'none';
+      document.getElementById('results-panel').innerHTML = '';
+
+      try {
+        // 優先讀快取，再讀外部 JSON，最後讀內嵌備援
+        let problem = problemCache[id];
+        if (!problem) {
+          try {
+            problem = await fetchProblem(id);
+            problemCache[id] = problem;
+          } catch (e) {
+            console.warn('Network load failed, checking embedded data fallback...', e);
+            if (PROBLEMS_DATA[id]) {
+              problem = PROBLEMS_DATA[id];
+            } else {
+              throw e;
+            }
+          }
+        }
+        currentProblem = problem;
+
+        // 填入題目資訊
+        document.getElementById('problem-header-title').textContent = `問題 ${id}：${problem.title}`;
+        document.getElementById('p-title').textContent = `${String(id).padStart(3, '0')}. ${problem.title}`;
+
+        const diff = problem.difficulty.toLowerCase();
+        document.getElementById('p-meta').innerHTML = `
+      <span class="badge badge-${diff}">${problem.difficulty}</span>
+      ${problem.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+    `;
+
+        document.getElementById('p-desc').innerHTML = problem.description;
+        document.getElementById('p-input-fmt').innerHTML = problem.inputFormat;
+        document.getElementById('p-output-fmt').innerHTML = problem.outputFormat;
+        document.getElementById('p-time').textContent = `${problem.timeLimit} 秒`;
+        document.getElementById('p-mem').textContent = `${problem.memoryLimit} MB`;
+        document.getElementById('p-constraints').innerHTML = `<ul style="padding-left:16px">${problem.constraints.replace(/<ul>|<\/ul>/g, '')
+          }</ul>`;
+
+        // 範例輸入/輸出
+        document.getElementById('p-samples').innerHTML = `
+      <div class="sample-block">
+        <div class="sample-block-header">範例輸入</div>
+        <pre>${escHtml(problem.sampleInput)}</pre>
+      </div>
+      <div class="sample-block">
+        <div class="sample-block-header">範例輸出</div>
+        <pre>${escHtml(problem.sampleOutput)}</pre>
+      </div>
+    `;
+
+        // 編輯器：從空白樣板開始，不放答案
+        if (editor) {
+          editor.setValue(STARTER_TEMPLATE);
+          editor.clearHistory();
+          editor.focus();
+        }
+      } catch (e) {
+        document.getElementById('p-desc').innerHTML =
+          `<p style="color:var(--danger)">❌ 題目載入失敗：${escHtml(e.message)}</p>`;
+        toast('⚠️ 題目載入失敗，請確認 problems/*.json 是否存在');
+      }
+    }
+
+    function resetCode() {
+      if (currentProblem && editor) {
+        if (confirm('確定要重置程式碼嗎？這會清空目前的所有程式碼。')) {
+          editor.setValue(STARTER_TEMPLATE);
+          editor.clearHistory();
+        }
+      }
+    }
+
+    // ═══════════════════════════════════════════════
+    //  HELPERS
+    // ═══════════════════════════════════════════════
+    function showRunning(v, text) {
+      const el = document.getElementById('running-overlay');
+      const txt = document.getElementById('running-text');
+      if (text) txt.textContent = text;
+      el.classList.toggle('show', v);
+    }
+
+    let _toastTimer = null;
+    function toast(msg, ms = 3000) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(_toastTimer);
+      _toastTimer = setTimeout(() => el.classList.remove('show'), ms);
+    }
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // ═══════════════════════════════════════════════
+    //  INIT
+    // ═══════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      // CodeMirror
+      editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+        mode: 'python',
+        theme: 'dracula',
+        lineNumbers: true,
+        autoCloseBrackets: true,
+        matchBrackets: true,
+        indentUnit: 4,
+        tabSize: 4,
+        indentWithTabs: false,
+        extraKeys: {
+          Tab: cm => {
+            if (cm.somethingSelected()) cm.indentSelection('add');
+            else cm.replaceSelection('    ');
+          },
+          'Ctrl-Enter': () => submitCode(),
+        },
+      });
+      // Resize CodeMirror to fill editor-area
+      // 注意：初始時 #view-problem 為 display:none，editorArea.offsetHeight = 0
+      // 所以這裡只設定 ResizeObserver，不立即呼叫（避免高度為 0 時誤設）
+      const editorArea = document.querySelector('.editor-area');
+      const resizeEditor = () => {
+        const h = editorArea.offsetHeight;
+        if (h > 0) {
+          editor.setSize('100%', h + 'px');
+          editor.refresh();   // refresh 讓 gutter 重算寬度
+        }
+      };
+      new ResizeObserver(resizeEditor).observe(editorArea);
+
+      // 載入題目清單（problems/index.json）
+      fetchManifest()
+        .then(manifest => {
+          problemManifest = manifest;
+          renderProblemList();
+        })
+        .catch(err => {
+          console.warn('Manifest fetch failed, using embedded fallback. This usually happens when opening via file:// protocol.', err);
+          // 從 PROBLEMS_DATA 生成列表清單
+          problemManifest = Object.values(PROBLEMS_DATA).map(p => ({
+            id: p.id, title: p.title, difficulty: p.difficulty, tags: p.tags
+          }));
+          renderProblemList();
+          toast('⚠️ 您正以檔案模式開啟。已載入內嵌題目資料，但建議使用伺服器模式以獲得最佳體驗。', 5000);
+        });
+
+      // Load Pyodide
+      initPyodide();
+    });
+  </script>
+</body>
+
+</html>

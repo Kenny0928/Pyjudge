@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "title": "質數判斷",
+  "difficulty": "Medium",
+  "tags": ["數學", "質數"],
+  "description": "<p>給定 <code>T</code> 筆查詢，每筆查詢包含一個正整數 <code>N</code>，請判斷 <code>N</code> 是否為<strong>質數</strong>。</p><p>質數定義：大於 1 且只能被 1 和自身整除的整數。</p>",
+  "inputFormat": "<p>第一行為正整數 <code>T</code>（查詢數量）。</p><p>接下來 <code>T</code> 行，每行包含一個正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>共 <code>T</code> 行，若 <code>N</code> 是質數輸出 <code>Yes</code>，否則輸出 <code>No</code>。</p>",
+  "constraints": "<ul><li>1 ≤ T ≤ 100</li><li>1 ≤ N ≤ 10<sup>7</sup></li></ul>",
+  "timeLimit": 2,
+  "memoryLimit": 256,
+  "sampleInput": "5\n1\n2\n3\n4\n17",
+  "sampleOutput": "No\nYes\nYes\nNo\nYes",
+  "testCases": [
+    { "input": "5\n1\n2\n3\n4\n17",       "output": "No\nYes\nYes\nNo\nYes" },
+    { "input": "3\n97\n100\n9999991",      "output": "Yes\nNo\nYes"          },
+    { "input": "4\n1\n2\n1000000\n999983","output": "No\nYes\nNo\nYes"       }
+  ]
+}

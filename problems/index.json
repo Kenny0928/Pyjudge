@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "A+B 問題",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "輸入輸出"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "FizzBuzz",
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "最大公因數",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "遞迴"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "質數判斷",
+    "difficulty": "Medium",
+    "tags": [
+      "數學",
+      "質數"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "費氏數列第 N 項",
+    "difficulty": "Easy",
+    "tags": [
+      "動態規劃",
+      "數學"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "反轉字串",
+    "difficulty": "Easy",
+    "tags": [
+      "字串"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "兩數之和",
+    "difficulty": "Medium",
+    "tags": [
+      "陣列",
+      "雜湊"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "智慧停車場管理員",
+    "difficulty": "Easy",
+    "tags": [
+      "二維陣列",
+      "陣列"
+    ]
+  }
+]

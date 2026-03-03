@@ -1,0 +1,20 @@
+{
+  "id": 7,
+  "title": "兩數之和",
+  "difficulty": "Medium",
+  "tags": ["陣列", "雜湊"],
+  "description": "<p>給定一個長度為 <code>N</code> 的整數陣列，以及一個目標值 <code>T</code>。</p><p>請找出陣列中<strong>兩個不同位置</strong>的數字，使其和等於 <code>T</code>，並輸出這兩個數字的<strong>索引</strong>（從 0 開始），以較小的索引在前。</p><p>保證答案唯一且一定存在。</p>",
+  "inputFormat": "<p>第一行：整數 <code>N</code> 和目標值 <code>T</code>，以空格分隔。</p><p>第二行：<code>N</code> 個整數，以空格分隔。</p>",
+  "outputFormat": "<p>一行，輸出兩個索引 <code>i j</code>（<code>i &lt; j</code>），以空格分隔。</p>",
+  "constraints": "<ul><li>2 ≤ N ≤ 10<sup>5</sup></li><li>−10<sup>9</sup> ≤ 陣列元素 ≤ 10<sup>9</sup></li><li>−2×10<sup>9</sup> ≤ T ≤ 2×10<sup>9</sup></li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "4 9\n2 7 11 15",
+  "sampleOutput": "0 1",
+  "testCases": [
+    { "input": "4 9\n2 7 11 15",   "output": "0 1" },
+    { "input": "3 6\n3 2 4",       "output": "1 2" },
+    { "input": "2 6\n3 3",         "output": "0 1" },
+    { "input": "5 0\n-3 4 3 90 1", "output": "0 2" }
+  ]
+}

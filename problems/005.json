@@ -1,0 +1,21 @@
+{
+  "id": 5,
+  "title": "費氏數列第 N 項",
+  "difficulty": "Easy",
+  "tags": ["動態規劃", "數學"],
+  "description": "<p>費氏數列（Fibonacci Sequence）定義如下：</p><ul><li>F(1) = 1</li><li>F(2) = 1</li><li>F(N) = F(N-1) + F(N-2)，對所有 N ≥ 3</li></ul><p>給定正整數 <code>N</code>，請計算費氏數列的第 <code>N</code> 項。</p>",
+  "inputFormat": "<p>一行，包含正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>一行，輸出費氏數列第 <code>N</code> 項的值。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 50</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "10",
+  "sampleOutput": "55",
+  "testCases": [
+    { "input": "1",  "output": "1"           },
+    { "input": "2",  "output": "1"           },
+    { "input": "10", "output": "55"          },
+    { "input": "20", "output": "6765"        },
+    { "input": "50", "output": "12586269025" }
+  ]
+}

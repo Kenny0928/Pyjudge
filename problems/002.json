@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "title": "FizzBuzz",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "迴圈"],
+  "description": "<p>給定正整數 <code>N</code>，請從 <code>1</code> 到 <code>N</code> 依序輸出，但：</p><ul><li>若數字是 <strong>3 的倍數</strong>，輸出 <code>Fizz</code></li><li>若數字是 <strong>5 的倍數</strong>，輸出 <code>Buzz</code></li><li>若數字是 <strong>15 的倍數</strong>，輸出 <code>FizzBuzz</code></li><li>否則，輸出該數字本身</li></ul>",
+  "inputFormat": "<p>一行，包含正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>共 <code>N</code> 行，每行輸出對應的結果。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "15",
+  "sampleOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz",
+  "testCases": [
+    { "input": "15", "output": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz" },
+    { "input": "5",  "output": "1\n2\nFizz\n4\nBuzz" },
+    { "input": "1",  "output": "1" },
+    { "input": "30", "output": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz\nFizz\n22\n23\nFizz\nBuzz\n26\nFizz\n28\n29\nFizzBuzz" }
+  ]
+}
