@@ -2,6 +2,9 @@
 
 PyJudge 是一個純靜態的 Online Judge，使用 **Pyodide**（Python in WebAssembly）在瀏覽器內直接執行 Python 程式碼，無需任何後端伺服器，可直接部署到 **GitHub Pages**。
 
+https://kenny0928.github.io/Pyjudge/
+
+
 ## ✨ 功能特色
 
 - 🐍 在瀏覽器內執行 Python 3（Pyodide）
