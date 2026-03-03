@@ -1,0 +1,40 @@
+{
+    "id": 9,
+    "title": "二進制轉十進制",
+    "difficulty": "Easy",
+    "tags": [
+        "數學",
+        "字串",
+        "進位轉換"
+    ],
+    "description": "<p>請寫一個程式，輸入一串只包含 0 和 1 的二進制字串，將它轉換成十進制整數並輸出。</p><p>將二進制轉換為十進制的方法是：從最右邊的位元開始，每個位元的值乘以 2 的對應次方後加總。例如二進制 <code>1101</code>，從右到左依序為第 0、1、2、3 位，計算為 1×2⁰ + 0×2¹ + 1×2² + 1×2³ = 1+0+4+8 = 13。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>可以使用由左至右累加的技巧，每次將目前結果乘以 2 並加上新位元的值。</p></div>",
+    "inputFormat": "<p>第一行：一串只包含 0 和 1 的字串（長度 1 ≤ L ≤ 10）</p>",
+    "outputFormat": "<p>第一行：對應的十進制整數</p>",
+    "constraints": "<ul><li>輸入保證是合法的二進制字串</li><li>不包含前導零（僅 '0' 本身例外）</li></ul>",
+    "timeLimit": 1,
+    "memoryLimit": 256,
+    "sampleInput": "1101",
+    "sampleOutput": "13",
+    "testCases": [
+        {
+            "input": "1101",
+            "output": "13"
+        },
+        {
+            "input": "1000",
+            "output": "8"
+        },
+        {
+            "input": "1",
+            "output": "1"
+        },
+        {
+            "input": "0",
+            "output": "0"
+        },
+        {
+            "input": "11111111",
+            "output": "255"
+        }
+    ]
+}
