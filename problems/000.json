@@ -1,0 +1,23 @@
+{
+    "id": 0,
+    "title": "Hello World",
+    "difficulty": "Easy",
+    "tags": [
+        "入門",
+        "輸出"
+    ],
+    "description": "<p>歡迎來到 PyJudge！這是你的第一題。</p><p>請寫一個程式，在螢幕上輸出 <code>hello world</code>。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>在 Python 中，你可以使用 <code>print()</code> 函式來輸出文字。</p></div>",
+    "inputFormat": "<p>無任何輸入。</p>",
+    "outputFormat": "<p>一行，輸出 <code>hello world</code>。</p>",
+    "constraints": "<ul><li>無</li></ul>",
+    "timeLimit": 1,
+    "memoryLimit": 256,
+    "sampleInput": "",
+    "sampleOutput": "hello world",
+    "testCases": [
+        {
+            "input": "",
+            "output": "hello world"
+        }
+    ]
+}

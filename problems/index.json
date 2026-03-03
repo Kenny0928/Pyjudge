@@ -1,5 +1,14 @@
 [
   {
+    "id": 0,
+    "title": "Hello World",
+    "difficulty": "Easy",
+    "tags": [
+      "入門",
+      "輸出"
+    ]
+  },
+  {
     "id": 1,
     "title": "A+B 問題",
     "difficulty": "Easy",
