@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="給 Python 初學者的十關自學講義：先預測、再拆解、動手測試，從輸出學到迴圈與累加。" />
+  <title>初階講義｜PyJudge 自學基地</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #334155;
+      --surface-dark: #0b1120;
+      --border: #475569;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #06b6d4;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --radius: 9px;
+      --shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
+    }
+
+    button,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    summary {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: 60px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      margin-right: 7px;
+    }
+
+    .course-name {
+      padding-left: 16px;
+      border-left: 1px solid var(--border);
+      color: #cbd5e1;
+      font-size: 0.86rem;
+    }
+
+    .header-progress {
+      margin-left: auto;
+      min-width: 170px;
+    }
+
+    .progress-copy {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+    }
+
+    .progress-track {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #0f172a;
+    }
+
+    .progress-track span {
+      width: 0;
+      height: 100%;
+      display: block;
+      border-radius: inherit;
+      background: var(--success);
+      transition: width 0.3s ease;
+    }
+
+    .mobile-course-button {
+      display: none;
+      margin-left: auto;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      background: var(--surface2);
+      cursor: pointer;
+    }
+
+    .app-shell {
+      min-height: calc(100vh - 60px);
+      display: grid;
+      grid-template-columns: 286px minmax(0, 1fr);
+    }
+
+    .course-sidebar {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      padding: 26px 18px;
+      border-right: 1px solid var(--border);
+      background: #111c30;
+    }
+
+    .sidebar-label {
+      margin: 0 10px 12px;
+      color: #64748b;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .lesson-nav {
+      display: grid;
+      gap: 6px;
+    }
+
+    .lesson-nav button {
+      width: 100%;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr) 18px;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: var(--text-muted);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .lesson-nav button:hover {
+      color: var(--text);
+      background: rgba(51, 65, 85, 0.58);
+    }
+
+    .lesson-nav button.active {
+      border-color: rgba(59, 130, 246, 0.45);
+      color: var(--text);
+      background: rgba(59, 130, 246, 0.13);
+    }
+
+    .lesson-number {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: #cbd5e1;
+      background: var(--surface2);
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .active .lesson-number {
+      color: white;
+      background: var(--accent);
+    }
+
+    .lesson-nav-title {
+      overflow: hidden;
+      font-size: 0.82rem;
+      font-weight: 650;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lesson-check {
+      color: var(--success);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .sidebar-tip {
+      margin-top: 22px;
+      padding: 14px;
+      border: 1px solid rgba(6, 182, 212, 0.26);
+      border-radius: 8px;
+      color: #a5f3fc;
+      background: rgba(6, 182, 212, 0.07);
+      font-size: 0.76rem;
+      line-height: 1.65;
+    }
+
+    .lesson-main {
+      width: min(100%, 980px);
+      padding: 44px clamp(24px, 5vw, 72px) 80px;
+    }
+
+    .lesson-kicker {
+      color: #60a5fa;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+    }
+
+    .lesson-title-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: start;
+      gap: 18px;
+    }
+
+    .lesson-title-row h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+    }
+
+    .concept-badge {
+      flex: none;
+      margin-top: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.12);
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .lesson-goal {
+      max-width: 760px;
+      margin-top: 16px;
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .study-route {
+      margin: 30px 0 26px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(30, 41, 59, 0.66);
+    }
+
+    .route-item {
+      padding: 13px 8px;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .route-item + .route-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .route-item span {
+      color: #93c5fd;
+      margin-right: 5px;
+    }
+
+    .content-card {
+      margin-top: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-heading {
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(51, 65, 85, 0.5);
+    }
+
+    .task-number {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: white;
+      background: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .card-heading h2 {
+      font-size: 1rem;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .mission-copy {
+      color: #e2e8f0;
+      font-size: 1.04rem;
+      line-height: 1.8;
+    }
+
+    .io-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .io-box {
+      overflow: hidden;
+      border: 1px solid #3c4b60;
+      border-radius: 8px;
+      background: var(--surface-dark);
+    }
+
+    .io-label {
+      padding: 7px 11px;
+      border-bottom: 1px solid #293548;
+      color: #64748b;
+      background: #172033;
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .io-box pre {
+      min-height: 60px;
+      padding: 13px;
+      overflow-x: auto;
+      color: #dbeafe;
+      font: 0.86rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap;
+    }
+
+    .think-question {
+      padding: 16px;
+      border-left: 3px solid var(--warning);
+      border-radius: 0 8px 8px 0;
+      color: #fde68a;
+      background: rgba(245, 158, 11, 0.08);
+      line-height: 1.7;
+    }
+
+    details.reveal,
+    details.hint-box,
+    details.solution-box {
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.42);
+    }
+
+    details summary {
+      padding: 13px 15px;
+      color: #93c5fd;
+      font-size: 0.84rem;
+      font-weight: 750;
+      cursor: pointer;
+      list-style-position: inside;
+    }
+
+    .reveal-answer,
+    .hint-content {
+      padding: 0 15px 15px;
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .step-list li {
+      padding: 15px 16px 15px 50px;
+      position: relative;
+      border: 1px solid #3c4b60;
+      border-radius: 8px;
+      color: #dbeafe;
+      background: rgba(15, 23, 42, 0.46);
+      line-height: 1.65;
+    }
+
+    .step-list li::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 13px;
+      left: 14px;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--info);
+      background: rgba(6, 182, 212, 0.12);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #bfdbfe;
+      background: var(--surface2);
+      font: 0.88em ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .runner {
+      overflow: hidden;
+      border: 1px solid #3c4b60;
+      border-radius: 9px;
+      background: var(--surface-dark);
+    }
+
+    .runner-toolbar {
+      min-height: 42px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border-bottom: 1px solid #293548;
+      color: var(--text-muted);
+      background: #172033;
+      font-size: 0.76rem;
+    }
+
+    .runner-toolbar span:first-child {
+      color: #93c5fd;
+      font-weight: 750;
+    }
+
+    .draft-state {
+      margin-left: auto;
+      color: #64748b;
+    }
+
+    .code-editor {
+      width: 100%;
+      min-height: 245px;
+      padding: 18px;
+      display: block;
+      resize: vertical;
+      border: 0;
+      outline: none;
+      color: #f8fafc;
+      caret-color: white;
+      background: #0b1120;
+      font: 0.9rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      tab-size: 4;
+    }
+
+    .runner-actions {
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border-top: 1px solid #293548;
+      background: #111a2b;
+    }
+
+    .button {
+      padding: 9px 14px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button:disabled {
+      opacity: 0.55;
+      cursor: wait;
+      transform: none;
+    }
+
+    .button-primary {
+      background: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .button-secondary {
+      border-color: var(--border);
+      color: #cbd5e1;
+      background: var(--surface2);
+    }
+
+    .runner-status {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
+
+    .test-results {
+      display: none;
+      padding: 15px;
+      border-top: 1px solid #293548;
+    }
+
+    .test-results.show {
+      display: block;
+    }
+
+    .result-banner {
+      padding: 13px 14px;
+      border: 1px solid;
+      border-radius: 7px;
+      font-size: 0.86rem;
+      font-weight: 750;
+      line-height: 1.5;
+    }
+
+    .result-banner.success {
+      border-color: rgba(34, 197, 94, 0.36);
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.09);
+    }
+
+    .result-banner.error {
+      border-color: rgba(239, 68, 68, 0.36);
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.09);
+    }
+
+    .result-detail {
+      margin-top: 10px;
+      color: #cbd5e1;
+      font: 0.78rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap;
+    }
+
+    .solution-code {
+      margin: 0 15px 15px;
+      padding: 14px;
+      overflow-x: auto;
+      border-radius: 7px;
+      color: #dbeafe;
+      background: #080d18;
+      font: 0.82rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre;
+    }
+
+    .checkpoint {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: var(--radius);
+      background: rgba(34, 197, 94, 0.07);
+    }
+
+    .checkpoint h3 {
+      color: #86efac;
+      font-size: 0.92rem;
+    }
+
+    .checkpoint p {
+      margin-top: 7px;
+      color: #cbd5e1;
+      font-size: 0.86rem;
+      line-height: 1.7;
+    }
+
+    .lesson-footer {
+      margin-top: 28px;
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-button {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: #cbd5e1;
+      background: var(--surface);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .nav-button:disabled {
+      visibility: hidden;
+    }
+
+    .nav-button.next {
+      border-color: rgba(59, 130, 246, 0.55);
+      color: white;
+      background: rgba(59, 130, 246, 0.14);
+    }
+
+    .finish-panel {
+      display: none;
+      margin-top: 28px;
+      padding: 22px;
+      border: 1px solid rgba(34, 197, 94, 0.45);
+      border-radius: var(--radius);
+      background: rgba(34, 197, 94, 0.08);
+      text-align: center;
+    }
+
+    .finish-panel.show {
+      display: block;
+    }
+
+    .finish-panel h2 {
+      color: #86efac;
+    }
+
+    .finish-panel p {
+      margin: 8px auto 16px;
+      max-width: 560px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .finish-panel a {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 7px;
+      color: white;
+      background: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .sidebar-scrim {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .course-name,
+      .header-progress {
+        display: none;
+      }
+
+      .mobile-course-button {
+        display: block;
+      }
+
+      .app-shell {
+        display: block;
+      }
+
+      .course-sidebar {
+        position: fixed;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        z-index: 25;
+        width: min(320px, 88vw);
+        height: auto;
+        transform: translateX(-105%);
+        transition: transform 0.22s ease;
+      }
+
+      body.sidebar-open .course-sidebar {
+        transform: translateX(0);
+      }
+
+      .sidebar-scrim {
+        position: fixed;
+        inset: 60px 0 0;
+        z-index: 20;
+        background: rgba(2, 6, 23, 0.74);
+      }
+
+      body.sidebar-open .sidebar-scrim {
+        display: block;
+      }
+
+      .lesson-main {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        padding: 0 14px;
+      }
+
+      .lesson-main {
+        padding: 30px 14px 60px;
+      }
+
+      .lesson-title-row {
+        display: block;
+      }
+
+      .concept-badge {
+        width: fit-content;
+        margin-top: 12px;
+      }
+
+      .study-route {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .route-item:nth-child(3) {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .route-item:nth-child(4) {
+        border-top: 1px solid var(--border);
+      }
+
+      .io-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-heading,
+      .card-body {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .runner-actions {
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+
+      .runner-status {
+        width: 100%;
+        margin: 2px 0 0;
+      }
+
+      .lesson-footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .nav-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span>🐍</span>PyJudge</a>
+    <div class="course-name">初階講義 · 10 個自學關卡</div>
+    <div class="header-progress" aria-label="課程進度">
+      <div class="progress-copy"><span>你的進度</span><span id="progress-text">0 / 10</span></div>
+      <div class="progress-track"><span id="progress-bar"></span></div>
+    </div>
+    <button class="mobile-course-button" id="mobile-course-button" type="button" aria-expanded="false">課程目錄</button>
+  </header>
+
+  <div class="app-shell">
+    <aside class="course-sidebar" id="course-sidebar" aria-label="初階講義目錄">
+      <div class="sidebar-label">LEARNING MAP</div>
+      <nav class="lesson-nav" id="lesson-nav"></nav>
+      <div class="sidebar-tip">💡 不必比別人快。先猜、再執行，最後說出「為什麼」，才是真的學會。</div>
+    </aside>
+    <button class="sidebar-scrim" id="sidebar-scrim" type="button" aria-label="關閉課程目錄"></button>
+
+    <main class="lesson-main" id="lesson-main">
+      <div class="lesson-kicker" id="lesson-kicker">LESSON 01 · FIRST STEP</div>
+      <div class="lesson-title-row">
+        <h1 id="lesson-title">精確輸出</h1>
+        <span class="concept-badge" id="concept-badge">print()</span>
+      </div>
+      <p class="lesson-goal" id="lesson-goal"></p>
+
+      <div class="study-route" aria-label="每關學習流程">
+        <div class="route-item"><span>01</span>讀懂任務</div>
+        <div class="route-item"><span>02</span>先猜結果</div>
+        <div class="route-item"><span>03</span>動手測試</div>
+        <div class="route-item"><span>04</span>說出原因</div>
+      </div>
+
+      <section class="content-card" aria-labelledby="mission-heading">
+        <div class="card-heading"><span class="task-number">1</span><h2 id="mission-heading">先讀懂今天的任務</h2></div>
+        <div class="card-body">
+          <p class="mission-copy" id="mission-copy"></p>
+          <div class="io-grid">
+            <div class="io-box"><div class="io-label">範例輸入</div><pre id="sample-input"></pre></div>
+            <div class="io-box"><div class="io-label">範例輸出</div><pre id="sample-output"></pre></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="think-heading">
+        <div class="card-heading"><span class="task-number">2</span><h2 id="think-heading">先別急著寫：你猜會發生什麼？</h2></div>
+        <div class="card-body">
+          <div class="think-question" id="predict-question"></div>
+          <details class="reveal">
+            <summary>想好了，再看答案</summary>
+            <div class="reveal-answer" id="predict-answer"></div>
+          </details>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="steps-heading">
+        <div class="card-heading"><span class="task-number">3</span><h2 id="steps-heading">把任務拆成小步驟</h2></div>
+        <div class="card-body">
+          <ol class="step-list" id="step-list"></ol>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="practice-heading">
+        <div class="card-heading"><span class="task-number">4</span><h2 id="practice-heading">輪到你：寫程式並通過測試</h2></div>
+        <div class="card-body">
+          <div class="runner">
+            <div class="runner-toolbar">
+              <span>🐍 Python 3</span><span>你的練習板</span><span class="draft-state" id="draft-state">會自動保存</span>
+            </div>
+            <textarea class="code-editor" id="code-editor" spellcheck="false" aria-label="Python 程式碼編輯區"></textarea>
+            <div class="runner-actions">
+              <button class="button button-primary" id="run-button" type="button">▶ 檢查我的程式</button>
+              <button class="button button-secondary" id="reset-button" type="button">重設</button>
+              <span class="runner-status" id="runner-status">第一次執行會準備 Python，請稍等一下。</span>
+            </div>
+            <div class="test-results" id="test-results" aria-live="polite"></div>
+          </div>
+
+          <details class="hint-box">
+            <summary>卡住了？先看提示，不會直接看到答案</summary>
+            <div class="hint-content" id="hint-content"></div>
+          </details>
+
+          <details class="solution-box">
+            <summary>我已經試過了，看看參考程式</summary>
+            <pre class="solution-code" id="solution-code"></pre>
+          </details>
+
+          <div class="checkpoint">
+            <h3>離開這一關前，請用自己的話回答</h3>
+            <p id="checkpoint-question"></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="finish-panel" id="finish-panel">
+        <h2>初階地圖完成！</h2>
+        <p>你已經走過輸入、輸出、變數、條件和迴圈。下一步不是背更多語法，而是把這些方法用在不同題目裡。</p>
+        <a href="judge.html">前往 Judge 挑戰題目 →</a>
+      </div>
+
+      <div class="lesson-footer">
+        <button class="nav-button" id="previous-button" type="button">← 上一關</button>
+        <button class="nav-button next" id="next-button" type="button">下一關 →</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const LESSONS = [
+      {
+        id: 1,
+        title: '精確輸出',
+        badge: 'print()',
+        kicker: 'FIRST STEP',
+        goal: '學會讓電腦一字不差地顯示指定內容，包括空格、符號和換行。',
+        mission: '讓機器人完成報到。程式不需要接收任何資料，只要依序顯示兩行指定文字。',
+        sampleInput: '（沒有輸入）',
+        sampleOutput: '我是小幫手\n準備完成',
+        predict: '如果把兩段文字都放進同一個 print()，而且中間只按一個空格，輸出還會一樣嗎？',
+        predictAnswer: '不一樣。題目要兩行，所以每一行都要換行。最簡單的做法是使用兩次 print()。',
+        steps: ['先確認要輸出幾行：這題是 2 行。', '第一個 print() 放「我是小幫手」。', '第二個 print() 放「準備完成」，再檢查文字是否完全相同。'],
+        starter: '# 每個 print() 負責一行\nprint("")\nprint("")',
+        solution: 'print("我是小幫手")\nprint("準備完成")',
+        hint: '把第一行文字放進第一個雙引號，把第二行文字放進第二個雙引號。中文標點和半形符號也會被電腦當成答案的一部分。',
+        checkpoint: 'print() 的工作是什麼？為什麼這一題要使用兩次 print()？',
+        tests: [{ input: '', output: '我是小幫手\n準備完成' }]
+      },
+      {
+        id: 2,
+        title: '指令順序',
+        badge: '由上到下',
+        kicker: 'ORDER MATTERS',
+        goal: '讀懂程式由上到下執行的順序，並知道換一個順序就可能得到不同結果。',
+        mission: '幫火箭完成倒數。程式要依序顯示 3、2、1，最後才顯示「出發」。',
+        sampleInput: '（沒有輸入）',
+        sampleOutput: '3\n2\n1\n出發',
+        predict: '如果把 print("出發") 放在最上面，電腦會先等待倒數結束，還是立刻顯示「出發」？',
+        predictAnswer: '會立刻顯示「出發」。電腦不會猜你的意思，只會從第一行開始照順序執行。',
+        steps: ['把想要的輸出順序先寫成 3 → 2 → 1 → 出發。', '一行輸出對應一行 print()。', '由上往下讀一次程式，確認順序和任務相同。'],
+        starter: '# 調整下面四行的順序\nprint("出發")\nprint(2)\nprint(3)\nprint(1)',
+        solution: 'print(3)\nprint(2)\nprint(1)\nprint("出發")',
+        hint: '先不要改文字，只要把四行程式重新排列。最上面的程式會最先執行。',
+        checkpoint: '電腦用什麼順序執行這四行程式？哪兩行交換後，結果會出錯？',
+        tests: [{ input: '', output: '3\n2\n1\n出發' }]
+      },
+      {
+        id: 3,
+        title: '輸入與回應',
+        badge: 'input()',
+        kicker: 'LISTEN & ANSWER',
+        goal: '分清楚輸入與輸出，讓同一個程式能回應不同使用者提供的資料。',
+        mission: '製作回音機器人。使用者輸入一個名字後，程式要原樣輸出這個名字。',
+        sampleInput: '小安',
+        sampleOutput: '小安',
+        predict: '如果測試時把輸入從「小安」換成「樂樂」，正確的程式應該輸出什麼？',
+        predictAnswer: '應該輸出「樂樂」。程式要輸出收到的資料，不是把範例答案寫死。',
+        steps: ['用 input() 接住使用者輸入的內容。', '把收到的內容存進名叫 name 的變數盒子。', '用 print(name) 顯示盒子裡目前的內容。'],
+        starter: '# input() 會收到一行文字\nname = input()\nprint(____)',
+        solution: 'name = input()\nprint(name)',
+        hint: '空格裡要放的是裝著名字的變數。它的名稱就在等號左邊。',
+        checkpoint: '這個程式的輸入是什麼？處理動作是什麼？輸出又是什麼？',
+        tests: [{ input: '小安', output: '小安' }, { input: '樂樂', output: '樂樂' }, { input: 'Python', output: 'Python' }]
+      },
+      {
+        id: 4,
+        title: '變數與更新',
+        badge: '變數盒子',
+        kicker: 'SAVE & UPDATE',
+        goal: '把變數想成有名字的盒子，追蹤盒子裡的值如何被更新。',
+        mission: '幫角色補充能量。輸入目前能量，增加 10 點後，輸出新的能量。',
+        sampleInput: '35',
+        sampleOutput: '45',
+        predict: 'energy 原本是 35，執行 energy = energy + 10 之後，盒子裡還是 35 嗎？',
+        predictAnswer: '不是。右邊先算出 45，再把 45 放回 energy；原本的 35 被新的值更新了。',
+        steps: ['用 int(input()) 讀取數字，放進 energy。', '計算目前 energy 加 10。', '把新答案放回 energy，最後輸出它。'],
+        starter: 'energy = int(input())\nenergy = energy + ____\nprint(energy)',
+        solution: 'energy = int(input())\nenergy = energy + 10\nprint(energy)',
+        hint: '題目說「增加 10 點」，所以更新時要把目前數值加上 10。',
+        checkpoint: '請說出 energy 在程式執行中的變化：它一開始裝什麼？後來變成什麼？',
+        tests: [{ input: '35', output: '45' }, { input: '0', output: '10' }, { input: '90', output: '100' }]
+      },
+      {
+        id: 5,
+        title: '算術運算',
+        badge: '+ − × ÷',
+        kicker: 'TURN WORDS INTO MATH',
+        goal: '從題目找出數字與規則，把生活中的計算方法寫成程式算式。',
+        mission: '計算長方形面積。輸入長和寬，兩個數字在同一行並用空格分開，輸出面積。',
+        sampleInput: '6 4',
+        sampleOutput: '24',
+        predict: '長方形的長是 6、寬是 4。程式應該使用加法還是乘法？',
+        predictAnswer: '使用乘法，因為長方形面積 = 長 × 寬。在 Python 裡，乘號寫成 *。',
+        steps: ['用 split() 把同一行的兩個輸入分開。', '用 map(int, ...) 把兩段文字轉成數字，分別存進 length 和 width。', '計算 length * width，再輸出答案。'],
+        starter: 'length, width = map(int, input().split())\narea = length ____ width\nprint(area)',
+        solution: 'length, width = map(int, input().split())\narea = length * width\nprint(area)',
+        hint: 'Python 的乘法符號不是 ×，而是鍵盤上的星號 *。',
+        checkpoint: '這題的算式是什麼？如果把長和寬都增加 1，面積會怎麼變？',
+        tests: [{ input: '6 4', output: '24' }, { input: '7 3', output: '21' }, { input: '10 10', output: '100' }]
+      },
+      {
+        id: 6,
+        title: '比較與二選一',
+        badge: 'if / else',
+        kicker: 'MAKE A DECISION',
+        goal: '把條件看成「成立或不成立」的問題，並特別注意剛好等於門檻的情況。',
+        mission: '判斷是否可以搭乘設施。輸入身高；120 公分以上輸出「可以」，否則輸出「再等等」。',
+        sampleInput: '120',
+        sampleOutput: '可以',
+        predict: '身高剛好 120 公分時算不算「120 公分以上」？條件要用 > 還是 >=？',
+        predictAnswer: '算，所以要用 >=。它代表「大於或等於」，會把剛好 120 的情況也包含進來。',
+        steps: ['讀取身高並轉成整數。', '用 if 檢查 height >= 120 是否成立。', '成立就輸出「可以」；否則走到 else，輸出「再等等」。'],
+        starter: 'height = int(input())\n\nif height ____ 120:\n    print("可以")\nelse:\n    print("再等等")',
+        solution: 'height = int(input())\n\nif height >= 120:\n    print("可以")\nelse:\n    print("再等等")',
+        hint: '「以上」包含剛好等於，所以需要兩個符號組成的 >=。也要注意 if 和 else 裡面的 print() 都要縮排。',
+        checkpoint: '為什麼要測試 119、120、121？其中哪一個是在測試邊界？',
+        tests: [{ input: '119', output: '再等等' }, { input: '120', output: '可以' }, { input: '121', output: '可以' }]
+      },
+      {
+        id: 7,
+        title: '多種情況',
+        badge: 'if / elif / else',
+        kicker: 'MORE THAN TWO PATHS',
+        goal: '用正確順序檢查多條規則，讓每一種輸入都只得到一個合理結果。',
+        mission: '製作溫度提示：30 以上輸出「炎熱」，20～29 輸出「舒適」，19 以下輸出「偏涼」。',
+        sampleInput: '25',
+        sampleOutput: '舒適',
+        predict: '如果先檢查 temperature >= 20，輸入 35 時會先得到「舒適」還是「炎熱」？',
+        predictAnswer: '會先得到「舒適」，但這是錯的。35 也大於 20，所以要先檢查範圍更小、門檻更高的 30 以上。',
+        steps: ['先用 if 檢查 30 以上，處理最熱的範圍。', '再用 elif 檢查 20 以上；能走到這裡表示一定小於 30。', '剩下的全部交給 else，也就是 19 以下。'],
+        starter: 'temperature = int(input())\n\nif temperature >= ____:\n    print("炎熱")\nelif temperature >= ____:\n    print("舒適")\nelse:\n    print("偏涼")',
+        solution: 'temperature = int(input())\n\nif temperature >= 30:\n    print("炎熱")\nelif temperature >= 20:\n    print("舒適")\nelse:\n    print("偏涼")',
+        hint: '第一個空格放最高門檻 30，第二個放 20。程式找到第一個成立的條件後，就不會繼續往下選。',
+        checkpoint: '為什麼 30 的規則要放在 20 的規則前面？四個邊界測試 19、20、29、30 各走哪一條路？',
+        tests: [{ input: '19', output: '偏涼' }, { input: '20', output: '舒適' }, { input: '29', output: '舒適' }, { input: '30', output: '炎熱' }]
+      },
+      {
+        id: 8,
+        title: '指定次數重複',
+        badge: 'for 迴圈',
+        kicker: 'REPEAT SMARTER',
+        goal: '看出重複模式，用迴圈代替一直複製相同的程式碼。',
+        mission: '製作加油隊。輸入 N 後，程式要輸出 N 行「加油」。',
+        sampleInput: '3',
+        sampleOutput: '加油\n加油\n加油',
+        predict: '輸入 100 時，一定要寫 100 行 print("加油") 嗎？哪一段工作其實完全相同？',
+        predictAnswer: '不用。重複的工作都是 print("加油")，交給 for 迴圈執行 N 次就可以。',
+        steps: ['讀取要重複的次數 N。', '用 for _ in range(N) 建立會執行 N 次的迴圈。', '把 print("加油") 縮排放進迴圈，表示每一輪都要做。'],
+        starter: 'n = int(input())\n\nfor _ in range(____):\n    print("加油")',
+        solution: 'n = int(input())\n\nfor _ in range(n):\n    print("加油")',
+        hint: 'range() 裡要放「重複幾次」，這個數字已經存在變數 n 裡。',
+        checkpoint: '迴圈重複的是哪一行？輸入 1 和輸入 5 時，輸出分別有幾行？',
+        tests: [{ input: '1', output: '加油' }, { input: '3', output: '加油\n加油\n加油' }, { input: '5', output: '加油\n加油\n加油\n加油\n加油' }]
+      },
+      {
+        id: 9,
+        title: '計數器',
+        badge: 'count += 1',
+        kicker: 'COUNT WHAT MATCHES',
+        goal: '從 0 開始，每遇到一筆符合條件的資料，就讓計數器增加 1。',
+        mission: '數出亮燈數量。第一個輸入是資料筆數 N，接著有 N 個 0 或 1；1 代表亮燈。輸出亮燈總數。',
+        sampleInput: '5\n1\n0\n1\n1\n0',
+        sampleOutput: '3',
+        predict: '讀到 0 時，count 要歸零、增加 1，還是保持不變？',
+        predictAnswer: '保持不變。count 只記錄亮燈數量，只有讀到 1 時才增加。',
+        steps: ['在迴圈開始前，把 count 設成 0。', '重複讀取 N 個狀態；每次用 if 檢查是不是 1。', '只有符合條件時才 count += 1，全部讀完後再輸出 count。'],
+        starter: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    light = int(input())\n    if light == ____:\n        count = count + ____\n\nprint(count)',
+        solution: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    light = int(input())\n    if light == 1:\n        count = count + 1\n\nprint(count)',
+        hint: '第一個空格是「亮燈用哪個數字表示」；第二個空格是「每看到一盞亮燈要增加幾盞」。兩個答案都是 1。',
+        checkpoint: '為什麼 count 要放在迴圈外先設為 0？如果放在迴圈裡，會發生什麼事？',
+        tests: [{ input: '5\n1\n0\n1\n1\n0', output: '3' }, { input: '4\n0\n0\n0\n0', output: '0' }, { input: '3\n1\n1\n1', output: '3' }]
+      },
+      {
+        id: 10,
+        title: '累加器',
+        badge: 'total += value',
+        kicker: 'BUILD A RUNNING TOTAL',
+        goal: '把一連串數量加入目前總和，並分清楚「有幾筆」和「合計多少」。',
+        mission: '計算閱讀總頁數。先輸入天數 N，再輸入每天閱讀的頁數，最後輸出全部加起來的頁數。',
+        sampleInput: '4\n5\n8\n0\n7',
+        sampleOutput: '20',
+        predict: '讀到第 2 天的 8 頁時，total 應該固定加 1，還是加上 8？',
+        predictAnswer: '加上 8。計數器每次固定加 1；累加器要加入這一筆資料的實際數值。',
+        steps: ['在迴圈開始前，把 total 設成 0。', '每一輪讀取當天頁數 pages。', '用 total = total + pages 更新總和，所有天數完成後再輸出 total。'],
+        starter: 'n = int(input())\ntotal = 0\n\nfor _ in range(n):\n    pages = int(input())\n    total = total + ____\n\nprint(total)',
+        solution: 'n = int(input())\ntotal = 0\n\nfor _ in range(n):\n    pages = int(input())\n    total = total + pages\n\nprint(total)',
+        hint: '每一輪要加入的是剛剛讀到的 pages，不是固定數字 1，也不是天數 n。',
+        checkpoint: 'count 和 total 有什麼不同？請用範例說出 total 的變化：0 → 5 → 13 → 13 → 20。',
+        tests: [{ input: '4\n5\n8\n0\n7', output: '20' }, { input: '3\n10\n10\n10', output: '30' }, { input: '1\n0', output: '0' }]
+      }
+    ];
+
+    const STORAGE_COMPLETED = 'pyjudge_beginner_completed';
+    const STORAGE_DRAFT_PREFIX = 'pyjudge_beginner_draft_';
+    let currentLessonId = 1;
+    let completed = new Set(JSON.parse(localStorage.getItem(STORAGE_COMPLETED) || '[]'));
+    let pyodide = null;
+    let pyodidePromise = null;
+    let running = false;
+    let draftTimer = null;
+
+    const $ = id => document.getElementById(id);
+    const editor = $('code-editor');
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderNavigation() {
+      $('lesson-nav').innerHTML = LESSONS.map(lesson => `
+        <button type="button" data-lesson="${lesson.id}" class="${lesson.id === currentLessonId ? 'active' : ''}" aria-current="${lesson.id === currentLessonId ? 'page' : 'false'}">
+          <span class="lesson-number">${String(lesson.id).padStart(2, '0')}</span>
+          <span class="lesson-nav-title">${escapeHtml(lesson.title)}</span>
+          <span class="lesson-check">${completed.has(lesson.id) ? '✓' : ''}</span>
+        </button>
+      `).join('');
+
+      $('lesson-nav').querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => showLesson(Number(button.dataset.lesson)));
+      });
+    }
+
+    function renderProgress() {
+      const count = completed.size;
+      $('progress-text').textContent = `${count} / 10`;
+      $('progress-bar').style.width = `${count * 10}%`;
+    }
+
+    function getLesson(id) {
+      return LESSONS.find(lesson => lesson.id === id) || LESSONS[0];
+    }
+
+    function showLesson(id, options = {}) {
+      const lesson = getLesson(id);
+      currentLessonId = lesson.id;
+      $('lesson-kicker').textContent = `LESSON ${String(lesson.id).padStart(2, '0')} · ${lesson.kicker}`;
+      $('lesson-title').textContent = lesson.title;
+      $('concept-badge').textContent = lesson.badge;
+      $('lesson-goal').textContent = lesson.goal;
+      $('mission-copy').textContent = lesson.mission;
+      $('sample-input').textContent = lesson.sampleInput;
+      $('sample-output').textContent = lesson.sampleOutput;
+      $('predict-question').textContent = lesson.predict;
+      $('predict-answer').textContent = lesson.predictAnswer;
+      $('step-list').innerHTML = lesson.steps.map((step, index) => `<li data-step="${index + 1}">${escapeHtml(step)}</li>`).join('');
+      $('hint-content').textContent = lesson.hint;
+      $('solution-code').textContent = lesson.solution;
+      $('checkpoint-question').textContent = lesson.checkpoint;
+      editor.value = localStorage.getItem(STORAGE_DRAFT_PREFIX + lesson.id) ?? lesson.starter;
+      $('draft-state').textContent = '會自動保存';
+      $('test-results').classList.remove('show');
+      $('test-results').innerHTML = '';
+      $('finish-panel').classList.toggle('show', lesson.id === 10 && completed.size === 10);
+      $('previous-button').disabled = lesson.id === 1;
+      $('next-button').disabled = lesson.id === 10;
+      $('next-button').textContent = lesson.id === 9 ? '前往最後一關 →' : '下一關 →';
+      renderNavigation();
+      renderProgress();
+      closeSidebar();
+
+      history.replaceState(null, '', `#lesson-${lesson.id}`);
+      if (!options.keepScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+      editor.focus({ preventScroll: true });
+    }
+
+    function saveDraft() {
+      localStorage.setItem(STORAGE_DRAFT_PREFIX + currentLessonId, editor.value);
+      $('draft-state').textContent = '已保存';
+      clearTimeout(draftTimer);
+      draftTimer = setTimeout(() => { $('draft-state').textContent = '會自動保存'; }, 1400);
+    }
+
+    async function preparePython() {
+      if (pyodide) return pyodide;
+      if (pyodidePromise) return pyodidePromise;
+
+      $('runner-status').textContent = '正在準備 Python 環境…';
+      pyodidePromise = loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/' })
+        .then(async runtime => {
+          pyodide = runtime;
+          await pyodide.runPythonAsync(`
+import sys, io, builtins as _builtins
+_input_lines = []
+_input_idx = [0]
+
+def _custom_input(prompt=""):
+    if _input_idx[0] < len(_input_lines):
+        value = _input_lines[_input_idx[0]]
+        _input_idx[0] += 1
+        return value
+    raise EOFError("沒有更多輸入資料")
+
+_builtins.input = _custom_input
+
+class MockStdin:
+    def read(self, n=-1):
+        value = "\\n".join(_input_lines[_input_idx[0]:])
+        _input_idx[0] = len(_input_lines)
+        return value
+    def readline(self):
+        try:
+            return _custom_input() + "\\n"
+        except EOFError:
+            return ""
+    def __iter__(self):
+        while _input_idx[0] < len(_input_lines):
+            yield self.readline()
+
+sys.stdin = MockStdin()
+          `);
+          $('runner-status').textContent = 'Python 已就緒';
+          return pyodide;
+        })
+        .catch(error => {
+          pyodidePromise = null;
+          $('runner-status').textContent = '準備失敗，請確認網路後再試一次。';
+          throw error;
+        });
+
+      return pyodidePromise;
+    }
+
+    async function runPython(code, inputValue) {
+      const runtime = await preparePython();
+      const lines = inputValue === '' ? [] : inputValue.split('\n');
+      runtime.globals.set('__lesson_lines__', lines);
+      await runtime.runPythonAsync(`
+_input_lines = list(__lesson_lines__)
+_input_idx[0] = 0
+_stdout = io.StringIO()
+_stderr = io.StringIO()
+sys.stdout = _stdout
+sys.stderr = _stderr
+      `);
+
+      try {
+        await runtime.runPythonAsync(code);
+        return {
+          output: runtime.runPython('_stdout.getvalue()'),
+          error: runtime.runPython('_stderr.getvalue()')
+        };
+      } catch (error) {
+        return { output: '', error: error.message };
+      } finally {
+        await runtime.runPythonAsync('sys.stdout = sys.__stdout__; sys.stderr = sys.__stderr__');
+      }
+    }
+
+    async function checkCode() {
+      if (running) return;
+      const lesson = getLesson(currentLessonId);
+      const code = editor.value;
+      const results = $('test-results');
+
+      if (!code.trim()) {
+        results.innerHTML = '<div class="result-banner error">先在練習板寫下一點程式，再來檢查。</div>';
+        results.classList.add('show');
+        return;
+      }
+
+      running = true;
+      $('run-button').disabled = true;
+      $('runner-status').textContent = '正在檢查不同的輸入…';
+      results.innerHTML = '<div class="result-banner">測試進行中…</div>';
+      results.classList.add('show');
+
+      try {
+        let firstFailure = null;
+        for (let index = 0; index < lesson.tests.length; index += 1) {
+          const test = lesson.tests[index];
+          const result = await runPython(code, test.input);
+          const actual = result.output.trimEnd();
+          const expected = test.output.trimEnd();
+          if (result.error.trim() || actual !== expected) {
+            firstFailure = { index, test, actual, error: result.error };
+            break;
+          }
+        }
+
+        if (!firstFailure) {
+          completed.add(lesson.id);
+          localStorage.setItem(STORAGE_COMPLETED, JSON.stringify([...completed].sort((a, b) => a - b)));
+          results.innerHTML = `<div class="result-banner success">✓ 通過 ${lesson.tests.length} 組測試！你已經完成第 ${lesson.id} 關。</div>`;
+          $('runner-status').textContent = '全部測試通過';
+          $('finish-panel').classList.toggle('show', lesson.id === 10 && completed.size === 10);
+          renderNavigation();
+          renderProgress();
+        } else {
+          const failure = firstFailure;
+          const inputLabel = failure.test.input === '' ? '（沒有輸入）' : failure.test.input;
+          let detail = `測試 ${failure.index + 1}\n輸入：\n${inputLabel}\n\n預期輸出：\n${failure.test.output}`;
+          if (failure.error.trim()) {
+            detail += `\n\n程式訊息：\n${failure.error.split('\n').slice(-4).join('\n')}`;
+          } else {
+            detail += `\n\n你的輸出：\n${failure.actual || '（沒有輸出）'}`;
+          }
+          results.innerHTML = `<div class="result-banner error">還差一點點。先比較這組輸入與輸出，再找出不同的地方。</div><pre class="result-detail">${escapeHtml(detail)}</pre>`;
+          $('runner-status').textContent = '找到一個可以修正的地方';
+        }
+      } catch (error) {
+        results.innerHTML = `<div class="result-banner error">目前無法執行程式。請確認網路連線，稍後再試一次。</div>`;
+        $('runner-status').textContent = 'Python 環境未完成準備';
+      } finally {
+        running = false;
+        $('run-button').disabled = false;
+      }
+    }
+
+    function resetEditor() {
+      const lesson = getLesson(currentLessonId);
+      editor.value = lesson.starter;
+      localStorage.removeItem(STORAGE_DRAFT_PREFIX + lesson.id);
+      $('test-results').classList.remove('show');
+      $('draft-state').textContent = '已重設';
+      editor.focus();
+    }
+
+    function openSidebar() {
+      document.body.classList.add('sidebar-open');
+      $('mobile-course-button').setAttribute('aria-expanded', 'true');
+    }
+
+    function closeSidebar() {
+      document.body.classList.remove('sidebar-open');
+      $('mobile-course-button').setAttribute('aria-expanded', 'false');
+    }
+
+    $('run-button').addEventListener('click', checkCode);
+    $('reset-button').addEventListener('click', resetEditor);
+    editor.addEventListener('input', saveDraft);
+    editor.addEventListener('keydown', event => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const start = editor.selectionStart;
+        editor.value = editor.value.slice(0, start) + '    ' + editor.value.slice(editor.selectionEnd);
+        editor.selectionStart = editor.selectionEnd = start + 4;
+        saveDraft();
+      }
+      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') checkCode();
+    });
+
+    $('previous-button').addEventListener('click', () => showLesson(currentLessonId - 1));
+    $('next-button').addEventListener('click', () => showLesson(currentLessonId + 1));
+    $('mobile-course-button').addEventListener('click', () => {
+      document.body.classList.contains('sidebar-open') ? closeSidebar() : openSidebar();
+    });
+    $('sidebar-scrim').addEventListener('click', closeSidebar);
+
+    const hashMatch = location.hash.match(/^#lesson-(\d+)$/);
+    const initialLesson = hashMatch ? Math.min(10, Math.max(1, Number(hashMatch[1]))) : 1;
+    showLesson(initialLesson, { keepScroll: true });
+  </script>
+</body>
+
+</html>

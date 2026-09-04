@@ -1,12 +1,17 @@
-# 🐍 PyJudge — 瀏覽器端 Python 線上評測系統
+# 🐍 PyJudge — Python 自學講義與線上評測系統
 
-PyJudge 是一個純靜態的 Online Judge，使用 **Pyodide**（Python in WebAssembly）在瀏覽器內直接執行 Python 程式碼，無需任何後端伺服器，可直接部署到 **GitHub Pages**。
+PyJudge 是一個可直接部署到 **GitHub Pages** 的 Python 自學網站。首頁提供初階、中階、高階講義與 Judge 系統四個入口；目前已完成初階講義，學生可以依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」的引導完成 10 個基礎例題。
+
+網站使用 **Pyodide**（Python in WebAssembly）在瀏覽器內執行學生的 Python 程式碼，無需後端伺服器。
 
 https://kenny0928.github.io/Pyjudge/
 
 
 ## ✨ 功能特色
 
+- 🧭 首頁四入口學習選單
+- 🌱 10 關學生版初階自學講義
+- 🧪 講義內建多組測試、錯誤提示與學習進度保存
 - 🐍 在瀏覽器內執行 Python 3（Pyodide）
 - 🎨 CodeMirror 程式碼編輯器（Dracula 深色主題）
 - 📋 題目資料獨立為 JSON 檔，易於新增與維護
@@ -20,7 +25,9 @@ https://kenny0928.github.io/Pyjudge/
 
 ```
 pyjudge/
-├── index.html          ← 主程式（UI 邏輯，不含題目資料）
+├── index.html          ← 學習選單首頁
+├── beginner.html       ← 初階自學講義（10 關）
+├── judge.html          ← Judge 主程式（UI 邏輯，不含題目資料）
 │
 ├── problems/
 │   ├── index.json      ← 題目清單（id、標題、難度、標籤）
@@ -37,7 +44,8 @@ pyjudge/
 > **分工說明**
 > - **`problems/*.json`** — 維護者只需編輯這裡就能新增或修改題目
 > - **`solutions/*.py`** — 參考解答，不會自動顯示給學生
-> - **`index.html`** — 除非要改功能，否則不需要動
+> - **`beginner.html`** — 初階講義、引導流程與講義內練習板
+> - **`judge.html`** — 除非要改評測功能，否則不需要動
 
 ---
 
