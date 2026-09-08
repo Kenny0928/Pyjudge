@@ -1,0 +1,72 @@
+{
+  "id": 37,
+  "title": "最便宜的商品",
+  "difficulty": "Easy",
+  "tags": [
+    "陣列",
+    "清單",
+    "最值尋找",
+    "迴圈"
+  ],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": [
+    "走訪一維清單，追蹤並輸出最小值"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "for迴圈",
+    "變數比較",
+    "條件判斷"
+  ],
+  "description": "<p>比價網站要找出最便宜的商品，就是在所有價格中找最小值。這題練習「邊走訪邊更新目前最小值」的思路，不需要把所有資料存起來才能比較。</p><p>請寫一個程式，第一行輸入商品件數 <code>N</code>，接著輸入 <code>N</code> 個整數（價格），輸出最低價格。</p>",
+  "inputFormat": "<p>第一行為正整數 <code>N</code>；接下來 N 行，每行一個整數（價格）。</p>",
+  "outputFormat": "<p>一行，輸出 N 個數中的最小值。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 20</li><li>-1000 ≤ 每個價格 ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n30\n10\n50\n20\n40",
+  "sampleOutput": "10",
+  "testCases": [
+    {
+      "input": "5\n30\n10\n50\n20\n40",
+      "output": "10"
+    },
+    {
+      "input": "3\n10\n20\n30",
+      "output": "10"
+    },
+    {
+      "input": "1\n42",
+      "output": "42"
+    },
+    {
+      "input": "4\n7\n7\n7\n7",
+      "output": "7"
+    },
+    {
+      "input": "5\n-5\n-3\n-1\n-4\n-2",
+      "output": "-5"
+    },
+    {
+      "input": "3\n100\n50\n75",
+      "output": "50"
+    },
+    {
+      "input": "6\n1\n2\n3\n4\n5\n6",
+      "output": "1"
+    },
+    {
+      "input": "3\n0\n1\n2",
+      "output": "0"
+    },
+    {
+      "input": "2\n50\n49",
+      "output": "49"
+    },
+    {
+      "input": "4\n8\n3\n6\n1",
+      "output": "1"
+    }
+  ]
+}

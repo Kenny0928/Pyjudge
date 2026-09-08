@@ -1,0 +1,69 @@
+{
+  "id": 22,
+  "title": "長方形面積",
+  "difficulty": "Easy",
+  "tags": [
+    "數學",
+    "輸入輸出",
+    "算術運算"
+  ],
+  "audienceLevel": "E-MID",
+  "platformMode": "Scratch/Blockly",
+  "learningObjectives": [
+    "讀取兩個整數並用乘法公式計算面積"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "算術運算"
+  ],
+  "description": "<p>裝修工人在鋪地磚之前，會先計算地板的面積，才知道要買幾塊磚。面積 = 長 × 寬，這是最基礎的「用程式代替手算」練習。</p><p>請寫一個程式，分兩行輸入長方形的長 <code>L</code> 和寬 <code>W</code>，輸出面積。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>面積公式：<code>L × W</code>。在 Python 中，乘法符號是 <code>*</code>。</p></div>",
+  "inputFormat": "<p>第一行輸入長 <code>L</code>，第二行輸入寬 <code>W</code>，均為正整數。</p>",
+  "outputFormat": "<p>一行，輸出面積 <code>L × W</code>。</p>",
+  "constraints": "<ul><li>1 ≤ L, W ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6\n4",
+  "sampleOutput": "24",
+  "testCases": [
+    {
+      "input": "6\n4",
+      "output": "24"
+    },
+    {
+      "input": "3\n4",
+      "output": "12"
+    },
+    {
+      "input": "5\n5",
+      "output": "25"
+    },
+    {
+      "input": "1\n1",
+      "output": "1"
+    },
+    {
+      "input": "10\n20",
+      "output": "200"
+    },
+    {
+      "input": "100\n100",
+      "output": "10000"
+    },
+    {
+      "input": "7\n8",
+      "output": "56"
+    },
+    {
+      "input": "2\n15",
+      "output": "30"
+    },
+    {
+      "input": "1\n100",
+      "output": "100"
+    },
+    {
+      "input": "50\n50",
+      "output": "2500"
+    }
+  ]
+}

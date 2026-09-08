@@ -1,0 +1,70 @@
+{
+  "id": 35,
+  "title": "小隊分組",
+  "difficulty": "Easy",
+  "tags": [
+    "數學",
+    "整除",
+    "餘數",
+    "算術運算"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用 // 和 % 計算整除商和餘數"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "算術運算"
+  ],
+  "description": "<p>班上 23 人分成每組 5 人：能組成幾組完整的，還有幾個人沒入組？整除（<code>//</code>）告訴你有幾組，餘數（<code>%</code>）告訴你剩幾個人，是日常分配問題最常用的數學工具。</p><p>請寫一個程式，在同一行輸入總人數 <code>N</code> 和每組人數 <code>K</code>（以空格分隔），輸出完整組數與剩餘人數，以一個空格分隔。</p>",
+  "inputFormat": "<p>一行包含兩個正整數 <code>N</code> 和 <code>K</code>，以空格分隔。</p>",
+  "outputFormat": "<p>一行，先輸出完整組數 <code>N // K</code>，再輸出剩餘人數 <code>N % K</code>，中間一個空格。</p>",
+  "constraints": "<ul><li>1 ≤ K ≤ N ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "23 5",
+  "sampleOutput": "4 3",
+  "testCases": [
+    {
+      "input": "23 5",
+      "output": "4 3"
+    },
+    {
+      "input": "10 3",
+      "output": "3 1"
+    },
+    {
+      "input": "15 5",
+      "output": "3 0"
+    },
+    {
+      "input": "7 4",
+      "output": "1 3"
+    },
+    {
+      "input": "1 1",
+      "output": "1 0"
+    },
+    {
+      "input": "20 6",
+      "output": "3 2"
+    },
+    {
+      "input": "100 10",
+      "output": "10 0"
+    },
+    {
+      "input": "13 7",
+      "output": "1 6"
+    },
+    {
+      "input": "50 7",
+      "output": "7 1"
+    },
+    {
+      "input": "30 8",
+      "output": "3 6"
+    }
+  ]
+}

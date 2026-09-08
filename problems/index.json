@@ -194,5 +194,208 @@
       "矩陣",
       "累加"
     ]
+  },
+  {
+    "id": 21,
+    "title": "自我介紹機器人",
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "輸入輸出",
+      "字串拼接"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "長方形面積",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "輸入輸出",
+      "算術運算"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "長方形周長",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "輸入輸出",
+      "算術運算"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "分糖果",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "變數更新",
+      "算術運算"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "訂購飲料費用",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "輸入輸出",
+      "算術運算"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "及格了嗎",
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "if/else"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "身高坐哪排",
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "if/elif/else",
+      "三段分類"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "成績分級",
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "多層if/elif/else",
+      "分類"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "今天穿什麼",
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "多段分類",
+      "if/elif/else"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "三數中的最大值",
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "比較運算",
+      "最值"
+    ]
+  },
+  {
+    "id": 31,
+    "title": "倒數計時",
+    "difficulty": "Easy",
+    "tags": [
+      "迴圈",
+      "倒序",
+      "for迴圈"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "重複口號",
+    "difficulty": "Easy",
+    "tags": [
+      "迴圈",
+      "字串",
+      "for迴圈"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "購物車結帳",
+    "difficulty": "Easy",
+    "tags": [
+      "累加器",
+      "迴圈",
+      "for迴圈"
+    ]
+  },
+  {
+    "id": 34,
+    "title": "及格分數合計",
+    "difficulty": "Easy",
+    "tags": [
+      "條件累加",
+      "迴圈",
+      "if/else",
+      "累加器"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "小隊分組",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "整除",
+      "餘數",
+      "算術運算"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "三角形面積",
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "算術運算",
+      "整數除法"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "最便宜的商品",
+    "difficulty": "Easy",
+    "tags": [
+      "陣列",
+      "清單",
+      "最值尋找",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "存錢計畫",
+    "difficulty": "Easy",
+    "tags": [
+      "while迴圈",
+      "累加器",
+      "計數器"
+    ]
+  },
+  {
+    "id": 39,
+    "title": "英文字母中有幾個母音",
+    "difficulty": "Easy",
+    "tags": [
+      "字串走訪",
+      "計數器",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 40,
+    "title": "數字倒過來",
+    "difficulty": "Easy",
+    "tags": [
+      "while迴圈",
+      "餘數",
+      "整除",
+      "數字操作"
+    ]
   }
 ]

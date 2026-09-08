@@ -1,0 +1,68 @@
+{
+  "id": 26,
+  "title": "及格了嗎",
+  "difficulty": "Easy",
+  "tags": [
+    "條件判斷",
+    "if/else"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用 if/else 根據單一門檻輸出不同結果"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "條件判斷基礎"
+  ],
+  "description": "<p>ATM 刷卡時，機器判斷密碼對不對，用的就是 <code>if/else</code>；這題的「及格判斷」，原理完全相同——只要條件成立，就走一條路，否則走另一條。</p><p>請寫一個程式，輸入一個整數分數 <code>score</code>，60 分（含）以上輸出 <code>通過</code>，否則輸出 <code>再努力</code>。</p>",
+  "inputFormat": "<p>第一行包含一個整數 <code>score</code>（分數）。</p>",
+  "outputFormat": "<p>若 <code>score ≥ 60</code>，輸出 <code>通過</code>；否則輸出 <code>再努力</code>。</p>",
+  "constraints": "<ul><li>0 ≤ score ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "72",
+  "sampleOutput": "通過",
+  "testCases": [
+    {
+      "input": "72",
+      "output": "通過"
+    },
+    {
+      "input": "60",
+      "output": "通過"
+    },
+    {
+      "input": "59",
+      "output": "再努力"
+    },
+    {
+      "input": "100",
+      "output": "通過"
+    },
+    {
+      "input": "0",
+      "output": "再努力"
+    },
+    {
+      "input": "75",
+      "output": "通過"
+    },
+    {
+      "input": "30",
+      "output": "再努力"
+    },
+    {
+      "input": "61",
+      "output": "通過"
+    },
+    {
+      "input": "58",
+      "output": "再努力"
+    },
+    {
+      "input": "90",
+      "output": "通過"
+    }
+  ]
+}

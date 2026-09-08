@@ -1,0 +1,71 @@
+{
+  "id": 34,
+  "title": "及格分數合計",
+  "difficulty": "Easy",
+  "tags": [
+    "條件累加",
+    "迴圈",
+    "if/else",
+    "累加器"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用條件判斷搭配累加器，只加入符合條件的值"
+  ],
+  "prerequisites": [
+    "for迴圈",
+    "累加器",
+    "if/else"
+  ],
+  "description": "<p>老師想知道「通過門檻的同學，分數合計是多少」。累加器加上 <code>if</code> 判斷，只把符合條件的數字加進去，這是資料篩選與統計的基礎思路。</p><p>請寫一個程式，第一行輸入人數 <code>N</code>，接著輸入 <code>N</code> 個整數分數（每行一個），只將 60 分（含）以上的分數加入總和，輸出結果。</p>",
+  "inputFormat": "<p>第一行為正整數 <code>N</code>；接下來 N 行，每行一個整數（分數）。</p>",
+  "outputFormat": "<p>一行，輸出所有 ≥ 60 的分數總和。若無人及格，輸出 <code>0</code>。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 20</li><li>0 ≤ 每筆分數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n60\n59\n80\n42\n100",
+  "sampleOutput": "240",
+  "testCases": [
+    {
+      "input": "5\n60\n59\n80\n42\n100",
+      "output": "240"
+    },
+    {
+      "input": "3\n30\n40\n50",
+      "output": "0"
+    },
+    {
+      "input": "3\n60\n70\n80",
+      "output": "210"
+    },
+    {
+      "input": "1\n59",
+      "output": "0"
+    },
+    {
+      "input": "1\n60",
+      "output": "60"
+    },
+    {
+      "input": "4\n100\n90\n80\n70",
+      "output": "340"
+    },
+    {
+      "input": "5\n0\n0\n0\n0\n0",
+      "output": "0"
+    },
+    {
+      "input": "2\n100\n100",
+      "output": "200"
+    },
+    {
+      "input": "3\n60\n60\n60",
+      "output": "180"
+    },
+    {
+      "input": "4\n59\n60\n61\n100",
+      "output": "221"
+    }
+  ]
+}

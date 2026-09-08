@@ -1,0 +1,70 @@
+{
+  "id": 33,
+  "title": "購物車結帳",
+  "difficulty": "Easy",
+  "tags": [
+    "累加器",
+    "迴圈",
+    "for迴圈"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用 for 迴圈與累加器，對 N 筆輸入進行加總"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "for迴圈",
+    "變數初始化"
+  ],
+  "description": "<p>超市結帳時，收銀機把每件商品的價格一筆一筆加起來，最後輸出應付金額——這就是累加器的實際應用。</p><p>請寫一個程式，第一行輸入商品件數 <code>N</code>，接著輸入 <code>N</code> 行，每行一個整數（商品金額），輸出所有金額的總和。</p>",
+  "inputFormat": "<p>第一行為正整數 <code>N</code>；接下來 N 行，每行一個整數（金額）。</p>",
+  "outputFormat": "<p>一行，輸出所有金額的總和。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 20</li><li>-1000 ≤ 每筆金額 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\n10\n20\n30",
+  "sampleOutput": "60",
+  "testCases": [
+    {
+      "input": "3\n10\n20\n30",
+      "output": "60"
+    },
+    {
+      "input": "5\n10\n20\n30\n40\n50",
+      "output": "150"
+    },
+    {
+      "input": "1\n0",
+      "output": "0"
+    },
+    {
+      "input": "1\n100",
+      "output": "100"
+    },
+    {
+      "input": "4\n5\n5\n5\n5",
+      "output": "20"
+    },
+    {
+      "input": "3\n0\n0\n0",
+      "output": "0"
+    },
+    {
+      "input": "6\n1\n2\n3\n4\n5\n6",
+      "output": "21"
+    },
+    {
+      "input": "2\n50\n50",
+      "output": "100"
+    },
+    {
+      "input": "3\n100\n200\n300",
+      "output": "600"
+    },
+    {
+      "input": "4\n-1\n-2\n-3\n-4",
+      "output": "-10"
+    }
+  ]
+}

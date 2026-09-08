@@ -1,0 +1,69 @@
+{
+  "id": 24,
+  "title": "分糖果",
+  "difficulty": "Easy",
+  "tags": [
+    "數學",
+    "變數更新",
+    "算術運算"
+  ],
+  "audienceLevel": "E-MID",
+  "platformMode": "Scratch/Blockly",
+  "learningObjectives": [
+    "讀取兩個整數，用減法計算剩餘數量"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "算術運算"
+  ],
+  "description": "<p>零用錢花出去就少一點，糖果分出去也少一些。程式用變數記錄「目前剩多少」，這是最基本的資源追蹤。</p><p>請寫一個程式，輸入糖果總數 <code>N</code> 和要分出去的數量 <code>M</code>，輸出分完後剩餘的糖果數。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>剩餘數量 = 總數 − 分出去的數量。在 Python 中，減法符號是 <code>-</code>。</p></div>",
+  "inputFormat": "<p>第一行輸入糖果總數 <code>N</code>，第二行輸入要分出去的數量 <code>M</code>。</p>",
+  "outputFormat": "<p>一行，輸出剩餘糖果數 <code>N - M</code>。</p>",
+  "constraints": "<ul><li>1 ≤ M ≤ N ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "9\n2",
+  "sampleOutput": "7",
+  "testCases": [
+    {
+      "input": "9\n2",
+      "output": "7"
+    },
+    {
+      "input": "5\n5",
+      "output": "0"
+    },
+    {
+      "input": "10\n1",
+      "output": "9"
+    },
+    {
+      "input": "100\n99",
+      "output": "1"
+    },
+    {
+      "input": "20\n10",
+      "output": "10"
+    },
+    {
+      "input": "50\n25",
+      "output": "25"
+    },
+    {
+      "input": "3\n1",
+      "output": "2"
+    },
+    {
+      "input": "30\n15",
+      "output": "15"
+    },
+    {
+      "input": "7\n3",
+      "output": "4"
+    },
+    {
+      "input": "1\n1",
+      "output": "0"
+    }
+  ]
+}

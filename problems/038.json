@@ -1,0 +1,71 @@
+{
+  "id": 38,
+  "title": "存錢計畫",
+  "difficulty": "Easy",
+  "tags": [
+    "while迴圈",
+    "累加器",
+    "計數器"
+  ],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 while 迴圈，讓條件控制重複次數而非固定次數"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "for迴圈",
+    "while迴圈",
+    "累加器"
+  ],
+  "description": "<p>每天存 <code>D</code> 元零用錢，要累積到 <code>G</code> 元需要幾天？這種「不知道幾次才停」的重複，就是 <code>while</code> 迴圈的用途：只要還沒達成目標，就繼續存，直到達標為止。</p><p>請寫一個程式，第一行輸入每天存的金額 <code>D</code>，第二行輸入目標金額 <code>G</code>，輸出至少需要幾天才能讓儲蓄金額達到（或超過）<code>G</code> 元。</p>",
+  "inputFormat": "<p>第一行為每天存的金額 <code>D</code>，第二行為目標金額 <code>G</code>，均為正整數。</p>",
+  "outputFormat": "<p>一行，輸出最少需要幾天。</p>",
+  "constraints": "<ul><li>1 ≤ D ≤ 100</li><li>1 ≤ G ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "10\n50",
+  "sampleOutput": "5",
+  "testCases": [
+    {
+      "input": "10\n50",
+      "output": "5"
+    },
+    {
+      "input": "7\n20",
+      "output": "3"
+    },
+    {
+      "input": "5\n5",
+      "output": "1"
+    },
+    {
+      "input": "3\n10",
+      "output": "4"
+    },
+    {
+      "input": "100\n1000",
+      "output": "10"
+    },
+    {
+      "input": "1\n7",
+      "output": "7"
+    },
+    {
+      "input": "15\n30",
+      "output": "2"
+    },
+    {
+      "input": "8\n25",
+      "output": "4"
+    },
+    {
+      "input": "20\n100",
+      "output": "5"
+    },
+    {
+      "input": "6\n36",
+      "output": "6"
+    }
+  ]
+}

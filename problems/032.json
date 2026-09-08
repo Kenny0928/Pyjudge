@@ -1,0 +1,70 @@
+{
+  "id": 32,
+  "title": "重複口號",
+  "difficulty": "Easy",
+  "tags": [
+    "迴圈",
+    "字串",
+    "for迴圈"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用 for 迴圈重複輸出同一個字串 N 次"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "字串輸入",
+    "for迴圈"
+  ],
+  "description": "<p>運動會帶動啦啦隊，口號要喊 N 遍才夠氣勢。迴圈讓同一句話被輸出任意次，不需要複製貼上——即使要喊一百遍，程式也只需要寫一次。</p><p>請寫一個程式，第一行輸入口號字串 <code>S</code>，第二行輸入重複次數 <code>N</code>，輸出 <code>N</code> 行，每行都是 <code>S</code>。</p>",
+  "inputFormat": "<p>第一行為字串 <code>S</code>（口號），第二行為正整數 <code>N</code>（重複次數）。</p>",
+  "outputFormat": "<p>共 N 行，每行輸出字串 <code>S</code>。</p>",
+  "constraints": "<ul><li>S 為 1 到 20 個字元的字串，不含換行</li><li>1 ≤ N ≤ 20</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "加油\n3",
+  "sampleOutput": "加油\n加油\n加油",
+  "testCases": [
+    {
+      "input": "加油\n3",
+      "output": "加油\n加油\n加油"
+    },
+    {
+      "input": "Hello\n5",
+      "output": "Hello\nHello\nHello\nHello\nHello"
+    },
+    {
+      "input": "*\n1",
+      "output": "*"
+    },
+    {
+      "input": "abc\n4",
+      "output": "abc\nabc\nabc\nabc"
+    },
+    {
+      "input": "台灣加油\n2",
+      "output": "台灣加油\n台灣加油"
+    },
+    {
+      "input": "Python\n3",
+      "output": "Python\nPython\nPython"
+    },
+    {
+      "input": "ok\n6",
+      "output": "ok\nok\nok\nok\nok\nok"
+    },
+    {
+      "input": "A\n8",
+      "output": "A\nA\nA\nA\nA\nA\nA\nA"
+    },
+    {
+      "input": "xyz\n10",
+      "output": "xyz\nxyz\nxyz\nxyz\nxyz\nxyz\nxyz\nxyz\nxyz\nxyz"
+    },
+    {
+      "input": "go\n20",
+      "output": "go\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo"
+    }
+  ]
+}

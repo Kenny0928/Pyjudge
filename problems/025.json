@@ -1,0 +1,69 @@
+{
+  "id": 25,
+  "title": "訂購飲料費用",
+  "difficulty": "Easy",
+  "tags": [
+    "數學",
+    "輸入輸出",
+    "算術運算"
+  ],
+  "audienceLevel": "E-MID",
+  "platformMode": "Scratch/Blockly",
+  "learningObjectives": [
+    "讀取兩個整數，計算單價乘以數量的總金額"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "算術運算"
+  ],
+  "description": "<p>點飲料時，每杯 30 元點 5 杯就要付 150 元。程式幫你乘，不用再按計算機——這是「讓電腦代替人工計算」最直接的應用。</p><p>請寫一個程式，輸入每杯飲料的單價 <code>P</code>（元）和購買杯數 <code>Q</code>，輸出總費用。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>總費用 = 單價 × 數量。在 Python 中，乘法符號是 <code>*</code>。</p></div>",
+  "inputFormat": "<p>第一行輸入單價 <code>P</code>，第二行輸入數量 <code>Q</code>，均為正整數。</p>",
+  "outputFormat": "<p>一行，輸出總費用 <code>P × Q</code>。</p>",
+  "constraints": "<ul><li>1 ≤ P ≤ 1000</li><li>1 ≤ Q ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "30\n5",
+  "sampleOutput": "150",
+  "testCases": [
+    {
+      "input": "30\n5",
+      "output": "150"
+    },
+    {
+      "input": "25\n4",
+      "output": "100"
+    },
+    {
+      "input": "50\n1",
+      "output": "50"
+    },
+    {
+      "input": "10\n10",
+      "output": "100"
+    },
+    {
+      "input": "45\n6",
+      "output": "270"
+    },
+    {
+      "input": "20\n5",
+      "output": "100"
+    },
+    {
+      "input": "15\n8",
+      "output": "120"
+    },
+    {
+      "input": "100\n2",
+      "output": "200"
+    },
+    {
+      "input": "35\n7",
+      "output": "245"
+    },
+    {
+      "input": "1\n100",
+      "output": "100"
+    }
+  ]
+}

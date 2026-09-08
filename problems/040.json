@@ -1,0 +1,71 @@
+{
+  "id": 40,
+  "title": "數字倒過來",
+  "difficulty": "Easy",
+  "tags": [
+    "while迴圈",
+    "餘數",
+    "整除",
+    "數字操作"
+  ],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 while 迴圈、% 10 與 // 10 逐位反轉整數"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "while迴圈",
+    "算術運算"
+  ],
+  "description": "<p>把一個整數的每位數字倒過來排列，是程式設計的基礎練習。方法是：不斷用 <code>% 10</code> 取出個位數，再用 <code>// 10</code> 把剩餘部分縮小，直到數字變成 0——<code>while</code> 迴圈讓這個過程自動重複，不管幾位數都能處理。</p><p>請寫一個程式，輸入一個正整數 <code>N</code>，輸出將每位數字順序倒轉後的整數。</p>",
+  "inputFormat": "<p>第一行包含一個正整數 <code>N</code>，個位數不為 0。</p>",
+  "outputFormat": "<p>一行，輸出數字反轉後的整數（不含前導零）。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 9999999</li><li>N 的個位數不為 0</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "1234",
+  "sampleOutput": "4321",
+  "testCases": [
+    {
+      "input": "1234",
+      "output": "4321"
+    },
+    {
+      "input": "5",
+      "output": "5"
+    },
+    {
+      "input": "12",
+      "output": "21"
+    },
+    {
+      "input": "999",
+      "output": "999"
+    },
+    {
+      "input": "123",
+      "output": "321"
+    },
+    {
+      "input": "456",
+      "output": "654"
+    },
+    {
+      "input": "9876",
+      "output": "6789"
+    },
+    {
+      "input": "11",
+      "output": "11"
+    },
+    {
+      "input": "98765",
+      "output": "56789"
+    },
+    {
+      "input": "13",
+      "output": "31"
+    }
+  ]
+}

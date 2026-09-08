@@ -1,0 +1,77 @@
+{
+  "id": 29,
+  "title": "今天穿什麼",
+  "difficulty": "Easy",
+  "tags": [
+    "條件判斷",
+    "多段分類",
+    "if/elif/else"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用 if/elif/else 根據溫度範圍輸出不同建議"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "if/elif/else"
+  ],
+  "description": "<p>天氣 App 會根據溫度給出穿衣建議。背後的程式邏輯，就是多個 <code>if/elif</code> 依序判斷溫度落在哪個區間。</p><p>請寫一個程式，輸入今天的氣溫 <code>T</code>（整數，攝氏），依規則輸出穿衣建議：</p><ul><li>T &lt; 10：輸出 <code>穿羽絨衣</code></li><li>10 ≤ T &lt; 20：輸出 <code>穿外套</code></li><li>20 ≤ T &lt; 30：輸出 <code>穿長袖</code></li><li>T ≥ 30：輸出 <code>穿短袖</code></li></ul>",
+  "inputFormat": "<p>第一行包含一個整數 <code>T</code>（氣溫，攝氏）。</p>",
+  "outputFormat": "<p>一行，輸出穿衣建議。</p>",
+  "constraints": "<ul><li>-10 ≤ T ≤ 40</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "15",
+  "sampleOutput": "穿外套",
+  "testCases": [
+    {
+      "input": "15",
+      "output": "穿外套"
+    },
+    {
+      "input": "5",
+      "output": "穿羽絨衣"
+    },
+    {
+      "input": "10",
+      "output": "穿外套"
+    },
+    {
+      "input": "19",
+      "output": "穿外套"
+    },
+    {
+      "input": "20",
+      "output": "穿長袖"
+    },
+    {
+      "input": "29",
+      "output": "穿長袖"
+    },
+    {
+      "input": "30",
+      "output": "穿短袖"
+    },
+    {
+      "input": "35",
+      "output": "穿短袖"
+    },
+    {
+      "input": "-10",
+      "output": "穿羽絨衣"
+    },
+    {
+      "input": "9",
+      "output": "穿羽絨衣"
+    },
+    {
+      "input": "0",
+      "output": "穿羽絨衣"
+    },
+    {
+      "input": "25",
+      "output": "穿長袖"
+    }
+  ]
+}

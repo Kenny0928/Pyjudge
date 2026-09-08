@@ -1,0 +1,71 @@
+{
+  "id": 39,
+  "title": "英文字母中有幾個母音",
+  "difficulty": "Easy",
+  "tags": [
+    "字串走訪",
+    "計數器",
+    "迴圈"
+  ],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": [
+    "走訪字串每個字元，對符合條件的字元計數"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "for迴圈",
+    "計數器",
+    "條件判斷"
+  ],
+  "description": "<p>語言學家分析英文文章時，會統計母音出現了幾次。字串走訪讓你逐字檢查每個字元，再用計數器記錄符合條件的數量，是處理文字資料最基礎的技巧，也是後續搜尋、替換、分析的前置技能。</p><p>請寫一個程式，輸入一個只含小寫英文字母的字串 <code>s</code>，輸出其中母音（<code>a</code>、<code>e</code>、<code>i</code>、<code>o</code>、<code>u</code>）的數量。</p>",
+  "inputFormat": "<p>第一行包含一個字串 <code>s</code>，只含小寫英文字母 a–z。</p>",
+  "outputFormat": "<p>一行，輸出母音字元的總數量。</p>",
+  "constraints": "<ul><li>1 ≤ len(s) ≤ 30</li><li>s 只含小寫英文字母</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "hello",
+  "sampleOutput": "2",
+  "testCases": [
+    {
+      "input": "hello",
+      "output": "2"
+    },
+    {
+      "input": "apple",
+      "output": "2"
+    },
+    {
+      "input": "aeiou",
+      "output": "5"
+    },
+    {
+      "input": "python",
+      "output": "1"
+    },
+    {
+      "input": "bcdfg",
+      "output": "0"
+    },
+    {
+      "input": "orange",
+      "output": "3"
+    },
+    {
+      "input": "banana",
+      "output": "3"
+    },
+    {
+      "input": "computer",
+      "output": "3"
+    },
+    {
+      "input": "abc",
+      "output": "1"
+    },
+    {
+      "input": "xyz",
+      "output": "0"
+    }
+  ]
+}

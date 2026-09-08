@@ -1,0 +1,77 @@
+{
+  "id": 28,
+  "title": "成績分級",
+  "difficulty": "Easy",
+  "tags": [
+    "條件判斷",
+    "多層if/elif/else",
+    "分類"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Blockly/Python",
+  "learningObjectives": [
+    "使用多層 if/elif/else 將分數對應到字母等級"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "if/elif/else"
+  ],
+  "description": "<p>期末成績單上的 A、B、C、D，是按分數範圍一一判定的。讓程式自動幫全班分級，可以節省大量人工，而且不會算錯。</p><p>請寫一個程式，輸入一個整數分數 <code>score</code>，依下列規則輸出等級：</p><ul><li>score ≥ 90：輸出 <code>A</code></li><li>80 ≤ score &lt; 90：輸出 <code>B</code></li><li>70 ≤ score &lt; 80：輸出 <code>C</code></li><li>score &lt; 70：輸出 <code>D</code></li></ul><p><strong>關鍵技巧：</strong>由最高等級往下依序判斷，一旦符合就輸出並停止，不用同時寫上下界。</p>",
+  "inputFormat": "<p>第一行包含一個整數 <code>score</code>（分數）。</p>",
+  "outputFormat": "<p>一行，輸出 <code>A</code>、<code>B</code>、<code>C</code> 或 <code>D</code>。</p>",
+  "constraints": "<ul><li>0 ≤ score ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "85",
+  "sampleOutput": "B",
+  "testCases": [
+    {
+      "input": "85",
+      "output": "B"
+    },
+    {
+      "input": "90",
+      "output": "A"
+    },
+    {
+      "input": "80",
+      "output": "B"
+    },
+    {
+      "input": "70",
+      "output": "C"
+    },
+    {
+      "input": "69",
+      "output": "D"
+    },
+    {
+      "input": "100",
+      "output": "A"
+    },
+    {
+      "input": "0",
+      "output": "D"
+    },
+    {
+      "input": "89",
+      "output": "B"
+    },
+    {
+      "input": "79",
+      "output": "C"
+    },
+    {
+      "input": "95",
+      "output": "A"
+    },
+    {
+      "input": "50",
+      "output": "D"
+    },
+    {
+      "input": "75",
+      "output": "C"
+    }
+  ]
+}
