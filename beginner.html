@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="給 Python 初學者的十關自學講義：先預測、再拆解、動手測試，從輸出學到迴圈與累加。" />
   <title>初階講義｜PyJudge 自學基地</title>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
   <style>
     :root {
       --bg: #0f172a;
@@ -578,15 +577,78 @@
       white-space: pre-wrap;
     }
 
-    .solution-code {
-      margin: 0 15px 15px;
-      padding: 14px;
-      overflow-x: auto;
-      border-radius: 7px;
+    .practice-state {
+      margin-left: auto;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(59, 130, 246, 0.12);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .practice-state.done {
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.12);
+    }
+
+    .variant-intro {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    .variant-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .variant-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(15, 23, 42, 0.56);
+    }
+
+    .variant-heading {
+      padding: 15px 17px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(51, 65, 85, 0.42);
+    }
+
+    .variant-heading h3 {
+      font-size: 0.95rem;
+    }
+
+    .variant-label {
+      padding: 4px 8px;
+      border-radius: 6px;
+      color: #fde68a;
+      background: rgba(245, 158, 11, 0.13);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+
+    .variant-body {
+      padding: 17px;
+    }
+
+    .variant-mission {
       color: #dbeafe;
-      background: #080d18;
-      font: 0.82rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
-      white-space: pre;
+      font-size: 0.87rem;
+      line-height: 1.7;
+    }
+
+    .variant-card .io-grid {
+      margin: 14px 0;
+    }
+
+    .variant-card .runner {
+      margin-top: 0;
     }
 
     .checkpoint {
@@ -862,7 +924,7 @@
       </section>
 
       <section class="content-card" aria-labelledby="practice-heading">
-        <div class="card-heading"><span class="task-number">4</span><h2 id="practice-heading">輪到你：寫程式並通過測試</h2></div>
+        <div class="card-heading"><span class="task-number">4</span><h2 id="practice-heading">輪到你：完成核心題</h2><span class="practice-state" id="core-state">尚未完成</span></div>
         <div class="card-body">
           <div class="runner">
             <div class="runner-toolbar">
@@ -870,9 +932,9 @@
             </div>
             <textarea class="code-editor" id="code-editor" spellcheck="false" aria-label="Python 程式碼編輯區"></textarea>
             <div class="runner-actions">
-              <button class="button button-primary" id="run-button" type="button">▶ 檢查我的程式</button>
+              <button class="button button-primary" id="run-button" type="button">▶ 執行並檢查</button>
               <button class="button button-secondary" id="reset-button" type="button">重設</button>
-              <span class="runner-status" id="runner-status">第一次執行會準備 Python，請稍等一下。</span>
+              <span class="runner-status" id="runner-status">第一次執行會下載 Python 環境，之後所有題目共用。</span>
             </div>
             <div class="test-results" id="test-results" aria-live="polite"></div>
           </div>
@@ -882,15 +944,18 @@
             <div class="hint-content" id="hint-content"></div>
           </details>
 
-          <details class="solution-box">
-            <summary>我已經試過了，看看參考程式</summary>
-            <pre class="solution-code" id="solution-code"></pre>
-          </details>
-
           <div class="checkpoint">
             <h3>離開這一關前，請用自己的話回答</h3>
             <p id="checkpoint-question"></p>
           </div>
+        </div>
+      </section>
+
+      <section class="content-card" aria-labelledby="variants-heading">
+        <div class="card-heading"><span class="task-number">5</span><h2 id="variants-heading">學完再練：兩題變體</h2></div>
+        <div class="card-body">
+          <p class="variant-intro">變體 A 與變體 B 會直接顯示，可以自由選擇練習順序。三題都完成，才算通過這一關。</p>
+          <div class="variant-list" id="variant-list"></div>
         </div>
       </section>
 
@@ -925,7 +990,27 @@
         solution: 'print("我是小幫手")\nprint("準備完成")',
         hint: '把第一行文字放進第一個雙引號，把第二行文字放進第二個雙引號。中文標點和半形符號也會被電腦當成答案的一部分。',
         checkpoint: 'print() 的工作是什麼？為什麼這一題要使用兩次 print()？',
-        tests: [{ input: '', output: '我是小幫手\n準備完成' }]
+        tests: [{ input: '', output: '我是小幫手\n準備完成' }],
+        variants: [
+          {
+            title: '我的第一個程式',
+            mission: '不需輸入，依序輸出「Hello!」與「我會寫程式」，每段文字各占一行。',
+            sampleInput: '（沒有輸入）', sampleOutput: 'Hello!\n我會寫程式',
+            starter: 'print("")\nprint("")',
+            solution: 'print("Hello!")\nprint("我會寫程式")',
+            hint: '注意 Hello 後面是半形驚嘆號，而且兩段文字要分成兩行。',
+            tests: [{ input: '', output: 'Hello!\n我會寫程式' }]
+          },
+          {
+            title: '符號小旗子',
+            mission: '不需輸入，依序輸出三行星號；第一行 3 個、第二行 2 個、第三行 1 個。',
+            sampleInput: '（沒有輸入）', sampleOutput: '***\n**\n*',
+            starter: 'print("")\nprint("")\nprint("")',
+            solution: 'print("***")\nprint("**")\nprint("*")',
+            hint: '每一行各用一次 print()，並仔細數星號數量。',
+            tests: [{ input: '', output: '***\n**\n*' }]
+          }
+        ]
       },
       {
         id: 2,
@@ -943,7 +1028,27 @@
         solution: 'print(3)\nprint(2)\nprint(1)\nprint("出發")',
         hint: '先不要改文字，只要把四行程式重新排列。最上面的程式會最先執行。',
         checkpoint: '電腦用什麼順序執行這四行程式？哪兩行交換後，結果會出錯？',
-        tests: [{ input: '', output: '3\n2\n1\n出發' }]
+        tests: [{ input: '', output: '3\n2\n1\n出發' }],
+        variants: [
+          {
+            title: '交通號誌',
+            mission: '不需輸入，依序輸出「紅燈停」、「綠燈行」、「安全到達」。',
+            sampleInput: '（沒有輸入）', sampleOutput: '紅燈停\n綠燈行\n安全到達',
+            starter: 'print("安全到達")\nprint("綠燈行")\nprint("紅燈停")',
+            solution: 'print("紅燈停")\nprint("綠燈行")\nprint("安全到達")',
+            hint: '只要重新排列三行，不必修改 print() 裡的文字。',
+            tests: [{ input: '', output: '紅燈停\n綠燈行\n安全到達' }]
+          },
+          {
+            title: '倒序口令除錯',
+            mission: '四張指令卡被打亂了。請重新排列，依序輸出「開始」、「步驟 1」、「步驟 2」、「完成」。',
+            sampleInput: '（沒有輸入）', sampleOutput: '開始\n步驟 1\n步驟 2\n完成',
+            starter: 'print("完成")\nprint("步驟 2")\nprint("開始")\nprint("步驟 1")',
+            solution: 'print("開始")\nprint("步驟 1")\nprint("步驟 2")\nprint("完成")',
+            hint: '先找起點與終點，再把步驟 1、步驟 2 放在中間。',
+            tests: [{ input: '', output: '開始\n步驟 1\n步驟 2\n完成' }]
+          }
+        ]
       },
       {
         id: 3,
@@ -961,7 +1066,35 @@
         solution: 'name = input()\nprint(name)',
         hint: '空格裡要放的是裝著名字的變數。它的名稱就在等號左邊。',
         checkpoint: '這個程式的輸入是什麼？處理動作是什麼？輸出又是什麼？',
-        tests: [{ input: '小安', output: '小安' }, { input: '樂樂', output: '樂樂' }, { input: 'Python', output: 'Python' }]
+        tests: [{ input: '小安', output: '小安' }, { input: '樂樂', output: '樂樂' }, { input: 'Python', output: 'Python' }],
+        variants: [
+          {
+            title: '喜歡的動物',
+            mission: '輸入一種動物，輸出「我喜歡」、一個半形空格，再輸出動物名稱。',
+            sampleInput: '貓', sampleOutput: '我喜歡 貓',
+            starter: 'animal = input()\nprint("我喜歡", ____)',
+            solution: 'animal = input()\nprint("我喜歡", animal)',
+            hint: 'print() 用逗號分開兩個內容時，輸出中間會自動有一個空格。',
+            tests: [
+              { input: '貓', output: '我喜歡 貓' },
+              { input: '狗', output: '我喜歡 狗' },
+              { input: '海豚', output: '我喜歡 海豚' }
+            ]
+          },
+          {
+            title: '交換播報',
+            mission: '依序輸入兩個代號，輸出時交換順序，每個代號各占一行。',
+            sampleInput: 'A7\nB3', sampleOutput: 'B3\nA7',
+            starter: 'first = input()\nsecond = input()\nprint(____)\nprint(____)',
+            solution: 'first = input()\nsecond = input()\nprint(second)\nprint(first)',
+            hint: '先收到 first，再收到 second；輸出時要先 second、後 first。',
+            tests: [
+              { input: 'A7\nB3', output: 'B3\nA7' },
+              { input: '紅\n藍', output: '藍\n紅' },
+              { input: '1\n2', output: '2\n1' }
+            ]
+          }
+        ]
       },
       {
         id: 4,
@@ -979,7 +1112,35 @@
         solution: 'energy = int(input())\nenergy = energy + 10\nprint(energy)',
         hint: '題目說「增加 10 點」，所以更新時要把目前數值加上 10。',
         checkpoint: '請說出 energy 在程式執行中的變化：它一開始裝什麼？後來變成什麼？',
-        tests: [{ input: '35', output: '45' }, { input: '0', output: '10' }, { input: '90', output: '100' }]
+        tests: [{ input: '35', output: '45' }, { input: '0', output: '10' }, { input: '90', output: '100' }],
+        variants: [
+          {
+            title: '送出兩顆糖',
+            mission: '輸入糖果數量，送出 2 顆後輸出剩餘數量；輸入保證至少是 2。',
+            sampleInput: '9', sampleOutput: '7',
+            starter: 'candies = int(input())\ncandies = candies ____ 2\nprint(candies)',
+            solution: 'candies = int(input())\ncandies = candies - 2\nprint(candies)',
+            hint: '送出代表數量變少，所以要使用減法。',
+            tests: [
+              { input: '9', output: '7' },
+              { input: '2', output: '0' },
+              { input: '15', output: '13' }
+            ]
+          },
+          {
+            title: '兩次分數更新',
+            mission: '輸入原本分數，先增加 8 分，再扣掉 3 分，輸出最後分數。',
+            sampleInput: '20', sampleOutput: '25',
+            starter: 'score = int(input())\nscore = score ____ 8\nscore = score ____ 3\nprint(score)',
+            solution: 'score = int(input())\nscore = score + 8\nscore = score - 3\nprint(score)',
+            hint: '每次都要用 score 目前的值更新：第一次加 8，第二次減 3。',
+            tests: [
+              { input: '20', output: '25' },
+              { input: '0', output: '5' },
+              { input: '100', output: '105' }
+            ]
+          }
+        ]
       },
       {
         id: 5,
@@ -997,7 +1158,35 @@
         solution: 'length, width = map(int, input().split())\narea = length * width\nprint(area)',
         hint: 'Python 的乘法符號不是 ×，而是鍵盤上的星號 *。',
         checkpoint: '這題的算式是什麼？如果把長和寬都增加 1，面積會怎麼變？',
-        tests: [{ input: '6 4', output: '24' }, { input: '7 3', output: '21' }, { input: '10 10', output: '100' }]
+        tests: [{ input: '6 4', output: '24' }, { input: '7 3', output: '21' }, { input: '10 10', output: '100' }],
+        variants: [
+          {
+            title: '長方形周長',
+            mission: '輸入長和寬，輸出長方形周長。請用括號清楚表示先加再乘。',
+            sampleInput: '6 4', sampleOutput: '20',
+            starter: 'length, width = map(int, input().split())\nperimeter = (length ____ width) ____ 2\nprint(perimeter)',
+            solution: 'length, width = map(int, input().split())\nperimeter = (length + width) * 2\nprint(perimeter)',
+            hint: '周長是（長＋寬）× 2，Python 的乘號是 *。',
+            tests: [
+              { input: '6 4', output: '20' },
+              { input: '1 1', output: '4' },
+              { input: '10 3', output: '26' }
+            ]
+          },
+          {
+            title: '分組後剩幾個',
+            mission: '輸入物品數量與每組數量，輸出完整組數及剩餘數量，中間一個空格。',
+            sampleInput: '23 5', sampleOutput: '4 3',
+            starter: 'items, size = map(int, input().split())\ngroups = items ____ size\nleft = items ____ size\nprint(groups, left)',
+            solution: 'items, size = map(int, input().split())\ngroups = items // size\nleft = items % size\nprint(groups, left)',
+            hint: '// 求完整組數，% 求分組後的餘數。',
+            tests: [
+              { input: '23 5', output: '4 3' },
+              { input: '20 5', output: '4 0' },
+              { input: '4 6', output: '0 4' }
+            ]
+          }
+        ]
       },
       {
         id: 6,
@@ -1015,7 +1204,35 @@
         solution: 'height = int(input())\n\nif height >= 120:\n    print("可以")\nelse:\n    print("再等等")',
         hint: '「以上」包含剛好等於，所以需要兩個符號組成的 >=。也要注意 if 和 else 裡面的 print() 都要縮排。',
         checkpoint: '為什麼要測試 119、120、121？其中哪一個是在測試邊界？',
-        tests: [{ input: '119', output: '再等等' }, { input: '120', output: '可以' }, { input: '121', output: '可以' }]
+        tests: [{ input: '119', output: '再等等' }, { input: '120', output: '可以' }, { input: '121', output: '可以' }],
+        variants: [
+          {
+            title: '及格判斷',
+            mission: '輸入分數。60 分以上輸出「通過」，否則輸出「再練習」。',
+            sampleInput: '59', sampleOutput: '再練習',
+            starter: 'score = int(input())\n\nif score ____ 60:\n    print("通過")\nelse:\n    print("再練習")',
+            solution: 'score = int(input())\n\nif score >= 60:\n    print("通過")\nelse:\n    print("再練習")',
+            hint: '「60 分以上」包含剛好 60 分，所以使用 >=。',
+            tests: [
+              { input: '59', output: '再練習' },
+              { input: '60', output: '通過' },
+              { input: '100', output: '通過' }
+            ]
+          },
+          {
+            title: '密碼相同嗎',
+            mission: '依序輸入兩個整數。相同輸出「相同」，不同輸出「不同」。',
+            sampleInput: '42\n24', sampleOutput: '不同',
+            starter: 'first = int(input())\nsecond = int(input())\n\nif first ____ second:\n    print("相同")\nelse:\n    print("不同")',
+            solution: 'first = int(input())\nsecond = int(input())\n\nif first == second:\n    print("相同")\nelse:\n    print("不同")',
+            hint: 'Python 用兩個等號 == 比較兩個值是否相同。',
+            tests: [
+              { input: '42\n24', output: '不同' },
+              { input: '7\n7', output: '相同' },
+              { input: '0\n0', output: '相同' }
+            ]
+          }
+        ]
       },
       {
         id: 7,
@@ -1033,7 +1250,38 @@
         solution: 'temperature = int(input())\n\nif temperature >= 30:\n    print("炎熱")\nelif temperature >= 20:\n    print("舒適")\nelse:\n    print("偏涼")',
         hint: '第一個空格放最高門檻 30，第二個放 20。程式找到第一個成立的條件後，就不會繼續往下選。',
         checkpoint: '為什麼 30 的規則要放在 20 的規則前面？四個邊界測試 19、20、29、30 各走哪一條路？',
-        tests: [{ input: '19', output: '偏涼' }, { input: '20', output: '舒適' }, { input: '29', output: '舒適' }, { input: '30', output: '炎熱' }]
+        tests: [{ input: '19', output: '偏涼' }, { input: '20', output: '舒適' }, { input: '29', output: '舒適' }, { input: '30', output: '炎熱' }],
+        variants: [
+          {
+            title: '星星等級',
+            mission: '輸入星星數：10 以上輸出「金牌」、5～9 輸出「銀牌」、0～4 輸出「銅牌」。',
+            sampleInput: '7', sampleOutput: '銀牌',
+            starter: 'stars = int(input())\n\nif stars >= ____:\n    print("金牌")\nelif stars >= ____:\n    print("銀牌")\nelse:\n    print("銅牌")',
+            solution: 'stars = int(input())\n\nif stars >= 10:\n    print("金牌")\nelif stars >= 5:\n    print("銀牌")\nelse:\n    print("銅牌")',
+            hint: '先檢查最高門檻 10，再檢查門檻 5。',
+            tests: [
+              { input: '0', output: '銅牌' },
+              { input: '4', output: '銅牌' },
+              { input: '5', output: '銀牌' },
+              { input: '9', output: '銀牌' },
+              { input: '10', output: '金牌' }
+            ]
+          },
+          {
+            title: '同時符合時先選誰',
+            mission: '輸入正整數：同時是 2 和 3 的倍數輸出「兩者」；否則依序輸出「二」、「三」或「無」。',
+            sampleInput: '12', sampleOutput: '兩者',
+            starter: 'n = int(input())\n\nif n % 2 == 0 and n % 3 == 0:\n    print("____")\nelif n % 2 == 0:\n    print("____")\nelif n % 3 == 0:\n    print("____")\nelse:\n    print("____")',
+            solution: 'n = int(input())\n\nif n % 2 == 0 and n % 3 == 0:\n    print("兩者")\nelif n % 2 == 0:\n    print("二")\nelif n % 3 == 0:\n    print("三")\nelse:\n    print("無")',
+            hint: '最特殊的「同時符合」要先檢查，否則 6、12 會先被二的倍數攔走。',
+            tests: [
+              { input: '12', output: '兩者' },
+              { input: '8', output: '二' },
+              { input: '9', output: '三' },
+              { input: '5', output: '無' }
+            ]
+          }
+        ]
       },
       {
         id: 8,
@@ -1051,7 +1299,35 @@
         solution: 'n = int(input())\n\nfor _ in range(n):\n    print("加油")',
         hint: 'range() 裡要放「重複幾次」，這個數字已經存在變數 n 裡。',
         checkpoint: '迴圈重複的是哪一行？輸入 1 和輸入 5 時，輸出分別有幾行？',
-        tests: [{ input: '1', output: '加油' }, { input: '3', output: '加油\n加油\n加油' }, { input: '5', output: '加油\n加油\n加油\n加油\n加油' }]
+        tests: [{ input: '1', output: '加油' }, { input: '3', output: '加油\n加油\n加油' }, { input: '5', output: '加油\n加油\n加油\n加油\n加油' }],
+        variants: [
+          {
+            title: '印出星星',
+            mission: '輸入 N，輸出 N 行「*」。',
+            sampleInput: '4', sampleOutput: '*\n*\n*\n*',
+            starter: 'n = int(input())\n\nfor _ in range(____):\n    print("____")',
+            solution: 'n = int(input())\n\nfor _ in range(n):\n    print("*")',
+            hint: 'range() 放重複次數 n；每一輪輸出一個星號。',
+            tests: [
+              { input: '1', output: '*' },
+              { input: '4', output: '*\n*\n*\n*' },
+              { input: '6', output: '*\n*\n*\n*\n*\n*' }
+            ]
+          },
+          {
+            title: '從 1 數到 N',
+            mission: '輸入 N，依序輸出 1 到 N，每個數字各占一行。',
+            sampleInput: '4', sampleOutput: '1\n2\n3\n4',
+            starter: 'n = int(input())\n\nfor number in range(1, ____):\n    print(____)',
+            solution: 'n = int(input())\n\nfor number in range(1, n + 1):\n    print(number)',
+            hint: 'range() 不包含終點，因此要寫到 n + 1；輸出每一輪的 number。',
+            tests: [
+              { input: '1', output: '1' },
+              { input: '4', output: '1\n2\n3\n4' },
+              { input: '5', output: '1\n2\n3\n4\n5' }
+            ]
+          }
+        ]
       },
       {
         id: 9,
@@ -1069,7 +1345,35 @@
         solution: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    light = int(input())\n    if light == 1:\n        count = count + 1\n\nprint(count)',
         hint: '第一個空格是「亮燈用哪個數字表示」；第二個空格是「每看到一盞亮燈要增加幾盞」。兩個答案都是 1。',
         checkpoint: '為什麼 count 要放在迴圈外先設為 0？如果放在迴圈裡，會發生什麼事？',
-        tests: [{ input: '5\n1\n0\n1\n1\n0', output: '3' }, { input: '4\n0\n0\n0\n0', output: '0' }, { input: '3\n1\n1\n1', output: '3' }]
+        tests: [{ input: '5\n1\n0\n1\n1\n0', output: '3' }, { input: '4\n0\n0\n0\n0', output: '0' }, { input: '3\n1\n1\n1', output: '3' }],
+        variants: [
+          {
+            title: '熄燈有幾盞',
+            mission: '第一行輸入 N，接著輸入 N 個 0 或 1；這次輸出狀態為 0 的燈有幾盞。',
+            sampleInput: '4\n0\n0\n0\n0', sampleOutput: '4',
+            starter: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    light = int(input())\n    if light == ____:\n        count = count + 1\n\nprint(count)',
+            solution: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    light = int(input())\n    if light == 0:\n        count = count + 1\n\nprint(count)',
+            hint: '計數方法不變，只把符合條件從亮燈 1 改成熄燈 0。',
+            tests: [
+              { input: '4\n0\n0\n0\n0', output: '4' },
+              { input: '3\n1\n1\n1', output: '0' },
+              { input: '5\n0\n1\n0\n1\n0', output: '3' }
+            ]
+          },
+          {
+            title: '達到門檻的人數',
+            mission: '第一行輸入 N，接著輸入 N 個分數，輸出大於或等於 60 的人數。',
+            sampleInput: '5\n60\n59\n80\n42\n100', sampleOutput: '3',
+            starter: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    score = int(input())\n    if score ____ 60:\n        count = count + ____\n\nprint(count)',
+            solution: 'n = int(input())\ncount = 0\n\nfor _ in range(n):\n    score = int(input())\n    if score >= 60:\n        count = count + 1\n\nprint(count)',
+            hint: '門檻包含 60，所以用 >=；每找到一人就讓 count 加 1。',
+            tests: [
+              { input: '5\n60\n59\n80\n42\n100', output: '3' },
+              { input: '3\n0\n20\n59', output: '0' },
+              { input: '4\n60\n70\n80\n90', output: '4' }
+            ]
+          }
+        ]
       },
       {
         id: 10,
@@ -1087,16 +1391,46 @@
         solution: 'n = int(input())\ntotal = 0\n\nfor _ in range(n):\n    pages = int(input())\n    total = total + pages\n\nprint(total)',
         hint: '每一輪要加入的是剛剛讀到的 pages，不是固定數字 1，也不是天數 n。',
         checkpoint: 'count 和 total 有什麼不同？請用範例說出 total 的變化：0 → 5 → 13 → 13 → 20。',
-        tests: [{ input: '4\n5\n8\n0\n7', output: '20' }, { input: '3\n10\n10\n10', output: '30' }, { input: '1\n0', output: '0' }]
+        tests: [{ input: '4\n5\n8\n0\n7', output: '20' }, { input: '3\n10\n10\n10', output: '30' }, { input: '1\n0', output: '0' }],
+        variants: [
+          {
+            title: '從 1 加到 N',
+            mission: '輸入正整數 N，輸出 1 + 2 + ... + N 的總和。',
+            sampleInput: '5', sampleOutput: '15',
+            starter: 'n = int(input())\ntotal = 0\n\nfor number in range(1, n + 1):\n    total = total + ____\n\nprint(total)',
+            solution: 'n = int(input())\ntotal = 0\n\nfor number in range(1, n + 1):\n    total = total + number\n\nprint(total)',
+            hint: '每一輪加入目前的 number，會依序加上 1、2、3……N。',
+            tests: [
+              { input: '1', output: '1' },
+              { input: '5', output: '15' },
+              { input: '10', output: '55' }
+            ]
+          },
+          {
+            title: '只加通過的分數',
+            mission: '第一行輸入 N，接著輸入 N 個分數，只把大於或等於 60 的分數加入總和。',
+            sampleInput: '5\n60\n59\n80\n42\n100', sampleOutput: '240',
+            starter: 'n = int(input())\ntotal = 0\n\nfor _ in range(n):\n    score = int(input())\n    if score ____ 60:\n        total = total + ____\n\nprint(total)',
+            solution: 'n = int(input())\ntotal = 0\n\nfor _ in range(n):\n    score = int(input())\n    if score >= 60:\n        total = total + score\n\nprint(total)',
+            hint: '只有符合門檻時才更新 total，而且要加入分數 score，不是固定加 1。',
+            tests: [
+              { input: '5\n60\n59\n80\n42\n100', output: '240' },
+              { input: '3\n10\n20\n30', output: '0' },
+              { input: '4\n60\n70\n80\n90', output: '300' }
+            ]
+          }
+        ]
       }
     ];
 
     const STORAGE_COMPLETED = 'pyjudge_beginner_completed';
+    const STORAGE_PROGRESS = 'pyjudge_beginner_task_progress_v2';
     const STORAGE_DRAFT_PREFIX = 'pyjudge_beginner_draft_';
     let currentLessonId = 1;
-    let completed = new Set(JSON.parse(localStorage.getItem(STORAGE_COMPLETED) || '[]'));
+    let taskProgress = JSON.parse(localStorage.getItem(STORAGE_PROGRESS) || '{}');
     let pyodide = null;
     let pyodidePromise = null;
+    let pyodideScriptPromise = null;
     let running = false;
     let draftTimer = null;
 
@@ -1111,12 +1445,49 @@
         .replace(/"/g, '&quot;');
     }
 
+    function migrateLegacyProgress() {
+      if (localStorage.getItem(STORAGE_PROGRESS)) return;
+      const legacyCompleted = JSON.parse(localStorage.getItem(STORAGE_COMPLETED) || '[]');
+      legacyCompleted.forEach(id => {
+        taskProgress[id] = { core: true, a: false, b: false };
+      });
+      saveProgress();
+    }
+
+    function saveProgress() {
+      localStorage.setItem(STORAGE_PROGRESS, JSON.stringify(taskProgress));
+      const completedIds = LESSONS.filter(lesson => isLessonComplete(lesson.id)).map(lesson => lesson.id);
+      localStorage.setItem(STORAGE_COMPLETED, JSON.stringify(completedIds));
+    }
+
+    function isTaskComplete(lessonId, taskKey) {
+      return Boolean(taskProgress[lessonId]?.[taskKey]);
+    }
+
+    function isLessonComplete(lessonId) {
+      return ['core', 'a', 'b'].every(taskKey => isTaskComplete(lessonId, taskKey));
+    }
+
+    function completedCount() {
+      return LESSONS.filter(lesson => isLessonComplete(lesson.id)).length;
+    }
+
+    function draftKey(lessonId, taskKey) {
+      return `${STORAGE_DRAFT_PREFIX}${lessonId}_${taskKey}`;
+    }
+
+    function normalizeOutput(value) {
+      return String(value)
+        .replace(/\r\n?/g, '\n')
+        .trimEnd();
+    }
+
     function renderNavigation() {
       $('lesson-nav').innerHTML = LESSONS.map(lesson => `
         <button type="button" data-lesson="${lesson.id}" class="${lesson.id === currentLessonId ? 'active' : ''}" aria-current="${lesson.id === currentLessonId ? 'page' : 'false'}">
           <span class="lesson-number">${String(lesson.id).padStart(2, '0')}</span>
           <span class="lesson-nav-title">${escapeHtml(lesson.title)}</span>
-          <span class="lesson-check">${completed.has(lesson.id) ? '✓' : ''}</span>
+          <span class="lesson-check">${isLessonComplete(lesson.id) ? '✓' : ''}</span>
         </button>
       `).join('');
 
@@ -1126,7 +1497,7 @@
     }
 
     function renderProgress() {
-      const count = completed.size;
+      const count = completedCount();
       $('progress-text').textContent = `${count} / 10`;
       $('progress-bar').style.width = `${count * 10}%`;
     }
@@ -1149,13 +1520,18 @@
       $('predict-answer').textContent = lesson.predictAnswer;
       $('step-list').innerHTML = lesson.steps.map((step, index) => `<li data-step="${index + 1}">${escapeHtml(step)}</li>`).join('');
       $('hint-content').textContent = lesson.hint;
-      $('solution-code').textContent = lesson.solution;
       $('checkpoint-question').textContent = lesson.checkpoint;
-      editor.value = localStorage.getItem(STORAGE_DRAFT_PREFIX + lesson.id) ?? lesson.starter;
+      editor.value = localStorage.getItem(draftKey(lesson.id, 'core'))
+        ?? localStorage.getItem(STORAGE_DRAFT_PREFIX + lesson.id)
+        ?? lesson.starter;
       $('draft-state').textContent = '會自動保存';
       $('test-results').classList.remove('show');
       $('test-results').innerHTML = '';
-      $('finish-panel').classList.toggle('show', lesson.id === 10 && completed.size === 10);
+      $('core-state').textContent = isTaskComplete(lesson.id, 'core') ? '✓ 已完成' : '尚未完成';
+      $('core-state').classList.toggle('done', isTaskComplete(lesson.id, 'core'));
+      $('runner-status').textContent = pyodide ? 'Python 已就緒' : '第一次執行會下載 Python 環境，之後所有題目共用。';
+      renderVariants();
+      $('finish-panel').classList.toggle('show', lesson.id === 10 && completedCount() === LESSONS.length);
       $('previous-button').disabled = lesson.id === 1;
       $('next-button').disabled = lesson.id === 10;
       $('next-button').textContent = lesson.id === 9 ? '前往最後一關 →' : '下一關 →';
@@ -1169,21 +1545,86 @@
     }
 
     function saveDraft() {
-      localStorage.setItem(STORAGE_DRAFT_PREFIX + currentLessonId, editor.value);
+      localStorage.setItem(draftKey(currentLessonId, 'core'), editor.value);
       $('draft-state').textContent = '已保存';
       clearTimeout(draftTimer);
       draftTimer = setTimeout(() => { $('draft-state').textContent = '會自動保存'; }, 1400);
     }
 
-    async function preparePython() {
-      if (pyodide) return pyodide;
-      if (pyodidePromise) return pyodidePromise;
+    function getTask(lesson, taskKey) {
+      if (taskKey === 'core') return lesson;
+      return lesson.variants[taskKey === 'a' ? 0 : 1];
+    }
 
-      $('runner-status').textContent = '正在準備 Python 環境…';
-      pyodidePromise = loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/' })
-        .then(async runtime => {
-          pyodide = runtime;
-          await pyodide.runPythonAsync(`
+    function renderVariants() {
+      const lesson = getLesson(currentLessonId);
+      $('variant-list').innerHTML = lesson.variants.map((variant, index) => {
+        const taskKey = index === 0 ? 'a' : 'b';
+        const done = isTaskComplete(lesson.id, taskKey);
+        const label = index === 0 ? '變體 A' : '變體 B';
+        const savedDraft = localStorage.getItem(draftKey(lesson.id, taskKey)) ?? variant.starter;
+        return `
+          <article class="variant-card" data-task="${taskKey}">
+            <div class="variant-heading"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '✓ 已完成' : '尚未完成'}</span></div>
+            <div class="variant-body">
+              <p class="variant-mission">${escapeHtml(variant.mission)}</p>
+              <div class="io-grid">
+                <div class="io-box"><div class="io-label">範例輸入</div><pre>${escapeHtml(variant.sampleInput)}</pre></div>
+                <div class="io-box"><div class="io-label">範例輸出</div><pre>${escapeHtml(variant.sampleOutput)}</pre></div>
+              </div>
+              <div class="runner">
+                <div class="runner-toolbar"><span>🐍 Python 3</span><span>${label} 練習板</span><span class="draft-state">會自動保存</span></div>
+                <textarea class="code-editor variant-editor" data-task="${taskKey}" spellcheck="false" aria-label="${label} Python 程式碼編輯區">${escapeHtml(savedDraft)}</textarea>
+                <div class="runner-actions">
+                  <button class="button button-primary variant-check" data-task="${taskKey}" type="button">▶ 執行並檢查</button>
+                  <button class="button button-secondary variant-reset" data-task="${taskKey}" type="button">重設</button>
+                  <span class="runner-status">${pyodide ? 'Python 已就緒' : '第一次執行會準備 Python 環境。'}</span>
+                </div>
+                <div class="test-results ${done ? 'show' : ''}" data-result="${taskKey}" aria-live="polite">${done ? '<div class="result-banner success">✓ 已通過這一題。</div>' : ''}</div>
+              </div>
+              <details class="hint-box"><summary>卡住了？先看提示</summary><div class="hint-content">${escapeHtml(variant.hint)}</div></details>
+            </div>
+          </article>`;
+      }).join('');
+    }
+
+    function taskResultElement(taskKey) {
+      return taskKey === 'core' ? $('test-results') : document.querySelector(`[data-result="${taskKey}"]`);
+    }
+
+    function taskStatusElement(taskKey) {
+      if (taskKey === 'core') return $('runner-status');
+      return document.querySelector(`article[data-task="${taskKey}"] .runner-status`);
+    }
+
+    function setRunnersDisabled(disabled) {
+      running = disabled;
+      $('run-button').disabled = disabled;
+      document.querySelectorAll('.variant-check').forEach(button => { button.disabled = disabled; });
+    }
+
+    function loadPyodideScript() {
+      if (window.loadPyodide) return Promise.resolve();
+      if (pyodideScriptPromise) return pyodideScriptPromise;
+      pyodideScriptPromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js';
+        script.onload = resolve;
+        script.onerror = () => reject(new Error('無法下載 Python 執行環境'));
+        document.head.appendChild(script);
+      });
+      return pyodideScriptPromise;
+    }
+
+    async function preparePython(statusElement) {
+      if (pyodide) return pyodide;
+      if (!pyodidePromise) {
+        pyodidePromise = (async () => {
+          await loadPyodideScript();
+          const runtime = await loadPyodide({
+            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/'
+          });
+          await runtime.runPythonAsync(`
 import sys, io, builtins as _builtins
 _input_lines = []
 _input_idx = [0]
@@ -1213,20 +1654,21 @@ class MockStdin:
 
 sys.stdin = MockStdin()
           `);
-          $('runner-status').textContent = 'Python 已就緒';
-          return pyodide;
-        })
-        .catch(error => {
+          pyodide = runtime;
+          return runtime;
+        })().catch(error => {
           pyodidePromise = null;
-          $('runner-status').textContent = '準備失敗，請確認網路後再試一次。';
           throw error;
         });
-
-      return pyodidePromise;
+      }
+      if (statusElement) statusElement.textContent = '正在準備 Python 環境…';
+      const runtime = await pyodidePromise;
+      document.querySelectorAll('.runner-status').forEach(status => { status.textContent = 'Python 已就緒'; });
+      return runtime;
     }
 
-    async function runPython(code, inputValue) {
-      const runtime = await preparePython();
+    async function runPython(code, inputValue, statusElement) {
+      const runtime = await preparePython(statusElement);
       const lines = inputValue === '' ? [] : inputValue.split('\n');
       runtime.globals.set('__lesson_lines__', lines);
       await runtime.runPythonAsync(`
@@ -1245,75 +1687,102 @@ sys.stderr = _stderr
           error: runtime.runPython('_stderr.getvalue()')
         };
       } catch (error) {
-        return { output: '', error: error.message };
+        return { output: '', error: error.message || String(error) };
       } finally {
         await runtime.runPythonAsync('sys.stdout = sys.__stdout__; sys.stderr = sys.__stderr__');
       }
     }
 
-    async function checkCode() {
+    function showCheckResult(taskKey, outcome) {
+      const lesson = getLesson(currentLessonId);
+      const result = taskResultElement(taskKey);
+      if (!result) return;
+      result.classList.add('show');
+      if (outcome.passed) {
+        const taskName = taskKey === 'core' ? '核心題' : taskKey === 'a' ? '變體 A' : '變體 B';
+        const message = isLessonComplete(lesson.id)
+          ? `✓ 通過 ${outcome.testCount} 組測試！已完成${taskName}，你已通過第 ${lesson.id} 關。`
+          : `✓ 通過 ${outcome.testCount} 組測試！已完成${taskName}。`;
+        result.innerHTML = `<div class="result-banner success">${message}</div>`;
+      } else {
+        let detail = `第 ${outcome.failedIndex + 1} 組隱藏測試未通過。`;
+        if (outcome.error) {
+          detail += `\n\n程式訊息：\n${outcome.error.split('\n').slice(-4).join('\n')}`;
+        } else {
+          detail += '\n請重新檢查輸入處理、計算方式與輸出格式。';
+        }
+        result.innerHTML = `<div class="result-banner error">程式還差一點點，尚未通過全部測試。</div><pre class="result-detail">${escapeHtml(detail)}</pre>`;
+      }
+    }
+
+    async function checkAnswer(taskKey) {
       if (running) return;
       const lesson = getLesson(currentLessonId);
-      const code = editor.value;
-      const results = $('test-results');
+      const task = getTask(lesson, taskKey);
+      const taskEditor = taskKey === 'core' ? editor : document.querySelector(`.variant-editor[data-task="${taskKey}"]`);
+      const code = taskEditor.value;
+      const status = taskStatusElement(taskKey);
 
       if (!code.trim()) {
-        results.innerHTML = '<div class="result-banner error">先在練習板寫下一點程式，再來檢查。</div>';
-        results.classList.add('show');
+        const result = taskResultElement(taskKey);
+        result.classList.add('show');
+        result.innerHTML = '<div class="result-banner error">先在練習板寫下一點程式，再來執行。</div>';
         return;
       }
 
-      running = true;
-      $('run-button').disabled = true;
-      $('runner-status').textContent = '正在檢查不同的輸入…';
-      results.innerHTML = '<div class="result-banner">測試進行中…</div>';
-      results.classList.add('show');
+      setRunnersDisabled(true);
+      status.textContent = '正在執行不同的測試資料…';
+      const result = taskResultElement(taskKey);
+      result.classList.add('show');
+      result.innerHTML = '<div class="result-banner">測試進行中…</div>';
 
       try {
-        let firstFailure = null;
-        for (let index = 0; index < lesson.tests.length; index += 1) {
-          const test = lesson.tests[index];
-          const result = await runPython(code, test.input);
-          const actual = result.output.trimEnd();
-          const expected = test.output.trimEnd();
-          if (result.error.trim() || actual !== expected) {
-            firstFailure = { index, test, actual, error: result.error };
+        let failure = null;
+        for (let index = 0; index < task.tests.length; index += 1) {
+          const test = task.tests[index];
+          const execution = await runPython(code, test.input, status);
+          if (execution.error.trim() || normalizeOutput(execution.output) !== normalizeOutput(test.output)) {
+            failure = { failedIndex: index, error: execution.error };
             break;
           }
         }
 
-        if (!firstFailure) {
-          completed.add(lesson.id);
-          localStorage.setItem(STORAGE_COMPLETED, JSON.stringify([...completed].sort((a, b) => a - b)));
-          results.innerHTML = `<div class="result-banner success">✓ 通過 ${lesson.tests.length} 組測試！你已經完成第 ${lesson.id} 關。</div>`;
-          $('runner-status').textContent = '全部測試通過';
-          $('finish-panel').classList.toggle('show', lesson.id === 10 && completed.size === 10);
+        if (currentLessonId !== lesson.id) return;
+
+        if (!failure) {
+          if (!taskProgress[lesson.id]) taskProgress[lesson.id] = {};
+          taskProgress[lesson.id][taskKey] = true;
+          saveProgress();
+          localStorage.setItem(draftKey(lesson.id, taskKey), code);
+          if (taskKey === 'core') {
+            $('core-state').textContent = '✓ 已完成';
+            $('core-state').classList.add('done');
+          }
+          renderVariants();
+          showCheckResult(taskKey, { passed: true, testCount: task.tests.length });
           renderNavigation();
           renderProgress();
+          $('finish-panel').classList.toggle('show', lesson.id === 10 && completedCount() === LESSONS.length);
+          const refreshedStatus = taskStatusElement(taskKey);
+          if (refreshedStatus) refreshedStatus.textContent = '全部測試通過';
         } else {
-          const failure = firstFailure;
-          const inputLabel = failure.test.input === '' ? '（沒有輸入）' : failure.test.input;
-          let detail = `測試 ${failure.index + 1}\n輸入：\n${inputLabel}\n\n預期輸出：\n${failure.test.output}`;
-          if (failure.error.trim()) {
-            detail += `\n\n程式訊息：\n${failure.error.split('\n').slice(-4).join('\n')}`;
-          } else {
-            detail += `\n\n你的輸出：\n${failure.actual || '（沒有輸出）'}`;
-          }
-          results.innerHTML = `<div class="result-banner error">還差一點點。先比較這組輸入與輸出，再找出不同的地方。</div><pre class="result-detail">${escapeHtml(detail)}</pre>`;
-          $('runner-status').textContent = '找到一個可以修正的地方';
+          showCheckResult(taskKey, { passed: false, ...failure });
+          status.textContent = '找到一個可以修正的地方';
         }
       } catch (error) {
-        results.innerHTML = `<div class="result-banner error">目前無法執行程式。請確認網路連線，稍後再試一次。</div>`;
-        $('runner-status').textContent = 'Python 環境未完成準備';
+        if (currentLessonId === lesson.id) {
+          result.innerHTML = '<div class="result-banner error">目前無法載入 Python 環境，請確認網路連線後再試一次。</div>';
+          status.textContent = 'Python 環境準備失敗';
+        }
       } finally {
-        running = false;
-        $('run-button').disabled = false;
+        setRunnersDisabled(false);
       }
     }
 
     function resetEditor() {
       const lesson = getLesson(currentLessonId);
       editor.value = lesson.starter;
+      localStorage.removeItem(draftKey(lesson.id, 'core'));
       localStorage.removeItem(STORAGE_DRAFT_PREFIX + lesson.id);
       $('test-results').classList.remove('show');
       $('draft-state').textContent = '已重設';
@@ -1330,7 +1799,7 @@ sys.stderr = _stderr
       $('mobile-course-button').setAttribute('aria-expanded', 'false');
     }
 
-    $('run-button').addEventListener('click', checkCode);
+    $('run-button').addEventListener('click', () => checkAnswer('core'));
     $('reset-button').addEventListener('click', resetEditor);
     editor.addEventListener('input', saveDraft);
     editor.addEventListener('keydown', event => {
@@ -1341,7 +1810,45 @@ sys.stderr = _stderr
         editor.selectionStart = editor.selectionEnd = start + 4;
         saveDraft();
       }
-      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') checkCode();
+      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') checkAnswer('core');
+    });
+
+    $('variant-list').addEventListener('input', event => {
+      if (!event.target.matches('.variant-editor')) return;
+      localStorage.setItem(draftKey(currentLessonId, event.target.dataset.task), event.target.value);
+      const state = event.target.closest('.runner').querySelector('.draft-state');
+      state.textContent = '已保存';
+      clearTimeout(draftTimer);
+      draftTimer = setTimeout(() => { state.textContent = '會自動保存'; }, 1400);
+    });
+
+    $('variant-list').addEventListener('keydown', event => {
+      if (!event.target.matches('.variant-editor')) return;
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const start = event.target.selectionStart;
+        event.target.value = event.target.value.slice(0, start) + '    ' + event.target.value.slice(event.target.selectionEnd);
+        event.target.selectionStart = event.target.selectionEnd = start + 4;
+        event.target.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') checkAnswer(event.target.dataset.task);
+    });
+
+    $('variant-list').addEventListener('click', event => {
+      const checkButton = event.target.closest('.variant-check');
+      if (checkButton) checkAnswer(checkButton.dataset.task);
+
+      const resetButton = event.target.closest('.variant-reset');
+      if (resetButton) {
+        const taskKey = resetButton.dataset.task;
+        const variant = getTask(getLesson(currentLessonId), taskKey);
+        const variantEditor = document.querySelector(`.variant-editor[data-task="${taskKey}"]`);
+        variantEditor.value = variant.starter;
+        localStorage.removeItem(draftKey(currentLessonId, taskKey));
+        const result = document.querySelector(`[data-result="${taskKey}"]`);
+        result.classList.remove('show');
+        variantEditor.focus();
+      }
     });
 
     $('previous-button').addEventListener('click', () => showLesson(currentLessonId - 1));
@@ -1351,6 +1858,7 @@ sys.stderr = _stderr
     });
     $('sidebar-scrim').addEventListener('click', closeSidebar);
 
+    migrateLegacyProgress();
     const hashMatch = location.hash.match(/^#lesson-(\d+)$/);
     const initialLesson = hashMatch ? Math.min(10, Math.max(1, Number(hashMatch[1]))) : 1;
     showLesson(initialLesson, { keepScroll: true });

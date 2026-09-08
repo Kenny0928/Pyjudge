@@ -1,8 +1,8 @@
 # 🐍 PyJudge — Python 自學講義與線上評測系統
 
-PyJudge 是一個可直接部署到 **GitHub Pages** 的 Python 自學網站。首頁提供初階、中階、高階講義與 Judge 系統四個入口；目前已完成初階講義，學生可以依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」的引導完成 10 個基礎例題。
+PyJudge 是一個可直接部署到 **GitHub Pages** 的 Python 自學網站。首頁提供初階、中階、高階講義與 Judge 系統四個入口；目前已完成初階講義，學生可以依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」的引導完成 10 個基礎概念。每關包含 1 題核心題與 2 題直接顯示的變體，共 30 題練習。
 
-網站使用 **Pyodide**（Python in WebAssembly）在瀏覽器內執行學生的 Python 程式碼，無需後端伺服器。
+初階講義與 Judge 系統都使用 **Pyodide**（Python in WebAssembly）在瀏覽器內執行學生的 Python 程式碼，再將輸出與前端隱藏測資的預期結果比對。整份初階講義共用一個延遲載入的執行環境，不需要後端伺服器。
 
 https://kenny0928.github.io/Pyjudge/
 
@@ -10,9 +10,9 @@ https://kenny0928.github.io/Pyjudge/
 ## ✨ 功能特色
 
 - 🧭 首頁四入口學習選單
-- 🌱 10 關學生版初階自學講義
-- 🧪 講義內建多組測試、錯誤提示與學習進度保存
-- 🐍 在瀏覽器內執行 Python 3（Pyodide）
+- 🌱 10 關學生版初階自學講義，每關含核心題與變體 A、B
+- 🧪 講義以多組隱藏測資核對程式輸出，支援不同的正確寫法
+- 🐍 初階 30 題共用一個延遲載入的 Python 3 執行環境（Pyodide）
 - 🎨 CodeMirror 程式碼編輯器（Dracula 深色主題）
 - 📋 題目資料獨立為 JSON 檔，易於新增與維護
 - ✅ 自動評測所有測資，顯示 AC / WA / TLE / RE 結果
@@ -159,7 +159,7 @@ python3 -m http.server 8080
 | 僅支援 Python | Pyodide 只執行 Python 3 |
 | TLE 為近似值 | 無法強制中止無窮迴圈（瀏覽器會卡住）|
 | 首次載入較慢 | Pyodide 約 30MB，視網速需等 10～30 秒 |
-| 需要網路連線 | CDN 資源需要網路 |
+| 首次執行需要網路 | 初階講義與 Judge 的 Pyodide 由外部 CDN 載入，後續題目共用已載入的環境 |
 
 ---
 
