@@ -16,6 +16,6 @@
     { "input": "12345",       "output": "54321"       },
     { "input": "a",           "output": "a"           },
     { "input": "abcdefghij",  "output": "jihgfedcba"  },
-    { "input": "PyJudge2025", "output": "5202eguJyP"  }
+    { "input": "SkillLab2025", "output": "5202baLllikS"  }
   ]
 }

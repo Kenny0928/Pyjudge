@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Judge 系統｜PyJudge 自學基地</title>
+  <title>Judge 系統｜SkillLab</title>
 
   <!-- CodeMirror -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
@@ -833,7 +833,7 @@
   <!-- ══════════════ Header ══════════════ -->
   <header>
     <a class="logo" href="index.html">
-      <span>🐍</span> PyJudge
+      <span>🧪</span> SkillLab
     </a>
     <a class="nav-link" href="index.html">學習選單</a>
     <span class="nav-link active" onclick="showView('list')">題目列表</span>
@@ -923,6 +923,8 @@
   <!-- Toast -->
   <div id="toast"></div>
 
+  <!-- 直接以 file:// 開啟時使用的新增題目備援資料 -->
+  <script src="problems/fallback-new.js"></script>
   <script>
     // ═══════════════════════════════════════════════
     //  PROBLEM LOADER  （資料來自 problems/*.json）
@@ -953,7 +955,7 @@
         "title": "Hello World",
         "difficulty": "Easy",
         "tags": ["入門", "輸出"],
-        "description": "<p>歡迎來到 PyJudge！這是你的第一題。</p><p>請寫一個程式，在螢幕上輸出 <code>hello world</code>。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>在 Python 中，你可以使用 <code>print()</code> 函式來輸出文字。</p></div>",
+        "description": "<p>歡迎來到 SkillLab！這是你的第一題。</p><p>請寫一個程式，在螢幕上輸出 <code>hello world</code>。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>在 Python 中，你可以使用 <code>print()</code> 函式來輸出文字。</p></div>",
         "inputFormat": "<p>無任何輸入。</p>",
         "outputFormat": "<p>一行，輸出 <code>hello world</code>。</p>",
         "constraints": "<ul><li>無</li></ul>",
@@ -1086,7 +1088,7 @@
           { "input": "12345", "output": "54321" },
           { "input": "a", "output": "a" },
           { "input": "abcdefghij", "output": "jihgfedcba" },
-          { "input": "PyJudge2025", "output": "5202eguJyP" }
+          { "input": "SkillLab2025", "output": "5202baLllikS" }
         ]
       },
       7: {
@@ -1172,6 +1174,8 @@
         ]
       }
     };
+    // 合併 problems/fallback-new.js 中的新增題目，讓直接雙擊 HTML 也能載入完整 21 題。
+    Object.assign(PROBLEMS_DATA, window.NEW_PROBLEMS_DATA || {});
     const PROBLEMS = [];
 
 

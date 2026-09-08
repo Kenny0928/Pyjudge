@@ -1,0 +1,28 @@
+{
+  "id": 12,
+  "title": "兩數比大小",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "比較運算"],
+  "audienceLevel": "E-MID",
+  "platformMode": "Python",
+  "learningObjectives": ["使用 if/elif/else 與關係運算子比較兩個整數"],
+  "prerequisites": ["整數輸入", "變數", "條件判斷"],
+  "description": "<p>請寫一個程式，輸入兩個整數 <code>A</code> 和 <code>B</code>，比較它們的大小。</p><ul><li>若 A 大於 B，輸出 <code>A &gt; B</code></li><li>若 A 小於 B，輸出 <code>A &lt; B</code></li><li>若兩者相等，輸出 <code>A == B</code></li></ul>",
+  "inputFormat": "<p>第一行包含兩個整數 <code>A</code> 和 <code>B</code>，以半形空格分隔。</p>",
+  "outputFormat": "<p>輸出 <code>A &gt; B</code>、<code>A &lt; B</code> 或 <code>A == B</code>；符號兩側各有一個半形空格。</p>",
+  "constraints": "<ul><li>-10000 ≤ A, B ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "10 5",
+  "sampleOutput": "A > B",
+  "testCases": [
+    {"input": "10 5", "output": "A > B"},
+    {"input": "3 8", "output": "A < B"},
+    {"input": "7 7", "output": "A == B"},
+    {"input": "0 0", "output": "A == B"},
+    {"input": "-2 3", "output": "A < B"},
+    {"input": "5 -5", "output": "A > B"},
+    {"input": "-10 -20", "output": "A > B"},
+    {"input": "10000 10000", "output": "A == B"}
+  ]
+}

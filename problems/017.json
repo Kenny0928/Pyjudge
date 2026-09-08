@@ -1,0 +1,28 @@
+{
+  "id": 17,
+  "title": "班級成績統計",
+  "difficulty": "Easy",
+  "tags": ["陣列", "平均計算", "計數器"],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": ["同時使用總和累加器與條件計數器處理一批成績"],
+  "prerequisites": ["清單", "迴圈", "條件判斷", "整數除法"],
+  "description": "<p>老師拿到全班 N 位學生的考試成績，請計算：</p><ul><li>全班的平均成績，取整數商</li><li>成績達 60 分以上（含 60 分）的人數</li></ul><p>請依序輸出這兩個數值。</p>",
+  "inputFormat": "<ul><li>第一行：正整數 <code>N</code>，代表學生人數</li><li>第二行：N 個整數成績，以半形空格分隔</li></ul>",
+  "outputFormat": "<ul><li>第一行：全班平均成績，計算方式為總分除以 N 的整數商</li><li>第二行：成績大於或等於 60 的人數</li></ul>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>0 ≤ 每筆成績 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n80 50 60 90 70",
+  "sampleOutput": "70\n4",
+  "testCases": [
+    {"input": "5\n80 50 60 90 70", "output": "70\n4"},
+    {"input": "3\n40 59 30", "output": "43\n0"},
+    {"input": "4\n100 100 100 100", "output": "100\n4"},
+    {"input": "1\n60", "output": "60\n1"},
+    {"input": "1\n59", "output": "59\n0"},
+    {"input": "6\n0 0 0 0 0 0", "output": "0\n0"},
+    {"input": "4\n70 71 72 73", "output": "71\n4"},
+    {"input": "7\n85 92 58 60 77 43 100", "output": "73\n5"}
+  ]
+}

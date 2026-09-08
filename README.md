@@ -1,10 +1,14 @@
-# 🐍 PyJudge — Python 自學講義與線上評測系統
+# 🧪 SkillLab — 從程式學習到實作專題的能力實驗室
 
-PyJudge 是一個可直接部署到 **GitHub Pages** 的 Python 自學網站。首頁提供初階、中階、高階講義與 Judge 系統四個入口；目前已完成初階講義，學生可以依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」的引導完成 10 個基礎概念。每關包含 1 題核心題與 2 題直接顯示的變體，共 30 題練習。
+SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台。目前以可直接部署到 **GitHub Pages** 的 Python 自學講義與線上評測系統為核心；未來將加入 Scratch、Blockly、分齡題庫與學習路徑，並銜接機電整合等真實專題，讓學習者從程式思維一路走向作品實作。
+
+現階段首頁提供初階、中階、高階講義與 Judge 系統四個入口；已完成的初階講義會引導學習者依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」完成 10 個基礎概念。每關包含 1 題核心題與 2 題直接顯示的變體，共 30 題練習。
 
 初階講義與 Judge 系統都使用 **Pyodide**（Python in WebAssembly）在瀏覽器內執行學生的 Python 程式碼，再將輸出與前端隱藏測資的預期結果比對。整份初階講義共用一個延遲載入的執行環境，不需要後端伺服器。
 
 https://kenny0928.github.io/Pyjudge/
+
+完整產品定位、分齡學習路徑與階段性建置方向請見：[SkillLab 未來發展藍圖](docs/SkillLab_未來發展藍圖.md)。
 
 
 ## ✨ 功能特色
@@ -24,10 +28,20 @@ https://kenny0928.github.io/Pyjudge/
 ## 📁 專案結構
 
 ```
-pyjudge/
+skilllab/
 ├── index.html          ← 學習選單首頁
 ├── beginner.html       ← 初階自學講義（10 關）
 ├── judge.html          ← Judge 主程式（UI 邏輯，不含題目資料）
+│
+├── docs/
+│   ├── SkillLab_未來發展藍圖.md  ← 跨年齡、積木程式與機電專題發展方向
+│   └── 題庫總覽與學習階梯.md    ← 六大循序漸進階梯與題庫全景對照
+│
+├── for_AI/
+│   └── AI_AGENT_工作流與開發規範.md ← AI Agent 題庫與網頁維護最高規約 (SOP)
+│
+├── scripts/
+│   └── verify_problems.py      ← 自動化題庫與測資全量檢核工具
 │
 ├── problems/
 │   ├── index.json      ← 題目清單（id、標題、難度、標籤）
@@ -42,6 +56,9 @@ pyjudge/
 ```
 
 > **分工說明**
+> - **`docs/題庫總覽與學習階梯.md`** — 題庫架構藍圖、學習階梯與缺漏過渡題規劃
+> - **`for_AI/AI_AGENT_工作流與開發規範.md`** — AI Agent 與協作者修改題庫與網頁的 SOP
+> - **`scripts/verify_problems.py`** — 驗證題庫格式與 Python 解答是否全部通過測資
 > - **`problems/*.json`** — 維護者只需編輯這裡就能新增或修改題目
 > - **`solutions/*.py`** — 參考解答，不會自動顯示給學生
 > - **`beginner.html`** — 初階講義、引導流程與講義內練習板
@@ -106,7 +123,7 @@ print(s[::-1])
 
 1. 前往 [github.com](https://github.com) 並登入
 2. 點擊右上角 **+** → **New repository**
-3. 輸入倉庫名稱，例如：`pyjudge`，選擇 **Public**
+3. 輸入倉庫名稱，例如：`skilllab`，選擇 **Public**
 4. 點擊 **Create repository**
 
 ### 步驟 2：上傳所有檔案
@@ -122,9 +139,9 @@ print(s[::-1])
 ```bash
 git init
 git add .
-git commit -m "Initial PyJudge"
+git commit -m "Initial SkillLab"
 git branch -M main
-git remote add origin https://github.com/你的帳號/pyjudge.git
+git remote add origin https://github.com/你的帳號/skilllab.git
 git push -u origin main
 ```
 
@@ -134,7 +151,7 @@ git push -u origin main
 2. Source 選 **Deploy from a branch**，Branch 選 **main / (root)**
 3. 點擊 **Save**，等待 1～3 分鐘
 
-你的網站網址：`https://你的帳號.github.io/pyjudge/`
+你的網站網址：`https://你的帳號.github.io/skilllab/`
 
 ---
 
@@ -143,7 +160,7 @@ git push -u origin main
 因為 `fetch()` 在 `file://` 協定下受瀏覽器限制，本機測試需要啟動簡易 HTTP 伺服器：
 
 ```bash
-# 在 pyjudge/ 資料夾下執行
+# 在 skilllab/ 資料夾下執行
 python3 -m http.server 8080
 # 然後開啟瀏覽器前往 http://localhost:8080
 ```
@@ -152,7 +169,7 @@ python3 -m http.server 8080
 
 ---
 
-## ⚠️ 已知限制
+## ⚠️ 現階段已知限制
 
 | 限制 | 說明 |
 |------|------|

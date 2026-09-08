@@ -1,0 +1,28 @@
+{
+  "id": 16,
+  "title": "搜尋目標數字",
+  "difficulty": "Easy",
+  "tags": ["陣列", "線性搜尋", "計數器"],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": ["走訪清單並使用條件計數器統計目標值的出現次數"],
+  "prerequisites": ["清單", "for 迴圈", "條件判斷"],
+  "description": "<p>給定一個包含 N 個整數的清單，以及要尋找的目標數字 <code>K</code>。請計算並輸出 K 在清單中出現的次數。</p><p>若 K 一次都沒有出現，請輸出 <code>0</code>。</p>",
+  "inputFormat": "<ul><li>第一行：兩個整數 <code>N</code> 和 <code>K</code>，以半形空格分隔</li><li>第二行：N 個整數，以半形空格分隔</li></ul>",
+  "outputFormat": "<p>輸出一個整數，代表 K 在清單中出現的次數。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-1000 ≤ K ≤ 1000</li><li>-1000 ≤ 每個清單元素 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6 3\n1 3 5 3 2 3",
+  "sampleOutput": "3",
+  "testCases": [
+    {"input": "6 3\n1 3 5 3 2 3", "output": "3"},
+    {"input": "5 8\n1 2 3 4 5", "output": "0"},
+    {"input": "4 7\n7 7 7 7", "output": "4"},
+    {"input": "1 0\n0", "output": "1"},
+    {"input": "1 5\n9", "output": "0"},
+    {"input": "6 -2\n-2 4 -2 0 -2 8", "output": "3"},
+    {"input": "10 0\n0 1 0 2 0 3 0 4 0 5", "output": "5"},
+    {"input": "8 999\n10 20 30 40 50 60 70 80", "output": "0"}
+  ]
+}
