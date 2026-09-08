@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="給 Python 初學者的十關自學講義：先預測、再拆解、動手測試，從輸出學到迴圈與累加。" />
   <title>初階講義｜SkillLab</title>
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
   <style>
     :root {
       --bg: #0f172a;
@@ -488,6 +495,26 @@
       font: 0.9rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       tab-size: 4;
     }
+
+    /* ── CodeMirror wrapper inside beginner.html ── */
+    .CodeMirror {
+      height: auto;
+      min-height: 245px;
+      background: #0b1120;
+      font-family: 'Consolas', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .CodeMirror-scroll {
+      min-height: 245px;
+    }
+
+    .CodeMirror-gutters {
+      background: #0b1120;
+      border-right: 1px solid #1e293b;
+    }
+
 
     .runner-actions {
       padding: 12px;
@@ -1435,7 +1462,23 @@
     let draftTimer = null;
 
     const $ = id => document.getElementById(id);
-    const editor = $('code-editor');
+    const editor = CodeMirror.fromTextArea($('code-editor'), {
+      mode: 'python',
+      theme: 'dracula',
+      lineNumbers: true,
+      indentUnit: 4,
+      tabSize: 4,
+      indentWithTabs: false,
+      autoCloseBrackets: true,
+      matchBrackets: true,
+      lineWrapping: false,
+      extraKeys: {
+        'Tab': cm => cm.execCommand('insertSoftTab'),
+        'Ctrl-Enter': () => checkAnswer('core'),
+        'Cmd-Enter':  () => checkAnswer('core'),
+      },
+    });
+    editor.on('change', saveDraft);
 
     function escapeHtml(value) {
       return String(value)
@@ -1521,9 +1564,12 @@
       $('step-list').innerHTML = lesson.steps.map((step, index) => `<li data-step="${index + 1}">${escapeHtml(step)}</li>`).join('');
       $('hint-content').textContent = lesson.hint;
       $('checkpoint-question').textContent = lesson.checkpoint;
-      editor.value = localStorage.getItem(draftKey(lesson.id, 'core'))
+      editor.setValue(
+        localStorage.getItem(draftKey(lesson.id, 'core'))
         ?? localStorage.getItem(STORAGE_DRAFT_PREFIX + lesson.id)
-        ?? lesson.starter;
+        ?? lesson.starter
+      );
+      editor.clearHistory();
       $('draft-state').textContent = '會自動保存';
       $('test-results').classList.remove('show');
       $('test-results').innerHTML = '';
@@ -1541,11 +1587,11 @@
 
       history.replaceState(null, '', `#lesson-${lesson.id}`);
       if (!options.keepScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-      editor.focus({ preventScroll: true });
+      editor.focus();
     }
 
     function saveDraft() {
-      localStorage.setItem(draftKey(currentLessonId, 'core'), editor.value);
+      localStorage.setItem(draftKey(currentLessonId, 'core'), editor.getValue());
       $('draft-state').textContent = '已保存';
       clearTimeout(draftTimer);
       draftTimer = setTimeout(() => { $('draft-state').textContent = '會自動保存'; }, 1400);
@@ -1556,13 +1602,14 @@
       return lesson.variants[taskKey === 'a' ? 0 : 1];
     }
 
+    const variantEditors = {};  // taskKey -> CodeMirror instance
+
     function renderVariants() {
       const lesson = getLesson(currentLessonId);
       $('variant-list').innerHTML = lesson.variants.map((variant, index) => {
         const taskKey = index === 0 ? 'a' : 'b';
         const done = isTaskComplete(lesson.id, taskKey);
         const label = index === 0 ? '變體 A' : '變體 B';
-        const savedDraft = localStorage.getItem(draftKey(lesson.id, taskKey)) ?? variant.starter;
         return `
           <article class="variant-card" data-task="${taskKey}">
             <div class="variant-heading"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '✓ 已完成' : '尚未完成'}</span></div>
@@ -1574,7 +1621,7 @@
               </div>
               <div class="runner">
                 <div class="runner-toolbar"><span>🐍 Python 3</span><span>${label} 練習板</span><span class="draft-state">會自動保存</span></div>
-                <textarea class="code-editor variant-editor" data-task="${taskKey}" spellcheck="false" aria-label="${label} Python 程式碼編輯區">${escapeHtml(savedDraft)}</textarea>
+                <textarea class="variant-editor-placeholder" data-task="${taskKey}" style="display:none"></textarea>
                 <div class="runner-actions">
                   <button class="button button-primary variant-check" data-task="${taskKey}" type="button">▶ 執行並檢查</button>
                   <button class="button button-secondary variant-reset" data-task="${taskKey}" type="button">重設</button>
@@ -1586,6 +1633,45 @@
             </div>
           </article>`;
       }).join('');
+
+      // Upgrade each placeholder to a CodeMirror instance
+      lesson.variants.forEach((variant, index) => {
+        const taskKey = index === 0 ? 'a' : 'b';
+        const savedDraft = localStorage.getItem(draftKey(lesson.id, taskKey)) ?? variant.starter;
+        const placeholder = document.querySelector(`.variant-editor-placeholder[data-task="${taskKey}"]`);
+        // Create a wrapper div to mount CodeMirror into, then replace the placeholder
+        const mount = document.createElement('div');
+        placeholder.replaceWith(mount);
+        const cm = CodeMirror(mount, {
+          value: savedDraft,
+          mode: 'python',
+          theme: 'dracula',
+          lineNumbers: true,
+          indentUnit: 4,
+          tabSize: 4,
+          indentWithTabs: false,
+          autoCloseBrackets: true,
+          matchBrackets: true,
+          lineWrapping: false,
+          extraKeys: {
+            'Tab': cm => cm.execCommand('insertSoftTab'),
+            'Ctrl-Enter': () => checkAnswer(taskKey),
+            'Cmd-Enter':  () => checkAnswer(taskKey),
+          },
+        });
+        variantEditors[taskKey] = cm;
+
+        // Auto-save on change
+        cm.on('change', () => {
+          localStorage.setItem(draftKey(currentLessonId, taskKey), cm.getValue());
+          const state = cm.getWrapperElement().closest('.runner')?.querySelector('.draft-state');
+          if (state) {
+            state.textContent = '已保存';
+            clearTimeout(draftTimer);
+            draftTimer = setTimeout(() => { state.textContent = '會自動保存'; }, 1400);
+          }
+        });
+      });
     }
 
     function taskResultElement(taskKey) {
@@ -1719,8 +1805,8 @@ sys.stderr = _stderr
       if (running) return;
       const lesson = getLesson(currentLessonId);
       const task = getTask(lesson, taskKey);
-      const taskEditor = taskKey === 'core' ? editor : document.querySelector(`.variant-editor[data-task="${taskKey}"]`);
-      const code = taskEditor.value;
+      const cm = taskKey === 'core' ? editor : variantEditors[taskKey];
+      const code = cm.getValue();
       const status = taskStatusElement(taskKey);
 
       if (!code.trim()) {
@@ -1781,7 +1867,8 @@ sys.stderr = _stderr
 
     function resetEditor() {
       const lesson = getLesson(currentLessonId);
-      editor.value = lesson.starter;
+      editor.setValue(lesson.starter);
+      editor.clearHistory();
       localStorage.removeItem(draftKey(lesson.id, 'core'));
       localStorage.removeItem(STORAGE_DRAFT_PREFIX + lesson.id);
       $('test-results').classList.remove('show');
@@ -1801,38 +1888,8 @@ sys.stderr = _stderr
 
     $('run-button').addEventListener('click', () => checkAnswer('core'));
     $('reset-button').addEventListener('click', resetEditor);
-    editor.addEventListener('input', saveDraft);
-    editor.addEventListener('keydown', event => {
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        const start = editor.selectionStart;
-        editor.value = editor.value.slice(0, start) + '    ' + editor.value.slice(editor.selectionEnd);
-        editor.selectionStart = editor.selectionEnd = start + 4;
-        saveDraft();
-      }
-      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') checkAnswer('core');
-    });
-
-    $('variant-list').addEventListener('input', event => {
-      if (!event.target.matches('.variant-editor')) return;
-      localStorage.setItem(draftKey(currentLessonId, event.target.dataset.task), event.target.value);
-      const state = event.target.closest('.runner').querySelector('.draft-state');
-      state.textContent = '已保存';
-      clearTimeout(draftTimer);
-      draftTimer = setTimeout(() => { state.textContent = '會自動保存'; }, 1400);
-    });
-
-    $('variant-list').addEventListener('keydown', event => {
-      if (!event.target.matches('.variant-editor')) return;
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        const start = event.target.selectionStart;
-        event.target.value = event.target.value.slice(0, start) + '    ' + event.target.value.slice(event.target.selectionEnd);
-        event.target.selectionStart = event.target.selectionEnd = start + 4;
-        event.target.dispatchEvent(new Event('input', { bubbles: true }));
-      }
-      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') checkAnswer(event.target.dataset.task);
-    });
+    // Tab / Ctrl+Enter for the core editor are handled via CodeMirror extraKeys above.
+    // Variant editor events (input, keydown) are handled inside renderVariants() via cm.on('change').
 
     $('variant-list').addEventListener('click', event => {
       const checkButton = event.target.closest('.variant-check');
@@ -1842,12 +1899,15 @@ sys.stderr = _stderr
       if (resetButton) {
         const taskKey = resetButton.dataset.task;
         const variant = getTask(getLesson(currentLessonId), taskKey);
-        const variantEditor = document.querySelector(`.variant-editor[data-task="${taskKey}"]`);
-        variantEditor.value = variant.starter;
+        const cm = variantEditors[taskKey];
+        if (cm) {
+          cm.setValue(variant.starter);
+          cm.clearHistory();
+        }
         localStorage.removeItem(draftKey(currentLessonId, taskKey));
         const result = document.querySelector(`[data-result="${taskKey}"]`);
-        result.classList.remove('show');
-        variantEditor.focus();
+        if (result) result.classList.remove('show');
+        if (cm) cm.focus();
       }
     });
 
