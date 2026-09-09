@@ -1,0 +1,152 @@
+{
+  "format": "skilllab-blockly",
+  "version": 1,
+  "workspace": {
+    "variables": [
+      {
+        "id": "numbers",
+        "name": "numbers"
+      },
+      {
+        "id": "total",
+        "name": "total"
+      },
+      {
+        "id": "item",
+        "name": "item"
+      }
+    ],
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "variables_set",
+          "fields": {
+            "VAR": {
+              "id": "numbers"
+            }
+          },
+          "inputs": {
+            "VALUE": {
+              "block": {
+                "type": "lists_split",
+                "fields": {
+                  "MODE": "SPLIT"
+                },
+                "inputs": {
+                  "INPUT": {
+                    "block": {
+                      "type": "judge_read_line"
+                    }
+                  },
+                  "DELIM": {
+                    "block": {
+                      "type": "text",
+                      "fields": {
+                        "TEXT": " "
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "next": {
+            "block": {
+              "type": "variables_set",
+              "fields": {
+                "VAR": {
+                  "id": "total"
+                }
+              },
+              "inputs": {
+                "VALUE": {
+                  "block": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 0
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "controls_forEach",
+                  "fields": {
+                    "VAR": {
+                      "id": "item"
+                    }
+                  },
+                  "inputs": {
+                    "LIST": {
+                      "block": {
+                        "type": "variables_get",
+                        "fields": {
+                          "VAR": {
+                            "id": "numbers"
+                          }
+                        }
+                      }
+                    },
+                    "DO": {
+                      "block": {
+                        "type": "math_change",
+                        "fields": {
+                          "VAR": {
+                            "id": "total"
+                          }
+                        },
+                        "inputs": {
+                          "DELTA": {
+                            "block": {
+                              "type": "judge_number",
+                              "fields": {
+                                "KIND": "int"
+                              },
+                              "inputs": {
+                                "VALUE": {
+                                  "block": {
+                                    "type": "variables_get",
+                                    "fields": {
+                                      "VAR": {
+                                        "id": "item"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "judge_print",
+                      "fields": {
+                        "END": "NEWLINE"
+                      },
+                      "inputs": {
+                        "VALUE": {
+                          "block": {
+                            "type": "variables_get",
+                            "fields": {
+                              "VAR": {
+                                "id": "total"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

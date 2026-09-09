@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scratch 整合驗證</title>
+  <style>body{font:15px/1.6 system-ui,sans-serif;margin:24px;color:#282234}iframe{width:100%;height:520px;border:1px solid #ddd;border-radius:8px}.pass{color:#147d45}.fail{color:#b42335}#summary{font-weight:bold}li{white-space:pre-wrap}button{padding:8px 16px;margin-bottom:12px}</style>
+</head>
+<body>
+  <h1>Scratch 整合驗證</h1>
+  <p>以實際 Scratch iframe、標準 Scratch 專案與 Worker 執行；頁面會自動測試。</p>
+  <button id="rerun" disabled>重新測試</button>
+  <p id="summary" role="status">等待 Scratch 載入…</p>
+  <ol id="results"></ol>
+  <iframe id="scratch" title="待驗證的 Scratch 編輯器"></iframe>
+  <script src="verify-scratch.js"></script>
+</body>
+</html>

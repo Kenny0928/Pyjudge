@@ -1,0 +1,94 @@
+{
+  "targets": [
+    {
+      "isStage": true,
+      "name": "Stage",
+      "variables": {
+        "total": [
+          "total",
+          0
+        ],
+        "i": [
+          "i",
+          0
+        ]
+      },
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        "hat": {
+          "opcode": "event_whenflagclicked",
+          "parent": null,
+          "next": "say1",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 40
+        },
+        "say1": {
+          "opcode": "looks_say",
+          "parent": "hat",
+          "next": "say2",
+          "inputs": {
+            "MESSAGE": [
+              1,
+              [
+                10,
+                "我是小幫手"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "say2": {
+          "opcode": "looks_say",
+          "parent": "say1",
+          "next": null,
+          "inputs": {
+            "MESSAGE": [
+              1,
+              [
+                10,
+                "準備完成"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        }
+      },
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "name": "blank",
+          "assetId": "0ac33de9d7138a386563727540d10055",
+          "md5ext": "0ac33de9d7138a386563727540d10055.svg",
+          "dataFormat": "svg",
+          "bitmapResolution": 1,
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        }
+      ],
+      "sounds": [],
+      "volume": 100,
+      "layerOrder": 0,
+      "tempo": 60,
+      "videoTransparency": 50,
+      "videoState": "off",
+      "textToSpeechLanguage": null
+    }
+  ],
+  "monitors": [],
+  "extensions": [],
+  "meta": {
+    "semver": "3.0.0",
+    "vm": "5.0.300",
+    "agent": "SkillLab integration tests"
+  }
+}

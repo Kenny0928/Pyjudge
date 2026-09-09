@@ -1,0 +1,25 @@
+{
+  "format": "skilllab-blockly",
+  "version": 1,
+  "workspace": {
+    "variables": [{"name":"n","id":"n"},{"name":"total","id":"total"},{"name":"i","id":"i"}],
+    "blocks": {"languageVersion": 0, "blocks": [{
+      "type":"variables_set", "fields":{"VAR":{"id":"n"}},
+      "inputs":{"VALUE":{"block":{"type":"judge_read_integer"}}},
+      "next":{"block":{
+        "type":"variables_set", "fields":{"VAR":{"id":"total"}},
+        "inputs":{"VALUE":{"block":{"type":"math_number","fields":{"NUM":0}}}},
+        "next":{"block":{
+          "type":"controls_for", "fields":{"VAR":{"id":"i"}},
+          "inputs":{
+            "FROM":{"block":{"type":"math_number","fields":{"NUM":1}}},
+            "TO":{"block":{"type":"variables_get","fields":{"VAR":{"id":"n"}}}},
+            "BY":{"block":{"type":"math_number","fields":{"NUM":1}}},
+            "DO":{"block":{"type":"math_change","fields":{"VAR":{"id":"total"}},"inputs":{"DELTA":{"block":{"type":"variables_get","fields":{"VAR":{"id":"i"}}}}}}}
+          },
+          "next":{"block":{"type":"judge_print","fields":{"END":"NEWLINE"},"inputs":{"VALUE":{"block":{"type":"variables_get","fields":{"VAR":{"id":"total"}}}}}}}
+        }}
+      }}
+    }]}
+  }
+}

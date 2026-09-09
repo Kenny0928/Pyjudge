@@ -1,0 +1,27 @@
+.programming-editor { min-width: 0; width: 100%; }
+.programming-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:10px 12px; background:#252738; color:#f8f8f2; border-bottom:1px solid #44475a; font:14px/1.5 system-ui,sans-serif; }
+.programming-toolbar label { display:flex; align-items:center; gap:8px; font-weight:600; }
+.programming-toolbar select, .programming-toolbar button { border:1px solid #777b96; border-radius:6px; background:#343648; color:#f8f8f2; padding:6px 10px; font:inherit; }
+.programming-toolbar :focus-visible { outline:3px solid #8be9fd; outline-offset:2px; }
+.programming-status { font-size:12px; color:#c4c8dc; }
+.programming-help { margin:0; padding:9px 12px; font:13px/1.6 system-ui,sans-serif; color:#d5d9ed; background:#292d40; }
+.programming-frames { height:490px; min-height:360px; }
+.programming-frames iframe { width:100%; height:100%; border:0; display:block; background:#f9f9fc; }
+.programming-frames[hidden], .programming-frames iframe[hidden], .programming-help[hidden], .programming-toolbar [hidden] { display:none !important; }
+.editor-area:has(.programming-editor) { display:flex; flex-direction:column; min-height:0; }
+.editor-area .programming-editor:has(.programming-frames:not([hidden])) { display:flex; flex-direction:column; flex:1; min-height:0; }
+.editor-area .programming-frames { flex:1; min-height:180px; height:auto; }
+.editor-area .programming-toolbar, .editor-area .programming-help { flex-shrink:0; }
+.split-layout:has(.programming-editor), .editor-panel:has(.programming-editor) { min-height:0; }
+.editor-panel:has(.programming-editor) > .editor-toolbar, .editor-panel:has(.programming-editor) > .submit-bar { flex-shrink:0; }
+@media(max-width:600px) { .programming-frames { height:450px; } .programming-toolbar { gap:6px; } .programming-status { flex-basis:100%; } }
+@media(max-width:768px) {
+  #view-problem:has(.programming-editor) { height:auto; }
+  .split-layout:has(.programming-editor) { overflow:visible; }
+  .split-layout:has(.programming-editor) > .desc-panel { height:auto; max-height:48vh; }
+  .editor-panel:has(.programming-editor) { min-height:0; overflow:visible; }
+  .editor-area:has(.programming-editor) { flex:none; overflow:visible; }
+  .editor-area .programming-editor:has(.programming-frames:not([hidden])) { flex:none; }
+  .editor-area .programming-frames { flex:none; height:480px; min-height:480px; }
+  .editor-area > .CodeMirror { flex:none; height:360px !important; }
+}

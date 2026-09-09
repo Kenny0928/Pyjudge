@@ -1,0 +1,187 @@
+{
+  "targets": [
+    {
+      "isStage": true,
+      "name": "Stage",
+      "variables": {
+        "total": [
+          "total",
+          0
+        ],
+        "i": [
+          "i",
+          0
+        ]
+      },
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        "hat": {
+          "opcode": "event_whenflagclicked",
+          "parent": null,
+          "next": "ask",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 40
+        },
+        "ask": {
+          "opcode": "sensing_askandwait",
+          "parent": "hat",
+          "next": "repeat",
+          "inputs": {
+            "QUESTION": [
+              1,
+              [
+                10,
+                "#token"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "repeat": {
+          "opcode": "control_repeat",
+          "parent": "ask",
+          "next": "say",
+          "inputs": {
+            "TIMES": [
+              2,
+              "answer"
+            ],
+            "SUBSTACK": [
+              2,
+              "increment"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "answer": {
+          "opcode": "sensing_answer",
+          "parent": "repeat",
+          "next": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "increment": {
+          "opcode": "data_changevariableby",
+          "parent": "repeat",
+          "next": "accumulate",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "i",
+              "i"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "accumulate": {
+          "opcode": "data_changevariableby",
+          "parent": "increment",
+          "next": null,
+          "inputs": {
+            "VALUE": [
+              2,
+              "readI"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "total",
+              "total"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "readI": {
+          "opcode": "data_variable",
+          "parent": "accumulate",
+          "next": null,
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "i",
+              "i"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "say": {
+          "opcode": "looks_say",
+          "parent": "repeat",
+          "next": null,
+          "inputs": {
+            "MESSAGE": [
+              2,
+              "readTotal"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "readTotal": {
+          "opcode": "data_variable",
+          "parent": "say",
+          "next": null,
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "total",
+              "total"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        }
+      },
+      "comments": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "name": "blank",
+          "assetId": "0ac33de9d7138a386563727540d10055",
+          "md5ext": "0ac33de9d7138a386563727540d10055.svg",
+          "dataFormat": "svg",
+          "bitmapResolution": 1,
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        }
+      ],
+      "sounds": [],
+      "volume": 100,
+      "layerOrder": 0,
+      "tempo": 60,
+      "videoTransparency": 50,
+      "videoState": "off",
+      "textToSpeechLanguage": null
+    }
+  ],
+  "monitors": [],
+  "extensions": [],
+  "meta": {
+    "semver": "3.0.0",
+    "vm": "5.0.300",
+    "agent": "SkillLab integration tests"
+  }
+}

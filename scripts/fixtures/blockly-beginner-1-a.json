@@ -1,0 +1,19 @@
+{
+  "format": "skilllab-blockly",
+  "version": 1,
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [{
+        "type": "judge_print",
+        "fields": {"END": "NEWLINE"},
+        "inputs": {"VALUE": {"block": {"type": "text", "fields": {"TEXT": "Hello!"}}}},
+        "next": {"block": {
+          "type": "judge_print",
+          "fields": {"END": "NEWLINE"},
+          "inputs": {"VALUE": {"block": {"type": "text", "fields": {"TEXT": "我會寫程式"}}}}
+        }}
+      }]
+    }
+  }
+}
