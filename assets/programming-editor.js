@@ -97,7 +97,7 @@
       this.help.hidden = python;
       this.help.textContent = language === 'scratch'
         ? '接在綠旗下面開始。「詢問」逐行讀取測資，「回答」取得輸入；「說出」每次輸出一行。讀取空白分隔的數值時，使用「詢問 #token」後取「回答」。'
-        : '從「輸入／輸出」開始：可逐行或逐個讀取數值，再輸出答案。積木會轉成 Python；三種方式各自保存草稿。';
+        : '整數題先拖「拿下一個整數」；每放一塊，就會依序拿到下一個輸入值，最後用「輸出答案」。積木會轉成 Python；三種方式各自保存草稿。';
       this.status.textContent = python ? '草稿自動保存' : '載入積木編輯器…';
       this.retry.hidden = true;
       this.frames.forEach((frame, mode) => { frame.element.hidden = mode !== language; });

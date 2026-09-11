@@ -7,19 +7,34 @@
   const message = document.getElementById('message');
   let loading = true;
   const inputTypes = [
-    ['judge_read_line', '讀取下一行文字', 'String', '_skilllab_line()'],
-    ['judge_read_token', '讀取下一個文字（空白分隔）', 'String', '_skilllab_token()'],
-    ['judge_read_number', '讀取下一個數值（空白分隔）', 'Number', 'float(_skilllab_token())'],
-    ['judge_read_integer', '讀取下一個整數（空白分隔）', 'Number', 'int(_skilllab_token())'],
-    ['judge_read_all', '讀取剩下所有文字', 'String', '_skilllab_stream.read()']
+    {
+      type: 'judge_read_integer', label: '拿下一個整數', output: 'Number', code: 'int(_skilllab_token())',
+      tooltip: '最常用。每放一塊，就從測資依序拿下一個整數。例如輸入「3 5」，第一塊得到 3，第二塊得到 5。'
+    },
+    {
+      type: 'judge_read_number', label: '拿下一個數字（可含小數）', output: 'Number', code: 'float(_skilllab_token())',
+      tooltip: '每放一塊，就從測資依序拿下一個數字，例如 3.14。'
+    },
+    {
+      type: 'judge_read_token', label: '拿下一段文字', output: 'String', code: '_skilllab_token()',
+      tooltip: '讀到空格或換行為止。例如輸入「hello world」，第一塊得到 hello。'
+    },
+    {
+      type: 'judge_read_line', label: '拿下一整行文字', output: 'String', code: '_skilllab_line()',
+      tooltip: '讀取完整的一行，中間的空格會保留。例如輸入「hello world」，會得到 hello world。'
+    },
+    {
+      type: 'judge_read_all', label: '拿剩下的全部文字', output: 'String', code: '_skilllab_stream.read()',
+      tooltip: '一次讀取尚未使用的全部測資，包含其中的換行。'
+    }
   ];
   const ioDefinitions = `import io as _skilllab_io\nimport sys as _skilllab_sys\n_skilllab_stream = _skilllab_io.StringIO(_skilllab_sys.stdin.read(), newline=None)\ndef _skilllab_line():\n    line = _skilllab_stream.readline()\n    if line == '':\n        raise EOFError('題目輸入已讀完')\n    return line.rstrip('\\n').rstrip('\\r')\ndef _skilllab_token():\n    token = ''\n    while True:\n        char = _skilllab_stream.read(1)\n        if not char:\n            if token: return token\n            raise EOFError('題目輸入已讀完')\n        if char.isspace():\n            if token: return token\n        else:\n            token += char\n`;
   Blockly.defineBlocksWithJsonArray([
-    ...inputTypes.map(([type, message0, output]) => ({ type, message0, output, colour: 190, tooltip: '由本題測資讀取，不會跳出輸入視窗。' })),
-    { type: 'judge_print', message0: '輸出 %1 %2', args0: [{ type: 'input_value', name: 'VALUE' }, { type: 'field_dropdown', name: 'END', options: [['並換行', 'NEWLINE'], ['後接空格', 'SPACE'], ['不換行', 'NONE']] }], previousStatement: null, nextStatement: null, colour: 190 },
+    ...inputTypes.map(({type, label, output, tooltip}) => ({ type, message0: label, output, colour: 190, tooltip })),
+    { type: 'judge_print', message0: '輸出答案 %1 %2', args0: [{ type: 'input_value', name: 'VALUE' }, { type: 'field_dropdown', name: 'END', options: [['然後換行', 'NEWLINE'], ['後面加空格', 'SPACE'], ['不換行', 'NONE']] }], previousStatement: null, nextStatement: null, colour: 190, tooltip: '把值寫到程式的輸出結果。通常保持「然後換行」即可。' },
     { type: 'judge_number', message0: '轉成 %1 %2', args0: [{ type: 'field_dropdown', name: 'KIND', options: [['整數', 'int'], ['小數', 'float']] }, { type: 'input_value', name: 'VALUE' }], output: 'Number', colour: 230 }
   ]);
-  inputTypes.forEach(([type, , , code]) => {
+  inputTypes.forEach(({type, code}) => {
     generator.forBlock[type] = () => { generator.definitions_['skilllab_io'] = ioDefinitions; return [code, order.FUNCTION_CALL]; };
   });
   generator.forBlock.judge_print = block => {
@@ -38,9 +53,21 @@
   });
   const block = type => ({ kind: 'block', type });
   const category = (name, colour, types) => ({ kind: 'category', name, colour, contents: types.map(block) });
+  const ioCategory = {
+    kind: 'category', name: '讀取／輸出', colour: '#167a88', contents: [
+      { kind: 'label', text: '題目給整數（最常用）' },
+      block('judge_read_integer'),
+      { kind: 'label', text: '其他讀取方式' },
+      block('judge_read_number'), block('judge_read_token'), block('judge_read_line'), block('judge_read_all'),
+      { kind: 'label', text: '輸出答案' },
+      block('judge_print'),
+      { kind: 'label', text: '類型轉換' },
+      block('judge_number')
+    ]
+  };
   const workspace = Blockly.inject('workspace', {
     toolbox: { kind: 'categoryToolbox', contents: [
-      category('輸入／輸出', '#167a88', ['judge_read_integer', 'judge_read_number', 'judge_read_token', 'judge_read_line', 'judge_read_all', 'judge_print', 'judge_number']),
+      ioCategory,
       category('判斷', '#5568a9', ['controls_if', 'logic_compare', 'logic_operation', 'logic_negate', 'logic_boolean', 'logic_ternary']),
       category('迴圈', '#408f5a', ['controls_repeat_ext', 'controls_whileUntil', 'controls_for', 'controls_forEach', 'controls_flow_statements']),
       category('數學', '#5663b0', ['math_number', 'math_arithmetic', 'math_modulo', 'math_single', 'math_round', 'math_number_property', 'math_on_list', 'math_constrain']),
