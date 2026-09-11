@@ -122,6 +122,15 @@
   function beginnerContainer(win, key) {
     return key === 'core' ? win.document.querySelector('#programming-editor').parentElement : win.document.querySelector('article[data-task="' + key + '"]');
   }
+  async function openBeginnerVariant(win, key) {
+    const container = beginnerContainer(win, key);
+    const toggle = container.querySelector('.variant-toggle');
+    assert(toggle, '找不到初階變體 ' + key + ' 的開始作答按鈕');
+    if (toggle.getAttribute('aria-expanded') !== 'true') toggle.click();
+    await until(() => container.querySelector('.programming-toolbar select') && !container.querySelector('.programming-toolbar select').disabled, '初階變體 ' + key + ' 延遲載入');
+    assert(!container.querySelector('.variant-body').hidden, '初階變體 ' + key + ' 作答區未展開');
+    return container;
+  }
   async function checkLesson(win, key) {
     await limit(win.checkAnswer(key), '初階 ' + key + ' 執行與評測');
     const result = key === 'core' ? win.document.getElementById('test-results') : win.document.querySelector('[data-result="' + key + '"]');
@@ -223,12 +232,23 @@
         await openProblem(judgeWindow, 14);
         await judge(judgeWindow, 'AC');
       });
-      await changeLanguage(judgeWindow.document.getElementById('programming-editor'), 'python');
-      const beginnerLoaded = await test('初階：核心題、A、B 各有 Python／Blockly／Scratch 選單', async () => {
+      localStorage.setItem('pyjudge_language', 'scratch');
+      const beginnerLoaded = await test('初階：只先載入核心編輯器，變體展開後才各自載入', async () => {
         beginnerWindow = await loadPage('beginner.html#lesson-1');
-        await until(() => beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 3 && !beginnerWindow.document.getElementById('run-button').disabled, '初階三個編輯器就緒');
+        await until(() => beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 1 && !beginnerWindow.document.getElementById('run-button').disabled, '初階核心編輯器就緒');
         assert(beginnerWindow.scrollY === 0, '初階講義首次載入未回到頁首');
         assert(!beginnerWindow.document.querySelector('.CodeMirror-focused'), '初階 Python 編輯器首次載入時自動取得焦點');
+        assert(beginnerWindow.document.querySelectorAll('iframe[title="Scratch 積木編輯器"]').length === 1, '變體尚未展開卻預先載入 Scratch iframe');
+        assert(!beginnerContainer(beginnerWindow, 'a').querySelector('.CodeMirror'), '變體 A 尚未展開卻預先建立編輯器');
+        assert(!beginnerContainer(beginnerWindow, 'b').querySelector('.CodeMirror'), '變體 B 尚未展開卻預先建立編輯器');
+
+        await changeLanguage(beginnerContainer(beginnerWindow, 'core'), 'python');
+        await openBeginnerVariant(beginnerWindow, 'a');
+        assert(beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 2, '展開變體 A 後編輯器數量不正確');
+        assert(!beginnerContainer(beginnerWindow, 'b').querySelector('.CodeMirror'), '只展開變體 A 卻連帶建立變體 B 編輯器');
+        await openBeginnerVariant(beginnerWindow, 'b');
+        assert(beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 3, '展開兩個變體後編輯器數量不正確');
+
         for (const key of ['core', 'a', 'b']) {
           const select = beginnerContainer(beginnerWindow, key).querySelector('.programming-toolbar select');
           assert(['python', 'blockly', 'scratch'].every(value => [...select.options].some(option => option.value === value)), key + ' 遺漏語言');
@@ -260,6 +280,13 @@
         await checkLesson(beginnerWindow, 'core');
         await changeLanguage(container, 'python');
         assert(cm(container).getValue() === 'print("我是小幫手")\nprint("準備完成")', 'Scratch 覆蓋 Python 草稿');
+      });
+      await test('初階切換關卡：釋放上一關變體編輯器並恢復收合狀態', async () => {
+        await limit(beginnerWindow.showLesson(2), '初階切換第 2 關');
+        await until(() => !beginnerWindow.document.getElementById('run-button').disabled, '初階第 2 關核心編輯器就緒');
+        assert(beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 1, '切換關卡後仍保留上一關變體編輯器');
+        assert(beginnerWindow.document.querySelectorAll('article[data-task] iframe').length === 0, '切換關卡後仍保留上一關積木 iframe');
+        assert([...beginnerWindow.document.querySelectorAll('.variant-toggle')].every(toggle => toggle.getAttribute('aria-expanded') === 'false'), '新關卡變體未恢復收合');
       });
     } catch (error) {
       await test('測試流程前提', () => { throw error; });

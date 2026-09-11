@@ -640,12 +640,27 @@
     }
 
     .variant-heading {
+      width: 100%;
       padding: 15px 17px;
       display: flex;
       align-items: center;
       gap: 10px;
+      border: 0;
       border-bottom: 1px solid var(--border);
+      color: inherit;
       background: rgba(51, 65, 85, 0.42);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .variant-heading:hover {
+      background: rgba(71, 85, 105, 0.58);
+    }
+
+    .variant-heading:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
     }
 
     .variant-heading h3 {
@@ -661,8 +676,42 @@
       font-weight: 850;
     }
 
+    .variant-open-label {
+      min-width: 5.5em;
+      color: #93c5fd;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .variant-open-label::after {
+      content: ' ▾';
+    }
+
+    .variant-heading[aria-expanded="true"] .variant-open-label::after {
+      content: ' ▴';
+    }
+
     .variant-body {
       padding: 17px;
+    }
+
+    .variant-body[hidden] {
+      display: none;
+    }
+
+    .variant-editor-slot {
+      min-height: 74px;
+      display: grid;
+      place-items: center;
+      color: var(--text-muted);
+      background: #0b1120;
+      font-size: 0.8rem;
+    }
+
+    .variant-editor-slot.ready {
+      min-height: 0;
+      display: block;
     }
 
     .variant-mission {
@@ -983,7 +1032,7 @@
       <section class="content-card" aria-labelledby="variants-heading">
         <div class="card-heading"><span class="task-number">5</span><h2 id="variants-heading">學完再練：兩題變體</h2></div>
         <div class="card-body">
-          <p class="variant-intro">核心題、變體 A 與變體 B 都可以自由選用 Scratch、Blockly 或 Python。三題都完成，才算通過這一關；不同語言的草稿會分別保存。</p>
+          <p class="variant-intro">核心題、變體 A 與變體 B 都可以自由選用 Scratch、Blockly 或 Python。變體會在展開時才載入編輯器；三題都完成，才算通過這一關，不同語言的草稿會分別保存。</p>
           <div class="variant-list" id="variant-list"></div>
         </div>
       </section>
@@ -1463,6 +1512,7 @@
     let pyodideScriptPromise = null;
     let running = false;
     let loadingLesson = false;
+    let loadingVariant = false;
     const draftTimers = {};
     const taskEditors = {};
 
@@ -1563,7 +1613,7 @@
     }
 
     async function showLesson(id, options = {}) {
-      if (running || loadingLesson) return;
+      if (running || loadingLesson || loadingVariant) return;
       loadingLesson = true;
       updateRunnerAvailability();
       try {
@@ -1675,8 +1725,8 @@
         const label = index === 0 ? '變體 A' : '變體 B';
         return `
           <article class="variant-card" data-task="${taskKey}">
-            <div class="variant-heading"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '✓ 已完成' : '尚未完成'}</span></div>
-            <div class="variant-body">
+            <button class="variant-heading variant-toggle" data-task="${taskKey}" type="button" aria-expanded="false" aria-controls="variant-body-${taskKey}"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '✓ 已完成' : '尚未完成'}</span><span class="variant-open-label">開始作答</span></button>
+            <div class="variant-body" id="variant-body-${taskKey}" hidden>
               <p class="variant-mission">${escapeHtml(variant.mission)}</p>
               <div class="io-grid">
                 <div class="io-box"><div class="io-label">範例輸入</div><pre>${escapeHtml(variant.sampleInput)}</pre></div>
@@ -1684,7 +1734,7 @@
               </div>
               <div class="runner">
                 <div class="runner-toolbar"><span>自由選用程式語言</span><span>${label} 練習板</span><span class="draft-state">會自動保存</span></div>
-                <textarea class="variant-editor-placeholder" data-task="${taskKey}" style="display:none"></textarea>
+                <div class="variant-editor-slot" data-task="${taskKey}">展開後才載入編輯器，節省網路與裝置資源。</div>
                 <div class="runner-actions">
                   <button class="button button-primary variant-check" data-task="${taskKey}" type="button">▶ 執行並檢查</button>
                   <button class="button button-secondary variant-reset" data-task="${taskKey}" type="button">重設</button>
@@ -1696,17 +1746,26 @@
             </div>
           </article>`;
       }).join('');
+    }
 
-      const initializations = [];
-      // Place the language selector above each CodeMirror editor.
-      for (const [index, variant] of lesson.variants.entries()) {
-        const taskKey = index === 0 ? 'a' : 'b';
-        const placeholder = document.querySelector(`.variant-editor-placeholder[data-task="${taskKey}"]`);
+    async function initializeVariant(taskKey) {
+      if (taskEditors[taskKey]) return taskEditors[taskKey];
+      const lesson = getLesson(currentLessonId);
+      const lessonId = lesson.id;
+      const variant = getTask(lesson, taskKey);
+      const slot = document.querySelector(`.variant-editor-slot[data-task="${taskKey}"]`);
+      if (!variant || !slot) return null;
+
+      loadingVariant = true;
+      slot.textContent = '正在載入編輯器…';
+      updateRunnerAvailability();
+      try {
         const container = document.createElement('div');
         const mount = document.createElement('div');
         const codeMount = document.createElement('div');
         container.append(mount, codeMount);
-        placeholder.replaceWith(container);
+        slot.replaceChildren(container);
+        slot.classList.add('ready');
         const cm = CodeMirror(codeMount, {
           value: '',
           mode: 'python',
@@ -1733,11 +1792,21 @@
         });
         taskEditors[taskKey] = adapter;
         adapter.setDisabled(true);
-        initializations.push(adapter.setTask({ key: draftKey(lesson.id, taskKey), starter: variant.starter }).then(() => {
-          taskStatusElement(taskKey).textContent = idleStatus(adapter.language);
-        }));
+        await adapter.setTask({ key: draftKey(lessonId, taskKey), starter: variant.starter });
+        if (currentLessonId !== lessonId) return null;
+        taskStatusElement(taskKey).textContent = idleStatus(adapter.language);
+        adapter.refresh();
+        return adapter;
+      } catch (error) {
+        if (currentLessonId === lessonId && slot.isConnected) {
+          slot.classList.remove('ready');
+          slot.textContent = `編輯器載入失敗：${error.message || String(error)}`;
+        }
+        throw error;
+      } finally {
+        loadingVariant = false;
+        updateRunnerAvailability();
       }
-      await Promise.all(initializations);
     }
 
     function taskResultElement(taskKey) {
@@ -1750,10 +1819,10 @@
     }
 
     function updateRunnerAvailability() {
-      const disabled = running || loadingLesson;
+      const disabled = running || loadingLesson || loadingVariant;
       $('run-button').disabled = disabled;
       $('reset-button').disabled = disabled;
-      document.querySelectorAll('.variant-check, .variant-reset, #lesson-nav button').forEach(button => { button.disabled = disabled; });
+      document.querySelectorAll('.variant-toggle, .variant-check, .variant-reset, #lesson-nav button').forEach(button => { button.disabled = disabled; });
       $('previous-button').disabled = disabled || currentLessonId === 1;
       $('next-button').disabled = disabled || currentLessonId === 10;
       Object.values(taskEditors).forEach(adapter => adapter.setDisabled(disabled));
@@ -1881,7 +1950,7 @@ sys.stderr = _stderr
     }
 
     async function checkAnswer(taskKey) {
-      if (running || loadingLesson) return;
+      if (running || loadingLesson || loadingVariant) return;
       const lesson = getLesson(currentLessonId);
       const task = getTask(lesson, taskKey);
       const adapter = taskEditors[taskKey];
@@ -1942,7 +2011,7 @@ sys.stderr = _stderr
     }
 
     async function resetEditor(taskKey = 'core') {
-      if (running || loadingLesson) return;
+      if (running || loadingLesson || loadingVariant) return;
       const adapter = taskEditors[taskKey];
       if (!adapter) return;
       const resetPromise = adapter.reset();
@@ -1979,6 +2048,18 @@ sys.stderr = _stderr
     // The shared adapter saves each task and language independently.
 
     $('variant-list').addEventListener('click', event => {
+      const toggleButton = event.target.closest('.variant-toggle');
+      if (toggleButton) {
+        const taskKey = toggleButton.dataset.task;
+        const body = document.getElementById(toggleButton.getAttribute('aria-controls'));
+        const opening = toggleButton.getAttribute('aria-expanded') !== 'true';
+        toggleButton.setAttribute('aria-expanded', String(opening));
+        toggleButton.querySelector('.variant-open-label').textContent = opening ? '收合作答區' : '開始作答';
+        body.hidden = !opening;
+        if (opening && !taskEditors[taskKey]) initializeVariant(taskKey).catch(() => {});
+        return;
+      }
+
       const checkButton = event.target.closest('.variant-check');
       if (checkButton) checkAnswer(checkButton.dataset.task);
 
