@@ -1195,8 +1195,8 @@
         "title": "A+B 問題",
         "difficulty": "Easy",
         "tags": ["數學", "輸入輸出"],
-        "description": "<p>給定兩個整數 <code>A</code> 和 <code>B</code>，請計算並輸出 <code>A + B</code> 的值。</p><p>這是最經典的程式設計入門題，主要測試你是否能正確讀取輸入並輸出結果。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：如何讀取輸入？</p><p style='font-size:0.85rem;'>如果題目沒有規定數值在哪一行，你可以使用以下方式一次讀取所有數字：</p><pre style='font-size:0.75rem;margin-top:4px;'>import sys\ntokens = sys.stdin.read().split()\na = int(tokens[0])\nb = int(tokens[1])</pre></div>",
-        "inputFormat": "<p>包含兩個整數 <code>A</code> 和 <code>B</code>，這兩個數可能位在同一行（以空格分隔），也可能位在不同行。</p>",
+        "description": "<p>給定兩個整數 <code>A</code> 和 <code>B</code>，請計算並輸出 <code>A + B</code> 的值。</p><p>這是最經典的程式設計入門題，主要測試你是否能正確讀取一整行輸入、依空格拆開資料並輸出結果。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：一次讀取，再拆開</p><p style='font-size:0.85rem;'>Python 可使用下列方式讀取一整行，再依空格拆成兩個整數：</p><pre style='font-size:0.75rem;margin-top:4px;'>a, b = map(int, input().split())</pre><p style='font-size:0.85rem;margin-top:6px;'>Blockly 可將「要求輸入文字」接到「從文本製作清單」，分隔符填入一個空格，再取得第 0、1 項。</p></div>",
+        "inputFormat": "<p>一行包含兩個整數 <code>A</code> 和 <code>B</code>，以一個半形空格分隔。</p>",
         "outputFormat": "<p>一行，輸出 <code>A + B</code> 的值。</p>",
         "constraints": "<ul><li>−10<sup>9</sup> ≤ A, B ≤ 10<sup>9</sup></li></ul>",
         "timeLimit": 1,
@@ -1205,10 +1205,10 @@
         "sampleOutput": "8",
         "testCases": [
           { "input": "3 5", "output": "8" },
-          { "input": "0\n0", "output": "0" },
-          { "input": "-7\n3", "output": "-4" },
+          { "input": "0 0", "output": "0" },
+          { "input": "-7 3", "output": "-4" },
           { "input": "1000000000 1000000000", "output": "2000000000" },
-          { "input": "-500000000\n500000000", "output": "0" }
+          { "input": "-500000000 500000000", "output": "0" }
         ]
       },
       2: {
@@ -1397,8 +1397,9 @@
         ]
       }
     };
-    // 合併 problems/fallback-new.js 的完整備援，讓直接雙擊 HTML 也能載入全部題目。
-    Object.assign(PROBLEMS_DATA, window.NEW_PROBLEMS_DATA || {});
+    // 合併完整備援；前 0–10 題以此頁較精簡且同步更新的版本為準。
+    const CORE_PROBLEMS_DATA = { ...PROBLEMS_DATA };
+    Object.assign(PROBLEMS_DATA, window.NEW_PROBLEMS_DATA || {}, CORE_PROBLEMS_DATA);
     const PROBLEMS = [];
 
 

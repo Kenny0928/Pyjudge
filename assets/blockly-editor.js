@@ -55,13 +55,9 @@
   const category = (name, colour, types) => ({ kind: 'category', name, colour, contents: types.map(block) });
   const ioCategory = {
     kind: 'category', name: '讀取／輸出', colour: '#167a88', contents: [
-      { kind: 'label', text: '像 Python input() 一樣讀取一行' },
+      { kind: 'label', text: '一次讀取一整行（Python input()）' },
       { kind: 'block', type: 'text_prompt', fields: { TYPE: 'TEXT', TEXT: '請輸入文字' } },
-      { kind: 'label', text: '空白分隔的多筆資料' },
-      { kind: 'label', text: '題目給整數（最常用）' },
-      block('judge_read_integer'),
-      { kind: 'label', text: '其他讀取方式' },
-      block('judge_read_number'), block('judge_read_token'), block('judge_read_line'), block('judge_read_all'),
+      { kind: 'label', text: '需要拆資料時，到「清單」選擇分隔積木' },
       { kind: 'label', text: '輸出答案' },
       block('judge_print'),
       { kind: 'label', text: '類型轉換' },
@@ -80,6 +76,7 @@
       { kind: 'category', name: '函式', custom: 'PROCEDURE', colour: '#975a97' }
     ] },
     media: 'vendor/blockly/media/', trashcan: true,
+    oneBasedIndex: false,
     zoom: { controls: true, wheel: true, startScale: 0.85, maxScale: 1.5, minScale: 0.45 },
     move: { scrollbars: true, drag: true, wheel: true }
   });

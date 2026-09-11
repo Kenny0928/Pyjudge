@@ -168,7 +168,10 @@ function blocklyHarness() {
   // workspace serializer, connection validation, and generator untouched.
   context.Blockly.Events.disable();
   const workspace = new context.Blockly.Workspace();
-  context.Blockly.inject = () => workspace;
+  context.Blockly.inject = (_, options) => {
+    workspace.options.oneBasedIndex = options.oneBasedIndex;
+    return workspace;
+  };
   context.Blockly.svgResize = () => {};
   vm.runInContext(read('assets/blockly-editor.js'), context, { filename: 'blockly-editor.js' });
   let nextId = 0;
@@ -219,6 +222,7 @@ test('Blockly standard I/O handles token whitespace, CRLF lines and exact output
 
 test('Blockly native prompt block maps directly to Python input without printing its hint', async () => {
   const h = blocklyHarness();
+  assert.equal(h.workspace.options.oneBasedIndex, false, 'Blockly list indexes must match Python and start at 0');
   const [expression] = h.generator.forBlock.text_prompt({ getFieldValue: () => 'TEXT' });
   const code = `print(${expression})\n`;
   assert.equal(expression, 'input()');

@@ -97,7 +97,7 @@
       this.help.hidden = python;
       this.help.textContent = language === 'scratch'
         ? '接在綠旗下面開始。每個「詢問」依序讀取一筆資料，空格或換行都能分隔；用「詢問的答案」取得輸入，「說出」輸出一行。'
-        : '「要求輸入文字」就像 Python 的 input()；空白分隔的多筆數字也可用「拿下一個整數」。積木會轉成 Python；三種方式各自保存草稿。';
+        : '「要求輸入文字」一次讀取完整一行；再用「清單」的分隔積木拆解。清單索引與 Python 相同，從 0 開始。';
       this.status.textContent = python ? '草稿自動保存' : '載入積木編輯器…';
       this.retry.hidden = true;
       this.frames.forEach((frame, mode) => { frame.element.hidden = mode !== language; });
