@@ -67,5 +67,19 @@
       "input": "6\n36",
       "output": "6"
     }
+  ],
+  "samples": [
+    {
+      "input": "10\n50",
+      "output": "5"
+    },
+    {
+      "input": "7\n20",
+      "output": "3"
+    },
+    {
+      "input": "5\n5",
+      "output": "1"
+    }
   ]
 }

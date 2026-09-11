@@ -2,11 +2,22 @@
   "id": 20,
   "title": "矩陣行列總和",
   "difficulty": "Easy",
-  "tags": ["二維陣列", "矩陣", "累加"],
+  "tags": [
+    "二維陣列",
+    "矩陣",
+    "累加"
+  ],
   "audienceLevel": "M-8",
   "platformMode": "Python",
-  "learningObjectives": ["讀取二維矩陣並逐列計算元素總和"],
-  "prerequisites": ["清單", "巢狀資料", "迴圈", "累加"],
+  "learningObjectives": [
+    "讀取二維矩陣並逐列計算元素總和"
+  ],
+  "prerequisites": [
+    "清單",
+    "巢狀資料",
+    "迴圈",
+    "累加"
+  ],
   "description": "<p>給定一個 M 列、每列 N 個整數的矩陣，請計算並輸出每一列的數字總和，共輸出 M 行。</p>",
   "inputFormat": "<ul><li>第一行：兩個正整數 <code>M</code> 和 <code>N</code>，分別代表列數與每列的數字個數</li><li>接下來 M 行：每行包含 N 個整數，以半形空格分隔</li></ul>",
   "outputFormat": "<p>共 M 行，每行輸出一個整數，代表對應列的 N 個數字總和。</p>",
@@ -16,13 +27,51 @@
   "sampleInput": "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12",
   "sampleOutput": "10\n26\n42",
   "testCases": [
-    {"input": "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12", "output": "10\n26\n42"},
-    {"input": "2 3\n-1 0 1\n10 -5 -2", "output": "0\n3"},
-    {"input": "1 1\n99", "output": "99"},
-    {"input": "1 5\n10 20 30 40 50", "output": "150"},
-    {"input": "4 1\n7\n-3\n0\n15", "output": "7\n-3\n0\n15"},
-    {"input": "2 2\n0 0\n0 0", "output": "0\n0"},
-    {"input": "3 3\n-10 -20 -30\n-5 -5 -5\n-1 -2 -3", "output": "-60\n-15\n-6"},
-    {"input": "2 4\n1000 1000 1000 1000\n-1000 -1000 -1000 -1000", "output": "4000\n-4000"}
+    {
+      "input": "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12",
+      "output": "10\n26\n42"
+    },
+    {
+      "input": "2 3\n-1 0 1\n10 -5 -2",
+      "output": "0\n3"
+    },
+    {
+      "input": "1 1\n99",
+      "output": "99"
+    },
+    {
+      "input": "1 5\n10 20 30 40 50",
+      "output": "150"
+    },
+    {
+      "input": "4 1\n7\n-3\n0\n15",
+      "output": "7\n-3\n0\n15"
+    },
+    {
+      "input": "2 2\n0 0\n0 0",
+      "output": "0\n0"
+    },
+    {
+      "input": "3 3\n-10 -20 -30\n-5 -5 -5\n-1 -2 -3",
+      "output": "-60\n-15\n-6"
+    },
+    {
+      "input": "2 4\n1000 1000 1000 1000\n-1000 -1000 -1000 -1000",
+      "output": "4000\n-4000"
+    }
+  ],
+  "samples": [
+    {
+      "input": "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12",
+      "output": "10\n26\n42"
+    },
+    {
+      "input": "2 3\n-1 0 1\n10 -5 -2",
+      "output": "0\n3"
+    },
+    {
+      "input": "1 1\n99",
+      "output": "99"
+    }
   ]
 }

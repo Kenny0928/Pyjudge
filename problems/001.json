@@ -35,5 +35,19 @@
       "input": "-500000000\n500000000",
       "output": "0"
     }
+  ],
+  "samples": [
+    {
+      "input": "3 5",
+      "output": "8"
+    },
+    {
+      "input": "0\n0",
+      "output": "0"
+    },
+    {
+      "input": "-7\n3",
+      "output": "-4"
+    }
   ]
 }

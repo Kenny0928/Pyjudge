@@ -2,11 +2,20 @@
   "id": 11,
   "title": "奇數與偶數",
   "difficulty": "Easy",
-  "tags": ["條件判斷", "數學"],
+  "tags": [
+    "條件判斷",
+    "數學"
+  ],
   "audienceLevel": "E-MID",
   "platformMode": "Python",
-  "learningObjectives": ["使用取餘數運算子與 if/else 判斷整數的奇偶性"],
-  "prerequisites": ["整數輸入", "算術運算", "條件判斷"],
+  "learningObjectives": [
+    "使用取餘數運算子與 if/else 判斷整數的奇偶性"
+  ],
+  "prerequisites": [
+    "整數輸入",
+    "算術運算",
+    "條件判斷"
+  ],
   "description": "<p>請寫一個程式，輸入一個整數 <code>N</code>，判斷它是奇數還是偶數。</p><ul><li>若是奇數，輸出 <code>Odd</code></li><li>若是偶數，輸出 <code>Even</code></li></ul><p><strong>特別注意：</strong>0 是偶數，負整數也有奇偶之分。</p>",
   "inputFormat": "<p>第一行包含一個整數 <code>N</code>。</p>",
   "outputFormat": "<p>若 <code>N</code> 為奇數，輸出 <code>Odd</code>；若為偶數，輸出 <code>Even</code>。</p>",
@@ -16,13 +25,51 @@
   "sampleInput": "7",
   "sampleOutput": "Odd",
   "testCases": [
-    {"input": "7", "output": "Odd"},
-    {"input": "4", "output": "Even"},
-    {"input": "0", "output": "Even"},
-    {"input": "-5", "output": "Odd"},
-    {"input": "-8", "output": "Even"},
-    {"input": "1", "output": "Odd"},
-    {"input": "10000", "output": "Even"},
-    {"input": "-9999", "output": "Odd"}
+    {
+      "input": "7",
+      "output": "Odd"
+    },
+    {
+      "input": "4",
+      "output": "Even"
+    },
+    {
+      "input": "0",
+      "output": "Even"
+    },
+    {
+      "input": "-5",
+      "output": "Odd"
+    },
+    {
+      "input": "-8",
+      "output": "Even"
+    },
+    {
+      "input": "1",
+      "output": "Odd"
+    },
+    {
+      "input": "10000",
+      "output": "Even"
+    },
+    {
+      "input": "-9999",
+      "output": "Odd"
+    }
+  ],
+  "samples": [
+    {
+      "input": "7",
+      "output": "Odd"
+    },
+    {
+      "input": "4",
+      "output": "Even"
+    },
+    {
+      "input": "0",
+      "output": "Even"
+    }
   ]
 }

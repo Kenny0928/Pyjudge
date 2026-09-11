@@ -65,5 +65,19 @@
       "input": "200",
       "output": "後排"
     }
+  ],
+  "samples": [
+    {
+      "input": "160",
+      "output": "中排"
+    },
+    {
+      "input": "149",
+      "output": "前排"
+    },
+    {
+      "input": "150",
+      "output": "中排"
+    }
   ]
 }

@@ -65,5 +65,19 @@
       "input": "50\n1",
       "output": "102"
     }
+  ],
+  "samples": [
+    {
+      "input": "6\n4",
+      "output": "20"
+    },
+    {
+      "input": "3\n4",
+      "output": "14"
+    },
+    {
+      "input": "5\n5",
+      "output": "20"
+    }
   ]
 }

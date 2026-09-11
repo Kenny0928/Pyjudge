@@ -73,5 +73,19 @@
       "input": "75",
       "output": "C"
     }
+  ],
+  "samples": [
+    {
+      "input": "85",
+      "output": "B"
+    },
+    {
+      "input": "90",
+      "output": "A"
+    },
+    {
+      "input": "80",
+      "output": "B"
+    }
   ]
 }

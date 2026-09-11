@@ -67,5 +67,19 @@
       "input": "13",
       "output": "31"
     }
+  ],
+  "samples": [
+    {
+      "input": "1234",
+      "output": "4321"
+    },
+    {
+      "input": "5",
+      "output": "5"
+    },
+    {
+      "input": "12",
+      "output": "21"
+    }
   ]
 }

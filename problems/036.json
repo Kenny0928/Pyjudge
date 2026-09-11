@@ -66,5 +66,19 @@
       "input": "100\n100",
       "output": "5000"
     }
+  ],
+  "samples": [
+    {
+      "input": "4\n6",
+      "output": "12"
+    },
+    {
+      "input": "10\n4",
+      "output": "20"
+    },
+    {
+      "input": "3\n4",
+      "output": "6"
+    }
   ]
 }

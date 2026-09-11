@@ -326,9 +326,36 @@
     }
 
     .problem-header-title {
+      min-width: 180px;
       font-size: 1rem;
       font-weight: 600;
       flex: 1;
+    }
+
+    .judge-answer-controls {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .judge-answer-controls .programming-toolbar {
+      min-width: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+      gap: 8px;
+      border-bottom: 0;
+      background: transparent;
+    }
+
+    .judge-answer-controls .programming-status {
+      max-width: 190px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #view-problem .programming-help {
+      display: none !important;
     }
 
     .split-layout {
@@ -339,7 +366,7 @@
 
     /* Left panel */
     .desc-panel {
-      width: 42%;
+      width: 38%;
       min-width: 320px;
       overflow-y: auto;
       padding: 24px;
@@ -410,6 +437,32 @@
       color: #e2e8f0;
     }
 
+    .sample-pair + .sample-pair {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .sample-pair-title {
+      margin-bottom: 8px;
+      color: #bfdbfe;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .sample-pair-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .sample-note {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+
     .limits-row {
       display: flex;
       gap: 16px;
@@ -430,18 +483,29 @@
     /* Right panel */
     .editor-panel {
       flex: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
 
-    .editor-toolbar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 8px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .focus-mode-btn {
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: #cbd5e1;
+      background: var(--surface2);
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .focus-mode-btn:hover {
+      border-color: var(--accent);
+      color: white;
+    }
+
+    body.judge-focus .desc-panel {
+      display: none;
     }
 
     .lang-select {
@@ -566,11 +630,117 @@
 
     /* Results */
     .results-panel {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      z-index: 70;
+      max-height: min(42vh, 380px);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #64748b;
+      border-radius: 10px;
+      background: #172033;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .results-panel.collapsed {
+      max-height: 48px;
+    }
+
+    .results-panel.collapsed .results-drawer-body {
+      display: none;
+    }
+
+    .results-drawer-header {
+      min-height: 46px;
+      padding: 8px 10px 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border);
       background: var(--surface);
-      border-top: 1px solid var(--border);
-      max-height: 260px;
-      overflow-y: auto;
+    }
+
+    .results-panel.collapsed .results-drawer-header {
+      border-bottom: 0;
+    }
+
+    .results-drawer-title {
+      color: #e2e8f0;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .results-drawer-summary {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .results-drawer-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 6px;
+    }
+
+    .results-drawer-actions button {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #cbd5e1;
+      background: var(--surface2);
+      cursor: pointer;
+    }
+
+    .results-drawer-actions button:hover {
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .results-drawer-body {
+      min-height: 0;
       padding: 12px 16px;
+      overflow-y: auto;
+    }
+
+    .result-summary-pill {
+      max-width: 220px;
+      margin-left: auto;
+      padding: 5px 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 0.75rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .result-summary-pill.success {
+      border-color: rgba(34, 197, 94, 0.38);
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .result-summary-pill.error {
+      border-color: rgba(239, 68, 68, 0.38);
+      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .result-summary-pill:not([hidden]) + .submit-hint {
+      margin-left: 0;
     }
 
     .results-title {
@@ -830,6 +1000,54 @@
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
+
+      .problem-header {
+        padding: 10px 12px;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .problem-header-title {
+        min-width: 140px;
+      }
+
+      .judge-answer-controls {
+        width: 100%;
+        order: 5;
+      }
+
+      .judge-answer-controls .programming-toolbar {
+        width: 100%;
+      }
+
+      .judge-answer-controls .programming-status {
+        max-width: none;
+        flex: 1 1 auto;
+        flex-basis: auto;
+      }
+
+      .sample-pair-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-mode-btn {
+        display: none;
+      }
+
+      .results-panel {
+        right: 8px;
+        bottom: 8px;
+        left: 8px;
+        max-height: min(55vh, 380px);
+      }
+
+      .submit-hint {
+        display: none;
+      }
+
+      .result-summary-pill {
+        max-width: 150px;
+      }
     }
   </style>
 </head>
@@ -875,6 +1093,9 @@
     <div class="problem-header">
       <button class="back-btn" onclick="showView('list')">← 返回列表</button>
       <div class="problem-header-title" id="problem-header-title">—</div>
+      <div class="judge-answer-controls" id="judge-answer-controls" aria-label="作答設定"></div>
+      <button id="focus-mode-btn" class="focus-mode-btn" type="button" onclick="toggleJudgeFocus()">⛶ 放大編輯區</button>
+      <button id="reset-code-btn" class="btn btn-secondary" onclick="resetCode()" style="padding:4px 12px;font-size:0.8rem;">重置</button>
     </div>
     <div class="split-layout">
       <!-- Left: Description -->
@@ -899,10 +1120,6 @@
 
       <!-- Right: Editor + Results -->
       <div class="editor-panel">
-        <div class="editor-toolbar">
-          <span>選擇作答方式，使用同一組測資評測</span>
-          <button id="reset-code-btn" class="btn btn-secondary" onclick="resetCode()" style="padding:4px 12px;font-size:0.8rem;">重置</button>
-        </div>
         <div class="editor-area" style="position:relative;">
           <div id="programming-editor"></div>
           <textarea id="code-editor"></textarea>
@@ -910,6 +1127,7 @@
             <div class="spinner"></div>
             <div class="running-text" id="running-text">評測中…</div>
           </div>
+          <div class="results-panel" id="results-panel" role="region" aria-label="評測結果" aria-live="polite"></div>
         </div>
         <div class="submit-bar">
           <button class="btn btn-primary" id="submit-btn" onclick="submitCode()" disabled>
@@ -918,9 +1136,9 @@
           <button class="btn btn-secondary" id="sample-btn" onclick="runSample()" disabled>
             🧪 測試範例
           </button>
+          <button class="result-summary-pill" id="result-summary-pill" type="button" onclick="openResultsPanel()" hidden></button>
           <span class="submit-hint" id="submit-hint">第一次執行會準備所需環境</span>
         </div>
-        <div class="results-panel" id="results-panel" style="display:none"></div>
       </div>
     </div>
   </div>
@@ -1179,7 +1397,7 @@
         ]
       }
     };
-    // 合併 problems/fallback-new.js 中的新增題目，讓直接雙擊 HTML 也能載入完整 21 題。
+    // 合併 problems/fallback-new.js 的完整備援，讓直接雙擊 HTML 也能載入全部題目。
     Object.assign(PROBLEMS_DATA, window.NEW_PROBLEMS_DATA || {});
     const PROBLEMS = [];
 
@@ -1296,6 +1514,45 @@ finally:
       return results;
     }
 
+    function getPublicSamples(problem) {
+      if (Array.isArray(problem.samples) && problem.samples.length) {
+        return problem.samples.map(sample => ({
+          input: String(sample.input ?? ''),
+          output: String(sample.output ?? ''),
+          explanation: sample.explanation ? String(sample.explanation) : ''
+        }));
+      }
+      return [{ input: String(problem.sampleInput ?? ''), output: String(problem.sampleOutput ?? ''), explanation: '' }];
+    }
+
+    async function judgePublicSamples(problem, snapshot) {
+      const samples = getPublicSamples(problem);
+      const results = [];
+      renderSampleResultsLoading(samples.length);
+      for (let i = 0; i < samples.length; i++) {
+        const sample = samples[i];
+        try {
+          const { output, errout, elapsed } = await programmingEditor.run(snapshot, sample.input, problem.timeLimit * 1000, runPython);
+          const actual = output.trimEnd();
+          const expected = sample.output.trimEnd();
+          const status = errout.startsWith('TLE') || elapsed > problem.timeLimit * 1000
+            ? 'TLE'
+            : errout.trim() ? 'RE' : actual === expected ? 'AC' : 'WA';
+          results.push({ status, elapsed, error: status === 'RE' ? errout.trim() : '', actual, expected });
+        } catch (error) {
+          results.push({
+            status: error.message.startsWith('TLE') ? 'TLE' : 'RE',
+            elapsed: error.message.startsWith('TLE') ? problem.timeLimit * 1000 : 0,
+            error: error.message,
+            actual: '',
+            expected: sample.output.trimEnd()
+          });
+        }
+        renderSampleResultsPartial(results);
+      }
+      return results;
+    }
+
     // ═══════════════════════════════════════════════
     //  SUBMIT
     // ═══════════════════════════════════════════════
@@ -1305,13 +1562,12 @@ finally:
       running = true;
       setSubmitEnabled(false);
       showRunning(true, sampleOnly ? '執行範例測資…' : '評測中，請稍候…');
-      document.getElementById('results-panel').style.display = 'block';
       try {
         const snapshot = await programmingEditor.snapshot();
         if (snapshot.language !== 'scratch' && !snapshot.code.trim()) throw new Error('請先寫下程式或拖入積木。');
         if (sampleOnly) {
-          const { output, errout, elapsed } = await programmingEditor.run(snapshot, problem.sampleInput, problem.timeLimit * 1000, runPython);
-          renderSampleResult(output, errout, elapsed, problem.sampleOutput);
+          const results = await judgePublicSamples(problem, snapshot);
+          renderSampleResultsFinal(results);
         } else {
           renderResultsLoading(problem.testCases.length);
           const results = await judgeAll(problem, snapshot);
@@ -1340,11 +1596,73 @@ finally:
     const STATUS_LABEL = { AC: '✓ AC', WA: '✗ WA', TLE: '⏱ TLE', RE: '💥 RE' };
     const STATUS_DESC = { AC: '全部通過', WA: '答案錯誤', TLE: '超過時間限制', RE: '執行時期錯誤' };
 
-    function renderResultsLoading(n) {
+    function setResultSummary(text, state = '') {
+      const summary = document.getElementById('result-summary-pill');
+      summary.hidden = false;
+      summary.textContent = text;
+      summary.className = `result-summary-pill ${state}`.trim();
+      summary.setAttribute('aria-label', `${text}，開啟詳細結果`);
+    }
+
+    function renderResultDrawer(title, summary, body, { collapsed = false } = {}) {
       const panel = document.getElementById('results-panel');
+      panel.style.display = 'flex';
+      panel.classList.toggle('collapsed', collapsed);
+      panel.innerHTML = `
+        <div class="results-drawer-header">
+          <span class="results-drawer-title">${escHtml(title)}</span>
+          <span class="results-drawer-summary">${escHtml(summary)}</span>
+          <span class="results-drawer-actions">
+            <button class="results-collapse-btn" type="button" onclick="toggleResultsPanel()" aria-label="${collapsed ? '展開' : '收合'}結果">${collapsed ? '⌃' : '⌄'}</button>
+            <button type="button" onclick="closeResultsPanel()" aria-label="關閉結果">×</button>
+          </span>
+        </div>
+        <div class="results-drawer-body">${body}</div>`;
+    }
+
+    function toggleResultsPanel() {
+      const panel = document.getElementById('results-panel');
+      const collapsed = panel.classList.toggle('collapsed');
+      const button = panel.querySelector('.results-collapse-btn');
+      if (button) {
+        button.textContent = collapsed ? '⌃' : '⌄';
+        button.setAttribute('aria-label', collapsed ? '展開結果' : '收合結果');
+      }
+    }
+
+    function openResultsPanel() {
+      const panel = document.getElementById('results-panel');
+      if (!panel.innerHTML) return;
+      panel.style.display = 'flex';
+      panel.classList.remove('collapsed');
+      const button = panel.querySelector('.results-collapse-btn');
+      if (button) {
+        button.textContent = '⌄';
+        button.setAttribute('aria-label', '收合結果');
+      }
+    }
+
+    function closeResultsPanel() {
+      document.getElementById('results-panel').style.display = 'none';
+    }
+
+    function clearResultsPanel() {
+      const panel = document.getElementById('results-panel');
+      panel.style.display = 'none';
+      panel.classList.remove('collapsed');
+      panel.innerHTML = '';
+      const summary = document.getElementById('result-summary-pill');
+      summary.hidden = true;
+      summary.textContent = '';
+      summary.className = 'result-summary-pill';
+      window._lastResults = null;
+    }
+
+    function renderResultsLoading(n) {
       let chips = '';
       for (let i = 0; i < n; i++) chips += `<div class="tc-chip tc-running" id="tc-chip-${i}">測資 ${i + 1}</div>`;
-      panel.innerHTML = `<div class="results-title">評測結果</div><div class="tc-grid" id="tc-grid">${chips}</div>`;
+      renderResultDrawer('評測結果', `正在執行 0 / ${n}`, `<div class="tc-grid" id="tc-grid">${chips}</div>`);
+      setResultSummary('評測中…');
     }
 
     function renderResultsPartial(results, total) {
@@ -1356,6 +1674,8 @@ finally:
           chip.textContent = `測資 ${i + 1} ${STATUS_LABEL[r.status]}${t}`;
         }
       });
+      const summary = document.querySelector('.results-drawer-summary');
+      if (summary) summary.textContent = `正在執行 ${results.length} / ${total}`;
     }
 
     function renderResultsFinal(results, problem) {
@@ -1367,8 +1687,7 @@ finally:
       const passCount = results.filter(r => r.status === 'AC').length;
       const maxTime = Math.max(...results.map(r => r.elapsed || 0));
 
-      let html = `<div class="results-title">評測結果</div>`;
-      html += `<div class="verdict-banner verdict-${worstStatus}">
+      let html = `<div class="verdict-banner verdict-${worstStatus}">
     <span style="font-size:1.3rem">${allAC ? '🎉' : '❌'}</span>
     <span>${STATUS_LABEL[worstStatus]} — ${passCount}/${results.length} 通過</span>
     <span style="margin-left:auto;font-size:0.8rem;font-weight:400;color:inherit;opacity:0.8">最長 ${maxTime.toFixed(0)} ms</span>
@@ -1388,13 +1707,16 @@ finally:
         html += renderTcDetail(results[firstBad], firstBad);
       }
 
-      panel.innerHTML = html;
+      const summary = `${STATUS_DESC[worstStatus]} · ${passCount}/${results.length} 通過`;
+      renderResultDrawer('評測結果', summary, html, { collapsed: allAC });
+      setResultSummary(allAC ? `✓ ${passCount}/${results.length} 通過` : `✗ ${passCount}/${results.length} 通過`, allAC ? 'success' : 'error');
       window._lastResults = results;
+      window._lastResultLabel = '測資';
     }
 
-    function renderTcDetail(r, i) {
+    function renderTcDetail(r, i, label = '測資') {
       let html = `<div style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);">
-    ── 測資 ${i + 1} 詳情 ──
+    ── ${label} ${i + 1} 詳情 ──
   </div>`;
       if (r.status === 'RE' || r.error) {
         html += `<div class="error-block">${escHtml(r.error || '未知錯誤')}</div>`;
@@ -1425,42 +1747,65 @@ finally:
       if (existing) existing.remove();
       const div = document.createElement('div');
       div.className = 'tc-detail';
-      div.innerHTML = renderTcDetail(r, idx);
-      panel.appendChild(div);
-      div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      div.innerHTML = renderTcDetail(r, idx, window._lastResultLabel || '測資');
+      const body = panel.querySelector('.results-drawer-body');
+      if (!body) return;
+      body.appendChild(div);
+      body.scrollTo({ top: body.scrollHeight, behavior: 'smooth' });
     }
 
-    function renderSampleResult(output, errout, elapsed, expected) {
-      const panel = document.getElementById('results-panel');
-      const actual = output.trimEnd();
-      const exp = expected.trimEnd();
-      const ok = actual === exp;
-      let html = `<div class="results-title">範例測試結果</div>`;
-      html += `<div class="verdict-banner ${ok ? 'verdict-AC' : errout.trim() ? 'verdict-RE' : 'verdict-WA'}">
-    ${ok ? '✓ 範例輸出正確' : errout.trim() ? '💥 執行時期錯誤' : '✗ 範例輸出不符'}
-    <span style="margin-left:auto;font-size:0.8rem;font-weight:400;opacity:0.8">${elapsed.toFixed(0)} ms</span>
-  </div>`;
-      if (errout.trim()) {
-        html += `<div class="error-block">${escHtml(errout)}</div>`;
-      } else {
-        html += `<div class="diff-block">
-      <div class="diff-side diff-expected">
-        <div class="diff-side-header">期望輸出</div>
-        <pre>${escHtml(exp)}</pre>
-      </div>
-      <div class="diff-side ${ok ? 'diff-expected' : 'diff-actual'}">
-        <div class="diff-side-header">你的輸出</div>
-        <pre>${escHtml(actual || '(無輸出)')}</pre>
-      </div>
-    </div>`;
-      }
-      panel.innerHTML = html;
+    function renderSampleResultsLoading(n) {
+      let chips = '';
+      for (let i = 0; i < n; i++) chips += `<div class="tc-chip tc-running" id="sample-chip-${i}">範例 ${i + 1}</div>`;
+      renderResultDrawer('範例測試結果', `正在執行 0 / ${n}`, `<div class="tc-grid">${chips}</div>`);
+      setResultSummary('範例測試中…');
+    }
+
+    function renderSampleResultsPartial(results) {
+      results.forEach((result, index) => {
+        const chip = document.getElementById('sample-chip-' + index);
+        if (!chip) return;
+        chip.className = `tc-chip tc-${result.status}`;
+        chip.textContent = `範例 ${index + 1} ${STATUS_LABEL[result.status]}`;
+      });
+      const summary = document.querySelector('.results-drawer-summary');
+      if (summary) summary.textContent = `正在執行 ${results.length} / ${getPublicSamples(currentProblem).length}`;
+    }
+
+    function renderSampleResultsFinal(results) {
+      const allAC = results.every(result => result.status === 'AC');
+      const passCount = results.filter(result => result.status === 'AC').length;
+      const worstStatus = allAC ? 'AC' : results.find(result => result.status === 'RE') ? 'RE' : results.find(result => result.status === 'TLE') ? 'TLE' : 'WA';
+      let html = `<div class="verdict-banner verdict-${worstStatus}">
+        <span>${allAC ? '✓ 所有公開範例皆正確' : `${STATUS_LABEL[worstStatus]} — ${passCount}/${results.length} 通過`}</span>
+      </div><div class="tc-grid">`;
+      results.forEach((result, index) => {
+        html += `<div class="tc-chip tc-${result.status}" onclick="showTcDetail(${index})" title="點擊查看詳情">範例 ${index + 1} ${STATUS_LABEL[result.status]}</div>`;
+      });
+      html += '</div>';
+      const firstBad = results.findIndex(result => result.status !== 'AC');
+      if (firstBad >= 0) html += renderTcDetail(results[firstBad], firstBad, '範例');
+      const summary = `${allAC ? '全部通過' : STATUS_DESC[worstStatus]} · ${passCount}/${results.length}`;
+      renderResultDrawer('範例測試結果', summary, html, { collapsed: allAC });
+      setResultSummary(allAC ? `✓ 範例 ${passCount}/${results.length}` : `✗ 範例 ${passCount}/${results.length}`, allAC ? 'success' : 'error');
+      window._lastResults = results;
+      window._lastResultLabel = '範例';
     }
 
     function renderError(msg) {
-      const panel = document.getElementById('results-panel');
-      panel.innerHTML = `<div class="results-title">系統錯誤</div>
-    <div class="verdict-banner verdict-RE">💥 ${escHtml(msg)}</div>`;
+      renderResultDrawer('執行失敗', '請查看錯誤訊息', `<div class="verdict-banner verdict-RE">💥 ${escHtml(msg)}</div>`);
+      setResultSummary('✗ 執行失敗', 'error');
+    }
+
+    function toggleJudgeFocus() {
+      const active = document.body.classList.toggle('judge-focus');
+      const button = document.getElementById('focus-mode-btn');
+      button.textContent = active ? '↙ 顯示題目' : '⛶ 放大編輯區';
+      button.setAttribute('aria-pressed', String(active));
+      requestAnimationFrame(() => {
+        editor?.refresh();
+        window.dispatchEvent(new Event('resize'));
+      });
     }
 
     // ═══════════════════════════════════════════════
@@ -1541,8 +1886,7 @@ finally:
       document.getElementById('problem-header-title').textContent = '載入中…';
       document.getElementById('p-title').textContent = '載入中…';
       document.getElementById('p-desc').innerHTML = '<p style="color:var(--text-muted)">正在載入題目資料…</p>';
-      document.getElementById('results-panel').style.display = 'none';
-      document.getElementById('results-panel').innerHTML = '';
+      clearResultsPanel();
 
       try {
         // 優先讀快取，再讀外部 JSON，最後讀內嵌備援
@@ -1580,17 +1924,26 @@ finally:
         document.getElementById('p-constraints').innerHTML = `<ul style="padding-left:16px">${problem.constraints.replace(/<ul>|<\/ul>/g, '')
           }</ul>`;
 
-        // 範例輸入/輸出
-        document.getElementById('p-samples').innerHTML = `
-      <div class="sample-block">
-        <div class="sample-block-header">範例輸入</div>
-        <pre>${escHtml(problem.sampleInput)}</pre>
-      </div>
-      <div class="sample-block">
-        <div class="sample-block-header">範例輸出</div>
-        <pre>${escHtml(problem.sampleOutput)}</pre>
-      </div>
-    `;
+        // 公開範例與隱藏測資分開；舊題仍相容 sampleInput / sampleOutput。
+        const publicSamples = getPublicSamples(problem);
+        const fixedOutputNote = publicSamples.length === 1 && problem.testCases?.length === 1 && !publicSamples[0].input
+          ? '<p class="sample-note">本題為固定輸出題，只有一組有意義的輸入／輸出範例。</p>'
+          : '';
+        document.getElementById('p-samples').innerHTML = publicSamples.map((sample, index) => `
+          <div class="sample-pair">
+            <div class="sample-pair-title">範例 ${index + 1}</div>
+            <div class="sample-pair-grid">
+              <div class="sample-block">
+                <div class="sample-block-header">輸入</div>
+                <pre>${escHtml(sample.input || '(無輸入)')}</pre>
+              </div>
+              <div class="sample-block">
+                <div class="sample-block-header">輸出</div>
+                <pre>${escHtml(sample.output)}</pre>
+              </div>
+            </div>
+            ${sample.explanation ? `<p class="sample-note">${escHtml(sample.explanation)}</p>` : ''}
+          </div>`).join('') + fixedOutputNote;
 
         await programmingEditor.setTask({ key: 'pyjudge_code_' + id, starter: STARTER_TEMPLATE });
         editor.refresh();
@@ -1611,7 +1964,7 @@ finally:
         const reset = programmingEditor.reset();
         running = true;
         setSubmitEnabled(false);
-        try { await reset; document.getElementById('results-panel').style.display = 'none'; }
+        try { await reset; clearResultsPanel(); }
         finally { running = false; setSubmitEnabled(true); }
       }
     }
@@ -1668,8 +2021,10 @@ finally:
       });
       programmingEditor = new SkillLabEditor({
         mount: document.getElementById('programming-editor'), pythonEditor: editor,
-        onLanguageChange: () => { document.getElementById('results-panel').style.display = 'none'; }
+        onLanguageChange: clearResultsPanel
       });
+      // Judge 將作答設定放進題目標題列，避免工具列與說明文字占用編輯高度。
+      document.getElementById('judge-answer-controls').append(programmingEditor.toolbar);
       // Resize CodeMirror to fill editor-area
       // 注意：初始時 #view-problem 為 display:none，editorArea.offsetHeight = 0
       // 所以這裡只設定 ResizeObserver，不立即呼叫（避免高度為 0 時誤設）

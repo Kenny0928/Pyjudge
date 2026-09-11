@@ -64,5 +64,19 @@
       "input": "90",
       "output": "通過"
     }
+  ],
+  "samples": [
+    {
+      "input": "72",
+      "output": "通過"
+    },
+    {
+      "input": "60",
+      "output": "通過"
+    },
+    {
+      "input": "59",
+      "output": "再努力"
+    }
   ]
 }

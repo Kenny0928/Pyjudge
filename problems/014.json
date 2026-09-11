@@ -2,11 +2,21 @@
   "id": 14,
   "title": "1 加到 N 的總和",
   "difficulty": "Easy",
-  "tags": ["迴圈", "累加器", "數學"],
+  "tags": [
+    "迴圈",
+    "累加器",
+    "數學"
+  ],
   "audienceLevel": "E-UPPER",
   "platformMode": "Python",
-  "learningObjectives": ["使用累加器模式計算連續整數的總和"],
-  "prerequisites": ["for 迴圈", "range", "變數更新"],
+  "learningObjectives": [
+    "使用累加器模式計算連續整數的總和"
+  ],
+  "prerequisites": [
+    "for 迴圈",
+    "range",
+    "變數更新"
+  ],
   "description": "<p>請寫一個程式，輸入一個正整數 <code>N</code>，計算從 1 一直加到 N 的總和，也就是 <code>1 + 2 + 3 + ... + N</code>。</p><p>可先建立值為 0 的累加器，再於迴圈中逐一加入目前的數字。</p>",
   "inputFormat": "<p>第一行包含一個正整數 <code>N</code>。</p>",
   "outputFormat": "<p>輸出一個整數，代表 1 到 N 的總和。</p>",
@@ -16,13 +26,51 @@
   "sampleInput": "5",
   "sampleOutput": "15",
   "testCases": [
-    {"input": "5", "output": "15"},
-    {"input": "1", "output": "1"},
-    {"input": "2", "output": "3"},
-    {"input": "10", "output": "55"},
-    {"input": "50", "output": "1275"},
-    {"input": "100", "output": "5050"},
-    {"input": "500", "output": "125250"},
-    {"input": "1000", "output": "500500"}
+    {
+      "input": "5",
+      "output": "15"
+    },
+    {
+      "input": "1",
+      "output": "1"
+    },
+    {
+      "input": "2",
+      "output": "3"
+    },
+    {
+      "input": "10",
+      "output": "55"
+    },
+    {
+      "input": "50",
+      "output": "1275"
+    },
+    {
+      "input": "100",
+      "output": "5050"
+    },
+    {
+      "input": "500",
+      "output": "125250"
+    },
+    {
+      "input": "1000",
+      "output": "500500"
+    }
+  ],
+  "samples": [
+    {
+      "input": "5",
+      "output": "15"
+    },
+    {
+      "input": "1",
+      "output": "1"
+    },
+    {
+      "input": "2",
+      "output": "3"
+    }
   ]
 }

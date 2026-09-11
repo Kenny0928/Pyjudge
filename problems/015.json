@@ -2,11 +2,21 @@
   "id": 15,
   "title": "清單中的最大值",
   "difficulty": "Easy",
-  "tags": ["陣列", "清單", "最值尋找"],
+  "tags": [
+    "陣列",
+    "清單",
+    "最值尋找"
+  ],
   "audienceLevel": "M-7",
   "platformMode": "Python",
-  "learningObjectives": ["以第一個元素初始化目前最大值並走訪清單完成更新"],
-  "prerequisites": ["清單", "for 迴圈", "條件判斷"],
+  "learningObjectives": [
+    "以第一個元素初始化目前最大值並走訪清單完成更新"
+  ],
+  "prerequisites": [
+    "清單",
+    "for 迴圈",
+    "條件判斷"
+  ],
   "description": "<p>請寫一個程式，輸入 N 個整數，找出並輸出其中的最大值。</p><p><strong>注意：</strong>清單可能全部都是負數。若自行走訪比較，可用第一個元素初始化目前最大值。</p>",
   "inputFormat": "<ul><li>第一行：正整數 <code>N</code>，代表數字個數</li><li>第二行：N 個整數，以半形空格分隔</li></ul>",
   "outputFormat": "<p>輸出清單中的最大整數。</p>",
@@ -16,13 +26,51 @@
   "sampleInput": "5\n12 35 7 89 24",
   "sampleOutput": "89",
   "testCases": [
-    {"input": "5\n12 35 7 89 24", "output": "89"},
-    {"input": "4\n-10 -5 -20 -3", "output": "-3"},
-    {"input": "1\n42", "output": "42"},
-    {"input": "3\n100 100 100", "output": "100"},
-    {"input": "5\n99 88 77 66 55", "output": "99"},
-    {"input": "5\n11 22 33 44 55", "output": "55"},
-    {"input": "6\n0 0 0 0 0 0", "output": "0"},
-    {"input": "8\n-10000 5000 0 -300 10000 7 88 -1", "output": "10000"}
+    {
+      "input": "5\n12 35 7 89 24",
+      "output": "89"
+    },
+    {
+      "input": "4\n-10 -5 -20 -3",
+      "output": "-3"
+    },
+    {
+      "input": "1\n42",
+      "output": "42"
+    },
+    {
+      "input": "3\n100 100 100",
+      "output": "100"
+    },
+    {
+      "input": "5\n99 88 77 66 55",
+      "output": "99"
+    },
+    {
+      "input": "5\n11 22 33 44 55",
+      "output": "55"
+    },
+    {
+      "input": "6\n0 0 0 0 0 0",
+      "output": "0"
+    },
+    {
+      "input": "8\n-10000 5000 0 -300 10000 7 88 -1",
+      "output": "10000"
+    }
+  ],
+  "samples": [
+    {
+      "input": "5\n12 35 7 89 24",
+      "output": "89"
+    },
+    {
+      "input": "4\n-10 -5 -20 -3",
+      "output": "-3"
+    },
+    {
+      "input": "1\n42",
+      "output": "42"
+    }
   ]
 }

@@ -45,14 +45,15 @@
     return value;
   }
   async function changeLanguage(container, language) {
-    const select = container.querySelector('.programming-toolbar select');
+    const toolbar = container.querySelector('.programming-toolbar') || container.ownerDocument.getElementById('judge-answer-controls')?.querySelector('.programming-toolbar');
+    const select = toolbar?.querySelector('select');
     assert(select, '找不到作答方式選單');
     await until(() => !select.disabled, '作答方式選單啟用');
     select.value = language;
     select.dispatchEvent(new container.ownerDocument.defaultView.Event('change', { bubbles: true }));
     await until(() => {
-      const status = container.querySelector('.programming-status');
-      const retry = container.querySelector('.programming-toolbar button');
+      const status = toolbar.querySelector('.programming-status');
+      const retry = toolbar.querySelector('button');
       if (retry && !retry.hidden) throw new Error('積木初始化失敗：' + status.textContent);
       return select.value === language && status.textContent === '草稿自動保存';
     }, language + ' 編輯器就緒', 65000);
@@ -106,12 +107,16 @@
     await until(() => !win.document.getElementById('submit-btn').disabled, 'Judge 提交按鈕啟用');
   }
   async function judge(win, verdict) {
+    const editorHeightBefore = win.document.querySelector('.editor-area').getBoundingClientRect().height;
     await limit(win.submitCode(), 'Judge ' + verdict + ' 評測');
     const panel = win.document.getElementById('results-panel');
+    const editorHeightAfter = win.document.querySelector('.editor-area').getBoundingClientRect().height;
     assert(panel.querySelector('.verdict-' + verdict), '預期 ' + verdict + '，實際：' + panel.textContent.trim());
     const chips = [...panel.querySelectorAll('.tc-chip')];
     assert(chips.length === 8, '題目 014 應完整執行 8 組測資，實際：' + chips.length);
     assert(chips.every(chip => chip.classList.contains('tc-' + verdict)), '並非全部測資得到 ' + verdict);
+    assert(Math.abs(editorHeightAfter - editorHeightBefore) < 1, '結果面板改變了編輯器高度');
+    assert(win.getComputedStyle(panel).position === 'absolute', '結果面板未以浮動抽屜呈現');
     assert(!win.document.getElementById('submit-btn').disabled, '評測後未恢復提交按鈕');
   }
   function beginnerContainer(win, key) {
@@ -164,6 +169,11 @@
       const loaded = await test('載入真正 Judge 頁面與題目 014', async () => {
         judgeWindow = await loadPage('judge.html');
         await openProblem(judgeWindow, 14);
+        assert(judgeWindow.document.querySelectorAll('#p-samples .sample-pair').length >= 3, '一般題目未顯示至少三組公開範例');
+        const toolbar = judgeWindow.document.querySelector('.programming-toolbar');
+        assert(toolbar?.parentElement?.id === 'judge-answer-controls', '作答方式沒有放在題目標題列');
+        assert(judgeWindow.getComputedStyle(judgeWindow.document.querySelector('.programming-help')).display === 'none', 'Judge 仍顯示作答說明列');
+        assert(!judgeWindow.document.body.innerText.includes('選擇作答方式，使用同一組測資評測'), 'Judge 仍顯示舊編輯器標題列');
       });
       if (!loaded) throw new Error('Judge 頁面載入失敗，後續測試無法執行。');
       const pythonSolution = 'assert "test_seen" not in globals(), "跨測資全域變數污染"\ntest_seen = True\nn = int(input())\nprint(n * (n + 1) // 2)';
@@ -214,6 +224,8 @@
       const beginnerLoaded = await test('初階：核心題、A、B 各有 Python／Blockly／Scratch 選單', async () => {
         beginnerWindow = await loadPage('beginner.html#lesson-1');
         await until(() => beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 3 && !beginnerWindow.document.getElementById('run-button').disabled, '初階三個編輯器就緒');
+        assert(beginnerWindow.scrollY === 0, '初階講義首次載入未回到頁首');
+        assert(!beginnerWindow.document.querySelector('.CodeMirror-focused'), '初階 Python 編輯器首次載入時自動取得焦點');
         for (const key of ['core', 'a', 'b']) {
           const select = beginnerContainer(beginnerWindow, key).querySelector('.programming-toolbar select');
           assert(['python', 'blockly', 'scratch'].every(value => [...select.options].some(option => option.value === value)), key + ' 遺漏語言');

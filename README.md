@@ -143,6 +143,11 @@ skilllab/
   "memoryLimit": 256,
   "sampleInput": "hello",
   "sampleOutput": "olleh",
+  "samples": [
+    { "input": "hello", "output": "olleh" },
+    { "input": "world", "output": "dlrow" },
+    { "input": "12345", "output": "54321" }
+  ],
   "testCases": [
     { "input": "hello",  "output": "olleh"  },
     { "input": "world",  "output": "dlrow"  },
@@ -150,6 +155,8 @@ skilllab/
   ]
 }
 ```
+
+`samples` 是題目頁會公開顯示並由「測試範例」按鈕執行的範例，一般題目至少需要 3 組；`testCases` 是正式提交時使用的完整測資。固定輸出且沒有輸入的題目可以只提供 1 組公開範例。`sampleInput` 與 `sampleOutput` 暫時保留，供舊版頁面相容使用。
 
 ### 步驟 3：（可選）建立 `solutions/008.py`
 

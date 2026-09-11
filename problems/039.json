@@ -67,5 +67,19 @@
       "input": "xyz",
       "output": "0"
     }
+  ],
+  "samples": [
+    {
+      "input": "hello",
+      "output": "2"
+    },
+    {
+      "input": "apple",
+      "output": "2"
+    },
+    {
+      "input": "aeiou",
+      "output": "5"
+    }
   ]
 }

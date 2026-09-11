@@ -65,5 +65,19 @@
       "input": "Max",
       "output": "你好，我是Max！"
     }
+  ],
+  "samples": [
+    {
+      "input": "小明",
+      "output": "你好，我是小明！"
+    },
+    {
+      "input": "Amy",
+      "output": "你好，我是Amy！"
+    },
+    {
+      "input": "大雄",
+      "output": "你好，我是大雄！"
+    }
   ]
 }

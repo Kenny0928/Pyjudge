@@ -73,5 +73,19 @@
       "input": "25",
       "output": "穿長袖"
     }
+  ],
+  "samples": [
+    {
+      "input": "15",
+      "output": "穿外套"
+    },
+    {
+      "input": "5",
+      "output": "穿羽絨衣"
+    },
+    {
+      "input": "10",
+      "output": "穿外套"
+    }
   ]
 }

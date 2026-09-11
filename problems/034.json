@@ -67,5 +67,19 @@
       "input": "4\n59\n60\n61\n100",
       "output": "221"
     }
+  ],
+  "samples": [
+    {
+      "input": "5\n60\n59\n80\n42\n100",
+      "output": "240"
+    },
+    {
+      "input": "3\n30\n40\n50",
+      "output": "0"
+    },
+    {
+      "input": "3\n60\n70\n80",
+      "output": "210"
+    }
   ]
 }

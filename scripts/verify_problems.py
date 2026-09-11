@@ -106,7 +106,7 @@ def verify_all():
             continue
 
         # 檢查內部欄位
-        required_fields = ["id", "title", "difficulty", "description", "inputFormat", "outputFormat", "testCases"]
+        required_fields = ["id", "title", "difficulty", "description", "inputFormat", "outputFormat", "samples", "testCases"]
         missing_fields = [rf for rf in required_fields if rf not in prob_data]
         if missing_fields:
             log_fail(f"{prob_filename} 缺少必要欄位: {missing_fields}")
@@ -121,6 +121,22 @@ def verify_all():
         test_cases = prob_data.get("testCases", [])
         if not isinstance(test_cases, list) or len(test_cases) == 0:
             log_fail(f"{prob_filename} 的 testCases 必須是非空陣列")
+            failed_problems += 1
+            continue
+
+        samples = prob_data.get("samples", [])
+        fixed_output_problem = len(test_cases) == 1 and test_cases[0].get("input", "") == ""
+        minimum_samples = 1 if fixed_output_problem else 3
+        if not isinstance(samples, list) or len(samples) < minimum_samples:
+            log_fail(f"{prob_filename} 的 samples 至少需要 {minimum_samples} 組公開範例")
+            failed_problems += 1
+            continue
+        if any(not isinstance(sample, dict) or not isinstance(sample.get("input"), str) or not isinstance(sample.get("output"), str) for sample in samples):
+            log_fail(f"{prob_filename} 的每組公開範例都必須包含字串型別的 input 與 output")
+            failed_problems += 1
+            continue
+        if len({(sample["input"], sample["output"]) for sample in samples}) != len(samples):
+            log_fail(f"{prob_filename} 包含重複的公開範例")
             failed_problems += 1
             continue
 
@@ -195,4 +211,3 @@ def verify_all():
 if __name__ == "__main__":
     success = verify_all()
     sys.exit(0 if success else 1)
-

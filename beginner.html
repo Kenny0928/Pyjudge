@@ -1467,9 +1467,12 @@
     const taskEditors = {};
 
     const $ = id => document.getElementById(id);
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (document.activeElement === $('code-editor')) $('code-editor').blur();
     const editor = CodeMirror.fromTextArea($('code-editor'), {
       mode: 'python',
       theme: 'dracula',
+      autofocus: false,
       lineNumbers: true,
       indentUnit: 4,
       tabSize: 4,
@@ -1596,7 +1599,19 @@
         closeSidebar();
         await Promise.all([coreReady, variantsReady]);
         history.replaceState(null, '', `#lesson-${lesson.id}`);
-        if (!options.keepScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (!options.keepScroll) {
+          if (options.initialLoad) {
+            const previousBehavior = document.documentElement.style.scrollBehavior;
+            document.documentElement.style.scrollBehavior = 'auto';
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+              window.scrollTo(0, 0);
+              document.documentElement.style.scrollBehavior = previousBehavior;
+            });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
         taskEditors.core.refresh();
       } catch (error) {
         $('runner-status').textContent = `練習板載入失敗：${error.message || String(error)}`;
@@ -1696,6 +1711,7 @@
           value: '',
           mode: 'python',
           theme: 'dracula',
+          autofocus: false,
           lineNumbers: true,
           indentUnit: 4,
           tabSize: 4,
@@ -1980,7 +1996,17 @@ sys.stderr = _stderr
     migrateLegacyProgress();
     const hashMatch = location.hash.match(/^#lesson-(\d+)$/);
     const initialLesson = hashMatch ? Math.min(10, Math.max(1, Number(hashMatch[1]))) : 1;
-    showLesson(initialLesson, { keepScroll: true });
+    showLesson(initialLesson, { initialLoad: true }).then(() => {
+      const active = document.activeElement;
+      if (active && active !== document.body && typeof active.blur === 'function') active.blur();
+      const previousBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.style.scrollBehavior = previousBehavior;
+      });
+    });
   </script>
 </body>
 

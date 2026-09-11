@@ -66,5 +66,19 @@
       "input": "go\n20",
       "output": "go\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo\ngo"
     }
+  ],
+  "samples": [
+    {
+      "input": "加油\n3",
+      "output": "加油\n加油\n加油"
+    },
+    {
+      "input": "Hello\n5",
+      "output": "Hello\nHello\nHello\nHello\nHello"
+    },
+    {
+      "input": "*\n1",
+      "output": "*"
+    }
   ]
 }
