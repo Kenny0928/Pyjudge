@@ -1877,10 +1877,23 @@ finally:
       }).join('');
     }
 
+    function resetProblemScroll() {
+      // The list page, mobile layout, problem description, and result drawer
+      // each have their own possible scroll position. A newly opened problem
+      // must always begin at its heading rather than inheriting any of them.
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      document.querySelector('.desc-panel')?.scrollTo(0, 0);
+      document.querySelector('.split-layout')?.scrollTo(0, 0);
+      document.querySelector('.results-drawer-body')?.scrollTo(0, 0);
+    }
+
     async function openProblem(id) {
       if (running || loadingProblem) return;
       // 先切換到題目頁，顯示載入中
       showView('problem');
+      resetProblemScroll();
       loadingProblem = true;
       setSubmitEnabled(false);
       await programmingEditor.flush();
@@ -1948,6 +1961,9 @@ finally:
 
         await programmingEditor.setTask({ key: 'pyjudge_code_' + id, starter: STARTER_TEMPLATE });
         editor.refresh();
+        // Async content and editor restoration can trigger browser scroll
+        // anchoring, so reset once more after the new problem is fully ready.
+        requestAnimationFrame(resetProblemScroll);
       } catch (e) {
         document.getElementById('p-desc').innerHTML =
           `<p style="color:var(--danger)">❌ 題目載入失敗：${escHtml(e.message)}</p>`;

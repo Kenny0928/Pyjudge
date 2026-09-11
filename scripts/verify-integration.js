@@ -202,7 +202,10 @@
         await judge(judgeWindow, 'AC');
       });
       if (blocksLoaded) await test('Judge：切題與切語言後各自草稿保留，Blockly 回來仍全部 AC', async () => {
+        const description = judgeWindow.document.querySelector('.desc-panel');
+        description.scrollTop = 300;
         await openProblem(judgeWindow, 15);
+        assert(description.scrollTop === 0 && judgeWindow.scrollY === 0, '開啟新題目後未回到頁首');
         await changeLanguage(judgeWindow.document.getElementById('programming-editor'), 'python');
         cm(judgeWindow.document).setValue('print("question 15 draft")');
         await openProblem(judgeWindow, 14);
