@@ -51,7 +51,8 @@
   "platformMode": "Python",
   "learningObjectives": ["掌握 % 2 取餘數與 if/else 判斷奇偶數"],
   "prerequisites": ["變數", "算術運算"],
-  "description": "<p>清楚說明題目背景與任務，只用基本 HTML 標籤（p, ul, li, strong, code）。</p>",
+  "description": "<p class='problem-lead'>用一句話說明核心任務。</p><p>只保留完成題目所需的條件與精確輸出要求。</p>",
+  "hint": "<p>選填。只提示一個關鍵概念，不提供完整解答。</p>",
   "inputFormat": "<p>詳細說明輸入規格，例如：一行包含一個整數 N。</p>",
   "outputFormat": "<p>詳細說明輸出規格，例如：若是奇數輸出 Odd，若是偶數輸出 Even。</p>",
   "constraints": "<ul><li>1 ≤ N ≤ 1000</li></ul>",
@@ -65,6 +66,15 @@
   ]
 }
 ```
+
+#### 題目說明風格與顯示順序
+
+1. `description` 第一段使用一句簡短的任務摘要，接著直接說明學生要完成什麼；刪除歡迎詞、重複敘述與不影響解題的背景資訊。
+2. 大小寫、空格、換行或指定文字需要完全一致時，必須在說明中明確寫出，並使用 `code` 標示固定內容。
+3. 提示必須獨立放在選填的 `hint` 欄位，不得混入 `description`。介面會將提示放在限制之後並預設收合。
+4. 顯示順序固定為：題目說明、輸入格式、輸出格式、範例、限制、收合提示。
+5. 若題目沒有額外數值或資料範圍限制，`constraints` 應填空字串 `""`；不得填入「無」、`None` 或其他沒有資訊量的佔位文字。時間與記憶體限制仍由介面顯示。
+6. 說明與提示不使用 emoji；提示只提供足以啟動思考的一個方向，不能貼出完整答案。
 
 > ⚠️ **測資設計黃金八律（必檢項目）**：
 > 1. **公開範例必含**：`sampleInput` / `sampleOutput` 必須收錄在 `testCases` 之中。
@@ -153,4 +163,3 @@ python3 scripts/verify_problems.py
 ### 自動驗證檢查
 - [ ] 終端已執行 `python3 scripts/verify_problems.py` 且回傳碼為 0。
 - [ ] 所有題目解答均為 `PASS`，無 `FAIL` 或未捕獲的例外錯誤。
-

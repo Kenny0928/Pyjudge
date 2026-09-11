@@ -16,7 +16,7 @@
     "基本輸出",
     "字串輸入"
   ],
-  "description": "<p>你有沒有在網站登入後，看到「歡迎回來，小明！」這樣的訊息？那是程式把你的名字和固定文字拼在一起輸出的。</p><p>請寫一個程式，輸入一個名字，在螢幕上輸出 <code>你好，我是</code>、名字，再接上全形驚嘆號 <code>！</code>，合成一行輸出。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>在 Python 中，可以用 <code>print(\"你好，我是\" + name + \"！\")</code> 把名字和固定文字接在一起。</p></div>",
+  "description": "<p>你有沒有在網站登入後，看到「歡迎回來，小明！」這樣的訊息？那是程式把你的名字和固定文字拼在一起輸出的。</p><p>請寫一個程式，輸入一個名字，在螢幕上輸出 <code>你好，我是</code>、名字，再接上全形驚嘆號 <code>！</code>，合成一行輸出。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>小提示：</p><p style='font-size:0.85rem;'>在 Python 中，可以用 <code>print(\"你好，我是\" + name + \"！\")</code> 把名字和固定文字接在一起。</p></div>",
   "inputFormat": "<p>第一行包含一個字串（名字，不含空格）。</p>",
   "outputFormat": "<p>一行，格式為 <code>你好，我是＿！</code>，其中 <code>＿</code> 替換為輸入的名字。</p>",
   "constraints": "<ul><li>名字為 1 到 10 個字元的字串，不含空格</li></ul>",

@@ -16,7 +16,7 @@
     "整數輸入",
     "算術運算"
   ],
-  "description": "<p>想幫花圃圍圍欄，要先算出一圈需要幾公尺。周長 = (長 + 寬) × 2，讓程式幫你算，就不用反覆手算。</p><p>請寫一個程式，分兩行輸入長方形的長 <code>L</code> 和寬 <code>W</code>，輸出周長。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>周長公式：<code>(L + W) × 2</code>。記得用括號先算 L + W，再乘以 2。</p></div>",
+  "description": "<p>想幫花圃圍圍欄，要先算出一圈需要幾公尺。周長 = (長 + 寬) × 2，讓程式幫你算，就不用反覆手算。</p><p>請寫一個程式，分兩行輸入長方形的長 <code>L</code> 和寬 <code>W</code>，輸出周長。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>小提示：</p><p style='font-size:0.85rem;'>周長公式：<code>(L + W) × 2</code>。記得用括號先算 L + W，再乘以 2。</p></div>",
   "inputFormat": "<p>第一行輸入長 <code>L</code>，第二行輸入寬 <code>W</code>，均為正整數。</p>",
   "outputFormat": "<p>一行，輸出周長 <code>(L + W) × 2</code>。</p>",
   "constraints": "<ul><li>1 ≤ L, W ≤ 100</li></ul>",

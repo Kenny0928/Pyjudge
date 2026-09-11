@@ -16,21 +16,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
   <style>
     :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface2: #334155;
-      --surface-dark: #0b1120;
-      --border: #475569;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
+      --bg: #111214;
+      --surface: #181a1d;
+      --surface2: #202328;
+      --surface-dark: #0d0f12;
+      --border: #30343a;
+      --border-strong: #444a53;
+      --accent: #3d6fd8;
+      --accent-hover: #4b7de7;
+      --on-accent: #ffffff;
       --success: #22c55e;
       --warning: #f59e0b;
       --danger: #ef4444;
       --info: #06b6d4;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --radius: 9px;
-      --shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+      --text: #f5f7fa;
+      --text-muted: #a6adb7;
+      --text-subtle: #7c8491;
+      --radius: 6px;
+      --shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
     }
 
     * {
@@ -60,6 +63,13 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    button:focus-visible,
+    summary:focus-visible,
+    a:focus-visible {
+      outline: 2px solid #8eb0ff;
+      outline-offset: 2px;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
@@ -70,12 +80,12 @@
       align-items: center;
       gap: 16px;
       border-bottom: 1px solid var(--border);
-      background: rgba(30, 41, 59, 0.96);
+      background: rgba(17, 18, 20, 0.96);
       backdrop-filter: blur(12px);
     }
 
     .brand {
-      color: var(--accent);
+      color: white;
       font-size: 1.1rem;
       font-weight: 800;
       text-decoration: none;
@@ -103,14 +113,14 @@
       display: flex;
       justify-content: space-between;
       color: var(--text-muted);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
     }
 
     .progress-track {
-      height: 5px;
+      height: 3px;
       overflow: hidden;
       border-radius: 999px;
-      background: #0f172a;
+      background: var(--surface2);
     }
 
     .progress-track span {
@@ -118,18 +128,18 @@
       height: 100%;
       display: block;
       border-radius: inherit;
-      background: var(--success);
+      background: var(--accent);
       transition: width 0.3s ease;
     }
 
     .mobile-course-button {
       display: none;
       margin-left: auto;
-      padding: 7px 10px;
+      padding: 8px 12px;
       border: 1px solid var(--border);
       border-radius: 7px;
       color: var(--text);
-      background: var(--surface2);
+      background: transparent;
       cursor: pointer;
     }
 
@@ -137,6 +147,7 @@
       min-height: calc(100vh - 60px);
       display: grid;
       grid-template-columns: 286px minmax(0, 1fr);
+      transition: grid-template-columns 0.22s ease;
     }
 
     .course-sidebar {
@@ -146,31 +157,88 @@
       overflow-y: auto;
       padding: 26px 18px;
       border-right: 1px solid var(--border);
-      background: #111c30;
+      background: #141619;
+      transition: padding 0.22s ease;
+    }
+
+    body.sidebar-collapsed .app-shell {
+      grid-template-columns: 52px minmax(0, 1fr);
+    }
+
+    body.sidebar-collapsed .course-sidebar {
+      padding: 18px 8px;
+      overflow: hidden;
+    }
+
+    .sidebar-head {
+      margin: 0 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .sidebar-title {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .desktop-course-button {
+      width: 32px;
+      height: 32px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .desktop-course-button:hover,
+    .desktop-course-button:focus-visible {
+      border-color: var(--border-strong);
+      color: var(--text);
+    }
+
+    body.sidebar-collapsed .sidebar-head {
+      margin-inline: 2px;
+      justify-content: center;
+    }
+
+    body.sidebar-collapsed .sidebar-title,
+    body.sidebar-collapsed .sidebar-label,
+    body.sidebar-collapsed .lesson-nav,
+    body.sidebar-collapsed .sidebar-tip {
+      display: none;
     }
 
     .sidebar-label {
       margin: 0 10px 12px;
-      color: #64748b;
-      font-size: 0.68rem;
+      color: var(--text-subtle);
+      font-size: 0.75rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.04em;
     }
 
     .lesson-nav {
       display: grid;
-      gap: 6px;
+      gap: 2px;
     }
 
     .lesson-nav button {
       width: 100%;
-      padding: 10px;
+      padding: 9px 10px 9px 12px;
       display: grid;
-      grid-template-columns: 32px minmax(0, 1fr) 18px;
+      grid-template-columns: 32px minmax(0, 1fr) 34px;
       align-items: center;
       gap: 10px;
-      border: 1px solid transparent;
-      border-radius: 8px;
+      border: 0;
+      border-left: 2px solid transparent;
+      border-radius: 0 var(--radius) var(--radius) 0;
       color: var(--text-muted);
       background: transparent;
       text-align: left;
@@ -180,13 +248,13 @@
 
     .lesson-nav button:hover {
       color: var(--text);
-      background: rgba(51, 65, 85, 0.58);
+      background: rgba(255, 255, 255, 0.035);
     }
 
     .lesson-nav button.active {
-      border-color: rgba(59, 130, 246, 0.45);
+      border-left-color: var(--accent);
       color: var(--text);
-      background: rgba(59, 130, 246, 0.13);
+      background: rgba(61, 111, 216, 0.08);
     }
 
     .lesson-number {
@@ -194,21 +262,21 @@
       height: 32px;
       display: grid;
       place-items: center;
-      border-radius: 7px;
-      color: #cbd5e1;
-      background: var(--surface2);
-      font-size: 0.73rem;
+      border-radius: 4px;
+      color: var(--text-subtle);
+      background: transparent;
+      font-size: 0.78rem;
       font-weight: 800;
     }
 
     .active .lesson-number {
-      color: white;
-      background: var(--accent);
+      color: #8eb0ff;
+      background: transparent;
     }
 
     .lesson-nav-title {
       overflow: hidden;
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       font-weight: 650;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -216,29 +284,30 @@
 
     .lesson-check {
       color: var(--success);
-      font-size: 0.82rem;
+      font-size: 0.75rem;
       text-align: center;
     }
 
     .sidebar-tip {
       margin-top: 22px;
       padding: 14px;
-      border: 1px solid rgba(6, 182, 212, 0.26);
-      border-radius: 8px;
-      color: #a5f3fc;
-      background: rgba(6, 182, 212, 0.07);
-      font-size: 0.76rem;
+      border-top: 1px solid var(--border);
+      border-radius: 0;
+      color: var(--text-muted);
+      background: transparent;
+      font-size: 0.8rem;
       line-height: 1.65;
     }
 
     .lesson-main {
-      width: min(100%, 980px);
-      padding: 44px clamp(24px, 5vw, 72px) 80px;
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      padding: 44px clamp(24px, 4vw, 64px) 80px;
     }
 
     .lesson-kicker {
-      color: #60a5fa;
-      font-size: 0.74rem;
+      color: #8eb0ff;
+      font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.11em;
     }
@@ -260,10 +329,11 @@
       flex: none;
       margin-top: 8px;
       padding: 5px 10px;
+      border: 1px solid var(--border);
       border-radius: 999px;
-      color: #86efac;
-      background: rgba(34, 197, 94, 0.12);
-      font-size: 0.73rem;
+      color: var(--text-muted);
+      background: transparent;
+      font-size: 0.78rem;
       font-weight: 800;
     }
 
@@ -277,19 +347,26 @@
 
     .study-route {
       margin: 30px 0 26px;
+      position: sticky;
+      top: 72px;
+      z-index: 15;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(30, 41, 59, 0.66);
+      background: rgba(24, 26, 29, 0.94);
+      backdrop-filter: blur(12px);
     }
 
     .route-item {
-      padding: 13px 8px;
+      position: relative;
+      padding: 13px 8px 12px;
       color: var(--text-muted);
-      font-size: 0.76rem;
+      font-size: 0.875rem;
       font-weight: 700;
       text-align: center;
+      text-decoration: none;
+      transition: color 0.16s ease, background 0.16s ease;
     }
 
     .route-item + .route-item {
@@ -297,26 +374,62 @@
     }
 
     .route-item span {
-      color: #93c5fd;
+      color: var(--text-subtle);
       margin-right: 5px;
     }
 
+    .route-item:hover,
+    .route-item:focus-visible {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .route-item.active {
+      color: var(--text);
+    }
+
+    .route-item.active span {
+      color: #8eb0ff;
+    }
+
+    .route-item.active::after {
+      content: "";
+      position: absolute;
+      right: 18px;
+      bottom: -1px;
+      left: 18px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .route-item.done span {
+      color: var(--success);
+    }
+
+    #mission-heading,
+    #think-heading,
+    #practice-heading,
+    #checkpoint-heading {
+      scroll-margin-top: 145px;
+    }
+
     .content-card {
-      margin-top: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+      margin-top: 0;
+      overflow: visible;
+      border: 0;
+      border-top: 1px solid var(--border);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .card-heading {
-      padding: 18px 22px;
+      padding: 28px 0 16px;
       display: flex;
       align-items: center;
       gap: 12px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(51, 65, 85, 0.5);
+      border-bottom: 0;
+      background: transparent;
     }
 
     .task-number {
@@ -324,19 +437,20 @@
       height: 28px;
       display: grid;
       place-items: center;
+      border: 1px solid var(--border-strong);
       border-radius: 7px;
-      color: white;
-      background: var(--accent);
+      color: #8eb0ff;
+      background: transparent;
       font-size: 0.78rem;
       font-weight: 800;
     }
 
     .card-heading h2 {
-      font-size: 1rem;
+      font-size: 1.08rem;
     }
 
     .card-body {
-      padding: 22px;
+      padding: 0 0 32px 40px;
     }
 
     .mission-copy {
@@ -362,9 +476,9 @@
     .io-label {
       padding: 7px 11px;
       border-bottom: 1px solid #293548;
-      color: #64748b;
-      background: #172033;
-      font-size: 0.67rem;
+      color: var(--text-subtle);
+      background: var(--surface);
+      font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.08em;
     }
@@ -393,7 +507,7 @@
       margin-top: 14px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: rgba(15, 23, 42, 0.42);
+      background: rgba(255, 255, 255, 0.015);
     }
 
     details summary {
@@ -468,8 +582,8 @@
       gap: 9px;
       border-bottom: 1px solid #293548;
       color: var(--text-muted);
-      background: #172033;
-      font-size: 0.76rem;
+      background: var(--surface);
+      font-size: 0.8rem;
     }
 
     .runner-toolbar span:first-child {
@@ -479,12 +593,12 @@
 
     .draft-state {
       margin-left: auto;
-      color: #64748b;
+      color: var(--text-subtle);
     }
 
     .code-editor {
       width: 100%;
-      min-height: 245px;
+      min-height: 480px;
       padding: 18px;
       display: block;
       resize: vertical;
@@ -500,7 +614,7 @@
     /* ── CodeMirror wrapper inside beginner.html ── */
     .CodeMirror {
       height: auto;
-      min-height: 245px;
+      min-height: 480px;
       background: #0b1120;
       font-family: 'Consolas', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.9rem;
@@ -508,7 +622,7 @@
     }
 
     .CodeMirror-scroll {
-      min-height: 245px;
+      min-height: 480px;
     }
 
     .CodeMirror-gutters {
@@ -523,15 +637,15 @@
       align-items: center;
       gap: 9px;
       border-top: 1px solid #293548;
-      background: #111a2b;
+      background: var(--surface);
     }
 
     .button {
       padding: 9px 14px;
       border: 1px solid transparent;
       border-radius: 7px;
-      color: white;
-      font-size: 0.82rem;
+      color: var(--on-accent);
+      font-size: 0.88rem;
       font-weight: 750;
       cursor: pointer;
       transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
@@ -557,8 +671,8 @@
 
     .button-secondary {
       border-color: var(--border);
-      color: #cbd5e1;
-      background: var(--surface2);
+      color: var(--text-muted);
+      background: transparent;
     }
 
     .runner-status {
@@ -611,7 +725,7 @@
       border-radius: 999px;
       color: #bfdbfe;
       background: rgba(59, 130, 246, 0.12);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       font-weight: 800;
     }
 
@@ -636,7 +750,7 @@
       overflow: hidden;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(15, 23, 42, 0.56);
+      background: rgba(255, 255, 255, 0.015);
     }
 
     .variant-heading {
@@ -648,14 +762,14 @@
       border: 0;
       border-bottom: 1px solid var(--border);
       color: inherit;
-      background: rgba(51, 65, 85, 0.42);
+      background: var(--surface);
       font: inherit;
       text-align: left;
       cursor: pointer;
     }
 
     .variant-heading:hover {
-      background: rgba(71, 85, 105, 0.58);
+      background: var(--surface2);
     }
 
     .variant-heading:focus-visible {
@@ -731,9 +845,10 @@
     .checkpoint {
       margin-top: 18px;
       padding: 18px;
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      border-radius: var(--radius);
-      background: rgba(34, 197, 94, 0.07);
+      border: 0;
+      border-left: 2px solid var(--success);
+      border-radius: 0;
+      background: transparent;
     }
 
     .checkpoint h3 {
@@ -774,9 +889,14 @@
     }
 
     .nav-button.next {
-      border-color: rgba(59, 130, 246, 0.55);
-      color: white;
-      background: rgba(59, 130, 246, 0.14);
+      border-color: var(--accent);
+      color: var(--on-accent);
+      background: var(--accent);
+    }
+
+    .nav-button.next:hover,
+    .nav-button.next:focus-visible {
+      background: var(--accent-hover);
     }
 
     .finish-panel {
@@ -825,11 +945,16 @@
         display: none;
       }
 
-      .mobile-course-button {
+      .app-shell {
         display: block;
       }
 
-      .app-shell {
+      .mobile-course-button {
+        display: block;
+        margin-left: auto;
+      }
+
+      body.sidebar-collapsed .app-shell {
         display: block;
       }
 
@@ -843,6 +968,26 @@
         height: auto;
         transform: translateX(-105%);
         transition: transform 0.22s ease;
+      }
+
+      body.sidebar-collapsed .course-sidebar {
+        padding: 26px 18px;
+        overflow-y: auto;
+        border-right: 1px solid var(--border);
+      }
+
+      body.sidebar-collapsed .sidebar-title,
+      body.sidebar-collapsed .sidebar-label,
+      body.sidebar-collapsed .sidebar-tip {
+        display: block;
+      }
+
+      body.sidebar-collapsed .lesson-nav {
+        display: grid;
+      }
+
+      .desktop-course-button {
+        display: none;
       }
 
       body.sidebar-open .course-sidebar {
@@ -862,6 +1007,10 @@
 
       .lesson-main {
         margin: 0 auto;
+      }
+
+      .study-route {
+        top: 70px;
       }
     }
 
@@ -884,7 +1033,12 @@
       }
 
       .study-route {
+        position: static;
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-body {
+        padding-left: 0;
       }
 
       .route-item:nth-child(3) {
@@ -939,20 +1093,24 @@
 
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html"><span>🧪</span>SkillLab</a>
+    <a class="brand" href="index.html">SkillLab</a>
     <div class="course-name">初階講義 · 10 個自學關卡</div>
     <div class="header-progress" aria-label="課程進度">
       <div class="progress-copy"><span>你的進度</span><span id="progress-text">0 / 10</span></div>
       <div class="progress-track"><span id="progress-bar"></span></div>
     </div>
-    <button class="mobile-course-button" id="mobile-course-button" type="button" aria-expanded="false">課程目錄</button>
+    <button class="mobile-course-button" id="mobile-course-button" type="button" aria-controls="course-sidebar" aria-expanded="false">目錄</button>
   </header>
 
   <div class="app-shell">
     <aside class="course-sidebar" id="course-sidebar" aria-label="初階講義目錄">
-      <div class="sidebar-label">LEARNING MAP</div>
+      <div class="sidebar-head">
+        <strong class="sidebar-title">講義目錄</strong>
+        <button class="desktop-course-button" id="desktop-course-button" type="button" aria-controls="course-sidebar" aria-expanded="true" aria-label="收合講義目錄">←</button>
+      </div>
+      <div class="sidebar-label">10 個學習關卡</div>
       <nav class="lesson-nav" id="lesson-nav"></nav>
-      <div class="sidebar-tip">💡 不必比別人快。先猜、再執行，最後說出「為什麼」，才是真的學會。</div>
+      <div class="sidebar-tip"><strong>學習提醒</strong><br>先猜、再執行，最後說出「為什麼」。</div>
     </aside>
     <button class="sidebar-scrim" id="sidebar-scrim" type="button" aria-label="關閉課程目錄"></button>
 
@@ -964,12 +1122,12 @@
       </div>
       <p class="lesson-goal" id="lesson-goal"></p>
 
-      <div class="study-route" aria-label="每關學習流程">
-        <div class="route-item"><span>01</span>讀懂任務</div>
-        <div class="route-item"><span>02</span>先猜結果</div>
-        <div class="route-item"><span>03</span>動手測試</div>
-        <div class="route-item"><span>04</span>說出原因</div>
-      </div>
+      <nav class="study-route" aria-label="每關學習流程">
+        <a class="route-item active" href="#mission-heading" data-route-step="0" aria-current="step"><span>01</span>讀懂任務</a>
+        <a class="route-item" href="#think-heading" data-route-step="1"><span>02</span>先猜結果</a>
+        <a class="route-item" href="#practice-heading" data-route-step="2"><span>03</span>動手測試</a>
+        <a class="route-item" href="#checkpoint-heading" data-route-step="3"><span>04</span>說出原因</a>
+      </nav>
 
       <section class="content-card" aria-labelledby="mission-heading">
         <div class="card-heading"><span class="task-number">1</span><h2 id="mission-heading">先讀懂今天的任務</h2></div>
@@ -1023,7 +1181,7 @@
           </details>
 
           <div class="checkpoint">
-            <h3>離開這一關前，請用自己的話回答</h3>
+            <h3 id="checkpoint-heading">離開這一關前，請用自己的話回答</h3>
             <p id="checkpoint-question"></p>
           </div>
         </div>
@@ -1593,7 +1751,7 @@
         <button type="button" data-lesson="${lesson.id}" class="${lesson.id === currentLessonId ? 'active' : ''}" aria-current="${lesson.id === currentLessonId ? 'page' : 'false'}" ${running || loadingLesson ? 'disabled' : ''}>
           <span class="lesson-number">${String(lesson.id).padStart(2, '0')}</span>
           <span class="lesson-nav-title">${escapeHtml(lesson.title)}</span>
-          <span class="lesson-check">${isLessonComplete(lesson.id) ? '✓' : ''}</span>
+          <span class="lesson-check">${isLessonComplete(lesson.id) ? '完成' : ''}</span>
         </button>
       `).join('');
 
@@ -1606,6 +1764,26 @@
       const count = completedCount();
       $('progress-text').textContent = `${count} / 10`;
       $('progress-bar').style.width = `${count * 10}%`;
+    }
+
+    function updateStudyRoute() {
+      const routeItems = [...document.querySelectorAll('.route-item')];
+      const targetIds = ['mission-heading', 'think-heading', 'practice-heading', 'checkpoint-heading'];
+      const marker = Math.min(240, window.innerHeight * 0.36);
+      let activeIndex = 0;
+
+      targetIds.forEach((targetId, index) => {
+        const target = $(targetId);
+        if (target && target.getBoundingClientRect().top <= marker) activeIndex = index;
+      });
+
+      routeItems.forEach((item, index) => {
+        const active = index === activeIndex;
+        item.classList.toggle('active', active);
+        item.classList.toggle('done', index < activeIndex);
+        if (active) item.setAttribute('aria-current', 'step');
+        else item.removeAttribute('aria-current');
+      });
     }
 
     function getLesson(id) {
@@ -1663,6 +1841,7 @@
           }
         }
         taskEditors.core.refresh();
+        requestAnimationFrame(updateStudyRoute);
       } catch (error) {
         $('runner-status').textContent = `練習板載入失敗：${error.message || String(error)}`;
       } finally {
@@ -1703,7 +1882,7 @@
       const state = taskKey === 'core' ? $('core-state') : document.querySelector(`article[data-task="${taskKey}"] .practice-state`);
       if (!state) return;
       const done = isTaskComplete(currentLessonId, taskKey);
-      state.textContent = done ? '✓ 已完成' : '尚未完成';
+      state.textContent = done ? '已完成' : '尚未完成';
       state.classList.toggle('done', done);
     }
 
@@ -1725,7 +1904,7 @@
         const label = index === 0 ? '變體 A' : '變體 B';
         return `
           <article class="variant-card" data-task="${taskKey}">
-            <button class="variant-heading variant-toggle" data-task="${taskKey}" type="button" aria-expanded="false" aria-controls="variant-body-${taskKey}"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '✓ 已完成' : '尚未完成'}</span><span class="variant-open-label">開始作答</span></button>
+            <button class="variant-heading variant-toggle" data-task="${taskKey}" type="button" aria-expanded="false" aria-controls="variant-body-${taskKey}"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '已完成' : '尚未完成'}</span><span class="variant-open-label">開始作答</span></button>
             <div class="variant-body" id="variant-body-${taskKey}" hidden>
               <p class="variant-mission">${escapeHtml(variant.mission)}</p>
               <div class="io-grid">
@@ -1740,7 +1919,7 @@
                   <button class="button button-secondary variant-reset" data-task="${taskKey}" type="button">重設</button>
                   <span class="runner-status">選擇程式語言後執行相同的測試。</span>
                 </div>
-                <div class="test-results ${done ? 'show' : ''}" data-result="${taskKey}" aria-live="polite">${done ? '<div class="result-banner success">✓ 已通過這一題。</div>' : ''}</div>
+                <div class="test-results ${done ? 'show' : ''}" data-result="${taskKey}" aria-live="polite">${done ? '<div class="result-banner success">已通過這一題。</div>' : ''}</div>
               </div>
               <details class="hint-box"><summary>卡住了？先看提示</summary><div class="hint-content">${escapeHtml(variant.hint)}</div></details>
             </div>
@@ -1935,8 +2114,8 @@ sys.stderr = _stderr
       if (outcome.passed) {
         const taskName = taskKey === 'core' ? '核心題' : taskKey === 'a' ? '變體 A' : '變體 B';
         const message = isLessonComplete(lesson.id)
-          ? `✓ 通過 ${outcome.testCount} 組測試！已完成${taskName}，你已通過第 ${lesson.id} 關。`
-          : `✓ 通過 ${outcome.testCount} 組測試！已完成${taskName}。`;
+          ? `通過 ${outcome.testCount} 組測試。已完成${taskName}，你已通過第 ${lesson.id} 關。`
+          : `通過 ${outcome.testCount} 組測試。已完成${taskName}。`;
         result.innerHTML = `<div class="result-banner success">${message}</div>`;
       } else {
         let detail = `第 ${outcome.failedIndex + 1} 組隱藏測試未通過。`;
@@ -2032,18 +2211,51 @@ sys.stderr = _stderr
       }
     }
 
+    function updateSidebarButton() {
+      const narrow = window.matchMedia('(max-width: 860px)').matches;
+      const expanded = narrow
+        ? document.body.classList.contains('sidebar-open')
+        : !document.body.classList.contains('sidebar-collapsed');
+      const mobileButton = $('mobile-course-button');
+      const desktopButton = $('desktop-course-button');
+      mobileButton.setAttribute('aria-expanded', String(narrow && expanded));
+      mobileButton.textContent = narrow && expanded ? '關閉' : '目錄';
+      desktopButton.setAttribute('aria-expanded', String(!narrow && expanded));
+      desktopButton.setAttribute('aria-label', expanded ? '收合講義目錄' : '展開講義目錄');
+      desktopButton.textContent = expanded ? '←' : '→';
+    }
+
     function openSidebar() {
       document.body.classList.add('sidebar-open');
-      $('mobile-course-button').setAttribute('aria-expanded', 'true');
+      updateSidebarButton();
     }
 
     function closeSidebar() {
       document.body.classList.remove('sidebar-open');
-      $('mobile-course-button').setAttribute('aria-expanded', 'false');
+      updateSidebarButton();
+    }
+
+    function toggleCourseSidebar() {
+      if (window.matchMedia('(max-width: 860px)').matches) {
+        document.body.classList.contains('sidebar-open') ? closeSidebar() : openSidebar();
+        return;
+      }
+      const collapsed = document.body.classList.toggle('sidebar-collapsed');
+      localStorage.setItem('skilllab_sidebar_collapsed', String(collapsed));
+      updateSidebarButton();
+      requestAnimationFrame(() => Object.values(taskEditors).forEach(adapter => adapter.refresh()));
+      setTimeout(() => Object.values(taskEditors).forEach(adapter => adapter.refresh()), 240);
     }
 
     $('run-button').addEventListener('click', () => checkAnswer('core'));
     $('reset-button').addEventListener('click', () => resetEditor('core'));
+    document.querySelector('.study-route').addEventListener('click', event => {
+      const link = event.target.closest('.route-item');
+      if (!link) return;
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
     // Tab / Ctrl+Enter for the core editor are handled via CodeMirror extraKeys above.
     // The shared adapter saves each task and language independently.
 
@@ -2069,10 +2281,18 @@ sys.stderr = _stderr
 
     $('previous-button').addEventListener('click', () => showLesson(currentLessonId - 1));
     $('next-button').addEventListener('click', () => showLesson(currentLessonId + 1));
-    $('mobile-course-button').addEventListener('click', () => {
-      document.body.classList.contains('sidebar-open') ? closeSidebar() : openSidebar();
-    });
+    $('mobile-course-button').addEventListener('click', toggleCourseSidebar);
+    $('desktop-course-button').addEventListener('click', toggleCourseSidebar);
     $('sidebar-scrim').addEventListener('click', closeSidebar);
+    window.addEventListener('scroll', updateStudyRoute, { passive: true });
+    if (localStorage.getItem('skilllab_sidebar_collapsed') === 'true') {
+      document.body.classList.add('sidebar-collapsed');
+    }
+    updateSidebarButton();
+    window.addEventListener('resize', () => {
+      document.body.classList.remove('sidebar-open');
+      updateSidebarButton();
+    });
 
     migrateLegacyProgress();
     const hashMatch = location.hash.match(/^#lesson-(\d+)$/);

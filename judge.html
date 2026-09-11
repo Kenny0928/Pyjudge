@@ -21,22 +21,25 @@
 
   <style>
     :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface2: #334155;
-      --border: #475569;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
+      --bg: #111214;
+      --surface: #181a1d;
+      --surface2: #202328;
+      --border: #30343a;
+      --border-strong: #444a53;
+      --accent: #3d6fd8;
+      --accent-hover: #4b7de7;
+      --on-accent: #ffffff;
       --success: #22c55e;
       --warning: #f59e0b;
       --danger: #ef4444;
       --info: #06b6d4;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
+      --text: #f5f7fa;
+      --text-muted: #a6adb7;
+      --text-subtle: #7c8491;
       --easy: #22c55e;
       --medium: #f59e0b;
       --hard: #ef4444;
-      --radius: 8px;
+      --radius: 6px;
       --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     }
 
@@ -47,18 +50,27 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', 'Noto Sans TC', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
     }
 
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible,
+    select:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #8eb0ff;
+      outline-offset: 2px;
+    }
+
     /* ─── Header ─── */
     header {
-      background: var(--surface);
+      background: rgba(17, 18, 20, 0.96);
       border-bottom: 1px solid var(--border);
       padding: 0 24px;
-      height: 56px;
+      height: 60px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -73,7 +85,7 @@
       gap: 8px;
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--text);
       cursor: pointer;
       text-decoration: none;
     }
@@ -95,12 +107,16 @@
     .nav-link:hover,
     .nav-link.active {
       color: var(--text);
-      background: var(--surface2);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-link.active {
+      box-shadow: inset 0 -2px var(--accent);
     }
 
     .badge-pyodide {
       margin-left: auto;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       padding: 4px 10px;
       border-radius: 999px;
       display: flex;
@@ -157,8 +173,8 @@
 
     /* ─── Problem List ─── */
     #view-list {
-      max-width: 960px;
-      margin: 32px auto;
+      max-width: 1180px;
+      margin: 44px auto;
       padding: 0 24px;
     }
 
@@ -176,6 +192,81 @@
       gap: 16px;
       margin-bottom: 24px;
       flex-wrap: wrap;
+    }
+
+    .list-heading {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .list-heading .page-title {
+      margin-bottom: 0;
+    }
+
+    .filter-result-count {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .problem-filters {
+      margin-bottom: 18px;
+      padding: 0;
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) repeat(3, minmax(130px, auto)) auto;
+      gap: 10px;
+      border: 0;
+      background: transparent;
+    }
+
+    .filter-field {
+      min-width: 0;
+    }
+
+    .filter-field label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .filter-field input,
+    .filter-field select,
+    .filter-reset {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      background: var(--surface);
+      font: inherit;
+      font-size: 0.875rem;
+    }
+
+    .filter-field input:focus,
+    .filter-field select:focus,
+    .filter-reset:focus-visible {
+      border-color: var(--accent);
+      outline: 2px solid rgba(59, 130, 246, 0.24);
+      outline-offset: 1px;
+    }
+
+    .filter-reset {
+      width: auto;
+      cursor: pointer;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
     }
 
     .stat-card {
@@ -202,14 +293,14 @@
     .problem-table {
       width: 100%;
       border-collapse: collapse;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: transparent;
+      min-width: 760px;
+      border: 0;
       overflow: hidden;
     }
 
     .problem-table th {
-      background: var(--surface2);
+      background: var(--surface);
       padding: 12px 16px;
       text-align: left;
       font-size: 0.75rem;
@@ -243,7 +334,7 @@
     }
 
     .problem-title-link:hover {
-      color: #60a5fa;
+      color: white;
       text-decoration: underline;
     }
 
@@ -293,7 +384,7 @@
     #view-problem {
       display: none;
       flex-direction: column;
-      height: calc(100vh - 56px);
+      height: calc(100vh - 60px);
     }
 
     #view-problem.active {
@@ -411,6 +502,42 @@
 
     .desc-panel ul {
       padding-left: 20px;
+    }
+
+    .problem-lead {
+      margin-bottom: 14px;
+      color: var(--text) !important;
+      font-size: 1.05rem !important;
+      font-weight: 650;
+    }
+
+    .problem-hint {
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .problem-hint summary {
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .problem-hint-content {
+      padding: 0 14px 14px;
+      color: var(--text-muted);
+    }
+
+    .problem-hint-content pre {
+      margin-top: 8px;
+      padding: 10px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-size: 0.8rem;
     }
 
     .sample-block {
@@ -551,7 +678,7 @@
       z-index: 3 !important;
       white-space: nowrap !important;
       min-height: 100% !important;
-      /* ⚠️ 不覆寫 position/left/top：讓 CodeMirror 自行計算 */
+      /* 不覆寫 position/left/top：讓 CodeMirror 自行計算 */
     }
 
     .CodeMirror-linenumber {
@@ -598,7 +725,7 @@
 
     .btn-primary {
       background: var(--accent);
-      color: white;
+      color: var(--on-accent);
     }
 
     .btn-primary:hover {
@@ -612,8 +739,8 @@
     }
 
     .btn-secondary {
-      background: var(--surface2);
-      color: var(--text);
+      background: transparent;
+      color: var(--text-muted);
       border: 1px solid var(--border);
     }
 
@@ -639,10 +766,10 @@
       display: none;
       flex-direction: column;
       overflow: hidden;
-      border: 1px solid #64748b;
-      border-radius: 10px;
-      background: #172033;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
     }
 
     .results-panel.collapsed {
@@ -720,7 +847,7 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.7);
+      background: var(--surface);
       font-size: 0.75rem;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -994,6 +1121,25 @@
         flex-direction: column;
       }
 
+      #view-list {
+        margin: 26px auto;
+        padding: 0 14px;
+      }
+
+      .list-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .problem-filters {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .problem-filters .filter-field:first-child {
+        grid-column: 1 / -1;
+      }
+
       .desc-panel {
         width: 100%;
         height: 40%;
@@ -1057,7 +1203,7 @@
   <!-- ══════════════ Header ══════════════ -->
   <header>
     <a class="logo" href="index.html">
-      <span>🧪</span> SkillLab
+      SkillLab
     </a>
     <a class="nav-link" href="index.html">學習選單</a>
     <span class="nav-link active" onclick="showView('list')">題目列表</span>
@@ -1070,21 +1216,52 @@
   <!-- ══════════════ View: Problem List ══════════════ -->
   <div id="view-list" class="view active">
     <div id="view-list-inner">
-      <div class="page-title">📋 題目列表</div>
-      <div class="stats-bar" id="stats-bar"></div>
-      <table class="problem-table">
+      <div class="list-heading">
+        <div class="page-title">題目列表</div>
+        <div class="filter-result-count" id="filter-result-count" aria-live="polite">載入題目中</div>
+      </div>
+      <form class="problem-filters" id="problem-filters" role="search" onsubmit="return false">
+        <div class="filter-field">
+          <label for="problem-search">搜尋題號、名稱或標籤</label>
+          <input id="problem-search" type="search" placeholder="搜尋題號、名稱或標籤" autocomplete="off">
+        </div>
+        <div class="filter-field">
+          <label for="difficulty-filter">依難度篩選</label>
+          <select id="difficulty-filter">
+            <option value="">所有難度</option>
+            <option value="Easy">簡單</option>
+            <option value="Medium">中等</option>
+            <option value="Hard">困難</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="tag-filter">依標籤篩選</label>
+          <select id="tag-filter"><option value="">所有標籤</option></select>
+        </div>
+        <div class="filter-field">
+          <label for="status-filter">依完成狀態篩選</label>
+          <select id="status-filter">
+            <option value="">所有狀態</option>
+            <option value="solved">已完成</option>
+            <option value="unsolved">未完成</option>
+          </select>
+        </div>
+        <button class="filter-reset" id="filter-reset" type="button">清除</button>
+      </form>
+      <div class="table-scroll">
+        <table class="problem-table">
         <thead>
           <tr>
             <th style="width:60px">#</th>
             <th>題目名稱</th>
             <th style="width:120px">標籤</th>
             <th style="width:90px">難度</th>
-            <th style="width:90px">通過率</th>
-            <th style="width:60px">狀態</th>
+            <th style="width:90px">狀態</th>
           </tr>
         </thead>
         <tbody id="problem-tbody"></tbody>
-      </table>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -1094,7 +1271,7 @@
       <button class="back-btn" onclick="showView('list')">← 返回列表</button>
       <div class="problem-header-title" id="problem-header-title">—</div>
       <div class="judge-answer-controls" id="judge-answer-controls" aria-label="作答設定"></div>
-      <button id="focus-mode-btn" class="focus-mode-btn" type="button" onclick="toggleJudgeFocus()">⛶ 放大編輯區</button>
+      <button id="focus-mode-btn" class="focus-mode-btn" type="button" onclick="toggleJudgeFocus()">放大編輯區</button>
       <button id="reset-code-btn" class="btn btn-secondary" onclick="resetCode()" style="padding:4px 12px;font-size:0.8rem;">重置</button>
     </div>
     <div class="split-layout">
@@ -1108,14 +1285,20 @@
         <div id="p-input-fmt"></div>
         <div class="section-title">輸出格式</div>
         <div id="p-output-fmt"></div>
-        <div class="section-title">限制</div>
-        <div class="limits-row">
-          <div class="limit-item">⏱ 時間限制：<strong id="p-time">—</strong></div>
-          <div class="limit-item">💾 記憶體限制：<strong id="p-mem">—</strong></div>
-        </div>
-        <div id="p-constraints"></div>
         <div class="section-title">範例輸入 / 輸出</div>
         <div id="p-samples"></div>
+        <section id="p-limits-section" aria-labelledby="p-limits-title">
+          <div class="section-title" id="p-limits-title">限制</div>
+          <div class="limits-row">
+            <div class="limit-item">時間限制：<strong id="p-time">—</strong></div>
+            <div class="limit-item">記憶體限制：<strong id="p-mem">—</strong></div>
+          </div>
+          <div id="p-constraints"></div>
+        </section>
+        <details class="problem-hint" id="p-hint" hidden>
+          <summary>提示</summary>
+          <div class="problem-hint-content" id="p-hint-content"></div>
+        </details>
       </div>
 
       <!-- Right: Editor + Results -->
@@ -1131,10 +1314,10 @@
         </div>
         <div class="submit-bar">
           <button class="btn btn-primary" id="submit-btn" onclick="submitCode()" disabled>
-            ▶ 提交程式碼
+            提交程式碼
           </button>
           <button class="btn btn-secondary" id="sample-btn" onclick="runSample()" disabled>
-            🧪 測試範例
+            測試範例
           </button>
           <button class="result-summary-pill" id="result-summary-pill" type="button" onclick="openResultsPanel()" hidden></button>
           <span class="submit-hint" id="submit-hint">第一次執行會準備所需環境</span>
@@ -1178,10 +1361,11 @@
         "title": "Hello World",
         "difficulty": "Easy",
         "tags": ["入門", "輸出"],
-        "description": "<p>歡迎來到 SkillLab！這是你的第一題。</p><p>請寫一個程式，在螢幕上輸出 <code>hello world</code>。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>在 Python 中，你可以使用 <code>print()</code> 函式來輸出文字。</p></div>",
+        "description": "<p class='problem-lead'>輸出指定文字。</p><p>請讓程式輸出一行 <code>hello world</code>，大小寫與中間的空格必須完全相同。</p>",
+        "hint": "<p>Python 可以使用 <code>print()</code> 輸出文字。</p>",
         "inputFormat": "<p>無任何輸入。</p>",
         "outputFormat": "<p>一行，輸出 <code>hello world</code>。</p>",
-        "constraints": "<ul><li>無</li></ul>",
+        "constraints": "",
         "timeLimit": 1,
         "memoryLimit": 256,
         "sampleInput": "",
@@ -1195,7 +1379,7 @@
         "title": "A+B 問題",
         "difficulty": "Easy",
         "tags": ["數學", "輸入輸出"],
-        "description": "<p>給定兩個整數 <code>A</code> 和 <code>B</code>，請計算並輸出 <code>A + B</code> 的值。</p><p>這是最經典的程式設計入門題，主要測試你是否能正確讀取一整行輸入、依空格拆開資料並輸出結果。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：一次讀取，再拆開</p><p style='font-size:0.85rem;'>Python 可使用下列方式讀取一整行，再依空格拆成兩個整數：</p><pre style='font-size:0.75rem;margin-top:4px;'>a, b = map(int, input().split())</pre><p style='font-size:0.85rem;margin-top:6px;'>Blockly 可將「要求輸入文字」接到「從文本製作清單」，分隔符填入一個空格，再取得第 0、1 項。</p></div>",
+        "description": "<p>給定兩個整數 <code>A</code> 和 <code>B</code>，請計算並輸出 <code>A + B</code> 的值。</p><p>這是最經典的程式設計入門題，主要測試你是否能正確讀取一整行輸入、依空格拆開資料並輸出結果。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>小提示：一次讀取，再拆開</p><p style='font-size:0.85rem;'>Python 可使用下列方式讀取一整行，再依空格拆成兩個整數：</p><pre style='font-size:0.75rem;margin-top:4px;'>a, b = map(int, input().split())</pre><p style='font-size:0.85rem;margin-top:6px;'>Blockly 可將「要求輸入文字」接到「從文本製作清單」，分隔符填入一個空格，再取得第 0、1 項。</p></div>",
         "inputFormat": "<p>一行包含兩個整數 <code>A</code> 和 <code>B</code>，以一個半形空格分隔。</p>",
         "outputFormat": "<p>一行，輸出 <code>A + B</code> 的值。</p>",
         "constraints": "<ul><li>−10<sup>9</sup> ≤ A, B ≤ 10<sup>9</sup></li></ul>",
@@ -1359,7 +1543,7 @@
         "title": "二進制轉十進制",
         "difficulty": "Easy",
         "tags": ["數學", "字串", "進位轉換"],
-        "description": "<p>請寫一個程式，輸入一串只包含 0 和 1 的二進制字串，將它轉換成十進制整數並輸出。</p><p>將二進制轉換為十進制的方法是：從最右邊的位元開始，每個位元的值乘以 2 的對應次方後加總。例如二進制 <code>1101</code>，從右到左依序為第 0、1、2、3 位，計算為 1×2⁰ + 0×2¹ + 1×2² + 1×2³ = 1+0+4+8 = 13。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>💡 小提示：</p><p style='font-size:0.85rem;'>可以使用由左至右累加的技巧，每次將目前結果乘以 2 並加上新位元的值。</p></div>",
+        "description": "<p>請寫一個程式，輸入一串只包含 0 和 1 的二進制字串，將它轉換成十進制整數並輸出。</p><p>將二進制轉換為十進制的方法是：從最右邊的位元開始，每個位元的值乘以 2 的對應次方後加總。例如二進制 <code>1101</code>，從右到左依序為第 0、1、2、3 位，計算為 1×2⁰ + 0×2¹ + 1×2² + 1×2³ = 1+0+4+8 = 13。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>小提示：</p><p style='font-size:0.85rem;'>可以使用由左至右累加的技巧，每次將目前結果乘以 2 並加上新位元的值。</p></div>",
         "inputFormat": "<p>第一行：一串只包含 0 和 1 的字串（長度 1 ≤ L ≤ 10）</p>",
         "outputFormat": "<p>第一行：對應的十進制整數</p>",
         "constraints": "<ul><li>輸入保證是合法的二進制字串</li><li>不包含前導零（僅 '0' 本身例外）</li></ul>",
@@ -1576,7 +1760,7 @@ finally:
           if (results.every(result => result.status === 'AC')) {
             solvedSet.add(problem.id);
             localStorage.setItem('solved', JSON.stringify([...solvedSet]));
-            toast('🎉 恭喜！所有測資通過！');
+            toast('所有測資通過。');
           }
         }
       } catch (error) {
@@ -1594,7 +1778,7 @@ finally:
     // ═══════════════════════════════════════════════
     //  RENDER RESULTS
     // ═══════════════════════════════════════════════
-    const STATUS_LABEL = { AC: '✓ AC', WA: '✗ WA', TLE: '⏱ TLE', RE: '💥 RE' };
+    const STATUS_LABEL = { AC: 'AC', WA: 'WA', TLE: 'TLE', RE: 'RE' };
     const STATUS_DESC = { AC: '全部通過', WA: '答案錯誤', TLE: '超過時間限制', RE: '執行時期錯誤' };
 
     function setResultSummary(text, state = '') {
@@ -1689,7 +1873,7 @@ finally:
       const maxTime = Math.max(...results.map(r => r.elapsed || 0));
 
       let html = `<div class="verdict-banner verdict-${worstStatus}">
-    <span style="font-size:1.3rem">${allAC ? '🎉' : '❌'}</span>
+    <span>${allAC ? '通過' : '未通過'}</span>
     <span>${STATUS_LABEL[worstStatus]} — ${passCount}/${results.length} 通過</span>
     <span style="margin-left:auto;font-size:0.8rem;font-weight:400;color:inherit;opacity:0.8">最長 ${maxTime.toFixed(0)} ms</span>
   </div>`;
@@ -1710,7 +1894,7 @@ finally:
 
       const summary = `${STATUS_DESC[worstStatus]} · ${passCount}/${results.length} 通過`;
       renderResultDrawer('評測結果', summary, html, { collapsed: allAC });
-      setResultSummary(allAC ? `✓ ${passCount}/${results.length} 通過` : `✗ ${passCount}/${results.length} 通過`, allAC ? 'success' : 'error');
+      setResultSummary(`${passCount}/${results.length} 通過`, allAC ? 'success' : 'error');
       window._lastResults = results;
       window._lastResultLabel = '測資';
     }
@@ -1778,7 +1962,7 @@ finally:
       const passCount = results.filter(result => result.status === 'AC').length;
       const worstStatus = allAC ? 'AC' : results.find(result => result.status === 'RE') ? 'RE' : results.find(result => result.status === 'TLE') ? 'TLE' : 'WA';
       let html = `<div class="verdict-banner verdict-${worstStatus}">
-        <span>${allAC ? '✓ 所有公開範例皆正確' : `${STATUS_LABEL[worstStatus]} — ${passCount}/${results.length} 通過`}</span>
+        <span>${allAC ? '所有公開範例皆正確' : `${STATUS_LABEL[worstStatus]} — ${passCount}/${results.length} 通過`}</span>
       </div><div class="tc-grid">`;
       results.forEach((result, index) => {
         html += `<div class="tc-chip tc-${result.status}" onclick="showTcDetail(${index})" title="點擊查看詳情">範例 ${index + 1} ${STATUS_LABEL[result.status]}</div>`;
@@ -1788,20 +1972,20 @@ finally:
       if (firstBad >= 0) html += renderTcDetail(results[firstBad], firstBad, '範例');
       const summary = `${allAC ? '全部通過' : STATUS_DESC[worstStatus]} · ${passCount}/${results.length}`;
       renderResultDrawer('範例測試結果', summary, html, { collapsed: allAC });
-      setResultSummary(allAC ? `✓ 範例 ${passCount}/${results.length}` : `✗ 範例 ${passCount}/${results.length}`, allAC ? 'success' : 'error');
+      setResultSummary(`範例 ${passCount}/${results.length}`, allAC ? 'success' : 'error');
       window._lastResults = results;
       window._lastResultLabel = '範例';
     }
 
     function renderError(msg) {
-      renderResultDrawer('執行失敗', '請查看錯誤訊息', `<div class="verdict-banner verdict-RE">💥 ${escHtml(msg)}</div>`);
-      setResultSummary('✗ 執行失敗', 'error');
+      renderResultDrawer('執行失敗', '請查看錯誤訊息', `<div class="verdict-banner verdict-RE">${escHtml(msg)}</div>`);
+      setResultSummary('執行失敗', 'error');
     }
 
     function toggleJudgeFocus() {
       const active = document.body.classList.toggle('judge-focus');
       const button = document.getElementById('focus-mode-btn');
-      button.textContent = active ? '↙ 顯示題目' : '⛶ 放大編輯區';
+      button.textContent = active ? '顯示題目' : '放大編輯區';
       button.setAttribute('aria-pressed', String(active));
       requestAnimationFrame(() => {
         editor?.refresh();
@@ -1831,48 +2015,56 @@ finally:
     }
 
     function renderProblemList() {
-      const list = problemManifest;
-      // Stats
-      const statsBar = document.getElementById('stats-bar');
-      statsBar.innerHTML = `
-    <div class="stat-card">
-      <div class="stat-value">${list.length}</div>
-      <div class="stat-label">題目數</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--success)">${solvedSet.size}</div>
-      <div class="stat-label">已解題</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--medium)">${list.filter(p => p.difficulty === 'Medium').length}</div>
-      <div class="stat-label">中等難度</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--info)">${list.filter(p => p.difficulty === 'Easy').length}</div>
-      <div class="stat-label">簡單難度</div>
-    </div>
-  `;
+      const search = document.getElementById('problem-search').value.trim().toLocaleLowerCase('zh-TW');
+      const difficulty = document.getElementById('difficulty-filter').value;
+      const tag = document.getElementById('tag-filter').value;
+      const status = document.getElementById('status-filter').value;
+      const tagSelect = document.getElementById('tag-filter');
+
+      if (tagSelect.options.length === 1 && problemManifest.length) {
+        const tags = [...new Set(problemManifest.flatMap(problem => problem.tags))]
+          .sort((a, b) => a.localeCompare(b, 'zh-TW'));
+        tags.forEach(value => tagSelect.add(new Option(value, value)));
+      }
+
+      const list = problemManifest.filter(problem => {
+        const paddedId = String(problem.id).padStart(3, '0');
+        const haystack = `${paddedId} ${problem.id} ${problem.title} ${problem.tags.join(' ')}`.toLocaleLowerCase('zh-TW');
+        const solved = solvedSet.has(problem.id);
+        return (!search || haystack.includes(search))
+          && (!difficulty || problem.difficulty === difficulty)
+          && (!tag || problem.tags.includes(tag))
+          && (!status || (status === 'solved' ? solved : !solved));
+      });
+
+      document.getElementById('filter-result-count').textContent = `顯示 ${list.length} / ${problemManifest.length} 題`;
 
       // Table
       const tbody = document.getElementById('problem-tbody');
-      if (list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:32px">
+      if (problemManifest.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:32px">
       載入題目中…
+    </td></tr>`;
+        return;
+      }
+      if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:44px 24px">
+      找不到符合條件的題目。請調整篩選條件。
     </td></tr>`;
         return;
       }
       tbody.innerHTML = list.map(p => {
         const solved = solvedSet.has(p.id);
         const diff = p.difficulty.toLowerCase();
-        const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
-        const status = solved ? '<span class="status-icon" title="已通過">✅</span>' : '';
+        const tags = p.tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
+        const difficultyLabel = { Easy: '簡單', Medium: '中等', Hard: '困難' }[p.difficulty] || p.difficulty;
+        const solvedLabel = solved ? '<span class="status-icon" title="已完成">已完成</span>' : '<span class="ac-rate">未完成</span>';
         return `<tr>
       <td style="color:var(--text-muted);font-weight:600">${String(p.id).padStart(3, '0')}</td>
       <td><span class="problem-title-link" onclick="openProblem(${p.id})">${escHtml(p.title)}</span></td>
       <td>${tags}</td>
-      <td><span class="badge badge-${diff}">${p.difficulty}</span></td>
-      <td class="ac-rate">—</td>
-      <td>${status}</td>
+      <td><span class="badge badge-${diff}">${difficultyLabel}</span></td>
+      <td>${solvedLabel}</td>
     </tr>`;
       }).join('');
     }
@@ -1889,6 +2081,32 @@ finally:
       document.querySelector('.results-drawer-body')?.scrollTo(0, 0);
     }
 
+    function splitProblemDescription(problem) {
+      const description = document.createElement('div');
+      description.innerHTML = problem.description || '';
+      let hintHtml = problem.hint || '';
+
+      if (!hintHtml) {
+        const legacyHint = [...description.querySelectorAll('div')]
+          .find(element => /^\s*(小)?提示[：:]?/.test(element.textContent.trim()));
+        if (legacyHint) {
+          const label = legacyHint.querySelector('p, strong');
+          if (label && /提示/.test(label.textContent)) label.remove();
+          hintHtml = legacyHint.innerHTML;
+          legacyHint.remove();
+        }
+      }
+
+      return { descriptionHtml: description.innerHTML, hintHtml };
+    }
+
+    function hasMeaningfulConstraints(html) {
+      const container = document.createElement('div');
+      container.innerHTML = html || '';
+      const text = container.textContent.trim().replace(/[。.]$/, '');
+      return Boolean(text) && !/^(無|none|不適用)$/i.test(text);
+    }
+
     async function openProblem(id) {
       if (running || loadingProblem) return;
       // 先切換到題目頁，顯示載入中
@@ -1900,6 +2118,8 @@ finally:
       document.getElementById('problem-header-title').textContent = '載入中…';
       document.getElementById('p-title').textContent = '載入中…';
       document.getElementById('p-desc').innerHTML = '<p style="color:var(--text-muted)">正在載入題目資料…</p>';
+      document.getElementById('p-hint').hidden = true;
+      document.getElementById('p-hint-content').innerHTML = '';
       clearResultsPanel();
 
       try {
@@ -1930,13 +2150,20 @@ finally:
       ${problem.tags.map(t => `<span class="tag">${t}</span>`).join('')}
     `;
 
-        document.getElementById('p-desc').innerHTML = problem.description;
+        const { descriptionHtml, hintHtml } = splitProblemDescription(problem);
+        document.getElementById('p-desc').innerHTML = descriptionHtml;
         document.getElementById('p-input-fmt').innerHTML = problem.inputFormat;
         document.getElementById('p-output-fmt').innerHTML = problem.outputFormat;
         document.getElementById('p-time').textContent = `${problem.timeLimit} 秒`;
         document.getElementById('p-mem').textContent = `${problem.memoryLimit} MB`;
-        document.getElementById('p-constraints').innerHTML = `<ul style="padding-left:16px">${problem.constraints.replace(/<ul>|<\/ul>/g, '')
-          }</ul>`;
+        document.getElementById('p-constraints').innerHTML = hasMeaningfulConstraints(problem.constraints)
+          ? problem.constraints
+          : '';
+
+        const hint = document.getElementById('p-hint');
+        hint.hidden = !hintHtml;
+        hint.open = false;
+        document.getElementById('p-hint-content').innerHTML = hintHtml;
 
         // 公開範例與隱藏測資分開；舊題仍相容 sampleInput / sampleOutput。
         const publicSamples = getPublicSamples(problem);
@@ -1966,9 +2193,9 @@ finally:
         requestAnimationFrame(resetProblemScroll);
       } catch (e) {
         document.getElementById('p-desc').innerHTML =
-          `<p style="color:var(--danger)">❌ 題目載入失敗：${escHtml(e.message)}</p>`;
+          `<p style="color:var(--danger)">題目載入失敗：${escHtml(e.message)}</p>`;
         currentProblem = null;
-        toast('⚠️ 題目載入失敗，請確認 problems/*.json 是否存在');
+        toast('題目載入失敗，請確認 problems/*.json 是否存在');
       } finally {
         loadingProblem = false;
         setSubmitEnabled(true);
@@ -2055,6 +2282,16 @@ finally:
       };
       new ResizeObserver(resizeEditor).observe(editorArea);
 
+      document.getElementById('problem-search').addEventListener('input', renderProblemList);
+      ['difficulty-filter', 'tag-filter', 'status-filter'].forEach(id => {
+        document.getElementById(id).addEventListener('change', renderProblemList);
+      });
+      document.getElementById('filter-reset').addEventListener('click', () => {
+        document.getElementById('problem-filters').reset();
+        renderProblemList();
+        document.getElementById('problem-search').focus();
+      });
+
       // 載入題目清單（problems/index.json）
       fetchManifest()
         .then(manifest => {
@@ -2068,7 +2305,7 @@ finally:
             id: p.id, title: p.title, difficulty: p.difficulty, tags: p.tags
           }));
           renderProblemList();
-          toast('⚠️ 您正以檔案模式開啟。已載入內嵌題目資料，但建議使用伺服器模式以獲得最佳體驗。', 5000);
+          toast('目前以檔案模式開啟；建議使用伺服器模式以獲得完整體驗。', 5000);
         });
 
       document.getElementById('pyodide-status').textContent = 'Python 首次執行時載入';
