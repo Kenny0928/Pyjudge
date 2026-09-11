@@ -42,10 +42,10 @@
   }
   function sum() {
     const p = cleanProject(); p.targets[0].blocks.hat.next = 'askA';
-    add(p, 'askA', 'sensing_askandwait', 'hat', 'saveA', {QUESTION: text('#token')});
+    add(p, 'askA', 'sensing_askandwait', 'hat', 'saveA', {QUESTION: text('請輸入 A')});
     add(p, 'saveA', 'data_setvariableto', 'askA', 'askB', {VALUE: ref('answerA')}, {VARIABLE: ['a', 'a']});
     add(p, 'answerA', 'sensing_answer', 'saveA');
-    add(p, 'askB', 'sensing_askandwait', 'saveA', 'say', {QUESTION: text('#token')});
+    add(p, 'askB', 'sensing_askandwait', 'saveA', 'say', {QUESTION: text('請輸入 B')});
     add(p, 'say', 'looks_say', 'askB', null, {MESSAGE: ref('plus')});
     add(p, 'plus', 'operator_add', 'say', null, {NUM1: ref('readA'), NUM2: ref('answerB')});
     add(p, 'readA', 'data_variable', 'plus', null, {}, {VARIABLE: ['a', 'a']});
@@ -116,8 +116,8 @@
     try {
       await rpc('init', {state: null}); base = await rpc('snapshot');
       await test('標準 Scratch Hello, World!', () => expectOutput(hello(), '', 'Hello, World!\n'));
-      await test('同一行 #token A+B，含負數與多個空白', () => expectOutput(sum(), '  -12   35\n', '23\n'));
-      await test('一般詢問讀一整行；提示不列入標準輸出', () => expectOutput(lineEcho(), 'hello world\nsecond\n', 'hello world\n'));
+      await test('兩個原生詢問可拆開同一行 A+B，含負數與多個空白', () => expectOutput(sum(), '  -12   35\n', '23\n'));
+      await test('一般詢問讀取下一筆資料；提示不列入標準輸出', () => expectOutput(lineEcho(), 'hello world\nsecond\n', 'hello\n'));
       await test('Scratch 迴圈與變數，每個測資獨立重置', async () => {
         const p = loop(); await expectOutput(p, '', '3\n'); await expectOutput(p, '', '3\n');
       });

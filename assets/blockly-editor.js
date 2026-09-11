@@ -43,18 +43,21 @@
     return `print(${value}, end='${end}')\n`;
   };
   generator.forBlock.judge_number = block => [`${block.getFieldValue('KIND')}(${generator.valueToCode(block, 'VALUE', order.NONE) || '0'})`, order.FUNCTION_CALL];
-  // Blockly's stock print block is retained for imported projects. Prompt blocks
-  // deliberately read judge stdin, never an interactive browser prompt.
+  // Blockly's native prompt block is the beginner-facing equivalent of Python
+  // input(). Its visible prompt makes the block readable, but is deliberately
+  // omitted from generated code so judge output is not polluted.
   ['text_prompt_ext', 'text_prompt'].forEach(type => {
     generator.forBlock[type] = block => {
-      generator.definitions_['skilllab_io'] = ioDefinitions;
-      return [block.getFieldValue('TYPE') === 'NUMBER' ? 'float(_skilllab_line())' : '_skilllab_line()', order.FUNCTION_CALL];
+      return [block.getFieldValue('TYPE') === 'NUMBER' ? 'float(input())' : 'input()', order.FUNCTION_CALL];
     };
   });
   const block = type => ({ kind: 'block', type });
   const category = (name, colour, types) => ({ kind: 'category', name, colour, contents: types.map(block) });
   const ioCategory = {
     kind: 'category', name: '讀取／輸出', colour: '#167a88', contents: [
+      { kind: 'label', text: '像 Python input() 一樣讀取一行' },
+      { kind: 'block', type: 'text_prompt', fields: { TYPE: 'TEXT', TEXT: '請輸入文字' } },
+      { kind: 'label', text: '空白分隔的多筆資料' },
       { kind: 'label', text: '題目給整數（最常用）' },
       block('judge_read_integer'),
       { kind: 'label', text: '其他讀取方式' },

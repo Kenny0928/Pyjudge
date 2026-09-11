@@ -16,7 +16,7 @@
 </head>
 <body>
   <div id="tools"><button id="export" type="button">匯出積木</button><label class="file-label">匯入積木 <input id="import" type="file" accept=".json,application/json" aria-label="匯入 Blockly 積木"></label><button id="preview-toggle" type="button" aria-expanded="false">查看 Python</button></div>
-  <div id="message" role="status">整數題先用「拿下一個整數」；每放一塊，就會依序拿到下一個輸入值。</div>
+  <div id="message" role="status">「要求輸入文字」就像 Python 的 input()；提示文字只幫助閱讀，不會列入答案輸出。</div>
   <div id="workspace" aria-label="Blockly 積木工作區"></div>
   <pre id="preview" hidden aria-label="積木產生的 Python 程式"></pre>
   <script src="vendor/blockly/blockly_compressed.js"></script>

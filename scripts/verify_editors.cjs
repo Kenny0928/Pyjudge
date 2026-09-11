@@ -180,7 +180,7 @@ function blocklyHarness() {
     if (response.error) throw new Error(response.error);
     return response.result;
   };
-  return { request, workspace };
+  return { request, workspace, generator: context.python.pythonGenerator };
 }
 
 function execute(code, input) {
@@ -214,6 +214,15 @@ test('Blockly standard I/O handles token whitespace, CRLF lines and exact output
   const code = (await h.request('snapshot')).code;
   assert.equal(execute(code, ' \t12 34\nhello world\r\n'), '12 34\nhello world');
   assert.equal(execute(code, ' \t12 34\r\nhello world\r\n'), '12 34\nhello world');
+  h.workspace.dispose();
+});
+
+test('Blockly native prompt block maps directly to Python input without printing its hint', async () => {
+  const h = blocklyHarness();
+  const [expression] = h.generator.forBlock.text_prompt({ getFieldValue: () => 'TEXT' });
+  const code = `print(${expression})\n`;
+  assert.equal(expression, 'input()');
+  assert.equal(execute(code, 'hello world\n'), 'hello world\n');
   h.workspace.dispose();
 });
 

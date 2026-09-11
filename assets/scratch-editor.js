@@ -43,14 +43,22 @@
   function block(type, content = '') { return '<block type="' + type + '">' + content + '</block>'; }
   function toolbox() {
     const xml = '<xml>' +
-      '<category name="輸入與輸出" id="io" colour="#5cb1d6">' +
+      '<category name="外觀" id="looks" colour="#9966ff">' +
+      block('looks_say', textInput('MESSAGE', 'Hello, World!')) +
+      block('looks_sayforsecs', textInput('MESSAGE', 'Hello!') + numberInput('SECS', 2)) +
+      block('looks_think', textInput('MESSAGE', '嗯……')) +
+      block('looks_thinkforsecs', textInput('MESSAGE', '嗯……') + numberInput('SECS', 2)) + '</category>' +
+      '<category name="事件" id="event" colour="#ffbf00">' +
       block('event_whenflagclicked') +
-      block('sensing_askandwait', textInput('QUESTION')) +
-      block('sensing_askandwait', textInput('QUESTION', '#token')) +
-      block('sensing_answer') + block('looks_say', textInput('MESSAGE', 'Hello, World!')) + '</category>' +
+      block('event_broadcast', '<value name="BROADCAST_INPUT"><shadow type="event_broadcast_menu"><field name="BROADCAST_OPTION" variabletype="broadcast_msg" id="skilllab-message">訊息1</field></shadow></value>') +
+      block('event_broadcastandwait', '<value name="BROADCAST_INPUT"><shadow type="event_broadcast_menu"><field name="BROADCAST_OPTION" variabletype="broadcast_msg" id="skilllab-message">訊息1</field></shadow></value>') +
+      block('event_whenbroadcastreceived', '<field name="BROADCAST_OPTION" variabletype="broadcast_msg" id="skilllab-message">訊息1</field>') + '</category>' +
       '<category name="控制" id="control" colour="#ffab19">' +
       block('control_repeat', numberInput('TIMES', 10)) + block('control_if') + block('control_if_else') +
       block('control_repeat_until') + block('control_forever') + block('control_stop') + '</category>' +
+      '<category name="偵測" id="sensing" colour="#5cb1d6">' +
+      block('sensing_askandwait', textInput('QUESTION', '請輸入資料')) +
+      block('sensing_answer') + block('sensing_timer') + block('sensing_resettimer') + '</category>' +
       '<category name="運算" id="operators" colour="#59c059">' +
       ['add', 'subtract', 'multiply', 'divide', 'mod'].map(op => block('operator_' + op, numberInput('NUM1') + numberInput('NUM2'))).join('') +
       ['lt', 'equals', 'gt'].map(op => block('operator_' + op, textInput('OPERAND1') + textInput('OPERAND2'))).join('') +
@@ -60,12 +68,8 @@
       block('operator_length', textInput('STRING')) + block('operator_contains', textInput('STRING1') + textInput('STRING2')) +
       block('operator_round', numberInput('NUM')) + block('operator_mathop', numberInput('NUM')) +
       block('operator_random', numberInput('FROM', 1) + numberInput('TO', 10)) + '</category>' +
-      '<category name="變數與清單" id="data" colour="#ff8c1a" custom="VARIABLE"></category>' +
-      '<category name="事件" id="event" colour="#ffbf00">' + block('event_whenflagclicked') +
-      block('event_broadcast', '<value name="BROADCAST_INPUT"><shadow type="event_broadcast_menu"><field name="BROADCAST_OPTION" variabletype="broadcast_msg" id="skilllab-message">訊息1</field></shadow></value>') +
-      block('event_broadcastandwait', '<value name="BROADCAST_INPUT"><shadow type="event_broadcast_menu"><field name="BROADCAST_OPTION" variabletype="broadcast_msg" id="skilllab-message">訊息1</field></shadow></value>') +
-      block('event_whenbroadcastreceived', '<field name="BROADCAST_OPTION" variabletype="broadcast_msg" id="skilllab-message">訊息1</field>') + '</category>' +
-      '<category name="自訂積木" id="procedures" colour="#ff6680" custom="PROCEDURE"></category></xml>';
+      '<category name="變數" id="data" colour="#ff8c1a" custom="VARIABLE"></category>' +
+      '<category name="函式積木" id="procedures" colour="#ff6680" custom="PROCEDURE"></category></xml>';
     // Scratch's category implementation requires both colours (unlike Blockly).
     return xml.replace(/colour="(#[a-f0-9]+)"/gi, 'colour="$1" secondaryColour="$1"');
   }

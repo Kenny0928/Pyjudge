@@ -66,21 +66,14 @@ self.onmessage = async event => {
     await vm.loadProject(project);
     let position = 0;
     const source = String(input).replace(/\r\n?/g, '\n');
-    const read = token => {
-      if (token) {
-        while (position < source.length && /\s/.test(source[position])) position++;
-        if (position >= source.length) throw new Error('輸入不足：程式讀取的資料超過題目提供的輸入。');
-        const begin = position;
-        while (position < source.length && !/\s/.test(source[position])) position++;
-        // Consume one separator so a subsequent line read starts naturally.
-        if (position < source.length) position++;
-        return source.slice(begin, position - (position > begin && /\s/.test(source[position - 1]) ? 1 : 0));
-      }
-      if (position >= source.length) throw new Error('輸入不足：程式讀取的行數超過題目提供的輸入。');
-      const end = source.indexOf('\n', position);
-      const value = source.slice(position, end === -1 ? source.length : end);
-      position = end === -1 ? source.length : end + 1;
-      return value;
+    const read = () => {
+      // A Scratch question represents one input value. Treat spaces and line
+      // breaks alike, so two ordinary questions can read "3 5" or "3\n5".
+      while (position < source.length && /\s/.test(source[position])) position++;
+      if (position >= source.length) throw new Error('輸入不足：程式詢問的資料超過題目提供的輸入。');
+      const begin = position;
+      while (position < source.length && !/\s/.test(source[position])) position++;
+      return source.slice(begin, position);
     };
     const write = args => {
       output += String(args.MESSAGE) + '\n';
@@ -92,8 +85,8 @@ self.onmessage = async event => {
     vm.runtime._primitives.looks_sayforsecs = write;
     vm.runtime._primitives.looks_think = () => {};
     vm.runtime._primitives.looks_thinkforsecs = () => {};
-    vm.runtime._primitives.sensing_askandwait = args => {
-      const answer = read(String(args.QUESTION).trim() === '#token');
+    vm.runtime._primitives.sensing_askandwait = () => {
+      const answer = read();
       vm.runtime.emit('ANSWER', answer);
     };
     for (const opcode of Object.keys(vm.runtime._primitives)) {
