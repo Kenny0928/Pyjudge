@@ -6,16 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="SkillLab 程式學習平台，支援 Scratch、Blockly 與 Python。" />
   <title>SkillLab｜程式學習</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #f5f7fa;
-      --paper: #111214;
-      --line: #30343a;
-      --muted: #a6adb7;
-      --soft: #181a1d;
-      --accent: #3d6fd8;
+      --paper: #0c0d12;
+      --line: #262a33;
+      --muted: #94a3b8;
+      --soft: #141720;
+      --accent: #3b82f6;
       --accent-hover: #4b7de7;
       --header-height: 60px;
+      --mouse-x: 50%;
+      --mouse-y: 35%;
     }
 
     * {
@@ -32,7 +37,9 @@
       min-height: 100vh;
       color: var(--ink);
       background: var(--paper);
-      font-family: "Segoe UI", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      font-family: "Plus Jakarta Sans", "Noto Sans TC", "Segoe UI", system-ui, sans-serif;
+      position: relative;
+      overflow-x: hidden;
     }
 
     a,
@@ -46,6 +53,50 @@
       outline-offset: 3px;
     }
 
+    /* 背景科技格線與滑鼠跟隨微光 (Spotlight) */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 85%);
+    }
+
+    .bg-spotlight {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        650px circle at var(--mouse-x) var(--mouse-y),
+        rgba(59, 130, 246, 0.13),
+        transparent 65%
+      );
+      transition: opacity 0.3s ease;
+    }
+
+    .bg-aurora {
+      position: absolute;
+      top: -140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 760px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.16), transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    /* 頂部導覽列 */
     .site-header {
       min-height: var(--header-height);
       padding: 0 clamp(24px, 7vw, 112px);
@@ -54,15 +105,29 @@
       gap: 40px;
       color: white;
       border-bottom: 1px solid var(--line);
-      background: rgba(17, 18, 20, 0.96);
+      background: rgba(12, 13, 18, 0.85);
+      backdrop-filter: blur(12px);
+      position: relative;
+      z-index: 10;
     }
 
     .brand {
       color: inherit;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-icon {
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 4px;
+      display: inline-block;
     }
 
     .header-nav {
@@ -76,6 +141,7 @@
       color: var(--muted);
       font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .header-nav a:hover,
@@ -83,31 +149,123 @@
       color: white;
     }
 
+    /* 主視覺區域 */
     main {
       width: min(1180px, 100%);
       min-height: calc(100vh - var(--header-height));
       margin: 0 auto;
-      padding: clamp(64px, 9vh, 108px) clamp(24px, 5vw, 64px) 70px;
+      padding: clamp(56px, 8vh, 100px) clamp(24px, 5vw, 64px) 70px;
       display: flex;
       align-items: flex-start;
+      position: relative;
+      z-index: 2;
     }
 
     .entry {
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
       align-items: center;
-      gap: clamp(56px, 9vw, 124px);
+      gap: clamp(56px, 9vw, 120px);
     }
 
+    .title-area {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ONLINE JUDGE 上方前綴小字 */
+    .hero-eyebrow {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #60a5fa;
+      letter-spacing: 0.08em;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      width: 16px;
+      height: 2px;
+      background: #3b82f6;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    /* 主標題 */
     .entry h1 {
       max-width: 660px;
       font-size: clamp(3.2rem, 7vw, 6.8rem);
-      font-weight: 400;
+      font-weight: 800;
       line-height: 0.9;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.02em;
     }
 
+    .hero-title-text {
+      background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 75%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    /* 終端機呼吸游標 */
+    .cursor-blinker {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 400;
+      animation: blinker 1s infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blinker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* 副標說明 */
+    .entry-desc {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+    }
+
+    /* 支援的編輯器標籤 (純文字等寬風格) */
+    .editor-tags {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .editor-tag {
+      font-family: "Fira Code", monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 6px;
+      background: rgba(20, 24, 33, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .editor-tag:hover {
+      border-color: rgba(96, 165, 250, 0.4);
+      color: #ffffff;
+      background: rgba(30, 37, 51, 0.85);
+      transform: translateY(-1px);
+    }
+
+    /* 右側按鈕清單 (保持純文字，注入科技質感) */
     .entry-list {
       width: min(100%, 360px);
       display: grid;
@@ -116,18 +274,20 @@
 
     .entry-button {
       min-height: 58px;
-      padding: 13px 18px;
+      padding: 13px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border: 1px solid var(--line);
       color: var(--ink);
-      background: transparent;
+      background: rgba(20, 23, 30, 0.6);
+      backdrop-filter: blur(8px);
       font-size: 1rem;
       font-weight: 650;
       letter-spacing: 0.06em;
       text-decoration: none;
-      transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+      border-radius: 6px;
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
     }
 
     .entry-button::after {
@@ -136,27 +296,33 @@
       height: 1px;
       background: currentColor;
       transform-origin: right;
-      transition: transform 160ms ease;
+      transition: transform 180ms ease;
     }
 
-    a.entry-button:hover,
-    a.entry-button:focus-visible {
-      color: white;
-      border-color: #444a53;
-      background: var(--soft);
-      transform: translateX(5px);
-    }
-
+    /* 第一個按鈕「開始解題」 */
     .entry-list a:first-child {
       border-color: var(--accent);
-      color: white;
-      background: var(--accent);
+      color: #ffffff;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
     }
 
     .entry-list a:first-child:hover,
     .entry-list a:first-child:focus-visible {
-      border-color: var(--accent-hover);
-      background: var(--accent-hover);
+      border-color: #60a5fa;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      box-shadow: 0 0 28px rgba(59, 130, 246, 0.55);
+      transform: translateX(5px);
+    }
+
+    /* 其他可點擊按鈕懸停 */
+    a.entry-button:hover,
+    a.entry-button:focus-visible {
+      color: white;
+      border-color: #444f60;
+      background: rgba(28, 33, 44, 0.85);
+      transform: translateX(5px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
 
     a.entry-button:hover::after,
@@ -164,9 +330,11 @@
       transform: scaleX(0.55);
     }
 
+    /* 停用按鈕 */
     .entry-button[aria-disabled="true"] {
-      color: #7c8491;
-      border-color: #24272c;
+      color: #626975;
+      border-color: #1e2229;
+      background: rgba(15, 17, 22, 0.4);
       cursor: not-allowed;
     }
 
@@ -192,7 +360,6 @@
       .entry-list {
         width: min(100%, 360px);
       }
-
     }
 
     @media (max-width: 520px) {
@@ -230,8 +397,18 @@
 </head>
 
 <body>
+  <!-- 科技背景：細緻格線 + 滑鼠跟隨微光 (Spotlight) -->
+  <div class="bg-canvas">
+    <div class="bg-grid"></div>
+    <div class="bg-spotlight"></div>
+    <div class="bg-aurora"></div>
+  </div>
+
   <header class="site-header">
-    <a class="brand" href="index.html">SkillLab</a>
+    <a class="brand" href="index.html">
+      <span class="brand-icon"></span>
+      SkillLab
+    </a>
     <nav class="header-nav" aria-label="主要導覽">
       <a href="beginner.html">入門講義</a>
       <a href="judge.html">題目列表</a>
@@ -240,7 +417,22 @@
 
   <main>
     <section class="entry" aria-labelledby="page-title">
-      <h1 id="page-title">ONLINE JUDGE</h1>
+      <div class="title-area">
+        <div class="hero-eyebrow">SkillLab's</div>
+
+        <h1 id="page-title">
+          <span class="hero-title-text">ONLINE<br>JUDGE</span><span class="cursor-blinker">_</span>
+        </h1>
+
+        <p class="entry-desc">零基礎循序掌握運算思維 x 自動驗資系統</p>
+
+        <div class="editor-tags">
+          <span class="editor-tag">Scratch</span>
+          <span class="editor-tag">Blockly</span>
+          <span class="editor-tag">Python</span>
+        </div>
+      </div>
+
       <div class="entry-list" aria-label="學習入口">
         <a class="entry-button" href="judge.html">開始解題</a>
         <a class="entry-button" href="beginner.html">入門講義</a>
@@ -248,8 +440,17 @@
         <span class="entry-button" aria-disabled="true">進階講義</span>
       </div>
     </section>
-
   </main>
+
+  <script>
+    // 滑鼠跟隨探照燈微光
+    window.addEventListener('mousemove', (e) => {
+      const x = `${(e.clientX / window.innerWidth) * 100}%`;
+      const y = `${(e.clientY / window.innerHeight) * 100}%`;
+      document.documentElement.style.setProperty('--mouse-x', x);
+      document.documentElement.style.setProperty('--mouse-y', y);
+    });
+  </script>
 </body>
 
 </html>
