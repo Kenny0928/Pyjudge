@@ -213,14 +213,8 @@
       transition: all 0.3s ease;
     }
 
-    .hero-title-line {
-      display: inline-flex;
-      align-items: center;
-      white-space: nowrap;
-    }
-
     .beta-badge {
-      margin-left: 12px;
+      flex-shrink: 0;
       padding: 5px 8px;
       border: 1px solid rgba(96, 165, 250, 0.4);
       border-radius: 6px;
@@ -249,6 +243,9 @@
 
     /* 副標說明 */
     .entry-desc {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       color: #94a3b8;
       font-size: 1.05rem;
       letter-spacing: 0.02em;
@@ -290,6 +287,7 @@
       width: min(100%, 360px);
       display: grid;
       gap: 12px;
+      transform: translateY(24px);
     }
 
     .entry-button {
@@ -379,6 +377,7 @@
 
       .entry-list {
         width: min(100%, 360px);
+        transform: none;
       }
     }
 
@@ -441,11 +440,10 @@
         <div class="hero-eyebrow">SkillLab's</div>
 
         <h1 id="page-title">
-          <span class="hero-title-text">ONLINE</span><br>
-          <span class="hero-title-line"><span class="hero-title-text">JUDGE</span><span class="cursor-blinker">_</span><span class="beta-badge">beta</span></span>
+          <span class="hero-title-text">ONLINE<br>JUDGE</span><span class="cursor-blinker">_</span>
         </h1>
 
-        <p class="entry-desc">零基礎循序掌握運算思維 x 自動驗資系統</p>
+        <p class="entry-desc"><span>零基礎循序掌握運算思維 x 自動驗資系統</span><span class="beta-badge">beta</span></p>
 
         <div class="editor-tags">
           <span class="editor-tag">Scratch</span>
