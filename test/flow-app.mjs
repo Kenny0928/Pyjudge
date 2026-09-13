@@ -8,6 +8,7 @@ const BACKUP_KEY = 'skilllab_flowlab_recovery_v1';
 const labels = {start:'開始', end:'結束', input:'輸入', output:'輸出', process:'處理', decision:'判斷'};
 const types = {integer:'整數',number:'數字',text:'文字',boolean:'布林值'};
 const clone = value => structuredClone(value);
+const emptyGraph = () => ({version:1,title:'未命名流程圖',nodes:[],edges:[],viewport:{x:0,y:0,zoom:1}});
 let worker = null, generation = 0, watchdog = null;
 let trace = [], cursor = 0, engineStatus = 'idle', playing = false, waiting = null, runError = null;
 let lastFrame = 0, pendingSteps = 0, pendingSeek = null, validationTimer = null, saveTimer = null, toastTimer = null;
@@ -65,11 +66,12 @@ function scheduleSave() {
 }
 function saveDraft(announce=false) {
   clearTimeout(saveTimer);
+  if (!announce && persisted) return true;
   try {
     const payload = {version:1,graph:canvas.getGraph(),input:$('input-data').value,exampleId:$('example-select').value,savedAt:Date.now()};
     localStorage.setItem(STORAGE_KEY,JSON.stringify(payload));
     persisted = true; $('save-status').textContent = '已自動保存於此瀏覽器';
-    if (announce) toast('作品已保存於此瀏覽器。也可以匯出 JSON 備份。');
+    if (announce) toast('作品已保存於此瀏覽器。下次開啟會從空白開始，請匯出 JSON 以便繼續編輯。');
     return true;
   } catch {
     persisted = false; $('save-status').textContent = '保存失敗，請匯出備份';
@@ -371,7 +373,7 @@ $('load-example-btn').onclick=async()=>{
 };
 $('new-btn').onclick=async()=>{
   if(!await confirmReplace('建立新作品','將清空目前畫布。需要保留目前作品時，請先匯出 JSON。'))return;
-  backupCurrent();loadGraph({version:1,title:'我的流程圖',nodes:[{id:'start',type:'start',title:'開始',position:{x:160,y:80},data:{}},{id:'end',type:'end',title:'結束',position:{x:160,y:300},data:{}}],edges:[],viewport:{x:0,y:0,zoom:1}},{fit:true,input:''});toast('從左側加入節點，開始建立你的流程。');
+  backupCurrent();loadGraph(emptyGraph(),{input:''});toast('從左側加入節點，開始建立你的流程。');
 };
 $('save-btn').onclick=()=>saveDraft(true);
 $('export-btn').onclick=()=>{
@@ -397,18 +399,10 @@ document.addEventListener('keydown',event=>{
 window.addEventListener('pagehide',()=>{saveDraft();killWorker();});
 window.addEventListener('beforeunload',event=>{saveDraft();if(!persisted){event.preventDefault();event.returnValue='';}});
 
-let loaded=false,storageProblem='',storedRaw=null;
-try{
-  const stored=storedRaw=localStorage.getItem(STORAGE_KEY);
-  if(stored){const draft=JSON.parse(stored);if(draft.version!==1||typeof draft.input!=='string')throw new Error('草稿格式無法辨識');loadGraph(draft.graph,{input:draft.input});$('example-select').value=draft.exampleId||'parity';loaded=true;}
-}catch{
-  let backedUp=false;
-  try {if(storedRaw!==null){localStorage.setItem('skilllab_flowlab_unreadable_v1',storedRaw);backedUp=true;}}catch{}
-  storageProblem=backedUp?'先前草稿無法讀取，已另外保留原始資料。你可以匯入備份繼續。':'先前草稿無法讀取。請使用匯出的 JSON 備份繼續。';
-}
-if(!loaded){const example=EXAMPLES.find(e=>e.id==='parity');$('example-select').value=example.id;loadGraph(example.graph,{fit:true,input:example.input});}
+// 每次開啟都從空白開始；範例與作品只在使用者手動載入時顯示。
+$('example-select').value='parity';
+loadGraph(emptyGraph(),{input:''});
 initialLoad=false;updateExampleDescription();renderPlayback();updateCanvasMeta();
-if(storageProblem){$('save-status').textContent='舊草稿無法讀取';toast(storageProblem,7000);}
-else $('save-status').textContent=loaded?'已還原瀏覽器草稿':'作品將自動保存';
+$('save-status').textContent='下次繼續編輯，請先匯出 JSON';
 requestAnimationFrame(animate);
 window.flowLab={getGraph:()=>canvas.getGraph(),getState:()=>({trace:clone(trace),cursor,engineStatus,playing,waiting:clone(waiting),runError:clone(runError),generation,validation:clone(validation)}),loadGraph,canvas,validate,storageKey:STORAGE_KEY};

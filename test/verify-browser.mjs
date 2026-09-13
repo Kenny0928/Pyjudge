@@ -133,6 +133,9 @@ const port = (page, id, direction, branch = '') => node(page, id).locator(`.fc-p
 try {
   await check('initial layout and semantic controls', async page => {
     assert.ok(await page.locator('h1').isVisible());
+    assert.deepEqual((await graph(page)).nodes, []);
+    assert.deepEqual((await graph(page)).edges, []);
+    assert.equal(await page.locator('#input-data').inputValue(), '');
     for (const id of ['canvas', 'run-btn', 'pause-btn', 'step-back-btn', 'step-next-btn', 'stop-btn', 'restart-btn', 'speed', 'timeline', 'graph-title', 'validate-btn', 'example-select']) {
       assert.equal(await page.locator(`#${id}`).count(), 1, `Expected #${id}`);
     }
@@ -284,15 +287,12 @@ try {
     assert.match(await page.locator('#output-content').innerText(), /奇數/);
   });
 
-  await check('saved graph reloads and JSON export round-trips', async page => {
+  await check('opening stays empty with a saved draft and JSON export round-trips', async page => {
     await loadExample(page, 'parity', '8');
     await page.locator('#graph-title').fill('測試作品：奇偶判斷');
     await page.locator('#graph-title').blur();
     await page.locator('#save-btn').click();
     const saved = await graph(page);
-    await page.reload({ waitUntil: 'networkidle' });
-    await page.waitForFunction(() => Boolean(window.flowLab));
-    assert.deepEqual(await graph(page), saved, 'Reload must preserve complete graph including viewport');
     const downloadPromise = page.waitForEvent('download');
     await page.locator('#export-btn').click();
     const download = await downloadPromise;
@@ -302,8 +302,16 @@ try {
     assert.deepEqual(exported.nodes, saved.nodes);
     assert.deepEqual(exported.edges, saved.edges);
     assert.equal(Object.hasOwn(exported, 'trace'), false);
+    await page.reload({ waitUntil: 'networkidle' });
+    await page.waitForFunction(() => Boolean(window.flowLab));
+    assert.deepEqual((await graph(page)).nodes, []);
+    assert.deepEqual((await graph(page)).edges, []);
+    assert.equal(await page.locator('#input-data').inputValue(), '');
+    assert.equal((await state(page)).trace.length, 0);
+    assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem(window.flowLab.storageKey)).graph), saved, 'Opening must preserve stored work without displaying it');
     await page.locator('#new-btn').click();
     await acceptConfirm(page);
+    assert.deepEqual((await graph(page)).nodes, []);
     await page.locator('#import-file').setInputFiles({ name: 'saved-flow.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(exported)) });
     await acceptConfirm(page);
     await page.waitForFunction(title => window.flowLab.getGraph().title === title, saved.title);
