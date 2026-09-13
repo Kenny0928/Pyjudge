@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0d12">
+  <meta name="description" content="SkillLab 流程圖實驗室：畫出邏輯，逐步探索變數與程式執行。">
+  <title>流程圖實驗室｜SkillLab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233b82f6'/%3E%3Cpath d='M9 10h14v4H9zm0 8h9v4H9z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./flow-lab.css?v=5d498caa21df">
+  <script type="module" src="./flow-app.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html"><span class="brand-icon" aria-hidden="true"></span>SkillLab</a>
+    <span class="header-divider"></span><span class="header-label">流程圖實驗室</span>
+    <nav><a href="../beginner.html">初階講義</a><a href="../judge.html">Judge 題庫</a><button id="help-btn" class="text-button">操作說明 <span aria-hidden="true">↗</span></button></nav>
+  </header>
+  <main>
+    <h1 class="sr-only">流程圖實驗室</h1>
+    <section class="project-bar" aria-label="作品">
+      <div class="project-heading"><label for="graph-title" class="sr-only">作品名稱</label><input id="graph-title" maxlength="100" value="" placeholder="未命名流程圖"></div>
+      <div class="file-actions"><span id="save-status" role="status">準備就緒</span><button id="new-btn">新作品</button><button id="save-btn">儲存</button><button id="import-btn">匯入</button><button id="export-btn">匯出 JSON <span aria-hidden="true">↗</span></button><input type="file" id="import-file" accept=".json,application/json" hidden></div>
+    </section>
+    <div class="workspace">
+      <aside class="palette panel" aria-label="節點工具列">
+        <div class="panel-heading"><h2>建立流程</h2><span class="tiny-label">6 種節點</span></div>
+        <p class="panel-caption">拖曳到畫布，或點一下新增</p>
+        <div id="node-palette" class="node-palette">
+          <button class="palette-node" data-node-type="start" draggable="true"><svg viewBox="0 0 40 32" aria-hidden="true"><rect x="3" y="7" width="34" height="18" rx="9"/></svg><span>開始<small>Start</small></span><span class="add-sign">＋</span></button>
+          <button class="palette-node" data-node-type="input" draggable="true"><svg viewBox="0 0 40 32" aria-hidden="true"><path d="M10 6h28l-8 20H2z"/></svg><span>輸入<small>Input</small></span><span class="add-sign">＋</span></button>
+          <button class="palette-node" data-node-type="process" draggable="true"><svg viewBox="0 0 40 32" aria-hidden="true"><rect x="3" y="5" width="34" height="22" rx="3"/></svg><span>處理<small>Process</small></span><span class="add-sign">＋</span></button>
+          <button class="palette-node" data-node-type="decision" draggable="true"><svg viewBox="0 0 40 32" aria-hidden="true"><path d="m20 2 18 14-18 14L2 16z"/></svg><span>判斷<small>Decision</small></span><span class="add-sign">＋</span></button>
+          <button class="palette-node" data-node-type="output" draggable="true"><svg viewBox="0 0 40 32" aria-hidden="true"><path d="M10 6h28l-8 20H2z"/></svg><span>輸出<small>Output</small></span><span class="add-sign">＋</span></button>
+          <button class="palette-node" data-node-type="end" draggable="true"><svg viewBox="0 0 40 32" aria-hidden="true"><rect x="3" y="7" width="34" height="18" rx="9"/><path d="M14 12h12v8H14z"/></svg><span>結束<small>End</small></span><span class="add-sign">＋</span></button>
+        </div>
+        <div class="example-section"><div class="section-kicker">從範例開始</div><label for="example-select" class="sr-only">選擇範例</label><select id="example-select"></select><p id="example-description"></p><button id="load-example-btn">載入範例 <span aria-hidden="true">→</span></button></div>
+        <div class="palette-tip"><span class="tip-symbol">⌘</span><p>從出口連到下一個入口。<br>判斷節點要接好兩條分支。</p><button id="shortcuts-btn" class="text-button">查看快捷鍵</button></div>
+      </aside>
+      <section class="canvas-panel panel" aria-label="流程圖工作區">
+        <div class="canvas-toolbar"><div class="tool-group"><button id="select-tool" class="icon-button active" title="選取與框選（V）" aria-label="選取與框選" aria-pressed="true">↖</button><button id="pan-tool" class="icon-button" title="平移（H 或按住空白鍵）" aria-label="平移畫布" aria-pressed="false">✥</button><span class="tool-divider"></span><button id="undo-btn" class="icon-button" title="復原 Ctrl / ⌘ Z" aria-label="復原">↶</button><button id="redo-btn" class="icon-button" title="重做 Ctrl / ⌘ Shift Z" aria-label="重做">↷</button></div><div class="tool-group"><span id="node-count">0 個節點</span><button id="validate-btn" class="validate-button">檢查流程</button></div></div>
+        <div id="canvas" tabindex="0" aria-label="流程圖畫布。可拖曳節點，點選連接點拉線，按 Delete 刪除。"></div>
+        <div class="canvas-bottom"><div class="zoom-tools"><button id="zoom-out-btn" aria-label="縮小畫布">−</button><span id="zoom-label">100%</span><button id="zoom-in-btn" aria-label="放大畫布">＋</button><span></span><button id="fit-btn" title="適應畫面" aria-label="適應畫面">⊡</button></div><span id="canvas-hint">拖曳節點 · 滾輪縮放 · 空白鍵平移</span><div class="path-legend"><i></i>目前步驟</div></div>
+      </section>
+      <aside class="inspector panel" aria-label="流程觀察與節點設定">
+        <div class="panel-tabs" role="tablist" aria-label="側邊面板"><button id="observe-tab" role="tab" aria-controls="observe-panel" aria-selected="true" class="active">執行觀察</button><button id="properties-tab" role="tab" aria-controls="properties-panel" aria-selected="false">節點設定</button></div>
+        <div class="inspector-scroll">
+          <div id="observe-panel" role="tabpanel" aria-labelledby="observe-tab">
+            <section id="runtime-error-card" class="runtime-error-card" hidden><strong>執行已安全中止</strong><p id="runtime-error-message"></p><button id="show-error-btn">查看出錯位置 →</button></section>
+            <section class="observation-section"><div class="section-title"><h2>測試輸入</h2><span>每行一筆資料</span></div><label for="input-data" class="sr-only">預先輸入的測試資料，每行一筆</label><textarea id="input-data" rows="2" spellcheck="false" placeholder="例如：5&#10;留空可在執行時輸入"></textarea><p class="field-hint">依序提供給輸入節點；不足時會等待你輸入。</p></section>
+            <section id="waiting-card" class="waiting-card" hidden><div class="waiting-label"><span class="status-dot"></span>等待輸入</div><p id="waiting-prompt"></p><form id="input-form"><label id="input-label" for="input-value"></label><div class="input-row"><input id="input-value" autocomplete="off" maxlength="4096" placeholder="輸入資料"><button type="submit" class="primary">繼續 →</button></div><p id="input-error" role="alert"></p></form></section>
+            <section class="observation-section"><div class="section-title"><h2>變數</h2><span id="variable-count">0 個</span></div><div class="table-scroll"><table class="variables-table"><thead><tr><th>名稱 / 型別</th><th>目前值</th><th>上一步</th></tr></thead><tbody id="variables-body"></tbody></table></div><p id="variables-empty" class="empty-message">執行流程後，在這裡觀察變數。</p></section>
+            <section class="observation-section condition-section"><div class="section-title"><h2>這一步發生什麼</h2><span id="event-type">尚未開始</span></div><div id="condition-content" class="event-card">先猜猜看，流程會走向哪裡？</div></section>
+            <section class="observation-section"><div class="section-title"><h2>輸出</h2><span id="output-count">0 行</span></div><pre id="output-content" class="output-terminal" aria-label="程式輸出"></pre><p id="output-empty" class="terminal-placeholder">輸出結果會出現在這裡。</p></section>
+            <details class="observation-section input-history-section"><summary>輸入紀錄 <span id="input-count">0 筆</span></summary><div id="input-history"></div></details>
+            <details class="observation-section"><summary>執行時間軸 <span id="trace-count">0 步</span></summary><div id="trace-history" class="trace-history"></div></details>
+          </div>
+          <div id="properties-panel" role="tabpanel" aria-labelledby="properties-tab" hidden><div id="property-empty" class="property-empty"><span aria-hidden="true">↖</span><h2>選一個節點，編輯它的想法</h2><p>在畫布點選節點，就能修改名稱、變數與運算式。</p></div><form id="property-form" hidden><div class="property-type" id="property-type"></div><label for="node-title">節點名稱</label><input id="node-title" maxlength="100" autocomplete="off"><div id="expression-fields"><label for="node-expression" id="expression-label">運算式</label><textarea id="node-expression" spellcheck="false" rows="3" maxlength="2048"></textarea><p class="field-hint" id="expression-hint"></p></div><div id="input-fields"><label for="node-variable">目標變數</label><input id="node-variable" autocomplete="off" spellcheck="false" maxlength="64"><label for="node-input-type">資料型別</label><select id="node-input-type"><option value="integer">整數</option><option value="number">數字（含小數）</option><option value="text">文字</option><option value="boolean">布林值</option></select><label for="node-prompt">輸入提示</label><input id="node-prompt" maxlength="200" autocomplete="off"><p class="field-hint">提示只顯示在介面，不會加入輸出。</p></div><button class="primary apply-button" type="submit">套用設定</button><p class="field-hint">套用後會自動檢查流程並保存。</p></form><div id="selection-actions" class="selection-actions" hidden><button id="copy-btn">複製</button><button id="paste-btn">貼上</button><button id="delete-btn" class="danger-text">刪除選取項目</button></div></div>
+          <section id="diagnostics-section" class="diagnostics-section" hidden><div class="section-title"><h2 id="diagnostics-title">流程檢查</h2><span id="diagnostics-count"></span></div><div id="diagnostics"></div></section>
+        </div>
+      </aside>
+    </div>
+    <section class="playback-bar" aria-label="執行控制列"><div class="playback-actions"><button id="run-btn" class="primary run-button"><span aria-hidden="true">▶</span> 執行</button><button id="pause-btn" title="暫停或繼續播放">暫停</button><button id="step-back-btn" class="icon-button" title="上一步" aria-label="上一步">⏮</button><button id="step-next-btn" class="icon-button" title="下一步" aria-label="下一步">⏭</button><button id="stop-btn" class="icon-button" title="停止計算並保留紀錄" aria-label="停止">■</button><button id="restart-btn" class="icon-button" title="重新開始" aria-label="重新開始">↻</button></div><div class="playback-progress"><div class="progress-meta"><span id="runtime-status" role="status"><i class="status-dot"></i>準備就緒</span><span id="step-label">第 0 / 0 步</span></div><label for="timeline" class="sr-only">回放步驟</label><input id="timeline" type="range" min="0" max="0" value="0" step="1"></div><div class="speed-control"><label for="speed">播放速度</label><select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></div></section>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="help-dialog"><div class="dialog-heading"><div><div class="eyebrow">QUICK GUIDE</div><h2>把邏輯，一步一步看懂</h2></div><button class="icon-button close-dialog" aria-label="關閉說明">×</button></div><div class="help-grid"><section><h3>01 建立與連線</h3><p>拖曳或點選左側節點。在節點的出口按下並拉到下一個入口；也可以依序點選兩個連接點。判斷節點的 True 與 False 都需要接好。</p><h3>02 編輯內容</h3><p>點選節點，在「節點設定」輸入變數或運算式。每個處理節點只執行一個指定，例如 <code>sum = sum + i</code>。</p><h3>03 執行與回看</h3><p>提供每行一筆的測試資料，或留空等待互動輸入。播放時可暫停、回退或拖曳時間軸；上一步會同步還原變數與輸出。</p><p>暫停控制畫面播放，背景計算仍可能繼續。停止會中止計算並保留已產生的紀錄。修改程式或測試資料會清除舊軌跡；移動節點與縮放則保留。</p></section><section><h3>支援的運算</h3><p><code>+ − * / // %</code>、括號、比較 <code>&gt; &lt; &gt;= &lt;= == !=</code>、布林 <code>True False and or not</code>。<code>/</code> 是除法，<code>//</code> 是向下取整除法，<code>%</code> 餘數與除數同號。</p><p>數字與文字不能直接相加；判斷條件必須是布林值。輸出節點每次輸出一行。變數使用英文字母、數字或底線，且不能以數字開頭。</p><h3>快捷鍵</h3><dl class="shortcuts"><dt>復原 / 重做</dt><dd>⌘ / Ctrl Z · Shift Z</dd><dt>複製 / 貼上</dt><dd>⌘ / Ctrl C · V</dd><dt>全選 / 多選</dt><dd>⌘ / Ctrl A · Shift 點選</dd><dt>刪除 / 取消</dt><dd>Delete · Esc</dd><dt>移動畫布</dt><dd>空白鍵＋拖曳 / 中鍵</dd></dl><p class="field-hint">作品儲存在此瀏覽器。匯出 JSON 可備份或移到其他裝置。本頁可離線使用已取得的靜態檔案。</p></section></div><button class="primary close-dialog">開始探索 →</button></dialog>
+  <dialog id="confirm-dialog"><h2 id="confirm-title">載入作品</h2><p id="confirm-message"></p><div class="dialog-actions"><button id="confirm-cancel">取消</button><button id="confirm-ok" class="primary">繼續</button></div></dialog>
+  <dialog id="edit-input-dialog"><h2>修改這筆輸入</h2><p>會依照新答案重新計算；這筆之後的輸入會重新詢問。</p><form id="edit-input-form"><label for="edit-input-value">新的輸入值</label><input id="edit-input-value" maxlength="4096" autocomplete="off"><div class="dialog-actions"><button type="button" id="edit-input-cancel">取消</button><button type="submit" class="primary">重新計算</button></div></form></dialog>
+</body>
+</html>

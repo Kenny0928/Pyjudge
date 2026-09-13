@@ -213,6 +213,26 @@
       transition: all 0.3s ease;
     }
 
+    .hero-title-line {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .beta-badge {
+      margin-left: 12px;
+      padding: 5px 8px;
+      border: 1px solid rgba(96, 165, 250, 0.4);
+      border-radius: 6px;
+      background: rgba(59, 130, 246, 0.12);
+      color: #93c5fd;
+      font-family: "Fira Code", monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
     /* 終端機呼吸游標 */
     .cursor-blinker {
       display: inline-block;
@@ -421,7 +441,8 @@
         <div class="hero-eyebrow">SkillLab's</div>
 
         <h1 id="page-title">
-          <span class="hero-title-text">ONLINE<br>JUDGE</span><span class="cursor-blinker">_</span>
+          <span class="hero-title-text">ONLINE</span><br>
+          <span class="hero-title-line"><span class="hero-title-text">JUDGE</span><span class="cursor-blinker">_</span><span class="beta-badge">beta</span></span>
         </h1>
 
         <p class="entry-desc">零基礎循序掌握運算思維 x 自動驗資系統</p>
@@ -435,6 +456,7 @@
 
       <div class="entry-list" aria-label="學習入口">
         <a class="entry-button" href="judge.html">開始解題</a>
+        <a class="entry-button" href="test/index.html">流程圖實驗室</a>
         <a class="entry-button" href="beginner.html">入門講義</a>
         <span class="entry-button" aria-disabled="true">中階講義</span>
         <span class="entry-button" aria-disabled="true">進階講義</span>
