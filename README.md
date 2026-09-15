@@ -114,6 +114,30 @@ skilllab/
 
 ---
 
+## 🧭 題目分級標準
+
+SkillLab 將「學習階段、適齡、同階段難度、APCS 導向」分開記錄，避免只以學生年級或數學內容判斷程式題難度。
+
+| 學習階段 | `stage` | 適合對象與判定依據 | 常見內容 |
+|---|---|---|---|
+| 初階 | `Beginner` | 國小、初學者、尚未熟悉程式操作；一題聚焦一個核心概念，原則上可用 Scratch／Blockly 完成 | 輸入輸出、變數、四則運算、單層條件、單層迴圈 |
+| 中階 | `Intermediate` | 已掌握基礎語法，能組合 2～3 個概念；可能用到國中數學，但不以數學年級作為唯一判準 | 多分支、巢狀迴圈、字串、清單、座標、簡單模擬、基礎數論 |
+| 高階 | `Advanced` | 國中資優、高中及以上；需要選擇演算法、理解複雜度或進行較長的狀態推理 | 搜尋、排序、遞迴、二維資料、貪心、基礎動態規劃 |
+| 挑戰 | `Challenge` | APCS／競賽導向；資料規模會淘汰直觀暴力法，必須兼顧正確性與執行效率 | 圖論、進階動態規劃、前綴和、二分搜尋、資料結構 |
+
+四個欄位各自代表不同事情：
+
+- `stage`：主要學習階段，只能填 `Beginner`、`Intermediate`、`Advanced`、`Challenge`。
+- `audienceLevel`：建議適齡，沿用 `E-MID`、`E-UPPER`、`M-7`、`M-8`、`M-HS`、`A-HS`。
+- `difficulty`：同一 `stage` 內的相對難度，只能填 `Easy`、`Medium`、`Hard`；例如 `Intermediate + Easy` 是「中階中的入門題」。
+- `apcsLevel`：非 APCS 題填 `null`；APCS 導向題可填 `APCS-Concept`、`APCS-Implementation`、`APCS-Advanced`。這是站內分類，不直接等同官方成績級分。
+
+分級的核心原則是：**初階學語法，中階組合概念，高階選擇演算法，挑戰處理效率與競賽限制。**數學年級只是參考；概念組合數量、演算法選擇、資料範圍與實作陷阱才是主要依據。
+
+既有題目可以維持舊格式並逐題補標；所有新題，以及有實質修改的舊題，都必須加入 `stage` 與 `apcsLevel`。
+
+---
+
 ## ➕ 新增題目（不需要 AI，3 步驟完成）
 
 ### 步驟 1：在 `problems/index.json` 加入清單項目
@@ -125,7 +149,7 @@ skilllab/
 ]
 ```
 
-`difficulty` 只能填 `"Easy"`、`"Medium"`、`"Hard"` 三種。
+`difficulty` 只能填 `"Easy"`、`"Medium"`、`"Hard"` 三種；它只表示同一 `stage` 內的相對難度。
 
 ### 步驟 2：建立 `problems/008.json`
 
@@ -135,8 +159,13 @@ skilllab/
 {
   "id": 8,
   "title": "你的新題目",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": ["字串"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "learningObjectives": ["讀取字串並反轉輸出"],
+  "prerequisites": ["字串輸入"],
   "description": "<p>題目說明，支援 HTML 標籤。</p>",
   "inputFormat": "<p>輸入格式說明。</p>",
   "outputFormat": "<p>輸出格式說明。</p>",

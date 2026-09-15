@@ -21,7 +21,7 @@
    - `unreviewed`：尚未匯入。
    - `imported`：來源雜湊與已審版本相同。
    - `source_changed`：來源在匯入後有變動，需重新審題，不可直接覆蓋正式題目。
-4. 匯入題目時遵循 `for_AI/AI_AGENT_工作流與開發規範.md`：配置最新連續 ID、重寫明確的 stdin/stdout 規格、至少 3 組公開範例與 8 組正式測資、建立參考解答並更新學習階梯。
+4. 匯入題目時遵循 `for_AI/AI_AGENT_工作流與開發規範.md`：配置最新連續 ID、分別判定 `stage`／`audienceLevel`／`difficulty`／`apcsLevel`、重寫明確的 stdin/stdout 規格、至少 3 組公開範例與 8 組正式測資、建立參考解答並更新學習階梯。
 5. 在正式題目 JSON 保留 `source.site`、`source.sourceId`、`source.sourceUrl` 與改編說明；把 catalog 的 `sourceContentHash` 登錄到 `imports.json`。
 6. 執行完整檢查：
 
