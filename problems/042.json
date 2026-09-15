@@ -1,0 +1,100 @@
+{
+  "id": 42,
+  "title": "閏年判斷",
+  "difficulty": "Easy",
+  "tags": [
+    "條件判斷",
+    "邏輯運算",
+    "數學"
+  ],
+  "audienceLevel": "E-UPPER",
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用整除條件與 and/or 組合判斷閏年"
+  ],
+  "prerequisites": [
+    "取餘數",
+    "if/else",
+    "邏輯運算"
+  ],
+  "description": "<p class='problem-lead'>判斷指定的西元年份是不是閏年。</p><p>年份能被 400 整除時是閏年；否則，能被 4 整除且不能被 100 整除時也是閏年。符合條件請輸出 <code>true</code>，否則輸出 <code>false</code>。大小寫必須完全一致。</p>",
+  "hint": "<p>先處理能被 400 整除的年份，再組合「能被 4 整除」與「不能被 100 整除」兩個條件。</p>",
+  "inputFormat": "<p>一行，包含一個西元年份 <code>Y</code>。</p>",
+  "outputFormat": "<p>若 <code>Y</code> 是閏年，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>1 ≤ Y ≤ 9999</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "2000",
+  "sampleOutput": "true",
+  "samples": [
+    {
+      "input": "2000",
+      "output": "true"
+    },
+    {
+      "input": "2024",
+      "output": "true"
+    },
+    {
+      "input": "1900",
+      "output": "false"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "2000",
+      "output": "true"
+    },
+    {
+      "input": "2024",
+      "output": "true"
+    },
+    {
+      "input": "1900",
+      "output": "false"
+    },
+    {
+      "input": "1",
+      "output": "false"
+    },
+    {
+      "input": "4",
+      "output": "true"
+    },
+    {
+      "input": "100",
+      "output": "false"
+    },
+    {
+      "input": "400",
+      "output": "true"
+    },
+    {
+      "input": "1600",
+      "output": "true"
+    },
+    {
+      "input": "1700",
+      "output": "false"
+    },
+    {
+      "input": "1999",
+      "output": "false"
+    },
+    {
+      "input": "2100",
+      "output": "false"
+    },
+    {
+      "input": "2400",
+      "output": "true"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p25_leap_year",
+    "sourceTitle": "25. 閏年判斷",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "保留原題 true/false 輸出約定，依 SkillLab 規格補齊邊界與世紀年測資。"
+  }
+}

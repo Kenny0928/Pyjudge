@@ -1,0 +1,3191 @@
+{
+  "schemaVersion": 1,
+  "source": "google_sites",
+  "sourceSnapshotFetchedAt": "2026-09-15T13:43:18+00:00",
+  "problemCount": 200,
+  "statusCounts": {
+    "imported": 3,
+    "source_changed": 0,
+    "unreviewed": 197
+  },
+  "problems": [
+    {
+      "sourceId": "p01_addition",
+      "title": "01. 計算兩數之和",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c9a8325a16fc89ca731c39bdd176160aa7c762c4dc81273a36fd38d10a74df2d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p02_subtraction",
+      "title": "02. 計算兩數之差",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "47a712b95bb5b819b8f06d22c4fbed9ca87362e5e30370ea4ea4777d4f738252",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p03_multiplication",
+      "title": "03. 計算兩數之積",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5beb34ec0b36dedbd946ea7c67783400ba677047341575b2111bbbb2a6c00734",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p04_division",
+      "title": "04. 計算兩數之商",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6178405ddd3d3ba0451d234a29608fa6923a33dd4d95c1e8162d423a7674f327",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p05_modulo",
+      "title": "05. 計算餘數",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5d0a484c53c88bbc09391ca3606982c9fcf50a5c6a87e2234acfedff0d95679b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p06_is_even",
+      "title": "06. 判斷是否為偶數",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c39c38d33893d19fce200fc490c33a60cc1d859572f40bd828328c704996ba0a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p07_find_max",
+      "title": "07. 找出較大值",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "839ea33b0142baaee4489e508478ed308dcad6f57bf59b18124ffa0b70279252",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p08_string_length",
+      "title": "08. 計算字串長度",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a4c7ace201dd01768e12df506c30c475147dc1df013310a1a18ee3ac3852ea9a",
+      "status": "imported",
+      "pyjudgeId": 41
+    },
+    {
+      "sourceId": "p09_string_concat",
+      "title": "09. 字串相加",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "7edf721e3876d649dd5a7e84f2c67a9eac26fee8b3f8fa62b611d85c61781b31",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p10_sum_1_to_n",
+      "title": "10. 1加到N",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5d4701e2eb5529240e18198f9bd8ad309e1dee471373df066e56bb5b3b3f240d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p11_factorial",
+      "title": "11. 計算階乘",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1e6efb75b90902a75f47d97ccf8b91356c6dccf0ccb3fb56926b7a2f23ddb4f8",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p12_list_sum",
+      "title": "12. 清單總和",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d84f7505f7fad60eeb73ead75e4c69d3fba85398c0d0d0ef2cfb0adbe496e68f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p13_list_find_max",
+      "title": "13. 找出清單最大值",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "227a8c06dc17cc2d9cf58ea42c0082e017abbb918b473b8e899c28a832809a42",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p14_list_length",
+      "title": "14. 計算清單長度",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c67f292762bec2dc4c7675c4b4314dce63ada42f11ea07def3f586c99611fb8e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p15_list_contains",
+      "title": "15. 檢查項目是否存在",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5baec123cb55b957a5cea7f2a2dc0354a01fba22430a29f613ed1c06afa08bc2",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p16_reverse_string",
+      "title": "16. 反轉字串",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "053cb892d95f87f538c33fdfe2c63d50ee35f111698c3cc41bedfdfb9a7ad867",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p17_absolute_value",
+      "title": "17. 計算絕對值",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "條件",
+        "內建函式"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2ffa2f91d55a6629e5c9372c540036c297703598290e433bc8cc78ca4e12e94b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p18_grade_checker",
+      "title": "18. 成績等級判斷",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "3a24a083c52bae7d2b35b956af023578860442e67eb84cd3bc3c4b8e1f9525df",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p19_count_char",
+      "title": "19. 計算字元出現次數",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "515019b9b5986a5d538cc13b341e406b78d9ad72dc4d9f11eb932476ebf3cb67",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p20_fibonacci",
+      "title": "20. 費波那契數列",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "數學",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6ad4c400db2f98b6ef2e82f78665342fe7f5c43e86084e8941d3ed088e53e6d6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p21_list_reverse",
+      "title": "21. 反轉清單",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "47c19e564c4baf963b5f6ffb9147b1c96c8a61d87fcb3c9426ef4b3466614c15",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p22_palindrome",
+      "title": "22. 迴文判斷",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4386908e9792cdae9f24cd504fed1402ce2025ea83e83b731a39b948f87e5e49",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p23_list_average",
+      "title": "23. 計算清單平均值",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "數學",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d5c210d6436ecf2a8e017372ee33971919373eeba08935f4bb47b4e5b93b7355",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p24_fizzbuzz",
+      "title": "24. FizzBuzz 經典問題",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "邏輯判斷",
+        "演算法",
+        "經典題目"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "7abdbedb1cb9be61fe89fadb62eb12062f94caf376837ef65829098cf51b8e8e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p25_leap_year",
+      "title": "25. 閏年判斷",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "3b761f5ecf22d28ec3be6511aed473fb69ba923babdeafc40f93efc08cf3d7bd",
+      "status": "imported",
+      "pyjudgeId": 42
+    },
+    {
+      "sourceId": "p26_remove_duplicates",
+      "title": "26. 移除清單重複項",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "29c835420ac287b79767069b746b88f82a1567a1589d8b7791a5ad8e15e0bf09",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p27_find_min",
+      "title": "27. 找出清單最小值",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5d752b428c3b94d79718eebabf43bbef648d9224fee7815abe2ad8b945fb56ac",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p28_is_prime",
+      "title": "28. 質數判斷",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法",
+        "邏輯判斷",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "b7b37c18d8fd2133b8778b7e9223a18e57201754c683620dbd21fa9bf3bf90e7",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p29_caesar_cipher",
+      "title": "29. 凱薩加密",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "演算法",
+        "迴圈",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6af3c9ed472c30dc6d67162ffd4d0e258c9c5e7ac9435871f4fe6e3dddfc2334",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p30_triangle_area",
+      "title": "30. 計算三角形面積",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "基本運算",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1e987dcc9b31391dbea30955696e93287dbe8770c9e75819ae6a7220ddc6ad07",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p31_median",
+      "title": "31. 找出清單中位數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "數學",
+        "排序"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4c9057c57da702ac1ed85919be5c87acdd81c3e88e8ca2283a7f8cffb74c0626",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p32_celsius_to_fahrenheit",
+      "title": "32. 攝氏轉華氏",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "基本運算",
+        "公式"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2d3975b37b7bda8d0a55aa554b0720aaeb1a52094eaae7caa78277896743ffa4",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p33_count_vowels",
+      "title": "33. 計算母音數量",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6ea06e121e457f9a54cc2efbe10b6e9f346fe9cbd420834577431a5a323114b1",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p34_in_range",
+      "title": "34. 數字範圍判斷",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "62256b91959c5f08d7dbe54d7c6b650c5c6423b8b239d5f94b6db1f68f635ff1",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p35_title_case",
+      "title": "35. 標題式大寫",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "cee5f71dba9b70c6ae9bf0171e66de342d6d3e8286c826a22267d4008501a875",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p36_common_elements",
+      "title": "36. 找出共同項目",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "9c248bea29fd9a1d53214c42cf578aee5d54600dea44c2c6ce3e620c4e4d6f1a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p37_compound_interest",
+      "title": "37. 計算複利",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "公式",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5a87a71c614be70c4cd1849a132e0cf59a19d163f90943b16e783288a519ff98",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p38_armstrong_number",
+      "title": "38. 阿姆斯壯數判斷",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法",
+        "數字"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "1b0d256c403316df27a5133c42ae9afbd18fa04641e53230fd9365f5407c5f25",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p39_second_largest",
+      "title": "39. 找出第二大數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "排序"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "913624658398a4961c1d94ac7b9cddcca616c44bfee857a30680c6fdb46194e6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p40_simple_calculator",
+      "title": "40. 簡易計算機",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "基本運算",
+        "字串"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "fa7cadd06e4d167f2e18bacd7439e96b17a7abef5b0337724ab9c12c9fc5372d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p41_bento_ordering",
+      "title": "41. 可口便當",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "演算法",
+        "字串",
+        "迴圈",
+        "排序",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "cec7525f4a5511eed489d72328d92d9731923532efbb8a600d62ba2bf4895ffb",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p42_echo_string",
+      "title": "42. 回音字串",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本輸出"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f80574b448c587d61c5eda0076fb0373d9b17808d75812f9b4ce03620769c582",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p43_get_first_char",
+      "title": "43. 取得第一個字元",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "66d14fe95bec932e8160f6a26c7bd855805cb6ae5e8ddc616334c98f2b5d3d65",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p44_get_last_char",
+      "title": "44. 取得最後一個字元",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "fcfe00c6e2b7d7619095192104a5b8a3fc7c64b831b05aa6e9a5d2b3ace47569",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p45_get_nth_char",
+      "title": "45. 取得第N個字元",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "b9ce50dac9745f5174c7e5948a90dcaad789970b6482ddd1fbcce82050e09ade",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p46_to_uppercase",
+      "title": "46. 轉換為大寫",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "大小寫"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a3818d97eddedc3b80a2efbaa1bb0e3fac8ec7f412b4a600fd7f4133498e5548",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p47_to_lowercase",
+      "title": "47. 轉換為小寫",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "大小寫"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "21b11234b507e8f06552070500635fdb70b99dc6cde5083b032ed2cef63e758a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p48_trim_whitespace",
+      "title": "48. 移除兩端空白",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "清理"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "74bc041fe839b76bc8852421ce8f17afc3646efd6e9000740c2877c105e00157",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p49_string_equals",
+      "title": "49. 判斷字串是否相等",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "ab31b62540634fd6f040f2be5cbbf29fec421ca14f39df134120e4d964791df6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p50_string_equals_ignore_case",
+      "title": "50. 判斷字串是否相等(忽略大小寫)",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "大小寫"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "dfe12a04ee352607a084931b711c482d08ff6751213dd717f7c4b6c751d67781",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p51_concat_with_separator",
+      "title": "51. 用分隔符號連接字串",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "0df93d97420d3bd2bfe1e956632273eefeb224915aebb22b64f0dbf7ea732e65",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p52_repeat_string",
+      "title": "52. 重複字串",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a5723322e57229f282a25ceaa3c9fface10256841c23051b58abc9c30e346267",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p53_starts_with_hello",
+      "title": "53. 判斷是否以 Hello 開頭",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4e3cddabf0922f914f2287858bb3600a9da14387b9de34e25fde33083925fe51",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p54_ends_with_exclamation",
+      "title": "54. 判斷是否以 ! 結尾",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "237f792d09f3e22a114886fd3f595f2e45f1b33748f41b16778e6638a73b1284",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p55_contains_string",
+      "title": "55. 檢查是否包含子字串",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d2ca08c277aea061419279a243f7172e26cea60c0c5395db673bffc12cd6184b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p56_slice_first_three",
+      "title": "56. 擷取前三個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "bd3a47e6c1b1dc5cb1d929cc1ef0827215a365c5e1634aff95565588e482493a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p57_slice_last_three",
+      "title": "57. 擷取末三個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2ccae77b83976937d3995e78ce18ea9b0ca7362b597d9ffdb6ac8fe674d7a700",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p58_slice_from_m_to_n",
+      "title": "58. 擷取 M 到 N 的子字串",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "15c48709e9dfc31566835847b9fa2a2b4dd014997807b7f45cdb541a61f651bd",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p59_replace_first",
+      "title": "59. 取代第一個",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "ab03f05ea93a2ad824a7bd14488aab1cf441b7e972802d3b61ef7fc6cbc1fe26",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p60_replace_all",
+      "title": "60. 全部取代",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "21c16fcf883783c8e7f33585d113083698c6949ab4a9d221b88f3cc7921c2d31",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p61_remove_first_char",
+      "title": "61. 移除第一個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "3dac2e2ca8dfbaf854de566d49839478ba2f59f6a6a7a71be1d7c2af0d245296",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p62_remove_last_char",
+      "title": "62. 移除最後一個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "0f00d18e1210f91553df0da7eaab4561581d3b42133ac3ad42e1e30be2c0267b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p63_split_to_array",
+      "title": "63. 切割字串成清單",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "9518b751b275bb65a855a02517e82065c28fe723589c65b0b08fce6d93c95e6d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p64_count_words",
+      "title": "64. 計算單字數量",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "bade005fc2e556788486eb37eeed71b84651f7712b5a989487b6752e141f6d24",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p65_is_all_digits",
+      "title": "65. 判斷是否全為數字",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4b00c786e09dbda6be3d8ed1ba6f45f55dfb87c6b004d600c8c9dc61559d339c",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p66_is_all_letters",
+      "title": "66. 判斷是否全為字母",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "迴圈"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "d75ea3943350568f89a11bbb787804efda290fbe344a49e23ca14ff3e7b4419d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p67_is_empty_string",
+      "title": "67. 判斷是否為空字串",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "a2ce11a02d3fe20e5d50d210c4e0d4da15b5cabda43cc1dd60e99c661a2d5038",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p68_find_first_index",
+      "title": "68. 找出字元首次出現位置",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "392aa552be2c3a50c000136b5dd8c0004b1ddae464224f3590d3d7bab2cd339a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p69_find_last_index",
+      "title": "69. 找出字元最後出現位置",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1be2d3b95606ab2ff3d8f766336fc4a9c7c0bec2dcd5c874300f5fb99abe932a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p70_remove_all_spaces",
+      "title": "70. 移除所有空白",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "abc888f1a59cb3b086069db00b79968e24dd77165ad9e0759d5507187626517f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p71_wrap_tags",
+      "title": "71. HTML 標籤包裝",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本運算",
+        "範本"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d948c9dc757f44a7a242e291069985efed9a9690c2ba83531605d0e3271633e8",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p72_create_empty_list",
+      "title": "72. 建立空清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 1,
+      "sourceContentHash": "6058fd8463fe00506f9d86363b7dcad4a7dfcc099cc7c9d6d39b9d42eace8c14",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p73_list_with_three_items",
+      "title": "73. 建立固定清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 1,
+      "sourceContentHash": "bee29e853e5580d09cee66f3270a6297cdd0d9be2931e43b6ce613a0f56c4079",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p74_get_list_first_item",
+      "title": "74. 取得清單第一個項目",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2d5f89072bb9bd2c8ac08629596dbd4987694cb4664f26dc3e7f63a16833529d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p75_get_list_last_item",
+      "title": "75. 取得清單最後一個項目",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2dc8706a5a4a5e2b7a40a5e7e0a0f6b09f18da9a83ed48f51d48a879a1fc3c54",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p76_get_list_nth_item",
+      "title": "76. 取得清單第N個項目",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "3625ba5180bea4885957719873bcac916794234c17995cbe1eaef804e252ba47",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p77_list_append_item",
+      "title": "77. 在清單末尾新增項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "226fe8f5a88b5b557bbb009e6b28acf74ebc51fe6c76b7f924e892d0fd723ee1",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p78_list_insert_item",
+      "title": "78. 在清單指定位置插入項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "163e682ed47e7be2bfd30e384430bfaffa7b5595c5222fd4314882ece245ef06",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p79_list_pop_last",
+      "title": "79. 移除清單最後一個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "24fef9b4a8f9b99561b3b4fa48f38d3daa499f275b432672b6b9dd5659373242",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p80_list_pop_first",
+      "title": "80. 移除清單第一個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "e4f292fb2994c1c17c45923e11f140d21a9bde3d9d811599b0c02a8fd0c7a57f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p81_list_pop_nth",
+      "title": "81. 移除清單第N個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a1755877a8359246e1e77babf91ca8ab7234cd987c0764b2180112c4df546072",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p82_list_set_nth",
+      "title": "82. 修改清單第N個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "aa43f06cb39d45684a66d6eae0d355b8cbab1fd866fcf268f77ae1edbe870579",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p83_list_is_empty",
+      "title": "83. 判斷清單是否為空",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "bcad0d3782f76ec100f200e7c7f6524359eb2e6f9a78645a56017270a49453ef",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p84_list_slice",
+      "title": "84. 擷取子清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "擷取",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "61b9a0bc26726cafba39b9f9044c7f7f38b0d95bbd5722663c61b0ce3a0015e5",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p85_list_find_index",
+      "title": "85. 尋找項目首次出現位置",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "77e4973f700e683ddbed6a34463690d13796f27cb6e4c014bccf3cbe72bc40f2",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p86_list_find_last_index",
+      "title": "86. 尋找項目最後出現位置",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "cded01ffb2241f1722a7640b71684a5288c7a6ffe242f7603aa8990c975d5160",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p87_list_join_with_comma",
+      "title": "87. 用逗號組合清單成字串",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "字串",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1b9cb7aa47e003ba4fb8d6c2680b0c46605f56b908eae4aec425b0169478bd58",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p88_list_sort_ascending",
+      "title": "88. 清單排序 (升冪)",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "排序",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "006b92e7ee1d129f0ee8d60596970735d16affd646c24170424aa5f3245a46d6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p89_list_sort_descending",
+      "title": "89. 清單排序 (降冪)",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "排序",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "8f6ac4b3f77896725be3a63f52de69e203d31d1670af7aeb0db653e2515a370e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p90_list_concat",
+      "title": "90. 合併兩個清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "107972521c5466ccfd46e64c1eb38d3391ede4f05e63dc34139ba6490a2d1420",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p91_list_copy",
+      "title": "91. 複製清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "72ab30d3445be69dbd63ac7e202502674c274cea0220666739e358a6a0550e07",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p92_list_sum_even",
+      "title": "92. 計算清單中所有偶數的和",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "7ad777a5e899507cfe472e2836ca350c713a9280daa2676b992a852e4b20c3c0",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p93_list_sum_odd",
+      "title": "93. 計算清單中所有奇數的和",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1f522140a951f43479303f7eaf1e3a820afaadac58270531398a085b3e6b5370",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p94_list_filter_positives",
+      "title": "94. 篩選出所有正數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "篩選"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "b81290036f1ff64a5eac2e36e6379398542e0bf8b8779cee46c9c7cb546c2028",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p95_list_filter_negatives",
+      "title": "95. 篩選出所有負數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "篩選"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "000e083ddccde45615302ddb379681eaf59d33c818de4280e20da05e4e9a40f4",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p96_list_map_double",
+      "title": "96. 將清單中所有數字加倍",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5462a1b7a05540a003f517ff15c47eb04224c2940ee0dfaf9e38403e25d74f5c",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p97_list_map_square",
+      "title": "97. 將清單中所有數字平方",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f5f8d093f67a2bfbd1dde3bbbfb2745c2ebbe5a4c342442b7d6ec5da2e6ac227",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p98_list_map_add_ten",
+      "title": "98. 將清單中所有數字加10",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2fc525b42179a9ea4c8bd35f7fa9589bd7c8ff701c4e95e374adf8e6deee9be4",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p99_list_map_lengths",
+      "title": "99. 計算清單中所有字串的長度",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "字串",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f7744d4762aa238746529c131b2f396db494cc7fceeac4bfa0be8f78033a35cc",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p100_list_count_item",
+      "title": "100. 計算清單中某項目出現次數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f73b408eb84b98b8f8ad3b6617a5f3458abb00046122b9a6ac424df047d1b0c0",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p101_list_of_lists_get_item",
+      "title": "101. 取得巢狀清單的項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "巢狀",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f68790201d836701edb00228c091438329e35f8218651b48c0d10d05f3999247",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p102_flatten_list",
+      "title": "102. 攤平巢狀清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "巢狀迴圈",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c4282d06c5bea8b6ed69062e717f9c72dec47e6bcf028c4a8c55f2f2b6cbd98e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p103_multiplication_table",
+      "title": "103. 產生九九乘法表",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "巢狀迴圈",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "af98355729a5a5830eb0c2bec2865fee8f0b067dc406633d7aee238e6cfd1f21",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p104_matrix_transpose",
+      "title": "104. 矩陣轉置",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "巢狀迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "3b0c03a432c01a485b0d50e9d8522c07c3e7f01dc5e254f417c85c2731d637be",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p105_gcd",
+      "title": "105. 最大公因數 (GCD)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "演算法",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "fa095ec92d257cd2f9e823718e870131acab02761e8a5989cb318a0babf690ec",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p106_lcm",
+      "title": "106. 最小公倍數 (LCM)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "97da34f0a25da620742e352c24e579ae8d6fd30f40b4f1fafdd39e93fab7ccb5",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p107_prime_factorization",
+      "title": "107. 質因數分解",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "67794a02a367bd8031fd9572daa6dd54f36c5714e7aab02ad23132f218888d96",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p108_decimal_to_binary",
+      "title": "108. 十進位轉二進位",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "字串",
+        "演算法"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "82e841921408f5cfec58ec9450dbe23bb4e7184d465194a5c20d60b5e9c0c540",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p109_binary_to_decimal",
+      "title": "109. 二進位轉十進位",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "字串",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "b0d88ba5e46afbc2474b605352fd21fac04cc891661c250d0f19ccd08da09da0",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p110_power_of_n",
+      "title": "110. N 的次方檢查",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "邏輯"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "ad0af5d1ec59095e8ce0c845238a9447132382095293b6595b6dbea9c1845202",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p111_is_anagram",
+      "title": "111. 異位構詞 (Anagram)",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "排序",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "32f4a3fc2a817b70e945a7e48638d4bd6c62745870d9381fbc0c6d9421620829",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p112_longest_word",
+      "title": "112. 找出最長單字",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "59d4ea135a2715779cc697f9134411248f6edcedf3ca5e18e7e456632ce17c2d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p113_run_length_encoding",
+      "title": "113. 簡易字串壓縮 (RLE)",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "8d4701e22aafd0c6f0e5cbc5643f98f3cf55da8038588242d861dbaf907b979e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p114_valid_parentheses",
+      "title": "114. 括號匹配",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "堆疊",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "51f576bc11014714078ba91b65fa05cecc86b86c95eb060ff65840d84bba7ab8",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p115_camel_to_snake",
+      "title": "115. 駝峰轉蛇形命名",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "大小寫",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4f01395029c8e1d0b733ccda2980c948d719056710be2a5a63b9178f2c9d07c8",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p116_extract_numbers",
+      "title": "116. 擷取字串中的數字",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "篩選"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "523ee1819cb9a3c3286e6356da628fb869f5406d695a47d6e94461ae27624c89",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p117_word_reverse_sentence",
+      "title": "117. 句子單字反轉",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "ee628c2615a92078a5999a756aaca69b35ade230ad85a993d6f84ac2d8ed4b25",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p118_list_mode",
+      "title": "118. 眾數 (Mode)",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "統計",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1503ac72565ea12dd891fae000768ace0bda1848c5371c26aa516b5790bc08ec",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p119_list_range",
+      "title": "119. 全距 (Range)",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "統計",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5b9e02dd4fe6c6b52dc24b4115057fdebb0be8c9e3495437d3ea13eed9d38ff2",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p120_list_unique_count",
+      "title": "120. 計算不重複項目數量",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "統計",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "58c8d2b344a116f52fbc8af3313285afadc79f3d228694e69f234ac308a5a330",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p121_moving_average",
+      "title": "121. 移動平均",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "統計",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "ccffeeee6931a517377cb5ce8c3ddab76ed399924ba369ca001b18ce347f1a30",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p122_binary_search",
+      "title": "122. 二分搜尋法模擬",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c8086117cbdf713d73926b7378c0154c30685f355377fc8fff54979bcea86071",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p123_distance_2d",
+      "title": "123. 兩點距離",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "幾何",
+        "公式"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4a42610be569e60d719d4b9a2232674575cce91100da1938b38246e2fce4c3e3",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p124_quadrant",
+      "title": "124. 判斷象限",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "邏輯",
+        "幾何"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "5e638aed1a9bb7194a1f8dc23c252b7620691a986c1aff9e048cc675c40280a5",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p125_triangle_validity",
+      "title": "125. 三角形合法性",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "邏輯",
+        "幾何"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "74925f2a5b7811b96b684c223814a1414b00bd83bcbbda72ae0ff9e3b106f234",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p126_ticket_price",
+      "title": "126. 遊樂園票價計算",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯",
+        "條件",
+        "應用"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "b9edfdc493df70659f3e95ebab2c3063dbbe27ef45db45132039a69eb640e69f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p127_leap_year_count",
+      "title": "127. 計算區間內閏年數",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "7f1a0480083e373ae38ca0ed72ff7facbb0ae7036f5952c18fd6b47471725af7",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p128_time_difference",
+      "title": "128. 時間差計算",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "應用",
+        "時間"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "0776aaf2850f60633a373b3eedc2d9d9172356429e93dec65910e249b6114667",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p129_atm_withdrawal",
+      "title": "129. ATM 提款計算",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "演算法",
+        "貪婪法則"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f9be8043ed24febbd5045ac8e6aa5094d301b7e5d488bf5f022ab5d9c3b5f629",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p130_password_strength",
+      "title": "130. 密碼強度檢查",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯",
+        "條件"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "834c1dc669b669e2d7a3603ebff68b90c4855f645aa9ed4fa2ce29973d7f0eb9",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p131_collatz_conjecture",
+      "title": "131. 考拉茲猜想 (3N+1)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "數學",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "abc3642bfb4940b6a50c8339810abb50c35a87a3277be984b36349df73ff99d3",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p132_perfect_number",
+      "title": "132. 完美數判斷",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "f1f6b1fb30f85d4bb1de1c73e27d153b7b85e4aadad57081f5da88635aef9167",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p133_digit_sum_recursive",
+      "title": "133. 數字位數和 (直到個位)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "遞迴概念"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "83f6cb80a0316f8b9e8f7be0ea1481983fd69d7d336f975a6920cdf7c2431609",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p134_caesar_brute_force",
+      "title": "134. 凱薩解碼 (暴力破解)",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d2b9e8408fed52ac72462cf2c7f3289d6f4ac6628c57e9d3b1b30ae71f1d994d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p135_list_rotate",
+      "title": "135. 旋轉清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "b8945ac674ff95c9eb02c338af0e4d6894f2b6a60dc99f26a82f5b56c58fae39",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p136_set_operations_union",
+      "title": "136. 集合聯集",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "集合",
+        "排序"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "b83281a7fee1bdb510f78b9b48ccd26005a60ae73f6e9b1520f142c02f07b619",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p137_set_operations_intersection",
+      "title": "137. 集合交集",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "集合",
+        "排序"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "0968ad441a34aaf00ce15fca6680f70bc310c5de8f7219ea01f5324da9b047fd",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p138_missing_number",
+      "title": "138. 尋找缺失的數字",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "清單",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "e8c2eff82c2e0dfb0f74e7014a28da4976cdc79c2130a517aa6236f1ff2206b8",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p139_bubble_sort_step",
+      "title": "139. 氣泡排序 (單趟)",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "排序",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "8a726bf027efa5c4cc81517ecf440de3f46cdeea7528481b0361f0b2042d3e7a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p140_postfix_evaluation",
+      "title": "140. 後序運算式 (RPN) 簡易版",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "堆疊",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f9c38243efbaaf8ce2d6c364d862d5a3bc8584c77411394fa3be19fc3744599d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p141_spiral_matrix_create",
+      "title": "141. 建立螺旋矩陣 (3x3)",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "二維陣列",
+        "邏輯",
+        "建構"
+      ],
+      "candidateCaseCount": 1,
+      "sourceContentHash": "800c6f1ab7e441ad6da2495d44a3ff6876ddb79bef6ae34bd366e05b155b3999",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p142_fibonacci_recursive",
+      "title": "142. 費波那契 (遞迴/陣列版)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "清單"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1fc7ab74d1778166ef75c8ebfceaf26d0f0b5d1f9a962c93b406733ec883d347",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p143_check_sorted",
+      "title": "143. 檢查是否已排序",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a44b32141d9822acf6856e8cd7d3ee780b0b929edfd05797ea6e2188c01a08d4",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p144_count_primes",
+      "title": "144. 計算質數數量",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d3178f503bb9aa3d30018db14ef009e88f1e97f16df0efecd7df22eca6b90aaa",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p145_reverse_integer",
+      "title": "145. 反轉整數",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "字串",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "79e959a7d690b372c7c8325446ee10169f80296f53aa6e7afaa4373fd3145d34",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p146_find_duplicate",
+      "title": "146. 找出重複數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d5895dc131597d64bafd5e617bcaffcef4c7f4dd70c0483c3ae995af33b81f83",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p147_string_compression_count",
+      "title": "147. 計算壓縮後長度",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "計數",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d0975c9e6d1070a20c3155c406a8e057709df08d16af50d2e6637deff4100f32",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p148_majority_element",
+      "title": "148. 多數元素",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "摩爾投票法"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "73305d3186b547f634452bb5ab2f377d1c25a98cc6df2769d66f25634d7dd728",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p149_valid_palindrome_phrase",
+      "title": "149. 驗證迴文片語",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "雙指標",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "33ad007aa91e878393855d453e06b50ed7da0a421446a022aec512f939872234",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p150_max_profit",
+      "title": "150. 股票最大利潤",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "動態規劃",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c9538c53661e7ac22460061f27a7cb7585100cf06d3b9c43f297e1e16490fdb1",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p151_matrix_add",
+      "title": "101. 矩陣相加",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "巢狀迴圈",
+        "二維陣列"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "e025eec84728c721940407ed1ca505f6019b8fbaded31e4ee1d403ac8230b8fe",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p152_rect_perimeter",
+      "title": "152. 長方形周長",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "幾何",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "c17c9437f42e72107019a25af7aaa8bdaaa89cbd85d950caad10cec5534a142d",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p153_square_area",
+      "title": "153. 正方形面積",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "幾何",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d14826f80d66d0a9c7996d2e9376ff5411ff0702b494112809098c56f7e37900",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p154_hours_to_minutes",
+      "title": "154. 小時轉分鐘",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "時間",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "54a71e7792359667d0e3d6d351323d98d56b9ceef28e766db0b9601983512620",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p155_calculate_change",
+      "title": "155. 計算找零",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "邏輯",
+        "應用"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "eed98b479ef44e65b035700af3d24ce582db4be270878e4c414dcb1a833b3d9b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p156_triangle_angle_check",
+      "title": "156. 三角形內角和檢查",
+      "categories": [],
+      "tags": [
+        "數學",
+        "幾何",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "e4bb7804510d25901b72f589202860bfec12ff6ed718f927d5058458b46e82da",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p157_can_vote",
+      "title": "157. 投票年齡判斷",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1f4d11df6b350b30a512b922751b385d87662eb417d2c432fd73b70570ecea50",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p158_password_length_simple",
+      "title": "158. 密碼長度檢查 (簡易)",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯",
+        "長度"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "672bc40b0774e08230263244a610b003d9346c4a671ec2215f2fa1927b99bb6e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p159_rock_paper_scissors_win",
+      "title": "159. 猜拳判斷 (贏電腦)",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯",
+        "條件",
+        "遊戲"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "0b8ece8689bf319a7c8ef036e0bb982581c620c8b183489160e7f5501c19a018",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p160_store_discount",
+      "title": "160. 滿千打九折",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "邏輯",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a35624771d65606a4d5b54a16c4db6a0bc3a814a7238fc561c65eedae4439c61",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p161_pos_neg_zero",
+      "title": "161. 正負數與零",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "ef64d2e08c1bebe85584f7a227523d57f359cf41366ba220129f3670212245e8",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p162_print_stars",
+      "title": "162. 輸出 N 顆星星",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "字串"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5c319902d6c4dd0c90975acececd97fdf28e119fba4f9de66693d9a3885799ad",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p163_sum_evens_n",
+      "title": "163. 偶數總和",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "數學",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "0befa16c34cf0bf79be7a6a72a202409a4ccfb4bfaff065924ce29cbcf1ab55e",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p164_countdown",
+      "title": "164. 倒數計時",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "清單"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "24388adb41886c01c29be95169d7f61013544a1b80e7fb89d8b38c3c89f70591",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p165_powers_of_two",
+      "title": "165. 2 的倍數序列",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "數學",
+        "清單"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5e7766011394bb81d1c24cb4a489ea1557fe2939398f7cc5566d44e9b6df7ec6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p166_list_first_last_sum",
+      "title": "166. 首尾相加",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "09c30e52be9523bee5ba6d8ab93370c4f7e5214f89f9eab3a4c2ea73e1540a05",
+      "status": "imported",
+      "pyjudgeId": 43
+    },
+    {
+      "sourceId": "p167_count_pass_grades",
+      "title": "167. 及格人數統計",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "計數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "982237a4295f88e8af7f62e48f0d46a20a6461c1e99dd1beb4de0a62a68fbbd6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p168_find_fruit_index",
+      "title": "168. 尋找水果",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "搜尋",
+        "字串"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "51aac1d42349dd48e997116453eb15fc96c89271e83c31c27fd3e287944f23be",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p169_max_difference",
+      "title": "169. 最大差距",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "數學",
+        "統計"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "ab63a7d429171908d9409fcf627bebf1bbb00300115a86d419885bdc34404fc2",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p170_remove_zeros",
+      "title": "170. 移除零",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "篩選",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "9e29126f3f5a1e1e38b5d3a7cdeb7618a6cf0dd7a6f23101b0af3c7f3ef9f037",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p171_list_product",
+      "title": "171. 清單數字乘積",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "b97df27874aabedc598fb2d3d854dfb92519f3b4459541f241e4cbe13076addd",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p172_is_increasing",
+      "title": "172. 是否越變越大",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯",
+        "檢查"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2786118f8a597089cbd90c0434f22b73538af8a8e33a0ad5a906c027da95915f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p173_append_lists",
+      "title": "173. 接龍清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6e065ae094bb0ce9d4c1e9ebdcf1c0356969ffd184462b9b9fe9adf808a022bd",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p174_count_negatives",
+      "title": "174. 計算負數個數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6dd13961ae321bf330d540967b8428cf4415c0818378062923b7d1daf1a5ad4f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p175_mask_phone",
+      "title": "175. 手機號碼遮蔽",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "格式化"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "9b2ea69562e4fcaa066a558b8a732c3192ac2463c23b22f2a9a0cde7347c4fa0",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p176_check_website",
+      "title": "176. 網址檢查",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "邏輯",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "47e49b849f736a9fd8236dcdc0c298e8381bebd0be676c181b50f86b284d9e3b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p177_repeat_with_dash",
+      "title": "177. 分隔重複",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "格式化"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "ddc4476520df4ef30a2a156229eb0cfd6e3dbfd091ddc97b2da88ec920b9ca3f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p178_count_spaces",
+      "title": "178. 計算空白鍵",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "計數"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "cc4c51c04b93bee89f83a7b2265ed34335aa99cc341a3a80a2bc5dcebd034c9c",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p179_replace_bad_words",
+      "title": "179. 文字過濾",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "a3a9b13ca5b32d075e6bf81149f68c2296f3b5bb6c4684b50c5edf68a17db5c2",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p180_bmi_calc",
+      "title": "180. BMI 計算器",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "公式",
+        "應用"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "4732697a74e41a9a109eca321ff4ef00ca0506ff1aeace3bb13ec06af5c2cf98",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p181_factorial_simple",
+      "title": "181. 小數階乘",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "0d17adb085f00de4f65e8b843c1e63d0a18577cd88095834b2ced1509a5a749f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p182_palindrome_number",
+      "title": "182. 迴文數字",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "數學",
+        "字串",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "bd5981cd65fa93666bc1ede415a74c4695331490e518f4ace28671b2693371fa",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p183_simple_encrypt",
+      "title": "183. 倒著說秘密",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "反轉",
+        "趣味"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "413bd3a1b10d25a180b154e52d8efc97125037b71413cccf6cbf741a72f6fc77",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p184_calc_mean",
+      "title": "184. 計算平均分",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "數學",
+        "統計"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "bc988008f2f136e1338b755b385adec6fcad91679598ab02fa9ea90012278905",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p185_digit_sum",
+      "title": "185. 數字加總",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "字串處理"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "1e63121fe91e7263db599882855cc1c1d2f6e387980161bd1e63449a6de04f21",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p186_count_tens",
+      "title": "186. 幾個十塊錢?",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "除法",
+        "應用"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "05edce072871577e3d528806514267ef175c023a41b15342906ea393fa6da2d1",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p187_divisible_3_5",
+      "title": "187. 3或5的倍數",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "數學",
+        "邏輯",
+        "條件"
+      ],
+      "candidateCaseCount": 3,
+      "sourceContentHash": "575e7336113cea0550be5561b394fbe98554df6350accca8ff66c8fc7e5df045",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p188_abs_diff",
+      "title": "188. 兩數距離",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "5ac93a865c6b9f7073a0385feefe88812b33784e92b76b30c797f57da326719b",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p189_middle_char",
+      "title": "189. 中間的字",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "6e4f24700f2677329ab2ea1f71e4fe5c4ead3416659c20180a5324500b306529",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p190_swap_first_last",
+      "title": "190. 交換頭尾",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "交換",
+        "基本操作"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "3087c93accfbee7d0a7e5bff5610cde5fc771db3eba97afebffd3083a736cda6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p191_double_list",
+      "title": "191. 加倍奉還",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "7b36af5ab3ab9510fb3d904e1a8a13692a07c36ae2c0054624297a75ee520027",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p192_has_digit",
+      "title": "192. 包含數字嗎?",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "806ed7f7e51ff023a4e40b8e7c286cf17098a7591c28cae51abd6607d2b8f484",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p193_all_positive",
+      "title": "193. 全是正數嗎?",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f8892890a7801a25090703bc80dbb2f35a3ced53d2e93d7090aaa2202284258a",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p194_any_negative",
+      "title": "194. 有負數嗎?",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "8c570978fa72a50fd0fe13fab1a7bda4099090e0244037baed5b2a464f70acc2",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p195_sum_squares",
+      "title": "195. 平方和",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "數學",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "2d2b7ae18d5be05e9fff96223091a90f201df878c8c29674d2d6054479d0fdf6",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p196_join_space",
+      "title": "196. 句子組合",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "字串",
+        "組合"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "868e2c400d6679d14d1e90f8eea916b01c60f6cd30f329f8691f7d0206ab6498",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p197_check_length_5",
+      "title": "197. 長度是5嗎?",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯",
+        "長度"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "d1fbb1ff5d65917fe59850eb5e6e599786a36661a75c52983051b24af697393f",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p198_simple_interest",
+      "title": "198. 單利計算",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "公式",
+        "應用"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "9bf4c4ef64ccf6674aa9a598d24f2adf836ebad3d58a99eedecf15ed7a694caa",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p199_cube_volume",
+      "title": "199. 正方體體積",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "幾何",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "cee7cdd22c8c88cd3c2a0b6f57f0fa24e24eefb27578479757378369c79c5ade",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    },
+    {
+      "sourceId": "p200_lucky_seven",
+      "title": "200. 幸運數字 7",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "搜尋",
+        "邏輯"
+      ],
+      "candidateCaseCount": 2,
+      "sourceContentHash": "f4ff8b38bcf875c387fcda9821e9166c10a8bb667934addbf2888f8ad8818d77",
+      "status": "unreviewed",
+      "pyjudgeId": null
+    }
+  ]
+}

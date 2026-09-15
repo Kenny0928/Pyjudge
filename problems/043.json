@@ -1,0 +1,92 @@
+{
+  "id": 43,
+  "title": "清單首尾相加",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "索引",
+    "算術運算"
+  ],
+  "audienceLevel": "M-7",
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用清單的第一個與最後一個索引取得資料並相加"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "索引",
+    "整數加法"
+  ],
+  "description": "<p class='problem-lead'>找出清單最前面和最後面的數字並相加。</p><p>給定 <code>N</code> 個整數，輸出第一個整數與最後一個整數的和。</p>",
+  "hint": "<p>Python 清單的第一個索引是 <code>0</code>，最後一個元素可以使用索引 <code>-1</code> 取得。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>N</code>。第二行包含 <code>N</code> 個以空格分隔的整數。</p>",
+  "outputFormat": "<p>一行，輸出第一個整數與最後一個整數的和。</p>",
+  "constraints": "<ul><li>2 ≤ N ≤ 100</li><li>-10000 ≤ 每個整數 ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\n10 20 30",
+  "sampleOutput": "40",
+  "samples": [
+    {
+      "input": "3\n10 20 30",
+      "output": "40"
+    },
+    {
+      "input": "2\n5 1",
+      "output": "6"
+    },
+    {
+      "input": "5\n1 2 3 4 5",
+      "output": "6"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "3\n10 20 30",
+      "output": "40"
+    },
+    {
+      "input": "2\n5 1",
+      "output": "6"
+    },
+    {
+      "input": "5\n1 2 3 4 5",
+      "output": "6"
+    },
+    {
+      "input": "2\n-5 -1",
+      "output": "-6"
+    },
+    {
+      "input": "4\n0 9 8 0",
+      "output": "0"
+    },
+    {
+      "input": "3\n10000 0 -10000",
+      "output": "0"
+    },
+    {
+      "input": "6\n7 1 2 3 4 7",
+      "output": "14"
+    },
+    {
+      "input": "2\n-10000 10000",
+      "output": "0"
+    },
+    {
+      "input": "10\n1 2 3 4 5 6 7 8 9 10",
+      "output": "11"
+    },
+    {
+      "input": "4\n-3 100 100 -4",
+      "output": "-7"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p166_list_first_last_sum",
+    "sourceTitle": "166. 首尾相加",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將逐筆候選輸入整理為 SkillLab 的 N 加單行清單格式，並擴充邊界測資。"
+  }
+}

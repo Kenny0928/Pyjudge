@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "source": "google_sites",
+  "imports": [
+    {
+      "sourceId": "p08_string_length",
+      "pyjudgeId": 41,
+      "sourceContentHash": "a4c7ace201dd01768e12df506c30c475147dc1df013310a1a18ee3ac3852ea9a",
+      "reviewedAt": "2026-09-16",
+      "notes": "保留空格計入長度的語義，補齊字元種類與長度邊界測資。"
+    },
+    {
+      "sourceId": "p25_leap_year",
+      "pyjudgeId": 42,
+      "sourceContentHash": "3b761f5ecf22d28ec3be6511aed473fb69ba923babdeafc40f93efc08cf3d7bd",
+      "reviewedAt": "2026-09-16",
+      "notes": "確認小寫 true/false 輸出，補齊四年、百年與四百年分支。"
+    },
+    {
+      "sourceId": "p166_list_first_last_sum",
+      "pyjudgeId": 43,
+      "sourceContentHash": "09c30e52be9523bee5ba6d8ab93370c4f7e5214f89f9eab3a4c2ea73e1540a05",
+      "reviewedAt": "2026-09-16",
+      "notes": "統一成 N 與空格分隔清單格式，補齊負數、零與上下界測資。"
+    }
+  ]
+}

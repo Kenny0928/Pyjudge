@@ -1,6 +1,6 @@
 # 🧪 SkillLab — 從程式學習到實作專題的能力實驗室
 
-SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台，可直接部署到 **GitHub Pages**。目前已開放的初階講義 30 題與 Judge 題庫 41 題，都能自由選用 **Scratch、Blockly 或 Python** 作答。
+SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台，可直接部署到 **GitHub Pages**。目前已開放的初階講義 30 題與 Judge 題庫 44 題，都能自由選用 **Scratch、Blockly 或 Python** 作答。
 
 初階講義依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」涵蓋 10 個基礎概念，每關包含 1 題核心題與 2 題變體。三種作答方式共用題目、測資與通關紀錄；每題的三種語言草稿分別保存。中階與高階講義仍在規劃中，首頁保留準備中的入口。
 
@@ -80,10 +80,12 @@ skilllab/
 │   └── 題庫總覽與學習階梯.md    ← 六大循序漸進階梯與題庫全景對照
 │
 ├── for_AI/
-│   └── AI_AGENT_工作流與開發規範.md ← AI Agent 題庫與網頁維護最高規約 (SOP)
+│   ├── AI_AGENT_工作流與開發規範.md ← AI Agent 題庫與網頁維護最高規約 (SOP)
+│   └── google-sites題庫匯入/       ← Google Sites 題庫目錄與已審匯入紀錄
 │
 ├── scripts/
 │   ├── verify_problems.py      ← 自動化題庫與測資全量檢核工具
+│   ├── sync_google_sites_catalog.py ← 整理封存題庫並偵測已匯入來源變更
 │   ├── verify_editors.cjs       ← 編輯器草稿、切換與 Blockly 生成程式測試
 │   ├── verify-scratch.html      ← Scratch 真實瀏覽器測試頁
 │   ├── verify-integration.html  ← Judge 與講義三語言整頁測試
@@ -167,6 +169,17 @@ print(s[::-1])
 ```
 
 這個檔案**不會自動載入**到編輯器，只做為題目出題者的參考。
+
+### 從 Google Sites 封存題庫新增題目
+
+`../selenium/output/normalized` 內的 Google Sites 題目已整理為可追蹤的審題目錄。候選案例不能直接當成完整測資；請依 [Google Sites 題庫匯入工作流](for_AI/google-sites題庫匯入/README.md) 逐題重寫規格、補齊測資與解答。
+
+```bash
+python3 scripts/sync_google_sites_catalog.py --write
+python3 scripts/sync_google_sites_catalog.py --check
+```
+
+`catalog.json` 會標示 `unreviewed`、`imported` 或 `source_changed`。若已匯入題目的來源雜湊改變，檢查會失敗，必須重新審題後才能更新正式題目。
 
 ---
 
