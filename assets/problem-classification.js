@@ -6,9 +6,9 @@
   'use strict';
 
   const STAGES = Object.freeze({
-    Beginner: Object.freeze({ label: '初階', cssClass: 'beginner' }),
-    Intermediate: Object.freeze({ label: '中階', cssClass: 'intermediate' }),
-    Advanced: Object.freeze({ label: '高階', cssClass: 'advanced' }),
+    Beginner: Object.freeze({ label: 'LV.1', cssClass: 'beginner' }),
+    Intermediate: Object.freeze({ label: 'LV.2', cssClass: 'intermediate' }),
+    Advanced: Object.freeze({ label: 'LV.3', cssClass: 'advanced' }),
     Challenge: Object.freeze({ label: '挑戰', cssClass: 'challenge' })
   });
 

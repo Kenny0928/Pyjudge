@@ -112,8 +112,8 @@
 
   window.SKILLLAB_COURSES = window.SKILLLAB_COURSES || {};
   window.SKILLLAB_COURSES.advanced = {
-    key:'advanced',name:'高階講義',shortName:'高階',lessons:advanced,storagePrefix:'pyjudge_advanced',
-    finishTitle:'高階學習地圖完成！',
+    key:'advanced',name:'LV.3 講義',shortName:'LV.3',lessons:advanced,storagePrefix:'pyjudge_advanced',
+    finishTitle:'LV.3 學習地圖完成！',
     finishCopy:'你已經能根據資料規模選擇演算法，並說明狀態、正確性、時間與空間成本。',
     finishHref:'judge.html',finishLink:'前往 Judge 挑戰題庫 →'
   };

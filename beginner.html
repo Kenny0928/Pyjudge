@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="SkillLab 程式學習講義：先預測、再拆解、動手測試，每關包含核心題與兩題變體。" />
-  <title>初階講義｜SkillLab</title>
+  <title>LV.1 講義｜SkillLab</title>
   <link rel="stylesheet" href="assets/programming-editor.css" />
   <!-- CodeMirror -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
@@ -1125,7 +1125,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="index.html">SkillLab</a>
-    <div class="course-name" id="course-name">初階講義</div>
+    <div class="course-name" id="course-name">LV.1 講義</div>
     <div class="header-progress" aria-label="課程進度">
       <div class="progress-copy"><span>你的進度</span><span id="progress-text">0 / 10</span></div>
       <div class="progress-track"><span id="progress-bar"></span></div>
@@ -1134,7 +1134,7 @@
   </header>
 
   <div class="app-shell">
-    <aside class="course-sidebar" id="course-sidebar" aria-label="初階講義目錄">
+    <aside class="course-sidebar" id="course-sidebar" aria-label="LV.1 講義目錄">
       <div class="sidebar-head">
         <strong class="sidebar-title">講義目錄</strong>
         <button class="desktop-course-button" id="desktop-course-button" type="button" aria-controls="course-sidebar" aria-expanded="true" aria-label="收合講義目錄">←</button>
@@ -1233,7 +1233,7 @@
       </section>
 
       <div class="finish-panel" id="finish-panel">
-        <h2 id="finish-title">初階地圖完成！</h2>
+        <h2 id="finish-title">LV.1 地圖完成！</h2>
         <p id="finish-copy"></p>
         <a id="finish-link" href="judge.html">前往 Judge 挑戰題目 →</a>
       </div>
@@ -1766,16 +1766,16 @@
 
     const BEGINNER_COURSE = {
       key: 'beginner',
-      name: '初階講義',
-      shortName: '初階',
+      name: 'LV.1 講義',
+      shortName: 'LV.1',
       lessons: BEGINNER_LESSONS,
       storagePrefix: 'pyjudge_beginner',
       progressVersion: 'v2',
       legacyDrafts: true,
-      finishTitle: '初階學習地圖完成！',
+      finishTitle: 'LV.1 學習地圖完成！',
       finishCopy: '你已經走過輸入、輸出、變數、條件、for、while、計數與累加。下一步是將這些方法用在字串與清單。',
       finishHref: 'beginner.html?course=intermediate',
-      finishLink: '前往中階講義 →'
+      finishLink: '前往 LV.2 講義 →'
     };
     const requestedCourse = new URLSearchParams(location.search).get('course') || 'beginner';
     const COURSE = requestedCourse === 'beginner'

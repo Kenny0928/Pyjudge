@@ -111,9 +111,9 @@
 
   window.SKILLLAB_COURSES = window.SKILLLAB_COURSES || {};
   window.SKILLLAB_COURSES.intermediate = {
-    key: 'intermediate', name: '中階講義', shortName: '中階', lessons: intermediate,
-    storagePrefix: 'pyjudge_intermediate', finishTitle: '中階學習地圖完成！',
+    key: 'intermediate', name: 'LV.2 講義', shortName: 'LV.2', lessons: intermediate,
+    storagePrefix: 'pyjudge_intermediate', finishTitle: 'LV.2 學習地圖完成！',
     finishCopy: '你已經能處理字串、清單、二維資料與函式。接下來可進入效率、資料結構與演算法選擇。',
-    finishHref: 'beginner.html?course=advanced', finishLink: '前往高階講義 →'
+    finishHref: 'beginner.html?course=advanced', finishLink: '前往 LV.3 講義 →'
   };
 })();
