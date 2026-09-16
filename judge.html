@@ -18,6 +18,7 @@
   <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
   <link rel="stylesheet" href="assets/programming-editor.css">
   <script src="assets/programming-editor.js"></script>
+  <script src="assets/problem-classification.js"></script>
 
   <style>
     :root {
@@ -215,7 +216,7 @@
       margin-bottom: 18px;
       padding: 0;
       display: grid;
-      grid-template-columns: minmax(240px, 1fr) repeat(3, minmax(130px, auto)) auto;
+      grid-template-columns: minmax(220px, 1.3fr) repeat(4, minmax(118px, 0.75fr)) auto;
       gap: 10px;
       border: 0;
       background: transparent;
@@ -294,7 +295,7 @@
       width: 100%;
       border-collapse: collapse;
       background: transparent;
-      min-width: 760px;
+      min-width: 840px;
       border: 0;
       overflow: hidden;
     }
@@ -359,6 +360,42 @@
     .badge-hard {
       background: rgba(239, 68, 68, 0.15);
       color: var(--hard);
+    }
+
+    .badge-stage-beginner {
+      background: rgba(59, 130, 246, 0.16);
+      color: #93c5fd;
+    }
+
+    .badge-stage-intermediate {
+      background: rgba(20, 184, 166, 0.16);
+      color: #5eead4;
+    }
+
+    .badge-stage-advanced {
+      background: rgba(168, 85, 247, 0.16);
+      color: #d8b4fe;
+    }
+
+    .badge-stage-challenge {
+      background: rgba(244, 63, 94, 0.17);
+      color: #fda4af;
+      box-shadow: inset 0 0 0 1px rgba(244, 63, 94, 0.28);
+    }
+
+    .badge-stage-unclassified {
+      background: var(--surface2);
+      color: var(--text-muted);
+    }
+
+    .badge-apcs {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+    }
+
+    .meta-audience {
+      color: var(--text-muted);
+      font-size: 0.75rem;
     }
 
     .tag {
@@ -1112,6 +1149,16 @@
       color: #93c5fd;
     }
 
+    @media (max-width: 980px) {
+      .problem-filters {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .problem-filters .filter-field:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
     @media (max-width: 768px) {
       header { height:auto; min-height:56px; padding:8px 12px; gap:8px; flex-wrap:wrap; }
       header .logo, header .nav-link { white-space:nowrap; flex-shrink:0; }
@@ -1222,8 +1269,18 @@
       </div>
       <form class="problem-filters" id="problem-filters" role="search" onsubmit="return false">
         <div class="filter-field">
-          <label for="problem-search">搜尋題號、名稱或標籤</label>
-          <input id="problem-search" type="search" placeholder="搜尋題號、名稱或標籤" autocomplete="off">
+          <label for="problem-search">搜尋題號、名稱、標籤或分級</label>
+          <input id="problem-search" type="search" placeholder="搜尋題號、名稱、標籤或分級" autocomplete="off">
+        </div>
+        <div class="filter-field">
+          <label for="stage-filter">依學習階段篩選</label>
+          <select id="stage-filter">
+            <option value="">所有階段</option>
+            <option value="Beginner">初階</option>
+            <option value="Intermediate">中階</option>
+            <option value="Advanced">高階</option>
+            <option value="Challenge">挑戰</option>
+          </select>
         </div>
         <div class="filter-field">
           <label for="difficulty-filter">依難度篩選</label>
@@ -1254,6 +1311,7 @@
           <tr>
             <th style="width:60px">#</th>
             <th>題目名稱</th>
+            <th style="width:86px">階段</th>
             <th style="width:120px">標籤</th>
             <th style="width:90px">難度</th>
             <th style="width:90px">狀態</th>
@@ -1359,6 +1417,9 @@
       0: {
         "id": 0,
         "title": "Hello World",
+        "stage": "Beginner",
+        "audienceLevel": "E-MID",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["入門", "輸出"],
         "description": "<p class='problem-lead'>輸出指定文字。</p><p>請讓程式輸出一行 <code>hello world</code>，大小寫與中間的空格必須完全相同。</p>",
@@ -1377,6 +1438,9 @@
       1: {
         "id": 1,
         "title": "A+B 問題",
+        "stage": "Beginner",
+        "audienceLevel": "E-MID",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["數學", "輸入輸出"],
         "description": "<p>給定兩個整數 <code>A</code> 和 <code>B</code>，請計算並輸出 <code>A + B</code> 的值。</p><p>這是最經典的程式設計入門題，主要測試你是否能正確讀取一整行輸入、依空格拆開資料並輸出結果。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>小提示：一次讀取，再拆開</p><p style='font-size:0.85rem;'>Python 可使用下列方式讀取一整行，再依空格拆成兩個整數：</p><pre style='font-size:0.75rem;margin-top:4px;'>a, b = map(int, input().split())</pre><p style='font-size:0.85rem;margin-top:6px;'>Blockly 可將「要求輸入文字」接到「從文本製作清單」，分隔符填入一個空格，再取得第 0、1 項。</p></div>",
@@ -1398,6 +1462,9 @@
       2: {
         "id": 2,
         "title": "FizzBuzz",
+        "stage": "Intermediate",
+        "audienceLevel": "E-UPPER",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["條件判斷", "迴圈"],
         "description": "<p>給定正整數 <code>N</code>，請從 <code>1</code> 到 <code>N</code> 依序輸出，但：</p><ul><li>若數字是 <strong>3 的倍數</strong>，輸出 <code>Fizz</code></li><li>若數字是 <strong>5 的倍數</strong>，輸出 <code>Buzz</code></li><li>若數字是 <strong>15 的倍數</strong>，輸出 <code>FizzBuzz</code></li><li>否則，輸出該數字本身</li></ul>",
@@ -1418,6 +1485,9 @@
       3: {
         "id": 3,
         "title": "最大公因數",
+        "stage": "Advanced",
+        "audienceLevel": "M-8",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["數學", "遞迴"],
         "description": "<p>給定兩個正整數 <code>A</code> 和 <code>B</code>，請求出它們的<strong>最大公因數（GCD）</strong>。</p><p>你可以使用輾轉相除法（歐幾里得算法）來完成這題。</p>",
@@ -1440,6 +1510,9 @@
       4: {
         "id": 4,
         "title": "質數判斷",
+        "stage": "Advanced",
+        "audienceLevel": "M-8",
+        "apcsLevel": null,
         "difficulty": "Medium",
         "tags": ["數學", "質數"],
         "description": "<p>給定 <code>T</code> 筆查詢，每筆查詢包含一個正整數 <code>N</code>，請判斷 <code>N</code> 是否為<strong>質數</strong>。</p><p>質數定義：大於 1 且只能被 1 和自身整除的整數。</p>",
@@ -1459,6 +1532,9 @@
       5: {
         "id": 5,
         "title": "費氏數列第 N 項",
+        "stage": "Advanced",
+        "audienceLevel": "M-8",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["動態規劃", "數學"],
         "description": "<p>費氏數列（Fibonacci Sequence）定義如下：</p><ul><li>F(1) = 1</li><li>F(2) = 1</li><li>F(N) = F(N-1) + F(N-2)，對所有 N ≥ 3</li></ul><p>給定正整數 <code>N</code>，請計算費氏數列的第 <code>N</code> 項。</p>",
@@ -1480,6 +1556,9 @@
       6: {
         "id": 6,
         "title": "反轉字串",
+        "stage": "Intermediate",
+        "audienceLevel": "M-7",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["字串"],
         "description": "<p>給定一個字串 <code>S</code>，請將其反轉後輸出。</p><p>字串只包含英文字母和數字，不含空格。</p>",
@@ -1501,6 +1580,9 @@
       7: {
         "id": 7,
         "title": "兩數之和",
+        "stage": "Challenge",
+        "audienceLevel": "M-HS",
+        "apcsLevel": "APCS-Implementation",
         "difficulty": "Medium",
         "tags": ["陣列", "雜湊"],
         "description": "<p>給定一個長度為 <code>N</code> 的整數陣列，以及一個目標值 <code>T</code>。</p><p>請找出陣列中<strong>兩個不同位置</strong>的數字，使其和等於 <code>T</code>，並輸出這兩個數字的<strong>索引</strong>（從 0 開始），以較小的索引在前。</p><p>保證答案唯一且一定存在。</p>",
@@ -1521,6 +1603,9 @@
       8: {
         "id": 8,
         "title": "智慧停車場管理員",
+        "stage": "Advanced",
+        "audienceLevel": "M-8",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["二維陣列", "陣列"],
         "description": "<p>城市中一座多層立體停車場共有 M 層樓，每層有 N 個車位。管理系統會即時記錄每個車位的使用狀況。請寫一個程式，幫助管理員快速掌握整座停車場的空位分佈情形：計算空位總數，並找出哪一層樓的空位最多，方便引導車輛直接前往該層。</p><p>停車場的每個車位以數字表示：<strong>0 代表空位，1 代表已停車</strong>。樓層編號由上而下從第 1 層開始。若有多個樓層的空位數相同且並列最多，則輸出<strong>編號最小</strong>的樓層。</p>",
@@ -1541,6 +1626,9 @@
       9: {
         "id": 9,
         "title": "二進制轉十進制",
+        "stage": "Intermediate",
+        "audienceLevel": "M-7",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["數學", "字串", "進位轉換"],
         "description": "<p>請寫一個程式，輸入一串只包含 0 和 1 的二進制字串，將它轉換成十進制整數並輸出。</p><p>將二進制轉換為十進制的方法是：從最右邊的位元開始，每個位元的值乘以 2 的對應次方後加總。例如二進制 <code>1101</code>，從右到左依序為第 0、1、2、3 位，計算為 1×2⁰ + 0×2¹ + 1×2² + 1×2³ = 1+0+4+8 = 13。</p><div style='background:rgba(59,130,246,0.1);padding:12px;border-radius:6px;margin-top:10px;border:1px solid rgba(59,130,246,0.3);'><p style='color:var(--accent);font-weight:600;margin-bottom:4px;'>小提示：</p><p style='font-size:0.85rem;'>可以使用由左至右累加的技巧，每次將目前結果乘以 2 並加上新位元的值。</p></div>",
@@ -1562,6 +1650,9 @@
       10: {
         "id": 10,
         "title": "十進制轉二進制",
+        "stage": "Intermediate",
+        "audienceLevel": "M-7",
+        "apcsLevel": null,
         "difficulty": "Easy",
         "tags": ["數學", "迴圈", "進位轉換"],
         "description": "<p>請寫一個程式，輸入一個非負整數，將它轉換成二進制並輸出。</p><p>將十進制數轉換為二進制的方法是：反覆將數字除以 2，記錄每次的餘數，最後將餘數由下而上排列，即為二進制結果。例如 <code>13</code>：<br>13 ÷ 2 = 6 餘 1<br>6 ÷ 2 = 3 餘 0<br>3 ÷ 2 = 1 餘 1<br>1 ÷ 2 = 0 餘 1<br>由下而上（反向）排列得到 <code>1101</code>。</p>",
@@ -1585,6 +1676,7 @@
     const CORE_PROBLEMS_DATA = { ...PROBLEMS_DATA };
     Object.assign(PROBLEMS_DATA, window.NEW_PROBLEMS_DATA || {}, CORE_PROBLEMS_DATA);
     const PROBLEMS = [];
+    const PROBLEM_CLASSIFICATION = window.SkillLabProblemClassification;
 
 
     // ═══════════════════════════════════════════════
@@ -2016,6 +2108,7 @@ finally:
 
     function renderProblemList() {
       const search = document.getElementById('problem-search').value.trim().toLocaleLowerCase('zh-TW');
+      const stage = document.getElementById('stage-filter').value;
       const difficulty = document.getElementById('difficulty-filter').value;
       const tag = document.getElementById('tag-filter').value;
       const status = document.getElementById('status-filter').value;
@@ -2028,13 +2121,8 @@ finally:
       }
 
       const list = problemManifest.filter(problem => {
-        const paddedId = String(problem.id).padStart(3, '0');
-        const haystack = `${paddedId} ${problem.id} ${problem.title} ${problem.tags.join(' ')}`.toLocaleLowerCase('zh-TW');
         const solved = solvedSet.has(problem.id);
-        return (!search || haystack.includes(search))
-          && (!difficulty || problem.difficulty === difficulty)
-          && (!tag || problem.tags.includes(tag))
-          && (!status || (status === 'solved' ? solved : !solved));
+        return PROBLEM_CLASSIFICATION.matches(problem, { search, stage, difficulty, tag, status }, solved);
       });
 
       document.getElementById('filter-result-count').textContent = `顯示 ${list.length} / ${problemManifest.length} 題`;
@@ -2042,13 +2130,13 @@ finally:
       // Table
       const tbody = document.getElementById('problem-tbody');
       if (problemManifest.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:32px">
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:32px">
       載入題目中…
     </td></tr>`;
         return;
       }
       if (list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:44px 24px">
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:44px 24px">
       找不到符合條件的題目。請調整篩選條件。
     </td></tr>`;
         return;
@@ -2057,11 +2145,13 @@ finally:
         const solved = solvedSet.has(p.id);
         const diff = p.difficulty.toLowerCase();
         const tags = p.tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
-        const difficultyLabel = { Easy: '簡單', Medium: '中等', Hard: '困難' }[p.difficulty] || p.difficulty;
+        const stageMeta = PROBLEM_CLASSIFICATION.stageMeta(p.stage);
+        const difficultyLabel = PROBLEM_CLASSIFICATION.difficultyLabel(p.difficulty);
         const solvedLabel = solved ? '<span class="status-icon" title="已完成">已完成</span>' : '<span class="ac-rate">未完成</span>';
         return `<tr>
       <td style="color:var(--text-muted);font-weight:600">${String(p.id).padStart(3, '0')}</td>
       <td><span class="problem-title-link" onclick="openProblem(${p.id})">${escHtml(p.title)}</span></td>
+      <td><span class="badge badge-stage-${stageMeta.cssClass}">${stageMeta.label}</span></td>
       <td>${tags}</td>
       <td><span class="badge badge-${diff}">${difficultyLabel}</span></td>
       <td>${solvedLabel}</td>
@@ -2145,9 +2235,16 @@ finally:
         document.getElementById('p-title').textContent = `${String(id).padStart(3, '0')}. ${problem.title}`;
 
         const diff = problem.difficulty.toLowerCase();
+        const stageMeta = PROBLEM_CLASSIFICATION.stageMeta(problem.stage);
+        const difficultyLabel = PROBLEM_CLASSIFICATION.difficultyLabel(problem.difficulty);
+        const audienceLabel = PROBLEM_CLASSIFICATION.audienceLabel(problem.audienceLevel);
+        const apcsLabel = PROBLEM_CLASSIFICATION.apcsLabel(problem.apcsLevel);
         document.getElementById('p-meta').innerHTML = `
-      <span class="badge badge-${diff}">${problem.difficulty}</span>
-      ${problem.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+      <span class="badge badge-stage-${stageMeta.cssClass}">${stageMeta.label}</span>
+      <span class="badge badge-${diff}">${difficultyLabel}</span>
+      <span class="meta-audience">建議程度：${escHtml(audienceLabel)}</span>
+      ${apcsLabel ? `<span class="badge badge-apcs">${escHtml(apcsLabel)}</span>` : ''}
+      ${problem.tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('')}
     `;
 
         const { descriptionHtml, hintHtml } = splitProblemDescription(problem);
@@ -2283,7 +2380,7 @@ finally:
       new ResizeObserver(resizeEditor).observe(editorArea);
 
       document.getElementById('problem-search').addEventListener('input', renderProblemList);
-      ['difficulty-filter', 'tag-filter', 'status-filter'].forEach(id => {
+      ['stage-filter', 'difficulty-filter', 'tag-filter', 'status-filter'].forEach(id => {
         document.getElementById(id).addEventListener('change', renderProblemList);
       });
       document.getElementById('filter-reset').addEventListener('click', () => {
@@ -2302,7 +2399,13 @@ finally:
           console.warn('Manifest fetch failed, using embedded fallback. This usually happens when opening via file:// protocol.', err);
           // 從 PROBLEMS_DATA 生成列表清單
           problemManifest = Object.values(PROBLEMS_DATA).map(p => ({
-            id: p.id, title: p.title, difficulty: p.difficulty, tags: p.tags
+            id: p.id,
+            title: p.title,
+            stage: p.stage,
+            audienceLevel: p.audienceLevel,
+            apcsLevel: p.apcsLevel,
+            difficulty: p.difficulty,
+            tags: p.tags
           }));
           renderProblemList();
           toast('目前以檔案模式開啟；建議使用伺服器模式以獲得完整體驗。', 5000);

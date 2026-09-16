@@ -9,10 +9,56 @@ const vm = require('node:vm');
 const { spawnSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
+const problemClassification = require(path.join(root, 'assets/problem-classification.js'));
 const turn = () => new Promise(resolve => setImmediate(resolve));
 const timers = { setTimeout: (...args) => setTimeout(...args).unref(), clearTimeout };
 const tests = [];
 const test = (name, run) => tests.push({ name, run });
+
+test('Judge stage filters combine with difficulty, search and completion status', () => {
+  const manifest = JSON.parse(read('problems/index.json'));
+  const counts = manifest.reduce((result, problem) => {
+    result[problem.stage] = (result[problem.stage] || 0) + 1;
+    return result;
+  }, {});
+  assert.deepEqual(counts, { Beginner: 19, Intermediate: 19, Advanced: 5, Challenge: 1 });
+
+  const filter = (filters, solvedIds = []) => {
+    const solved = new Set(solvedIds);
+    return manifest
+      .filter(problem => problemClassification.matches(problem, filters, solved.has(problem.id)))
+      .map(problem => problem.id);
+  };
+  assert.deepEqual(filter({ stage: 'Challenge' }), [7]);
+  assert.deepEqual(filter({ stage: 'Advanced', difficulty: 'Medium' }), [4]);
+  assert.deepEqual(filter({ search: 'APCS 實作' }), [7]);
+  assert.deepEqual(filter({ stage: 'Beginner', status: 'solved' }, [0, 2, 11]), [0, 11]);
+  assert.ok(filter({ stage: 'Intermediate', tag: '字串' }).every(id => manifest[id].stage === 'Intermediate'));
+});
+
+test('Judge file-mode fallback keeps classification metadata for core problems', () => {
+  const html = read('judge.html');
+  assert.match(html, /id="stage-filter"/);
+  assert.match(html, /PROBLEM_CLASSIFICATION\.matches/);
+  const literal = html.match(/const PROBLEMS_DATA = (\{[\s\S]*?\n    \});/);
+  assert.ok(literal, 'Embedded fallback data must remain readable');
+  const fallback = vm.runInNewContext(`(${literal[1]})`);
+  const manifest = JSON.parse(read('problems/index.json'));
+  for (let id = 0; id <= 10; id++) {
+    for (const field of ['stage', 'audienceLevel', 'apcsLevel']) {
+      assert.equal(fallback[id][field], manifest[id][field], `Fallback ${id} ${field} must match index`);
+    }
+  }
+});
+
+test('Judge inline scripts remain syntactically valid', () => {
+  const html = read('judge.html');
+  const scripts = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)];
+  assert.ok(scripts.length > 0, 'Judge must contain an inline controller script');
+  scripts.forEach((match, index) => {
+    new vm.Script(match[1], { filename: `judge.html:inline-script-${index + 1}` });
+  });
+});
 
 function controller(initial = {}) {
   const storage = new Map(Object.entries(initial));

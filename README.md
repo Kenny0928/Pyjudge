@@ -22,6 +22,7 @@ https://kenny0928.github.io/Pyjudge/
 - 📦 Blockly 積木可匯入／匯出 JSON 並查看產生的 Python；Scratch 可匯入／下載 `.sb3`
 - 🎨 CodeMirror 程式碼編輯器（Dracula 深色主題）
 - 📋 題目資料獨立為 JSON 檔，易於新增與維護
+- 🧭 題庫列表可依初階／中階／高階／挑戰篩選，題目頁同步顯示適齡與 APCS 導向
 - ✅ 自動評測所有測資，顯示 AC / WA / TLE / RE 結果
 - 💾 各題、各語言的草稿獨立保存，並保留共用的通關紀錄（localStorage）
 - 🚀 純靜態，可直接部署到 GitHub Pages
@@ -70,6 +71,7 @@ skilllab/
 │
 ├── assets/
 │   ├── programming-editor.js/.css ← 共用語言切換、草稿與判題介面
+│   ├── problem-classification.js  ← 題目分級名稱、顯示與篩選邏輯
 │   ├── blockly-editor.html/.js    ← Blockly 工作區、I/O 積木、Python 生成
 │   ├── scratch-editor.html/.js    ← Scratch Blocks 工作區與 .sb3 匯入／匯出
 │   ├── scratch-runner-worker.js  ← Scratch VM 文字判題與逾時隔離
