@@ -243,11 +243,19 @@
         assert(!beginnerContainer(beginnerWindow, 'b').querySelector('.CodeMirror'), '變體 B 尚未展開卻預先建立編輯器');
 
         await changeLanguage(beginnerContainer(beginnerWindow, 'core'), 'python');
-        await openBeginnerVariant(beginnerWindow, 'a');
+        const variantA = await openBeginnerVariant(beginnerWindow, 'a');
         assert(beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 2, '展開變體 A 後編輯器數量不正確');
         assert(!beginnerContainer(beginnerWindow, 'b').querySelector('.CodeMirror'), '只展開變體 A 卻連帶建立變體 B 編輯器');
-        await openBeginnerVariant(beginnerWindow, 'b');
+        const variantB = await openBeginnerVariant(beginnerWindow, 'b');
         assert(beginnerWindow.document.querySelectorAll('.programming-toolbar select').length === 3, '展開兩個變體後編輯器數量不正確');
+
+        for (const [key, container] of [['a', variantA], ['b', variantB]]) {
+          const slotWidth = container.querySelector('.variant-editor-slot').getBoundingClientRect().width;
+          const toolbarWidth = container.querySelector('.programming-toolbar').getBoundingClientRect().width;
+          const codeWidth = container.querySelector('.CodeMirror').getBoundingClientRect().width;
+          assert(Math.abs(toolbarWidth - slotWidth) < 1, '變體 ' + key + ' 的作答工具列未撐滿編輯區');
+          assert(Math.abs(codeWidth - slotWidth) < 1, '變體 ' + key + ' 的 Python 編輯器未撐滿編輯區');
+        }
 
         for (const key of ['core', 'a', 'b']) {
           const select = beginnerContainer(beginnerWindow, key).querySelector('.programming-toolbar select');

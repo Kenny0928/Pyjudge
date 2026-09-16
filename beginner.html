@@ -857,6 +857,16 @@
     .variant-editor-slot.ready {
       min-height: 0;
       display: block;
+      /* The loading state centers its message with grid alignment. Reset that
+         alignment once the real editor is mounted: modern browsers also apply
+         justify-items to block layout, which otherwise shrink-wraps and
+         centers the editor instead of letting it match the core editor. */
+      place-items: normal;
+    }
+
+    .variant-editor-slot.ready > .variant-editor-stack {
+      width: 100%;
+      min-width: 0;
     }
 
     .variant-mission {
@@ -2098,6 +2108,7 @@
       updateRunnerAvailability();
       try {
         const container = document.createElement('div');
+        container.className = 'variant-editor-stack';
         const mount = document.createElement('div');
         const codeMount = document.createElement('div');
         container.append(mount, codeMount);
