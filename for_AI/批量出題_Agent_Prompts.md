@@ -116,7 +116,7 @@ id、暫定標題、audienceLevel、difficulty、platformMode、主要學習目�
 9. 不使用隨機答案、網路、檔案、GUI、input prompt、eval 或 exec。
 10. 禁止只有範例資料；每題至少 8 組 testCases，並涵蓋最小值、最大或大規模代表值、一般值、分支、相等／重複、零或空狀態（若合法）、容易出現 off-by-one 的情況。
 11. 若輸出可能有多個合法答案，重新設計題目或明定唯一 tie-break 規則。
-12. constraints 的上限必須和預期演算法相符，且能讓明顯錯誤或過慢解法失敗；初階題以教學適齡優先，不刻意設巨大資料。
+12. constraints 的上限必須和預期演算法相符，且能讓明顯錯誤或過慢解法失敗；LV.1題以教學適齡優先，不刻意設巨大資料。
 13. Scratch/Blockly 題不得靠 Python 專屬捷徑才能在合理積木數內完成。solution 註解最前面要附「積木解法步驟」，每一步對應可用積木。
 
 【完整題目 JSON 格式】

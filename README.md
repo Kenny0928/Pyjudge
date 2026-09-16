@@ -1,8 +1,8 @@
 # 🧪 SkillLab — 從程式學習到實作專題的能力實驗室
 
-SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台，可直接部署到 **GitHub Pages**。目前已開放初階、中階、高階共 31 關、93 題講義，以及 Judge 題庫 54 題。除高階 H01、H02 限用 Python 外，講義題都能自由選用 **Scratch、Blockly 或 Python** 作答。
+SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台，可直接部署到 **GitHub Pages**。目前已開放LV.1、LV.2、LV.3共 31 關、93 題講義，以及 Judge 題庫 54 題。除LV.3 H01、H02 限用 Python 外，講義題都能自由選用 **Scratch、Blockly 或 Python** 作答。
 
-三階段講義依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」組成連續學習路徑：初階 11 關（含 8.5 的 `while` 補充）、中階 10 關、高階 10 關。每關包含 1 題核心題與 2 題變體；各作答方式共用題目、測資與通關紀錄，每題、每種語言的草稿則分別保存。
+三階段講義依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」組成連續學習路徑：LV.1 11 關（含 8.5 的 `while` 補充）、LV.2 10 關、LV.3 10 關。每關包含 1 題核心題與 2 題變體；各作答方式共用題目、測資與通關紀錄，每題、每種語言的草稿則分別保存。
 
 Python 與 Blockly 產生的 Python 由 **Pyodide**（Python in WebAssembly）執行；Scratch 使用官方 **Scratch Blocks** 編輯、**Scratch VM** 執行。所有程式都在學生的瀏覽器內判題，不需要後端、資料庫或部署時的 Node.js 服務。
 
@@ -14,7 +14,7 @@ https://kenny0928.github.io/Pyjudge/
 ## ✨ 功能特色
 
 - 🧭 首頁整合講義、Judge 與流程圖實驗室入口
-- 🌱 初階 11 關、中階 10 關、高階 10 關的自學講義，每關含核心題與變體 A、B
+- 🌱 LV.1 11 關、LV.2 10 關、LV.3 10 關的自學講義，每關含核心題與變體 A、B
 - 🧪 講義以多組隱藏測資核對程式輸出，支援不同的正確寫法
 - 🧩 每題可選 Scratch、Blockly 或 Python，使用相同的標準輸入／輸出測資
 - 🐍 Python 與 Blockly 共用頁面內延遲載入的 Pyodide 執行環境
@@ -22,7 +22,7 @@ https://kenny0928.github.io/Pyjudge/
 - 📦 Blockly 積木可匯入／匯出 JSON 並查看產生的 Python；Scratch 可匯入／下載 `.sb3`
 - 🎨 CodeMirror 程式碼編輯器（Dracula 深色主題）
 - 📋 題目資料獨立為 JSON 檔，易於新增與維護
-- 🧭 題庫列表可依初階／中階／高階／挑戰篩選，題目頁同步顯示適齡與 APCS 導向
+- 🧭 題庫列表可依LV.1／LV.2／LV.3／挑戰篩選，題目頁同步顯示適齡與 APCS 導向
 - ✅ 自動評測所有測資，顯示 AC / WA / TLE / RE 結果
 - 💾 各題、各語言的草稿獨立保存，並保留共用的通關紀錄（localStorage）
 - 🚀 純靜態，可直接部署到 GitHub Pages
@@ -31,11 +31,11 @@ https://kenny0928.github.io/Pyjudge/
 
 ## 🧩 學生作答方式
 
-在講義的核心題、變體練習板，或 Judge 的編輯區，使用「作答方式」選單切換語言，再按「執行並檢查」或 Judge 的試跑／送出按鈕。切換後會恢復該題、該語言的草稿；重設只恢復目前語言的起始內容。Blockly 從空白工作區開始，Scratch 預先放一個綠旗起始積木，解答由學生自行完成。高階 H01、H02 使用 `set`、`dict` 與自訂排序鍵等 Python 寫法，作答選單會限制為 Python。
+在講義的核心題、變體練習板，或 Judge 的編輯區，使用「作答方式」選單切換語言，再按「執行並檢查」或 Judge 的試跑／送出按鈕。切換後會恢復該題、該語言的草稿；重設只恢復目前語言的起始內容。Blockly 從空白工作區開始，Scratch 預先放一個綠旗起始積木，解答由學生自行完成。LV.3 H01、H02 使用 `set`、`dict` 與自訂排序鍵等 Python 寫法，作答選單會限制為 Python。
 
 | 作答方式 | 操作與執行方式 |
 |----------|----------------|
-| Python | 使用原有 CodeMirror 編輯器，透過 `input()`／`sys.stdin` 讀取資料，`print()` 輸出答案。初階保留 Python 填空教材。 |
+| Python | 使用原有 CodeMirror 編輯器，透過 `input()`／`sys.stdin` 讀取資料，`print()` 輸出答案。LV.1保留 Python 填空教材。 |
 | Blockly | 從分類拖曳並組合積木；原生「要求輸入文字」直接對應 Python `input()`，一次讀取完整一行，再用清單分隔積木拆解。清單索引和 Python 一樣從 0 開始。按「查看 Python」可檢視生成程式，使用「匯出積木」與「匯入積木」保存、還原本站 JSON 格式。 |
 | Scratch | 將程式接在「當綠旗被點擊」下方，以官方 Scratch 分類與積木編寫運算、條件、迴圈、變數、清單、廣播與函式積木。可匯入或下載 `.sb3` 作品。這是文字演算法編輯器，沒有舞台動畫預覽。 |
 
@@ -59,7 +59,7 @@ Scratch 的判題 I/O 約定：
 | 最近使用的作答方式 | `pyjudge_language`，未設定時預設 Python |
 | 講義通關與分題進度 | 各階段分別使用 `pyjudge_<階段>_completed`、`pyjudge_<階段>_task_progress_<版本>` |
 
-舊版初階 `pyjudge_beginner_draft_<關卡 id>` 草稿會在核心題讀取，既有 Python 草稿與進度鍵值保持相容。資料只存於目前瀏覽器與網站來源，不會跨裝置同步；積木作品可另外匯出備份。
+舊版LV.1 `pyjudge_beginner_draft_<關卡 id>` 草稿會在核心題讀取，既有 Python 草稿與進度鍵值保持相容。資料只存於目前瀏覽器與網站來源，不會跨裝置同步；積木作品可另外匯出備份。
 
 ## 📁 專案結構
 
@@ -71,8 +71,8 @@ skilllab/
 │
 ├── assets/
 │   ├── programming-editor.js/.css ← 共用語言切換、草稿與判題介面
-│   ├── course-catalog.js           ← 中階 10 關課程資料
-│   ├── advanced-course.js          ← 高階 10 關課程資料
+│   ├── course-catalog.js           ← LV.2 10 關課程資料
+│   ├── advanced-course.js          ← LV.3 10 關課程資料
 │   ├── problem-classification.js  ← 題目分級名稱、顯示與篩選邏輯
 │   ├── blockly-editor.html/.js    ← Blockly 工作區、I/O 積木、Python 生成
 │   ├── scratch-editor.html/.js    ← Scratch Blocks 工作區與 .sb3 匯入／匯出
@@ -114,7 +114,7 @@ skilllab/
 > - **`scripts/verify_problems.py`** — 驗證題庫格式與 Python 解答是否全部通過測資
 > - **`problems/*.json`** — 維護者只需編輯這裡就能新增或修改題目
 > - **`solutions/*.py`** — 參考解答，不會自動顯示給學生
-> - **`beginner.html`** — 三階段共用講義引擎與初階課程資料；中、高階資料由 `assets/` 載入
+> - **`beginner.html`** — 三階段共用講義引擎與LV.1課程資料；中、LV.3資料由 `assets/` 載入
 > - **`judge.html`** — 除非要改評測功能，否則不需要動
 
 ---
@@ -125,19 +125,19 @@ SkillLab 將「學習階段、適齡、同階段難度、APCS 導向」分開記
 
 | 學習階段 | `stage` | 適合對象與判定依據 | 常見內容 |
 |---|---|---|---|
-| 初階 | `Beginner` | 國小、初學者、尚未熟悉程式操作；一題聚焦一個核心概念，原則上可用 Scratch／Blockly 完成 | 輸入輸出、變數、四則運算、單層條件、單層迴圈 |
-| 中階 | `Intermediate` | 已掌握基礎語法，能組合 2～3 個概念；可能用到國中數學，但不以數學年級作為唯一判準 | 多分支、巢狀迴圈、字串、清單、座標、簡單模擬、基礎數論 |
-| 高階 | `Advanced` | 國中資優、高中及以上；需要選擇演算法、理解複雜度或進行較長的狀態推理 | 搜尋、排序、遞迴、二維資料、貪心、基礎動態規劃 |
+| LV.1 | `Beginner` | 國小、初學者、尚未熟悉程式操作；一題聚焦一個核心概念，原則上可用 Scratch／Blockly 完成 | 輸入輸出、變數、四則運算、單層條件、單層迴圈 |
+| LV.2 | `Intermediate` | 已掌握基礎語法，能組合 2～3 個概念；可能用到國中數學，但不以數學年級作為唯一判準 | 多分支、巢狀迴圈、字串、清單、座標、簡單模擬、基礎數論 |
+| LV.3 | `Advanced` | 國中資優、高中及以上；需要選擇演算法、理解複雜度或進行較長的狀態推理 | 搜尋、排序、遞迴、二維資料、貪心、基礎動態規劃 |
 | 挑戰 | `Challenge` | APCS／競賽導向；資料規模會淘汰直觀暴力法，必須兼顧正確性與執行效率 | 圖論、進階動態規劃、前綴和、二分搜尋、資料結構 |
 
 四個欄位各自代表不同事情：
 
 - `stage`：主要學習階段，只能填 `Beginner`、`Intermediate`、`Advanced`、`Challenge`。
 - `audienceLevel`：建議適齡，沿用 `E-MID`、`E-UPPER`、`M-7`、`M-8`、`M-HS`、`A-HS`。
-- `difficulty`：同一 `stage` 內的相對難度，只能填 `Easy`、`Medium`、`Hard`；例如 `Intermediate + Easy` 是「中階中的入門題」。
+- `difficulty`：同一 `stage` 內的相對難度，只能填 `Easy`、`Medium`、`Hard`；例如 `Intermediate + Easy` 是「LV.2中的入門題」。
 - `apcsLevel`：`Beginner`、`Intermediate`、`Advanced` 一律填 `null`；`Challenge` 必須填 `APCS-Concept`、`APCS-Implementation` 或 `APCS-Advanced`。這是站內分類，不直接等同官方成績級分。
 
-分級的核心原則是：**初階學語法，中階組合概念，高階選擇演算法，挑戰處理效率與競賽限制。**數學年級只是參考；概念組合數量、演算法選擇、資料範圍與實作陷阱才是主要依據。
+分級的核心原則是：**LV.1學語法，LV.2組合概念，LV.3選擇演算法，挑戰處理效率與競賽限制。**數學年級只是參考；概念組合數量、演算法選擇、資料範圍與實作陷阱才是主要依據。
 
 現有題庫已完成第一輪逐題補標；所有新題與實質修改的舊題也必須包含 `stage`、`audienceLevel`、`difficulty` 與 `apcsLevel`，並通過自動檢查。
 
@@ -302,7 +302,7 @@ node scripts/verify_courses.mjs
 | Scratch 文字判題範圍 | 提供演算法積木與標準 I/O；沒有舞台動畫、硬體或網路擴充執行。不支援的積木會被拒絕。 |
 | 首次載入需要網路 | Pyodide、CodeMirror、Scratch Blocks、Scratch VM、JSZip 由外部 CDN 載入，首次載入時間視網路與裝置而定。Blockly 程式庫與媒體檔已包含在倉庫。 |
 | 本地保存 | 草稿存於 localStorage；清除網站資料或更換瀏覽器／網站來源後不會自動還原。 |
-| 講義範圍 | 已開放初階 11 關、中階 10 關、高階 10 關，共 93 題；高階 H01、H02 僅支援 Python。 |
+| 講義範圍 | 已開放LV.1 11 關、LV.2 10 關、LV.3 10 關，共 93 題；LV.3 H01、H02 僅支援 Python。 |
 
 ---
 
