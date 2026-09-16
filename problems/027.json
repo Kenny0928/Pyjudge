@@ -1,6 +1,7 @@
 {
   "id": 27,
   "title": "身高坐哪排",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
@@ -8,6 +9,7 @@
     "三段分類"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 if/elif/else 把數值分成三段區間"

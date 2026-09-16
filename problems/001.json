@@ -1,6 +1,9 @@
 {
   "id": 1,
   "title": "A+B 問題",
+  "stage": "Beginner",
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "數學",

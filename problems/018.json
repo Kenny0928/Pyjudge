@@ -1,6 +1,7 @@
 {
   "id": 18,
   "title": "直角三角形星星塔",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "迴圈",
@@ -8,6 +9,7 @@
     "字串"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "依行號控制每行輸出的字元數量"

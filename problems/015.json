@@ -1,6 +1,7 @@
 {
   "id": 15,
   "title": "清單中的最大值",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "陣列",
@@ -8,6 +9,7 @@
     "最值尋找"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "以第一個元素初始化目前最大值並走訪清單完成更新"

@@ -1,6 +1,7 @@
 {
   "id": 41,
   "title": "計算字串長度",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "字串",
@@ -8,6 +9,7 @@
     "長度"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "讀取一整行字串並計算其中的字元數量"

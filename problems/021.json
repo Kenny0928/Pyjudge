@@ -1,6 +1,7 @@
 {
   "id": 21,
   "title": "自我介紹機器人",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "字串",
@@ -8,6 +9,7 @@
     "字串拼接"
   ],
   "audienceLevel": "E-MID",
+  "apcsLevel": null,
   "platformMode": "Scratch/Blockly",
   "learningObjectives": [
     "讀取字串輸入，與固定文字拼接後輸出"

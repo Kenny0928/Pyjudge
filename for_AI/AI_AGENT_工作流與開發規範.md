@@ -41,7 +41,7 @@
    - `M-7` / `M-8`：國中（分支巢狀、一維/二維陣列、字串走訪、簡單搜尋）。
    - `M-HS` / `A-HS`：高中（演算法思維、複雜度分析、雜湊表、遞推 DP）。
 4. 指定同階段內的相對難度（`difficulty`），只能使用 `Easy`、`Medium`、`Hard`。`difficulty` 不得代替 `stage`：例如 `Intermediate + Easy` 表示中階中的入門題。
-5. 指定 APCS 導向（`apcsLevel`）：非 APCS 題填 `null`；APCS 導向題可填 `APCS-Concept`、`APCS-Implementation` 或 `APCS-Advanced`。這是 SkillLab 內部分類，不宣稱等同官方成績級分；若要對應特定年度官方標準，必須另行查核當期規則。
+5. 指定 APCS 導向（`apcsLevel`）：`Beginner`、`Intermediate`、`Advanced` 一律填 `null`；`Challenge` 必須填 `APCS-Concept`、`APCS-Implementation` 或 `APCS-Advanced`。這是 SkillLab 內部分類，不宣稱等同官方成績級分；若要對應特定年度官方標準，必須另行查核當期規則。
 6. 取得最新可用的題目 ID（整數遞增，不可重複或插隊）。
 
 #### 四個分級欄位不可混用
@@ -118,13 +118,17 @@
    {
      "id": 11,
      "title": "奇數與偶數",
+     "stage": "Beginner",
+     "audienceLevel": "E-MID",
+     "apcsLevel": null,
      "difficulty": "Easy",
      "tags": ["條件判斷", "數學"]
    }
    ```
+   索引與完整題目 JSON 的 `stage`、`audienceLevel`、`apcsLevel`、`difficulty` 必須一致。
 2. 在 `docs/題庫總覽與學習階梯.md` 的對照表與階梯位置中加入該題。
 
-新題必須包含 `stage` 與 `apcsLevel`。既有題目在尚未重新審題前可維持舊格式；實質修改舊題時應一併補上這兩個欄位，但不得只靠自動規則批次猜測分級。
+所有題目都必須包含 `stage`、`audienceLevel`、`difficulty` 與 `apcsLevel`。實質修改題目時必須重新檢查分級，不得只靠關鍵字或年齡自動猜測。
 
 ### 步驟 5：執行本地自動化驗證（強制執行）
 在交付任何代碼之前，Agent 必須在本機終端執行：

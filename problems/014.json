@@ -1,6 +1,7 @@
 {
   "id": 14,
   "title": "1 加到 N 的總和",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "迴圈",
@@ -8,6 +9,7 @@
     "數學"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用累加器模式計算連續整數的總和"

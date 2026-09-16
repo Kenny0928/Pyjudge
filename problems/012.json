@@ -1,12 +1,14 @@
 {
   "id": 12,
   "title": "兩數比大小",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
     "比較運算"
   ],
   "audienceLevel": "E-MID",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用 if/elif/else 與關係運算子比較兩個整數"

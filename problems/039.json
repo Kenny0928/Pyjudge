@@ -1,6 +1,7 @@
 {
   "id": 39,
   "title": "英文字母中有幾個母音",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "字串走訪",
@@ -8,6 +9,7 @@
     "迴圈"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "走訪字串每個字元，對符合條件的字元計數"

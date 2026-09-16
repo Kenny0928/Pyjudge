@@ -1,6 +1,7 @@
 {
   "id": 34,
   "title": "及格分數合計",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "條件累加",
@@ -9,6 +10,7 @@
     "累加器"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用條件判斷搭配累加器，只加入符合條件的值"

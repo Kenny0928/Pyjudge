@@ -1,12 +1,14 @@
 {
   "id": 13,
   "title": "從 1 數到 N",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "迴圈",
     "基礎輸出"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用 for 迴圈與 range(1, n + 1) 依序輸出整數"

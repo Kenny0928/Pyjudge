@@ -1,6 +1,7 @@
 {
   "id": 28,
   "title": "成績分級",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
@@ -8,6 +9,7 @@
     "分類"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用多層 if/elif/else 將分數對應到字母等級"

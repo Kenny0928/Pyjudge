@@ -130,11 +130,11 @@ SkillLab 將「學習階段、適齡、同階段難度、APCS 導向」分開記
 - `stage`：主要學習階段，只能填 `Beginner`、`Intermediate`、`Advanced`、`Challenge`。
 - `audienceLevel`：建議適齡，沿用 `E-MID`、`E-UPPER`、`M-7`、`M-8`、`M-HS`、`A-HS`。
 - `difficulty`：同一 `stage` 內的相對難度，只能填 `Easy`、`Medium`、`Hard`；例如 `Intermediate + Easy` 是「中階中的入門題」。
-- `apcsLevel`：非 APCS 題填 `null`；APCS 導向題可填 `APCS-Concept`、`APCS-Implementation`、`APCS-Advanced`。這是站內分類，不直接等同官方成績級分。
+- `apcsLevel`：`Beginner`、`Intermediate`、`Advanced` 一律填 `null`；`Challenge` 必須填 `APCS-Concept`、`APCS-Implementation` 或 `APCS-Advanced`。這是站內分類，不直接等同官方成績級分。
 
 分級的核心原則是：**初階學語法，中階組合概念，高階選擇演算法，挑戰處理效率與競賽限制。**數學年級只是參考；概念組合數量、演算法選擇、資料範圍與實作陷阱才是主要依據。
 
-既有題目可以維持舊格式並逐題補標；所有新題，以及有實質修改的舊題，都必須加入 `stage` 與 `apcsLevel`。
+現有題庫已完成第一輪逐題補標；所有新題與實質修改的舊題也必須包含 `stage`、`audienceLevel`、`difficulty` 與 `apcsLevel`，並通過自動檢查。
 
 ---
 
@@ -144,12 +144,19 @@ SkillLab 將「學習階段、適齡、同階段難度、APCS 導向」分開記
 
 ```json
 [
-  { "id": 1, "title": "A+B 問題", "difficulty": "Easy", "tags": ["數學"] },
-  { "id": 8, "title": "你的新題目", "difficulty": "Easy", "tags": ["字串"] }
+  {
+    "id": 1,
+    "title": "A+B 問題",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["數學"]
+  }
 ]
 ```
 
-`difficulty` 只能填 `"Easy"`、`"Medium"`、`"Hard"` 三種；它只表示同一 `stage` 內的相對難度。
+索引中的 `stage`、`audienceLevel`、`apcsLevel`、`difficulty` 必須和完整題目 JSON 相同。`difficulty` 只能填 `"Easy"`、`"Medium"`、`"Hard"` 三種；它只表示同一 `stage` 內的相對難度。
 
 ### 步驟 2：建立 `problems/008.json`
 

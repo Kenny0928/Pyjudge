@@ -1,6 +1,7 @@
 {
   "id": 16,
   "title": "搜尋目標數字",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "陣列",
@@ -8,6 +9,7 @@
     "計數器"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "走訪清單並使用條件計數器統計目標值的出現次數"

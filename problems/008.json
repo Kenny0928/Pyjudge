@@ -1,6 +1,9 @@
 {
   "id": 8,
   "title": "智慧停車場管理員",
+  "stage": "Advanced",
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "二維陣列",

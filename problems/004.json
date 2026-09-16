@@ -1,6 +1,9 @@
 {
   "id": 4,
   "title": "質數判斷",
+  "stage": "Advanced",
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
   "difficulty": "Medium",
   "tags": [
     "數學",

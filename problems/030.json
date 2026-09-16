@@ -1,6 +1,7 @@
 {
   "id": 30,
   "title": "三數中的最大值",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
@@ -8,6 +9,7 @@
     "最值"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "讀入三個整數並找出最大值"

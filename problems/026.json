@@ -1,12 +1,14 @@
 {
   "id": 26,
   "title": "及格了嗎",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
     "if/else"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 if/else 根據單一門檻輸出不同結果"

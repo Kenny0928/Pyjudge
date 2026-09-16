@@ -1,6 +1,7 @@
 {
   "id": 43,
   "title": "清單首尾相加",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "清單",
@@ -8,6 +9,7 @@
     "算術運算"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用清單的第一個與最後一個索引取得資料並相加"

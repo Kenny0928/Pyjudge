@@ -1,6 +1,9 @@
 {
   "id": 6,
   "title": "反轉字串",
+  "stage": "Intermediate",
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "字串"

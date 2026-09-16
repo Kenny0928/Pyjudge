@@ -2,6 +2,9 @@
   {
     "id": 0,
     "title": "Hello World",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "入門",
@@ -11,6 +14,9 @@
   {
     "id": 1,
     "title": "A+B 問題",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -20,6 +26,9 @@
   {
     "id": 2,
     "title": "FizzBuzz",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -29,6 +38,9 @@
   {
     "id": 3,
     "title": "最大公因數",
+    "stage": "Advanced",
+    "audienceLevel": "M-8",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -38,6 +50,9 @@
   {
     "id": 4,
     "title": "質數判斷",
+    "stage": "Advanced",
+    "audienceLevel": "M-8",
+    "apcsLevel": null,
     "difficulty": "Medium",
     "tags": [
       "數學",
@@ -47,6 +62,9 @@
   {
     "id": 5,
     "title": "費氏數列第 N 項",
+    "stage": "Advanced",
+    "audienceLevel": "M-8",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "動態規劃",
@@ -56,6 +74,9 @@
   {
     "id": 6,
     "title": "反轉字串",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "字串"
@@ -64,6 +85,9 @@
   {
     "id": 7,
     "title": "兩數之和",
+    "stage": "Challenge",
+    "audienceLevel": "M-HS",
+    "apcsLevel": "APCS-Implementation",
     "difficulty": "Medium",
     "tags": [
       "陣列",
@@ -73,6 +97,9 @@
   {
     "id": 8,
     "title": "智慧停車場管理員",
+    "stage": "Advanced",
+    "audienceLevel": "M-8",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "二維陣列",
@@ -82,6 +109,9 @@
   {
     "id": 9,
     "title": "二進制轉十進制",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -92,6 +122,9 @@
   {
     "id": 10,
     "title": "十進制轉二進制",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -102,6 +135,9 @@
   {
     "id": 11,
     "title": "奇數與偶數",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -111,6 +147,9 @@
   {
     "id": 12,
     "title": "兩數比大小",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -120,6 +159,9 @@
   {
     "id": 13,
     "title": "從 1 數到 N",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "迴圈",
@@ -129,6 +171,9 @@
   {
     "id": 14,
     "title": "1 加到 N 的總和",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "迴圈",
@@ -139,6 +184,9 @@
   {
     "id": 15,
     "title": "清單中的最大值",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "陣列",
@@ -149,6 +197,9 @@
   {
     "id": 16,
     "title": "搜尋目標數字",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "陣列",
@@ -159,6 +210,9 @@
   {
     "id": 17,
     "title": "班級成績統計",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "陣列",
@@ -169,6 +223,9 @@
   {
     "id": 18,
     "title": "直角三角形星星塔",
+    "stage": "Beginner",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "迴圈",
@@ -179,6 +236,9 @@
   {
     "id": 19,
     "title": "九九乘法表",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "巢狀迴圈",
@@ -188,6 +248,9 @@
   {
     "id": 20,
     "title": "矩陣行列總和",
+    "stage": "Advanced",
+    "audienceLevel": "M-8",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "二維陣列",
@@ -198,6 +261,9 @@
   {
     "id": 21,
     "title": "自我介紹機器人",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "字串",
@@ -208,6 +274,9 @@
   {
     "id": 22,
     "title": "長方形面積",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -218,6 +287,9 @@
   {
     "id": 23,
     "title": "長方形周長",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -228,6 +300,9 @@
   {
     "id": 24,
     "title": "分糖果",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -238,6 +313,9 @@
   {
     "id": 25,
     "title": "訂購飲料費用",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -248,6 +326,9 @@
   {
     "id": 26,
     "title": "及格了嗎",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -257,6 +338,9 @@
   {
     "id": 27,
     "title": "身高坐哪排",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -267,6 +351,9 @@
   {
     "id": 28,
     "title": "成績分級",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -277,6 +364,9 @@
   {
     "id": 29,
     "title": "今天穿什麼",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -287,6 +377,9 @@
   {
     "id": 30,
     "title": "三數中的最大值",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -297,6 +390,9 @@
   {
     "id": 31,
     "title": "倒數計時",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "迴圈",
@@ -307,6 +403,9 @@
   {
     "id": 32,
     "title": "重複口號",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "迴圈",
@@ -317,6 +416,9 @@
   {
     "id": 33,
     "title": "購物車結帳",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "累加器",
@@ -327,6 +429,9 @@
   {
     "id": 34,
     "title": "及格分數合計",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件累加",
@@ -338,6 +443,9 @@
   {
     "id": 35,
     "title": "小隊分組",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -349,6 +457,9 @@
   {
     "id": 36,
     "title": "三角形面積",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "數學",
@@ -359,6 +470,9 @@
   {
     "id": 37,
     "title": "最便宜的商品",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "陣列",
@@ -370,6 +484,9 @@
   {
     "id": 38,
     "title": "存錢計畫",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "while迴圈",
@@ -380,6 +497,9 @@
   {
     "id": 39,
     "title": "英文字母中有幾個母音",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "字串走訪",
@@ -390,6 +510,9 @@
   {
     "id": 40,
     "title": "數字倒過來",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "while迴圈",
@@ -401,6 +524,9 @@
   {
     "id": 41,
     "title": "計算字串長度",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "字串",
@@ -411,6 +537,9 @@
   {
     "id": 42,
     "title": "閏年判斷",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "條件判斷",
@@ -421,6 +550,9 @@
   {
     "id": 43,
     "title": "清單首尾相加",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
     "difficulty": "Easy",
     "tags": [
       "清單",

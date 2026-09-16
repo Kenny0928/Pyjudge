@@ -18,6 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROBLEMS_DIR = BASE_DIR / "problems"
 SOLUTIONS_DIR = BASE_DIR / "solutions"
 INDEX_FILE = PROBLEMS_DIR / "index.json"
+VALID_STAGES = {"Beginner", "Intermediate", "Advanced", "Challenge"}
+VALID_AUDIENCE_LEVELS = {"E-MID", "E-UPPER", "M-7", "M-8", "M-HS", "A-HS"}
+VALID_APCS_LEVELS = {"APCS-Concept", "APCS-Implementation", "APCS-Advanced"}
 
 # ANSI 色彩定義
 GREEN = "\033[92m"
@@ -69,7 +72,10 @@ def verify_all():
     for idx, item in enumerate(manifest):
         pid = item.get("id")
         title = item.get("title", "未命名")
+        stage = item.get("stage")
+        audience_level = item.get("audienceLevel")
         difficulty = item.get("difficulty")
+        apcs_level = item.get("apcsLevel")
         tags = item.get("tags", [])
 
         print(f"{BOLD}--- [題目 #{idx+1}] ID: {pid} | {title} ({difficulty}) ---{RESET}")
@@ -87,7 +93,21 @@ def verify_all():
         seen_ids.add(pid)
 
         if difficulty not in ["Easy", "Medium", "Hard"]:
-            log_warn(f"難度 '{difficulty}' 非標準值 (建議 Easy / Medium / Hard)")
+            log_fail(f"題目索引中的 difficulty 無效: {difficulty}")
+            failed_problems += 1
+            continue
+        if stage not in VALID_STAGES:
+            log_fail(f"題目索引中的 stage 無效: {stage}")
+            failed_problems += 1
+            continue
+        if audience_level not in VALID_AUDIENCE_LEVELS:
+            log_fail(f"題目索引中的 audienceLevel 無效: {audience_level}")
+            failed_problems += 1
+            continue
+        if apcs_level is not None and apcs_level not in VALID_APCS_LEVELS:
+            log_fail(f"題目索引中的 apcsLevel 無效: {apcs_level}")
+            failed_problems += 1
+            continue
 
         # 2. 檢查對應的 problems/NNN.json
         prob_filename = f"{pid:03d}.json"
@@ -106,7 +126,10 @@ def verify_all():
             continue
 
         # 檢查內部欄位
-        required_fields = ["id", "title", "difficulty", "description", "inputFormat", "outputFormat", "samples", "testCases"]
+        required_fields = [
+            "id", "title", "stage", "audienceLevel", "difficulty", "apcsLevel",
+            "description", "inputFormat", "outputFormat", "samples", "testCases"
+        ]
         missing_fields = [rf for rf in required_fields if rf not in prob_data]
         if missing_fields:
             log_fail(f"{prob_filename} 缺少必要欄位: {missing_fields}")
@@ -115,6 +138,46 @@ def verify_all():
 
         if prob_data["id"] != pid:
             log_fail(f"{prob_filename} 內部 id ({prob_data['id']}) 與 index id ({pid}) 不符")
+            failed_problems += 1
+            continue
+
+        problem_stage = prob_data["stage"]
+        problem_audience_level = prob_data["audienceLevel"]
+        problem_apcs_level = prob_data["apcsLevel"]
+        if problem_stage not in VALID_STAGES:
+            log_fail(f"{prob_filename} 的 stage 無效: {problem_stage}")
+            failed_problems += 1
+            continue
+        if problem_audience_level not in VALID_AUDIENCE_LEVELS:
+            log_fail(f"{prob_filename} 的 audienceLevel 無效: {problem_audience_level}")
+            failed_problems += 1
+            continue
+        if problem_apcs_level is not None and problem_apcs_level not in VALID_APCS_LEVELS:
+            log_fail(f"{prob_filename} 的 apcsLevel 無效: {problem_apcs_level}")
+            failed_problems += 1
+            continue
+        if prob_data["difficulty"] not in ["Easy", "Medium", "Hard"]:
+            log_fail(f"{prob_filename} 的 difficulty 無效: {prob_data['difficulty']}")
+            failed_problems += 1
+            continue
+        if problem_stage == "Challenge" and problem_apcs_level is None:
+            log_fail(f"{prob_filename} 為 Challenge，但缺少 APCS 導向分類")
+            failed_problems += 1
+            continue
+        if problem_stage != "Challenge" and problem_apcs_level is not None:
+            log_fail(f"{prob_filename} 非 Challenge，apcsLevel 應為 null")
+            failed_problems += 1
+            continue
+        classification = (problem_stage, problem_audience_level, problem_apcs_level)
+        manifest_classification = (stage, audience_level, apcs_level)
+        if classification != manifest_classification:
+            log_fail(
+                f"{prob_filename} 的 stage/audienceLevel/apcsLevel 與 index.json 不一致"
+            )
+            failed_problems += 1
+            continue
+        if prob_data["difficulty"] != difficulty:
+            log_fail(f"{prob_filename} 的 difficulty 與 index.json 不一致")
             failed_problems += 1
             continue
 

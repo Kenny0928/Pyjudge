@@ -1,6 +1,7 @@
 {
   "id": 42,
   "title": "閏年判斷",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
@@ -8,6 +9,7 @@
     "數學"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用整除條件與 and/or 組合判斷閏年"

@@ -1,6 +1,7 @@
 {
   "id": 32,
   "title": "重複口號",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "迴圈",
@@ -8,6 +9,7 @@
     "for迴圈"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 for 迴圈重複輸出同一個字串 N 次"

@@ -1,6 +1,9 @@
 {
   "id": 7,
   "title": "兩數之和",
+  "stage": "Challenge",
+  "audienceLevel": "M-HS",
+  "apcsLevel": "APCS-Implementation",
   "difficulty": "Medium",
   "tags": [
     "陣列",

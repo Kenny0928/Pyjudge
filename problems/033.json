@@ -1,6 +1,7 @@
 {
   "id": 33,
   "title": "購物車結帳",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "累加器",
@@ -8,6 +9,7 @@
     "for迴圈"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 for 迴圈與累加器，對 N 筆輸入進行加總"

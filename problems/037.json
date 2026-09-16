@@ -1,6 +1,7 @@
 {
   "id": 37,
   "title": "最便宜的商品",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "陣列",
@@ -9,6 +10,7 @@
     "迴圈"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "走訪一維清單，追蹤並輸出最小值"

@@ -1,6 +1,7 @@
 {
   "id": 20,
   "title": "矩陣行列總和",
+  "stage": "Advanced",
   "difficulty": "Easy",
   "tags": [
     "二維陣列",
@@ -8,6 +9,7 @@
     "累加"
   ],
   "audienceLevel": "M-8",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "讀取二維矩陣並逐列計算元素總和"

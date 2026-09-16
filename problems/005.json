@@ -1,6 +1,9 @@
 {
   "id": 5,
   "title": "費氏數列第 N 項",
+  "stage": "Advanced",
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "動態規劃",

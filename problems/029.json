@@ -1,6 +1,7 @@
 {
   "id": 29,
   "title": "今天穿什麼",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
@@ -8,6 +9,7 @@
     "if/elif/else"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 if/elif/else 根據溫度範圍輸出不同建議"

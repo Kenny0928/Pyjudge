@@ -1,6 +1,7 @@
 {
   "id": 36,
   "title": "三角形面積",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "數學",
@@ -8,6 +9,7 @@
     "整數除法"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用底乘高除以二公式計算三角形面積"

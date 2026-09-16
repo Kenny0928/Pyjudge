@@ -1,6 +1,9 @@
 {
   "id": 3,
   "title": "最大公因數",
+  "stage": "Advanced",
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "數學",

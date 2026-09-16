@@ -1,6 +1,9 @@
 {
   "id": 10,
   "title": "十進制轉二進制",
+  "stage": "Intermediate",
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "數學",

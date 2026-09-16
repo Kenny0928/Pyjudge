@@ -1,6 +1,7 @@
 {
   "id": 35,
   "title": "小隊分組",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "數學",
@@ -9,6 +10,7 @@
     "算術運算"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 // 和 % 計算整除商和餘數"

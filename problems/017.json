@@ -1,6 +1,7 @@
 {
   "id": 17,
   "title": "班級成績統計",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "陣列",
@@ -8,6 +9,7 @@
     "計數器"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "同時使用總和累加器與條件計數器處理一批成績"

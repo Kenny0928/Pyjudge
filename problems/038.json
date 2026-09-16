@@ -1,6 +1,7 @@
 {
   "id": 38,
   "title": "存錢計畫",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "while迴圈",
@@ -8,6 +9,7 @@
     "計數器"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用 while 迴圈，讓條件控制重複次數而非固定次數"

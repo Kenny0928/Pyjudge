@@ -1,6 +1,7 @@
 {
   "id": 31,
   "title": "倒數計時",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "迴圈",
@@ -8,6 +9,7 @@
     "for迴圈"
   ],
   "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "platformMode": "Blockly/Python",
   "learningObjectives": [
     "使用 for 迴圈從 N 倒序輸出到 1"

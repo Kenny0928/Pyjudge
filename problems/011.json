@@ -1,12 +1,14 @@
 {
   "id": 11,
   "title": "奇數與偶數",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "條件判斷",
     "數學"
   ],
   "audienceLevel": "E-MID",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用取餘數運算子與 if/else 判斷整數的奇偶性"

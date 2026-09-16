@@ -1,12 +1,14 @@
 {
   "id": 19,
   "title": "九九乘法表",
+  "stage": "Intermediate",
   "difficulty": "Easy",
   "tags": [
     "巢狀迴圈",
     "格式化輸出"
   ],
   "audienceLevel": "M-7",
+  "apcsLevel": null,
   "platformMode": "Python",
   "learningObjectives": [
     "使用雙層迴圈建立固定格式的二維輸出"

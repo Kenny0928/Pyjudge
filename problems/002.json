@@ -1,6 +1,9 @@
 {
   "id": 2,
   "title": "FizzBuzz",
+  "stage": "Intermediate",
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "條件判斷",

@@ -1,6 +1,9 @@
 {
   "id": 0,
   "title": "Hello World",
+  "stage": "Beginner",
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
   "difficulty": "Easy",
   "tags": [
     "入門",

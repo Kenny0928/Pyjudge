@@ -1,6 +1,7 @@
 {
   "id": 23,
   "title": "長方形周長",
+  "stage": "Beginner",
   "difficulty": "Easy",
   "tags": [
     "數學",
@@ -8,6 +9,7 @@
     "算術運算"
   ],
   "audienceLevel": "E-MID",
+  "apcsLevel": null,
   "platformMode": "Scratch/Blockly",
   "learningObjectives": [
     "讀取兩個整數，用加法和乘法計算周長"
