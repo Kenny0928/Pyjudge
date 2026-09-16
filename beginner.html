@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="十關自學講義，自由選用 Scratch、Blockly 或 Python 解題：先預測、再拆解、動手測試，從輸出學到迴圈與累加。" />
+  <meta name="description" content="SkillLab 程式學習講義：先預測、再拆解、動手測試，每關包含核心題與兩題變體。" />
   <title>初階講義｜SkillLab</title>
   <link rel="stylesheet" href="assets/programming-editor.css" />
   <!-- CodeMirror -->
@@ -457,6 +457,37 @@
       color: #e2e8f0;
       font-size: 1.04rem;
       line-height: 1.8;
+    }
+
+    .concept-copy {
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: #dbe7ff;
+      background: rgba(61, 111, 216, 0.09);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .common-mistakes {
+      margin-top: 18px;
+      padding: 15px 18px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: var(--radius);
+      background: rgba(245, 158, 11, 0.07);
+    }
+
+    .common-mistakes h3 {
+      margin-bottom: 8px;
+      color: #f7c76c;
+      font-size: 0.88rem;
+    }
+
+    .common-mistakes ul {
+      padding-left: 20px;
+      color: #d7dbe2;
+      line-height: 1.7;
     }
 
     .io-grid {
@@ -1094,7 +1125,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="index.html">SkillLab</a>
-    <div class="course-name">初階講義 · 10 個自學關卡</div>
+    <div class="course-name" id="course-name">初階講義</div>
     <div class="header-progress" aria-label="課程進度">
       <div class="progress-copy"><span>你的進度</span><span id="progress-text">0 / 10</span></div>
       <div class="progress-track"><span id="progress-bar"></span></div>
@@ -1108,7 +1139,7 @@
         <strong class="sidebar-title">講義目錄</strong>
         <button class="desktop-course-button" id="desktop-course-button" type="button" aria-controls="course-sidebar" aria-expanded="true" aria-label="收合講義目錄">←</button>
       </div>
-      <div class="sidebar-label">10 個學習關卡</div>
+      <div class="sidebar-label" id="sidebar-label">學習關卡</div>
       <nav class="lesson-nav" id="lesson-nav"></nav>
       <div class="sidebar-tip"><strong>學習提醒</strong><br>先猜、再執行，最後說出「為什麼」。</div>
     </aside>
@@ -1152,8 +1183,9 @@
       </section>
 
       <section class="content-card" aria-labelledby="steps-heading">
-        <div class="card-heading"><span class="task-number">3</span><h2 id="steps-heading">把任務拆成小步驟</h2></div>
+        <div class="card-heading"><span class="task-number">3</span><h2 id="steps-heading">理解概念，再把任務拆成小步驟</h2></div>
         <div class="card-body">
+          <div class="concept-copy" id="concept-copy" hidden></div>
           <ol class="step-list" id="step-list"></ol>
         </div>
       </section>
@@ -1163,7 +1195,7 @@
         <div class="card-body">
           <div class="runner">
             <div class="runner-toolbar">
-              <span>自由選用程式語言</span><span>你的練習板</span><span class="draft-state" id="draft-state">會自動保存</span>
+              <span id="core-language-label">自由選用程式語言</span><span>你的練習板</span><span class="draft-state" id="draft-state">會自動保存</span>
             </div>
             <div id="programming-editor"></div>
             <textarea class="code-editor" id="code-editor" spellcheck="false" aria-label="Python 程式碼編輯區"></textarea>
@@ -1180,6 +1212,11 @@
             <div class="hint-content" id="hint-content"></div>
           </details>
 
+          <div class="common-mistakes" id="common-mistakes" hidden>
+            <h3>常見錯誤</h3>
+            <ul id="common-mistake-list"></ul>
+          </div>
+
           <div class="checkpoint">
             <h3 id="checkpoint-heading">離開這一關前，請用自己的話回答</h3>
             <p id="checkpoint-question"></p>
@@ -1190,15 +1227,15 @@
       <section class="content-card" aria-labelledby="variants-heading">
         <div class="card-heading"><span class="task-number">5</span><h2 id="variants-heading">學完再練：兩題變體</h2></div>
         <div class="card-body">
-          <p class="variant-intro">核心題、變體 A 與變體 B 都可以自由選用 Scratch、Blockly 或 Python。變體會在展開時才載入編輯器；三題都完成，才算通過這一關，不同語言的草稿會分別保存。</p>
+          <p class="variant-intro" id="variant-intro">變體會在展開時才載入編輯器；三題都完成，才算通過這一關。</p>
           <div class="variant-list" id="variant-list"></div>
         </div>
       </section>
 
       <div class="finish-panel" id="finish-panel">
-        <h2>初階地圖完成！</h2>
-        <p>你已經走過輸入、輸出、變數、條件和迴圈。下一步不是背更多語法，而是把這些方法用在不同題目裡。</p>
-        <a href="judge.html">前往 Judge 挑戰題目 →</a>
+        <h2 id="finish-title">初階地圖完成！</h2>
+        <p id="finish-copy"></p>
+        <a id="finish-link" href="judge.html">前往 Judge 挑戰題目 →</a>
       </div>
 
       <div class="lesson-footer">
@@ -1209,8 +1246,10 @@
   </div>
 
   <script src="assets/programming-editor.js"></script>
+  <script src="assets/course-catalog.js"></script>
+  <script src="assets/advanced-course.js"></script>
   <script>
-    const LESSONS = [
+    const BEGINNER_LESSONS = [
       {
         id: 1,
         title: '精確輸出',
@@ -1227,7 +1266,11 @@
         solution: 'print("我是小幫手")\nprint("準備完成")',
         hint: '把第一行文字放進第一個雙引號，把第二行文字放進第二個雙引號。中文標點和半形符號也會被電腦當成答案的一部分。',
         checkpoint: 'print() 的工作是什麼？為什麼這一題要使用兩次 print()？',
-        tests: [{ input: '', output: '我是小幫手\n準備完成' }],
+        tests: [
+          { input: '', output: '我是小幫手\n準備完成' },
+          { input: '', output: '我是小幫手\n準備完成' },
+          { input: '', output: '我是小幫手\n準備完成' }
+        ],
         variants: [
           {
             title: '我的第一個程式',
@@ -1236,7 +1279,11 @@
             starter: 'print("")\nprint("")',
             solution: 'print("Hello!")\nprint("我會寫程式")',
             hint: '注意 Hello 後面是半形驚嘆號，而且兩段文字要分成兩行。',
-            tests: [{ input: '', output: 'Hello!\n我會寫程式' }]
+            tests: [
+              { input: '', output: 'Hello!\n我會寫程式' },
+              { input: '', output: 'Hello!\n我會寫程式' },
+              { input: '', output: 'Hello!\n我會寫程式' }
+            ]
           },
           {
             title: '符號小旗子',
@@ -1245,7 +1292,11 @@
             starter: 'print("")\nprint("")\nprint("")',
             solution: 'print("***")\nprint("**")\nprint("*")',
             hint: '每一行各用一次 print()，並仔細數星號數量。',
-            tests: [{ input: '', output: '***\n**\n*' }]
+            tests: [
+              { input: '', output: '***\n**\n*' },
+              { input: '', output: '***\n**\n*' },
+              { input: '', output: '***\n**\n*' }
+            ]
           }
         ]
       },
@@ -1265,7 +1316,11 @@
         solution: 'print(3)\nprint(2)\nprint(1)\nprint("出發")',
         hint: '先不要改文字，只要把四行程式重新排列。最上面的程式會最先執行。',
         checkpoint: '電腦用什麼順序執行這四行程式？哪兩行交換後，結果會出錯？',
-        tests: [{ input: '', output: '3\n2\n1\n出發' }],
+        tests: [
+          { input: '', output: '3\n2\n1\n出發' },
+          { input: '', output: '3\n2\n1\n出發' },
+          { input: '', output: '3\n2\n1\n出發' }
+        ],
         variants: [
           {
             title: '交通號誌',
@@ -1274,7 +1329,11 @@
             starter: 'print("安全到達")\nprint("綠燈行")\nprint("紅燈停")',
             solution: 'print("紅燈停")\nprint("綠燈行")\nprint("安全到達")',
             hint: '只要重新排列三行，不必修改 print() 裡的文字。',
-            tests: [{ input: '', output: '紅燈停\n綠燈行\n安全到達' }]
+            tests: [
+              { input: '', output: '紅燈停\n綠燈行\n安全到達' },
+              { input: '', output: '紅燈停\n綠燈行\n安全到達' },
+              { input: '', output: '紅燈停\n綠燈行\n安全到達' }
+            ]
           },
           {
             title: '倒序口令除錯',
@@ -1283,7 +1342,11 @@
             starter: 'print("完成")\nprint("步驟 2")\nprint("開始")\nprint("步驟 1")',
             solution: 'print("開始")\nprint("步驟 1")\nprint("步驟 2")\nprint("完成")',
             hint: '先找起點與終點，再把步驟 1、步驟 2 放在中間。',
-            tests: [{ input: '', output: '開始\n步驟 1\n步驟 2\n完成' }]
+            tests: [
+              { input: '', output: '開始\n步驟 1\n步驟 2\n完成' },
+              { input: '', output: '開始\n步驟 1\n步驟 2\n完成' },
+              { input: '', output: '開始\n步驟 1\n步驟 2\n完成' }
+            ]
           }
         ]
       },
@@ -1567,6 +1630,47 @@
         ]
       },
       {
+        id: '8-5',
+        displayNumber: '8.5',
+        title: '重複直到',
+        badge: 'while 迴圈',
+        kicker: 'REPEAT UNTIL THE GOAL',
+        goal: '不知道要重複幾次時，使用停止條件控制迴圈，並在每一輪更新影響條件的變數。',
+        concept: 'for 適合已知重複次數；while 適合不知次數，但知道什麼時候繼續的情況。Scratch 沒有直接名為 while 的積木，主要使用「重複直到」：它在條件成立時停止；Python while 則在條件成立時繼續。',
+        mission: '輸入每天存入的正整數 N 與目標 G。從 0 元開始，每天存 N 元，輸出第幾天第一次達到或超過目標。',
+        sampleInput: '10 35',
+        sampleOutput: '4',
+        predict: '每天存 10 元、目標 35 元時，saved 會怎麼變化？要幾天才停止？',
+        predictAnswer: 'saved 是 0 → 10 → 20 → 30 → 40，第 4 天達標。',
+        steps: ['將 saved 與 days 都初始為 0。', '只要 saved 還小於目標，就把每日金額加進去，days 也加 1。', '當條件不再成立，輸出 days。'],
+        starter: 'daily, goal = map(int, input().split())\nsaved = 0\ndays = 0\n\nwhile saved ____ goal:\n    saved = saved + daily\n    days = days + 1\n\nprint(days)',
+        solution: 'daily, goal = map(int, input().split())\nsaved = 0\ndays = 0\n\nwhile saved < goal:\n    saved = saved + daily\n    days = days + 1\n\nprint(days)',
+        hint: '還沒達標的條件是 saved < goal。每一輪都要更新 saved 和 days。',
+        checkpoint: '這個迴圈的繼續條件與停止條件各是什麼？哪個更新保證它最後會停？',
+        commonMistakes: ['忘記更新 saved，導致無限迴圈。', '把 Scratch「重複直到」的停止條件與 Python while 的繼續條件當成同一方向。'],
+        tests: [{input:'10 35',output:'4'},{input:'5 5',output:'1'},{input:'7 20',output:'3'}],
+        variants: [
+          {
+            title: '減到零',
+            mission: '輸入正整數 N。只要 N 大於 0 就輸出 N，再將 N 減 3；停止後不輸出 0 或負數。',
+            sampleInput: '10', sampleOutput: '10\n7\n4\n1',
+            starter: 'n = int(input())\n\nwhile n ____ 0:\n    print(n)\n    n = n ____ 3',
+            solution: 'n = int(input())\n\nwhile n > 0:\n    print(n)\n    n = n - 3',
+            hint: '繼續條件是 n > 0；每輪輸出後要減 3。',
+            tests: [{input:'10',output:'10\n7\n4\n1'},{input:'3',output:'3'},{input:'8',output:'8\n5\n2'}]
+          },
+          {
+            title: '猜數字追蹤',
+            mission: '輸入 1 到 100 的目標數。程式從區間中間值開始，每次縮小一半範圍，輸出找到目標所需的猜測次數。',
+            sampleInput: '73', sampleOutput: '6',
+            starter: 'target = int(input())\nlow = 1\nhigh = 100\nsteps = 0\n\nwhile low <= high:\n    guess = (low + high) // 2\n    steps += 1\n    if guess == target:\n        break\n    if guess < target:\n        low = guess + 1\n    else:\n        high = guess ____ 1\n\nprint(steps)',
+            solution: 'target = int(input())\nlow = 1\nhigh = 100\nsteps = 0\n\nwhile low <= high:\n    guess = (low + high) // 2\n    steps += 1\n    if guess == target:\n        break\n    if guess < target:\n        low = guess + 1\n    else:\n        high = guess - 1\n\nprint(steps)',
+            hint: '猜得太大時，新上界是 guess - 1。',
+            tests: [{input:'50',output:'1'},{input:'73',output:'6'},{input:'1',output:'6'},{input:'100',output:'7'}]
+          }
+        ]
+      },
+      {
         id: 9,
         title: '計數器',
         badge: 'count += 1',
@@ -1660,10 +1764,28 @@
       }
     ];
 
-    const STORAGE_COMPLETED = 'pyjudge_beginner_completed';
-    const STORAGE_PROGRESS = 'pyjudge_beginner_task_progress_v2';
-    const STORAGE_DRAFT_PREFIX = 'pyjudge_beginner_draft_';
-    let currentLessonId = 1;
+    const BEGINNER_COURSE = {
+      key: 'beginner',
+      name: '初階講義',
+      shortName: '初階',
+      lessons: BEGINNER_LESSONS,
+      storagePrefix: 'pyjudge_beginner',
+      progressVersion: 'v2',
+      legacyDrafts: true,
+      finishTitle: '初階學習地圖完成！',
+      finishCopy: '你已經走過輸入、輸出、變數、條件、for、while、計數與累加。下一步是將這些方法用在字串與清單。',
+      finishHref: 'beginner.html?course=intermediate',
+      finishLink: '前往中階講義 →'
+    };
+    const requestedCourse = new URLSearchParams(location.search).get('course') || 'beginner';
+    const COURSE = requestedCourse === 'beginner'
+      ? BEGINNER_COURSE
+      : (window.SKILLLAB_COURSES?.[requestedCourse] || BEGINNER_COURSE);
+    const LESSONS = COURSE.lessons;
+    const STORAGE_COMPLETED = `${COURSE.storagePrefix}_completed`;
+    const STORAGE_PROGRESS = `${COURSE.storagePrefix}_task_progress_${COURSE.progressVersion || 'v1'}`;
+    const STORAGE_DRAFT_PREFIX = `${COURSE.storagePrefix}_draft_`;
+    let currentLessonId = LESSONS[0].id;
     let taskProgress = JSON.parse(localStorage.getItem(STORAGE_PROGRESS) || '{}');
     let pyodide = null;
     let pyodidePromise = null;
@@ -1675,6 +1797,15 @@
     const taskEditors = {};
 
     const $ = id => document.getElementById(id);
+    document.title = `${COURSE.name}｜SkillLab`;
+    $('course-name').textContent = `${COURSE.name} · ${LESSONS.length} 個自學關卡`;
+    $('progress-text').textContent = `0 / ${LESSONS.length}`;
+    $('course-sidebar').setAttribute('aria-label', `${COURSE.name}目錄`);
+    $('sidebar-label').textContent = `${LESSONS.length} 個學習關卡`;
+    $('finish-title').textContent = COURSE.finishTitle;
+    $('finish-copy').textContent = COURSE.finishCopy;
+    $('finish-link').href = COURSE.finishHref;
+    $('finish-link').textContent = COURSE.finishLink;
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     if (document.activeElement === $('code-editor')) $('code-editor').blur();
     const editor = CodeMirror.fromTextArea($('code-editor'), {
@@ -1746,24 +1877,36 @@
         .trimEnd();
     }
 
+    function lessonIndex(id = currentLessonId) {
+      return LESSONS.findIndex(lesson => String(lesson.id) === String(id));
+    }
+
+    function lessonNumber(lesson) {
+      return lesson.displayNumber || String(lesson.id).padStart(2, '0');
+    }
+
+    function isLastLesson(id = currentLessonId) {
+      return lessonIndex(id) === LESSONS.length - 1;
+    }
+
     function renderNavigation() {
       $('lesson-nav').innerHTML = LESSONS.map(lesson => `
         <button type="button" data-lesson="${lesson.id}" class="${lesson.id === currentLessonId ? 'active' : ''}" aria-current="${lesson.id === currentLessonId ? 'page' : 'false'}" ${running || loadingLesson ? 'disabled' : ''}>
-          <span class="lesson-number">${String(lesson.id).padStart(2, '0')}</span>
+          <span class="lesson-number">${escapeHtml(lessonNumber(lesson))}</span>
           <span class="lesson-nav-title">${escapeHtml(lesson.title)}</span>
           <span class="lesson-check">${isLessonComplete(lesson.id) ? '完成' : ''}</span>
         </button>
       `).join('');
 
       $('lesson-nav').querySelectorAll('button').forEach(button => {
-        button.addEventListener('click', () => showLesson(Number(button.dataset.lesson)));
+        button.addEventListener('click', () => showLesson(button.dataset.lesson));
       });
     }
 
     function renderProgress() {
       const count = completedCount();
-      $('progress-text').textContent = `${count} / 10`;
-      $('progress-bar').style.width = `${count * 10}%`;
+      $('progress-text').textContent = `${count} / ${LESSONS.length}`;
+      $('progress-bar').style.width = `${(count / LESSONS.length) * 100}%`;
     }
 
     function updateStudyRoute() {
@@ -1787,7 +1930,7 @@
     }
 
     function getLesson(id) {
-      return LESSONS.find(lesson => lesson.id === id) || LESSONS[0];
+      return LESSONS.find(lesson => String(lesson.id) === String(id)) || LESSONS[0];
     }
 
     async function showLesson(id, options = {}) {
@@ -1798,7 +1941,7 @@
         await Promise.all(Object.values(taskEditors).map(adapter => adapter.flush()));
         const lesson = getLesson(id);
         currentLessonId = lesson.id;
-        $('lesson-kicker').textContent = `LESSON ${String(lesson.id).padStart(2, '0')} · ${lesson.kicker}`;
+        $('lesson-kicker').textContent = `${lessonNumber(lesson)} · ${lesson.kicker}`;
         $('lesson-title').textContent = lesson.title;
         $('concept-badge').textContent = lesson.badge;
         $('lesson-goal').textContent = lesson.goal;
@@ -1807,21 +1950,32 @@
         $('sample-output').textContent = lesson.sampleOutput;
         $('predict-question').textContent = lesson.predict;
         $('predict-answer').textContent = lesson.predictAnswer;
+        $('concept-copy').textContent = lesson.concept || '';
+        $('concept-copy').hidden = !lesson.concept;
         $('step-list').innerHTML = lesson.steps.map((step, index) => `<li data-step="${index + 1}">${escapeHtml(step)}</li>`).join('');
         $('hint-content').textContent = lesson.hint;
+        const mistakes = lesson.commonMistakes || [];
+        $('common-mistake-list').innerHTML = mistakes.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+        $('common-mistakes').hidden = mistakes.length === 0;
         $('checkpoint-question').textContent = lesson.checkpoint;
+        const pythonOnly = Array.isArray(lesson.allowedLanguages) && lesson.allowedLanguages.length === 1 && lesson.allowedLanguages[0] === 'python';
+        $('core-language-label').textContent = pythonOnly ? '🐍 本關使用 Python 實作' : '自由選用程式語言';
+        $('variant-intro').textContent = pythonOnly
+          ? '本關的核心題與兩題變體使用 Python 實作。變體展開時才載入編輯器；三題都完成才算通過。'
+          : '核心題與兩題變體可使用 Scratch、Blockly 或 Python。變體展開時才載入編輯器；三題都完成才算通過，不同語言草稿會分別保存。';
         const coreReady = taskEditors.core.setTask({
           key: draftKey(lesson.id, 'core'),
           starter: lesson.starter,
-          legacyKeys: [STORAGE_DRAFT_PREFIX + lesson.id]
+          allowedLanguages: lesson.allowedLanguages,
+          legacyKeys: COURSE.legacyDrafts ? [STORAGE_DRAFT_PREFIX + lesson.id] : []
         });
         $('draft-state').textContent = '會自動保存';
         clearTaskResult('core');
         updateTaskCompletion('core');
         taskStatusElement('core').textContent = idleStatus(taskEditors.core.language);
         const variantsReady = renderVariants();
-        $('finish-panel').classList.toggle('show', lesson.id === 10 && completedCount() === LESSONS.length);
-        $('next-button').textContent = lesson.id === 9 ? '前往最後一關 →' : '下一關 →';
+        $('finish-panel').classList.toggle('show', isLastLesson(lesson.id) && completedCount() === LESSONS.length);
+        $('next-button').textContent = lessonIndex(lesson.id) === LESSONS.length - 2 ? '前往最後一關 →' : '下一關 →';
         renderNavigation();
         renderProgress();
         closeSidebar();
@@ -1902,6 +2056,10 @@
         const taskKey = index === 0 ? 'a' : 'b';
         const done = isTaskComplete(lesson.id, taskKey);
         const label = index === 0 ? '變體 A' : '變體 B';
+        const allowedLanguages = variant.allowedLanguages || lesson.allowedLanguages;
+        const languageLabel = Array.isArray(allowedLanguages) && allowedLanguages.length === 1 && allowedLanguages[0] === 'python'
+          ? '🐍 Python 實作'
+          : '自由選用程式語言';
         return `
           <article class="variant-card" data-task="${taskKey}">
             <button class="variant-heading variant-toggle" data-task="${taskKey}" type="button" aria-expanded="false" aria-controls="variant-body-${taskKey}"><span class="variant-label">${label}</span><h3>${escapeHtml(variant.title)}</h3><span class="practice-state ${done ? 'done' : ''}">${done ? '已完成' : '尚未完成'}</span><span class="variant-open-label">開始作答</span></button>
@@ -1912,7 +2070,7 @@
                 <div class="io-box"><div class="io-label">範例輸出</div><pre>${escapeHtml(variant.sampleOutput)}</pre></div>
               </div>
               <div class="runner">
-                <div class="runner-toolbar"><span>自由選用程式語言</span><span>${label} 練習板</span><span class="draft-state">會自動保存</span></div>
+                <div class="runner-toolbar"><span>${languageLabel}</span><span>${label} 練習板</span><span class="draft-state">會自動保存</span></div>
                 <div class="variant-editor-slot" data-task="${taskKey}">展開後才載入編輯器，節省網路與裝置資源。</div>
                 <div class="runner-actions">
                   <button class="button button-primary variant-check" data-task="${taskKey}" type="button">▶ 執行並檢查</button>
@@ -1971,7 +2129,11 @@
         });
         taskEditors[taskKey] = adapter;
         adapter.setDisabled(true);
-        await adapter.setTask({ key: draftKey(lessonId, taskKey), starter: variant.starter });
+        await adapter.setTask({
+          key: draftKey(lessonId, taskKey),
+          starter: variant.starter,
+          allowedLanguages: variant.allowedLanguages || lesson.allowedLanguages
+        });
         if (currentLessonId !== lessonId) return null;
         taskStatusElement(taskKey).textContent = idleStatus(adapter.language);
         adapter.refresh();
@@ -2002,8 +2164,8 @@
       $('run-button').disabled = disabled;
       $('reset-button').disabled = disabled;
       document.querySelectorAll('.variant-toggle, .variant-check, .variant-reset, #lesson-nav button').forEach(button => { button.disabled = disabled; });
-      $('previous-button').disabled = disabled || currentLessonId === 1;
-      $('next-button').disabled = disabled || currentLessonId === 10;
+      $('previous-button').disabled = disabled || lessonIndex() <= 0;
+      $('next-button').disabled = disabled || isLastLesson();
       Object.values(taskEditors).forEach(adapter => adapter.setDisabled(disabled));
     }
 
@@ -2114,7 +2276,7 @@ sys.stderr = _stderr
       if (outcome.passed) {
         const taskName = taskKey === 'core' ? '核心題' : taskKey === 'a' ? '變體 A' : '變體 B';
         const message = isLessonComplete(lesson.id)
-          ? `通過 ${outcome.testCount} 組測試。已完成${taskName}，你已通過第 ${lesson.id} 關。`
+          ? `通過 ${outcome.testCount} 組測試。已完成${taskName}，你已通過 ${lessonNumber(lesson)}。`
           : `通過 ${outcome.testCount} 組測試。已完成${taskName}。`;
         result.innerHTML = `<div class="result-banner success">${message}</div>`;
       } else {
@@ -2172,7 +2334,7 @@ sys.stderr = _stderr
           showCheckResult(taskKey, { passed: true, testCount: task.tests.length });
           renderNavigation();
           renderProgress();
-          $('finish-panel').classList.toggle('show', lesson.id === 10 && completedCount() === LESSONS.length);
+          $('finish-panel').classList.toggle('show', isLastLesson(lesson.id) && completedCount() === LESSONS.length);
           status.textContent = '全部測試通過';
         } else {
           showCheckResult(taskKey, { passed: false, ...failure });
@@ -2279,8 +2441,14 @@ sys.stderr = _stderr
       if (resetButton) resetEditor(resetButton.dataset.task);
     });
 
-    $('previous-button').addEventListener('click', () => showLesson(currentLessonId - 1));
-    $('next-button').addEventListener('click', () => showLesson(currentLessonId + 1));
+    $('previous-button').addEventListener('click', () => {
+      const index = lessonIndex();
+      if (index > 0) showLesson(LESSONS[index - 1].id);
+    });
+    $('next-button').addEventListener('click', () => {
+      const index = lessonIndex();
+      if (index >= 0 && index < LESSONS.length - 1) showLesson(LESSONS[index + 1].id);
+    });
     $('mobile-course-button').addEventListener('click', toggleCourseSidebar);
     $('desktop-course-button').addEventListener('click', toggleCourseSidebar);
     $('sidebar-scrim').addEventListener('click', closeSidebar);
@@ -2295,8 +2463,10 @@ sys.stderr = _stderr
     });
 
     migrateLegacyProgress();
-    const hashMatch = location.hash.match(/^#lesson-(\d+)$/);
-    const initialLesson = hashMatch ? Math.min(10, Math.max(1, Number(hashMatch[1]))) : 1;
+    const hashMatch = location.hash.match(/^#lesson-([A-Za-z0-9-]+)$/);
+    const initialLesson = hashMatch && LESSONS.some(lesson => String(lesson.id) === hashMatch[1])
+      ? hashMatch[1]
+      : LESSONS[0].id;
     showLesson(initialLesson, { initialLoad: true }).then(() => {
       const active = document.activeElement;
       if (active && active !== document.body && typeof active.blur === 'function') active.blur();

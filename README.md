@@ -1,8 +1,8 @@
 # 🧪 SkillLab — 從程式學習到實作專題的能力實驗室
 
-SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台，可直接部署到 **GitHub Pages**。目前已開放的初階講義 30 題與 Judge 題庫 54 題，都能自由選用 **Scratch、Blockly 或 Python** 作答。
+SkillLab 是一個面向國小、國高中、大專到社會人士的程式與實作學習平台，可直接部署到 **GitHub Pages**。目前已開放初階、中階、高階共 31 關、93 題講義，以及 Judge 題庫 54 題。除高階 H01、H02 限用 Python 外，講義題都能自由選用 **Scratch、Blockly 或 Python** 作答。
 
-初階講義依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」涵蓋 10 個基礎概念，每關包含 1 題核心題與 2 題變體。三種作答方式共用題目、測資與通關紀錄；每題的三種語言草稿分別保存。中階與高階講義仍在規劃中，首頁保留準備中的入口。
+三階段講義依照「讀懂任務 → 先猜結果 → 拆解步驟 → 動手測試」組成連續學習路徑：初階 11 關（含 8.5 的 `while` 補充）、中階 10 關、高階 10 關。每關包含 1 題核心題與 2 題變體；各作答方式共用題目、測資與通關紀錄，每題、每種語言的草稿則分別保存。
 
 Python 與 Blockly 產生的 Python 由 **Pyodide**（Python in WebAssembly）執行；Scratch 使用官方 **Scratch Blocks** 編輯、**Scratch VM** 執行。所有程式都在學生的瀏覽器內判題，不需要後端、資料庫或部署時的 Node.js 服務。
 
@@ -13,8 +13,8 @@ https://kenny0928.github.io/Pyjudge/
 
 ## ✨ 功能特色
 
-- 🧭 首頁四入口學習選單
-- 🌱 10 關學生版初階自學講義，每關含核心題與變體 A、B
+- 🧭 首頁整合講義、Judge 與流程圖實驗室入口
+- 🌱 初階 11 關、中階 10 關、高階 10 關的自學講義，每關含核心題與變體 A、B
 - 🧪 講義以多組隱藏測資核對程式輸出，支援不同的正確寫法
 - 🧩 每題可選 Scratch、Blockly 或 Python，使用相同的標準輸入／輸出測資
 - 🐍 Python 與 Blockly 共用頁面內延遲載入的 Pyodide 執行環境
@@ -31,7 +31,7 @@ https://kenny0928.github.io/Pyjudge/
 
 ## 🧩 學生作答方式
 
-在初階講義的核心題、變體練習板，或 Judge 的編輯區，使用「作答方式」選單切換語言，再按「執行並檢查」或 Judge 的試跑／送出按鈕。切換後會恢復該題、該語言的草稿；重設只恢復目前語言的起始內容。Blockly 從空白工作區開始，Scratch 預先放一個綠旗起始積木，解答由學生自行完成。
+在講義的核心題、變體練習板，或 Judge 的編輯區，使用「作答方式」選單切換語言，再按「執行並檢查」或 Judge 的試跑／送出按鈕。切換後會恢復該題、該語言的草稿；重設只恢復目前語言的起始內容。Blockly 從空白工作區開始，Scratch 預先放一個綠旗起始積木，解答由學生自行完成。高階 H01、H02 使用 `set`、`dict` 與自訂排序鍵等 Python 寫法，作答選單會限制為 Python。
 
 | 作答方式 | 操作與執行方式 |
 |----------|----------------|
@@ -53,11 +53,11 @@ Scratch 的判題 I/O 約定：
 | 資料 | localStorage 鍵值 |
 |------|-------------------|
 | Judge Python 草稿 | `pyjudge_code_<題目 id>` |
-| 初階 Python 草稿 | `pyjudge_beginner_draft_<關卡 id>_<core/a/b>` |
+| 講義 Python 草稿 | `pyjudge_<beginner/intermediate/advanced>_draft_<關卡 id>_<core/a/b>` |
 | Blockly 草稿 | 對應 Python 鍵值加上 `_blockly` |
 | Scratch 草稿 | 對應 Python 鍵值加上 `_scratch` |
 | 最近使用的作答方式 | `pyjudge_language`，未設定時預設 Python |
-| 初階通關與分題進度 | `pyjudge_beginner_completed`、`pyjudge_beginner_task_progress_v2` |
+| 講義通關與分題進度 | 各階段分別使用 `pyjudge_<階段>_completed`、`pyjudge_<階段>_task_progress_<版本>` |
 
 舊版初階 `pyjudge_beginner_draft_<關卡 id>` 草稿會在核心題讀取，既有 Python 草稿與進度鍵值保持相容。資料只存於目前瀏覽器與網站來源，不會跨裝置同步；積木作品可另外匯出備份。
 
@@ -66,11 +66,13 @@ Scratch 的判題 I/O 約定：
 ```
 skilllab/
 ├── index.html          ← 學習選單首頁
-├── beginner.html       ← 初階自學講義（10 關）
+├── beginner.html       ← 三階段共用講義頁（由 `?course=` 選擇課程）
 ├── judge.html          ← Judge 主程式（UI 邏輯，不含題目資料）
 │
 ├── assets/
 │   ├── programming-editor.js/.css ← 共用語言切換、草稿與判題介面
+│   ├── course-catalog.js           ← 中階 10 關課程資料
+│   ├── advanced-course.js          ← 高階 10 關課程資料
 │   ├── problem-classification.js  ← 題目分級名稱、顯示與篩選邏輯
 │   ├── blockly-editor.html/.js    ← Blockly 工作區、I/O 積木、Python 生成
 │   ├── scratch-editor.html/.js    ← Scratch Blocks 工作區與 .sb3 匯入／匯出
@@ -87,6 +89,7 @@ skilllab/
 │
 ├── scripts/
 │   ├── verify_problems.py      ← 自動化題庫與測資全量檢核工具
+│   ├── verify_courses.mjs      ← 三階段講義結構、測資與參考解答檢核
 │   ├── sync_google_sites_catalog.py ← 整理封存題庫並偵測已匯入來源變更
 │   ├── verify_editors.cjs       ← 編輯器草稿、切換與 Blockly 生成程式測試
 │   ├── verify-scratch.html      ← Scratch 真實瀏覽器測試頁
@@ -111,7 +114,7 @@ skilllab/
 > - **`scripts/verify_problems.py`** — 驗證題庫格式與 Python 解答是否全部通過測資
 > - **`problems/*.json`** — 維護者只需編輯這裡就能新增或修改題目
 > - **`solutions/*.py`** — 參考解答，不會自動顯示給學生
-> - **`beginner.html`** — 初階講義、引導流程與講義內練習板
+> - **`beginner.html`** — 三階段共用講義引擎與初階課程資料；中、高階資料由 `assets/` 載入
 > - **`judge.html`** — 除非要改評測功能，否則不需要動
 
 ---
@@ -278,15 +281,16 @@ python3 -m http.server 8080
 ```bash
 python3 scripts/verify_problems.py
 node scripts/verify_editors.cjs
+node scripts/verify_courses.mjs
 ```
 
-第一個指令驗證題庫與 Python 參考解答；第二個使用 Node.js 內建模組與本機 Python 3，檢查語言切換、草稿相容性、重設、過期訊息處理，以及實際 Blockly 生成程式的輸入／輸出。Node.js 只用於開發驗證，網站不需要 Node.js 執行環境或建置步驟。
+第一個指令驗證 Judge 題庫與 Python 參考解答；第二個使用 Node.js 內建模組與本機 Python 3，檢查語言切換、草稿相容性、重設、過期訊息處理，以及實際 Blockly 生成程式的輸入／輸出；第三個檢查三階段 31 關、93 題的資料結構，並將每題參考解答跑過全部測資。Node.js 只用於開發驗證，網站不需要 Node.js 執行環境或建置步驟。
 
 啟動上述 HTTP 伺服器後，開啟 [Scratch 瀏覽器測試頁](http://localhost:8080/scripts/verify-scratch.html)，依頁面操作執行測試並確認全部通過。此頁載入真實 Scratch Blocks、Scratch VM 與 Worker，補足終端測試沒有涵蓋的瀏覽器執行流程。
 
 完整作答流程另使用測試專用來源：執行 `python3 -m http.server 8081 --bind 127.0.0.1`，開啟 [整頁測試](http://127.0.0.1:8081/scripts/verify-integration.html)，按下 **Run tests**。它會在真正的 Judge 與講義頁面匯入本倉庫測試作品，驗證三種作答方式、AC／WA／RE、切題還原與講義進度，完成後還原觸及的測試來源草稿。不要在測試途中關閉頁面。
 
-也請在 `beginner.html` 與 `judge.html` 各自確認：三種作答方式可編輯與判題、切題及重新整理能還原草稿、重設不影響其他語言、積木匯出後可重新匯入；執行途中不能切換題目或重設。Blockly 範例作品可使用 `scripts/fixtures/blockly-sum-range.json` 與 `blockly-sum-list.json`，並選擇符合範例演算法的題目或自訂試跑輸入。
+也請在 `beginner.html`、`beginner.html?course=intermediate`、`beginner.html?course=advanced` 與 `judge.html` 各自確認：允許的作答方式可編輯與判題、切題及重新整理能還原草稿、重設不影響其他語言、積木匯出後可重新匯入；執行途中不能切換題目或重設。Blockly 範例作品可使用 `scripts/fixtures/blockly-sum-range.json` 與 `blockly-sum-list.json`，並選擇符合範例演算法的題目或自訂試跑輸入。
 
 ---
 
@@ -298,7 +302,7 @@ node scripts/verify_editors.cjs
 | Scratch 文字判題範圍 | 提供演算法積木與標準 I/O；沒有舞台動畫、硬體或網路擴充執行。不支援的積木會被拒絕。 |
 | 首次載入需要網路 | Pyodide、CodeMirror、Scratch Blocks、Scratch VM、JSZip 由外部 CDN 載入，首次載入時間視網路與裝置而定。Blockly 程式庫與媒體檔已包含在倉庫。 |
 | 本地保存 | 草稿存於 localStorage；清除網站資料或更換瀏覽器／網站來源後不會自動還原。 |
-| 講義範圍 | 已開放初階 30 題；中階與高階講義仍在規劃。 |
+| 講義範圍 | 已開放初階 11 關、中階 10 關、高階 10 關，共 93 題；高階 H01、H02 僅支援 Python。 |
 
 ---
 

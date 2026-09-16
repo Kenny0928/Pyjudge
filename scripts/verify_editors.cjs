@@ -193,6 +193,24 @@ test('A corrupt block draft can be reset and then snapshotted', async () => {
   h.editor.dispose();
 });
 
+test('Python-only lessons disable block languages and restore them on the next lesson', async () => {
+  const h = controller({ pyjudge_language: 'scratch' });
+  await h.editor.setTask({ key: 'pyjudge_advanced_draft_H01_core', starter: 'print(1)', allowedLanguages: ['python'] });
+  assert.equal(h.editor.language, 'python');
+  assert.equal(h.editor.languageOptions.find(option => option.value === 'python').disabled, false);
+  assert.equal(h.editor.languageOptions.find(option => option.value === 'blockly').disabled, true);
+  assert.equal(h.editor.languageOptions.find(option => option.value === 'scratch').hidden, true);
+  await h.editor.switchLanguage('scratch');
+  assert.equal(h.editor.language, 'python', 'Disallowed language switch must be ignored');
+
+  await h.editor.setTask({ key: 'pyjudge_advanced_draft_H03_core', starter: 'print(3)' });
+  assert.ok(h.editor.languageOptions.every(option => !option.disabled && !option.hidden));
+  const pending = h.editor.switchLanguage('scratch');
+  await h.flush(); await pending;
+  assert.equal(h.editor.language, 'scratch');
+  h.editor.dispose();
+});
+
 function blocklyHarness() {
   const listeners = [];
   const sent = [];

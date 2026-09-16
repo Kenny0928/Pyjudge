@@ -16,6 +16,7 @@
       this.task = null;
       this.version = 0;
       this.language = 'python';
+      this.allowedLanguages = Object.keys(languages);
       try { this.language = localStorage.getItem('pyjudge_language') || 'python'; } catch (_) {}
       if (!languages[this.language]) this.language = 'python';
       mount.classList.add('programming-editor');
@@ -25,7 +26,8 @@
       label.textContent = '作答方式 ';
       this.select = document.createElement('select');
       this.select.setAttribute('aria-label', '作答方式');
-      Object.entries(languages).forEach(([value, name]) => this.select.add(new Option(name, value)));
+      this.languageOptions = Object.entries(languages).map(([value, name]) => new Option(name, value));
+      this.languageOptions.forEach(option => this.select.add(option));
       this.select.value = this.language;
       label.append(this.select);
       this.status = document.createElement('span');
@@ -76,6 +78,14 @@
       this.frames.forEach(frame => frame.dispose());
       this.frames.clear();
       this.task = task;
+      this.allowedLanguages = Array.isArray(task.allowedLanguages) && task.allowedLanguages.length
+        ? task.allowedLanguages.filter(language => languages[language])
+        : Object.keys(languages);
+      this.languageOptions.forEach(option => {
+        option.disabled = !this.allowedLanguages.includes(option.value);
+        option.hidden = option.disabled;
+      });
+      if (!this.allowedLanguages.includes(this.language)) this.language = this.allowedLanguages[0] || 'python';
       this.loading = true;
       let draft = this.read(task.key);
       for (const key of task.legacyKeys || []) { if (draft === null) draft = this.read(key); }
@@ -86,7 +96,7 @@
       if (version !== this.version) return;
     }
     async switchLanguage(language) {
-      if (!languages[language]) return;
+      if (!languages[language] || !this.allowedLanguages.includes(language)) return;
       this.save();
       this.language = language;
       this.select.value = language;
