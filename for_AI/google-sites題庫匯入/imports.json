@@ -7,6 +7,11 @@
       "pyjudgeId": 41,
       "sourceContentHash": "a4c7ace201dd01768e12df506c30c475147dc1df013310a1a18ee3ac3852ea9a",
       "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "08. 計算字串長度",
+      "categories": ["📝 3. 字串操作 (基礎)"],
+      "tags": ["字串"],
+      "candidateCaseCount": 2,
       "notes": "保留空格計入長度的語義，補齊字元種類與長度邊界測資。"
     },
     {
@@ -14,6 +19,11 @@
       "pyjudgeId": 42,
       "sourceContentHash": "3b761f5ecf22d28ec3be6511aed473fb69ba923babdeafc40f93efc08cf3d7bd",
       "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "25. 閏年判斷",
+      "categories": ["🤔 2. 邏輯判斷與條件"],
+      "tags": ["邏輯判斷", "條件", "數學"],
+      "candidateCaseCount": 3,
       "notes": "確認小寫 true/false 輸出，補齊四年、百年與四百年分支。"
     },
     {
@@ -21,7 +31,132 @@
       "pyjudgeId": 43,
       "sourceContentHash": "09c30e52be9523bee5ba6d8ab93370c4f7e5214f89f9eab3a4c2ea73e1540a05",
       "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "166. 首尾相加",
+      "categories": ["📊 7. 清單操作 (基礎)"],
+      "tags": ["清單", "索引", "基本運算"],
+      "candidateCaseCount": 2,
       "notes": "統一成 N 與空格分隔清單格式，補齊負數、零與上下界測資。"
+    },
+    {
+      "sourceId": "p02_subtraction",
+      "pyjudgeId": 44,
+      "sourceContentHash": "47a712b95bb5b819b8f06d22c4fbed9ca87362e5e30370ea4ea4777d4f738252",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "02. 計算兩數之差",
+      "categories": ["🌱 1. 基本運算與數學"],
+      "tags": ["基本運算", "數學"],
+      "candidateCaseCount": 2,
+      "notes": "明確限定整數與減法順序，補齊零、相等、負數及上下界測資。"
+    },
+    {
+      "sourceId": "p03_multiplication",
+      "pyjudgeId": 45,
+      "sourceContentHash": "5beb34ec0b36dedbd946ea7c67783400ba677047341575b2111bbbb2a6c00734",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "03. 計算兩數之積",
+      "categories": ["🌱 1. 基本運算與數學"],
+      "tags": ["基本運算", "數學"],
+      "candidateCaseCount": 2,
+      "notes": "明確限定整數輸入，補齊零、正負號組合及上下界測資。"
+    },
+    {
+      "sourceId": "p05_modulo",
+      "pyjudgeId": 46,
+      "sourceContentHash": "5d0a484c53c88bbc09391ca3606982c9fcf50a5c6a87e2234acfedff0d95679b",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "05. 計算餘數",
+      "categories": ["🌱 1. 基本運算與數學"],
+      "tags": ["基本運算", "數學", "演算法"],
+      "candidateCaseCount": 2,
+      "notes": "限定非負被除數與正除數，排除跨語言負數餘數差異並補齊邊界。"
+    },
+    {
+      "sourceId": "p09_string_concat",
+      "pyjudgeId": 47,
+      "sourceContentHash": "7edf721e3876d649dd5a7e84f2c67a9eac26fee8b3f8fa62b611d85c61781b31",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "09. 字串相加",
+      "categories": ["📝 3. 字串操作 (基礎)"],
+      "tags": ["字串", "基本運算"],
+      "candidateCaseCount": 2,
+      "notes": "明確規定直接連接且不加入分隔符號，補齊空格、符號與中文測資。"
+    },
+    {
+      "sourceId": "p11_factorial",
+      "pyjudgeId": 48,
+      "sourceContentHash": "1e6efb75b90902a75f47d97ccf8b91356c6dccf0ccb3fb56926b7a2f23ddb4f8",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "11. 計算階乘",
+      "categories": ["🔁 6. 迴圈與數學演算法"],
+      "tags": ["迴圈", "演算法", "數學"],
+      "candidateCaseCount": 2,
+      "notes": "補充階乘與 0! 定義，限定 N≤10 並補齊連續邊界測資。"
+    },
+    {
+      "sourceId": "p12_list_sum",
+      "pyjudgeId": 49,
+      "sourceContentHash": "d84f7505f7fad60eeb73ead75e4c69d3fba85398c0d0d0ef2cfb0adbe496e68f",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "12. 清單總和",
+      "categories": ["📈 9. 清單演算法 (進階)"],
+      "tags": ["清單", "迴圈"],
+      "candidateCaseCount": 2,
+      "notes": "統一為 N 加一行空格分隔清單，補齊單元素、負數、零與抵消測資。"
+    },
+    {
+      "sourceId": "p17_absolute_value",
+      "pyjudgeId": 50,
+      "sourceContentHash": "2ffa2f91d55a6629e5c9372c540036c297703598290e433bc8cc78ca4e12e94b",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "17. 計算絕對值",
+      "categories": ["🌱 1. 基本運算與數學"],
+      "tags": ["數學", "條件", "內建函式"],
+      "candidateCaseCount": 2,
+      "notes": "限定整數輸入，補充絕對值語義與正、負、零及上下界測資。"
+    },
+    {
+      "sourceId": "p19_count_char",
+      "pyjudgeId": 51,
+      "sourceContentHash": "515019b9b5986a5d538cc13b341e406b78d9ad72dc4d9f11eb932476ebf3cb67",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "19. 計算字元出現次數",
+      "categories": ["✍️ 5. 字串演算法 (進階)"],
+      "tags": ["字串", "迴圈", "演算法"],
+      "candidateCaseCount": 2,
+      "notes": "明確規定大小寫與空格語義，補齊零次、重複、中文與單字元測資。"
+    },
+    {
+      "sourceId": "p22_palindrome",
+      "pyjudgeId": 52,
+      "sourceContentHash": "4386908e9792cdae9f24cd504fed1402ce2025ea83e83b731a39b948f87e5e49",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "22. 迴文判斷",
+      "categories": ["✍️ 5. 字串演算法 (進階)"],
+      "tags": ["字串", "邏輯判斷", "演算法", "進階"],
+      "candidateCaseCount": 2,
+      "notes": "保留小寫 true/false，明確規定大小寫與空格均參與比較並補齊邊界。"
+    },
+    {
+      "sourceId": "p27_find_min",
+      "pyjudgeId": 53,
+      "sourceContentHash": "5d752b428c3b94d79718eebabf43bbef648d9224fee7815abe2ad8b945fb56ac",
+      "reviewedAt": "2026-09-16",
+      "sourceRemovedAt": "2026-09-16",
+      "sourceTitle": "27. 找出清單最小值",
+      "categories": ["📈 9. 清單演算法 (進階)"],
+      "tags": ["清單", "迴圈", "演算法"],
+      "candidateCaseCount": 2,
+      "notes": "統一為 N 加一行空格分隔清單，補齊單元素、全負數、重複值與上下界。"
     }
   ]
 }

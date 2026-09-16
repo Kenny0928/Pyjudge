@@ -23,7 +23,8 @@
    - `source_changed`：來源在匯入後有變動，需重新審題，不可直接覆蓋正式題目。
 4. 匯入題目時遵循 `for_AI/AI_AGENT_工作流與開發規範.md`：配置最新連續 ID、分別判定 `stage`／`audienceLevel`／`difficulty`／`apcsLevel`、重寫明確的 stdin/stdout 規格、至少 3 組公開範例與 8 組正式測資、建立參考解答並更新學習階梯。
 5. 在正式題目 JSON 保留 `source.site`、`source.sourceId`、`source.sourceUrl` 與改編說明；把 catalog 的 `sourceContentHash` 登錄到 `imports.json`。
-6. 執行完整檢查：
+6. 若要讓 `selenium/output/normalized` 保持為「待審佇列」，只能在正式題目已通過全部檢查後移除來源檔。移除前必須在 `imports.json` 保留 `sourceTitle`、`categories`、`tags`、`candidateCaseCount` 與 `sourceRemovedAt`；目錄中的 `sourceAvailable: false` 表示來源已從待審佇列移除，但正式題目與來源雜湊仍可追溯。
+7. 執行完整檢查：
 
    ```bash
    python3 scripts/sync_google_sites_catalog.py --check
@@ -37,3 +38,4 @@
 - 不以 crawler 建議 ID 覆蓋目前 `problems/index.json`；每次匯入都重新讀取最新 ID。
 - 原站採「最後一個非空輸出值」的型別化比對，SkillLab 採 stdout 末尾空白相容的完整字串比對；布林、浮點、清單、空字串及多行輸出必須逐題確認。
 - `imports.json` 的雜湊只代表已審來源版本，不代表來源授權或題目品質已自動確認。
+- 已登錄 `sourceRemovedAt` 的來源可以不再存在於 Selenium 的 `normalized` 目錄；若沒有此欄位而來源消失，目錄檢查仍會失敗，以防誤刪。

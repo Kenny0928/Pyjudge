@@ -111,7 +111,7 @@ def load_registry(path: Path) -> dict[str, dict[str, Any]]:
     return by_source
 
 
-def verify_imported_problem(source_id: str, item: dict[str, Any]) -> None:
+def verify_imported_problem(source_id: str, item: dict[str, Any]) -> dict[str, Any]:
     problem_id = item["pyjudgeId"]
     path = ROOT / "problems" / f"{problem_id:03d}.json"
     problem = read_json(path)
@@ -120,6 +120,7 @@ def verify_imported_problem(source_id: str, item: dict[str, Any]) -> None:
         raise CatalogError(f"{path} 缺少 source 追溯資料")
     if source.get("site") != "google_sites" or source.get("sourceId") != source_id:
         raise CatalogError(f"{path} 的 Google Sites sourceId 不符合 imports.json")
+    return problem
 
 
 def build_catalog(
@@ -128,10 +129,37 @@ def build_catalog(
     entries: list[dict[str, Any]] = []
     counts = {"imported": 0, "source_changed": 0, "unreviewed": 0}
 
-    for source_id in sorted(sources, key=source_sort_key):
-        record = sources[source_id]
-        current_hash = canonical_source_hash(record)
+    all_source_ids = set(sources) | set(registry)
+    for source_id in sorted(all_source_ids, key=source_sort_key):
+        record = sources.get(source_id)
         imported = registry.get(source_id)
+        if record is None:
+            if imported is None or not isinstance(imported.get("sourceRemovedAt"), str):
+                raise CatalogError(f"已匯入來源 {source_id} 不在封存中，且未登錄 sourceRemovedAt")
+            required_archive_fields = ("sourceTitle", "categories", "tags", "candidateCaseCount")
+            missing_fields = [field for field in required_archive_fields if field not in imported]
+            if missing_fields:
+                raise CatalogError(
+                    f"{source_id} 已移除來源，但 imports.json 缺少：{', '.join(missing_fields)}"
+                )
+            verify_imported_problem(source_id, imported)
+            counts["imported"] += 1
+            entries.append(
+                {
+                    "sourceId": source_id,
+                    "title": imported["sourceTitle"],
+                    "categories": imported["categories"],
+                    "tags": imported["tags"],
+                    "candidateCaseCount": imported["candidateCaseCount"],
+                    "sourceContentHash": imported["sourceContentHash"],
+                    "status": "imported",
+                    "pyjudgeId": imported["pyjudgeId"],
+                    "sourceAvailable": False,
+                }
+            )
+            continue
+
+        current_hash = canonical_source_hash(record)
         if imported is None:
             status = "unreviewed"
             pyjudge_id = None
@@ -155,12 +183,9 @@ def build_catalog(
                 "sourceContentHash": current_hash,
                 "status": status,
                 "pyjudgeId": pyjudge_id,
+                "sourceAvailable": True,
             }
         )
-
-    missing = sorted(set(registry) - set(sources), key=source_sort_key)
-    if missing:
-        raise CatalogError("下列已匯入來源不在最新封存中：" + ", ".join(missing))
 
     fetched_times = [
         record.get("fetched_at")

@@ -1,0 +1,45 @@
+{
+  "id": 50,
+  "title": "整數的絕對值",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "絕對值", "數學"],
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["理解絕對值代表數字與零的距離"],
+  "prerequisites": ["整數輸入", "正數與負數"],
+  "description": "<p class='problem-lead'>求出一個整數與零之間的距離。</p><p>給定整數 <code>N</code>，請輸出它的絕對值。正數與零維持不變，負數則去掉負號。</p>",
+  "hint": "<p>可以使用絕對值運算，也可以判斷數字是否小於 0。</p>",
+  "inputFormat": "<p>一行，包含整數 <code>N</code>。</p>",
+  "outputFormat": "<p>輸出一個非負整數，表示 <code>N</code> 的絕對值。</p>",
+  "constraints": "<ul><li>-1000000000 ≤ N ≤ 1000000000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "-10",
+  "sampleOutput": "10",
+  "samples": [
+    {"input": "-10", "output": "10"},
+    {"input": "5", "output": "5"},
+    {"input": "0", "output": "0"}
+  ],
+  "testCases": [
+    {"input": "-10", "output": "10"},
+    {"input": "5", "output": "5"},
+    {"input": "0", "output": "0"},
+    {"input": "1", "output": "1"},
+    {"input": "-1", "output": "1"},
+    {"input": "1000000000", "output": "1000000000"},
+    {"input": "-1000000000", "output": "1000000000"},
+    {"input": "999", "output": "999"},
+    {"input": "-456789", "output": "456789"},
+    {"input": "42", "output": "42"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p17_absolute_value",
+    "sourceTitle": "17. 計算絕對值",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "限定整數輸入並補充絕對值語義，加入零、正負數與整數上下界測資。"
+  }
+}

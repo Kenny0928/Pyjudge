@@ -1,0 +1,45 @@
+{
+  "id": 47,
+  "title": "連接兩段文字",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["字串", "字串連接", "輸入輸出"],
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["依序連接兩個字串且不自行加入分隔符號"],
+  "prerequisites": ["字串輸入", "變數"],
+  "description": "<p class='problem-lead'>把兩行文字首尾相接。</p><p>給定字串 <code>A</code> 與 <code>B</code>，請直接輸出 <code>A</code> 接上 <code>B</code> 的結果。兩段文字之間不會自動加入空格或其他符號。</p>",
+  "hint": "<p>依序組合兩個字串；若輸入本身含有空格，空格也要保留。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>A</code>，第二行包含字串 <code>B</code>。兩個字串都至少有一個字元。</p>",
+  "outputFormat": "<p>輸出一行，內容為 <code>A</code> 與 <code>B</code> 直接連接的結果。</p>",
+  "constraints": "<ul><li>1 ≤ A、B 的字元數 ≤ 50</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Hello, \nWorld!",
+  "sampleOutput": "Hello, World!",
+  "samples": [
+    {"input": "Hello, \nWorld!", "output": "Hello, World!"},
+    {"input": "Scratch\nBlockly", "output": "ScratchBlockly"},
+    {"input": "程式\n設計", "output": "程式設計"}
+  ],
+  "testCases": [
+    {"input": "Hello, \nWorld!", "output": "Hello, World!"},
+    {"input": "Scratch\nBlockly", "output": "ScratchBlockly"},
+    {"input": "程式\n設計", "output": "程式設計"},
+    {"input": "123\n456", "output": "123456"},
+    {"input": "A\n B", "output": "A B"},
+    {"input": "foo\nbar", "output": "foobar"},
+    {"input": "!\n?", "output": "!?"},
+    {"input": "OpenAI\nCodex", "output": "OpenAICodex"},
+    {"input": "a\nb", "output": "ab"},
+    {"input": "前半段\n後半段", "output": "前半段後半段"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p09_string_concat",
+    "sourceTitle": "09. 字串相加",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明確規定兩行輸入直接連接且不自動加入分隔符號，並補齊空格、符號、數字與中文測資。"
+  }
+}

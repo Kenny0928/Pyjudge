@@ -559,5 +559,95 @@
       "索引",
       "算術運算"
     ]
+  },
+  {
+    "id": 44,
+    "title": "計算兩數之差",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["基本運算", "減法", "輸入輸出"]
+  },
+  {
+    "id": 45,
+    "title": "計算兩數之積",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["基本運算", "乘法", "輸入輸出"]
+  },
+  {
+    "id": 46,
+    "title": "計算除法餘數",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["基本運算", "餘數", "數學"]
+  },
+  {
+    "id": 47,
+    "title": "連接兩段文字",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["字串", "字串連接", "輸入輸出"]
+  },
+  {
+    "id": 48,
+    "title": "計算階乘",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": ["迴圈", "累乘器", "數學"]
+  },
+  {
+    "id": 49,
+    "title": "清單數字總和",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["清單", "迴圈", "累加器"]
+  },
+  {
+    "id": 50,
+    "title": "整數的絕對值",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["條件判斷", "絕對值", "數學"]
+  },
+  {
+    "id": 51,
+    "title": "計算字元出現次數",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["字串走訪", "計數器", "字元"]
+  },
+  {
+    "id": 52,
+    "title": "迴文判斷",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["字串", "迴文", "條件判斷"]
+  },
+  {
+    "id": 53,
+    "title": "找出清單最小值",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": ["清單", "最值尋找", "迴圈"]
   }
 ]

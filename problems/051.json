@@ -1,0 +1,45 @@
+{
+  "id": 51,
+  "title": "計算字元出現次數",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["字串走訪", "計數器", "字元"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪字串並計算指定字元出現次數"],
+  "prerequisites": ["字串", "for 迴圈", "條件判斷"],
+  "description": "<p class='problem-lead'>統計指定字元在文字中出現幾次。</p><p>給定字串 <code>S</code> 與一個字元 <code>C</code>，請輸出 <code>C</code> 在 <code>S</code> 中出現的次數。比較時區分英文大小寫，空格也可以是要尋找的字元。</p>",
+  "hint": "<p>逐一檢查字串中的每個字元；與 <code>C</code> 相同時讓計數器加 1。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>S</code>。第二行包含一個字元 <code>C</code>。</p>",
+  "outputFormat": "<p>輸出一個非負整數，表示 <code>C</code> 在 <code>S</code> 中出現的次數。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 100</li><li>C 恰好包含一個非換行字元</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "hello world\nl",
+  "sampleOutput": "3",
+  "samples": [
+    {"input": "hello world\nl", "output": "3"},
+    {"input": "banana\na", "output": "3"},
+    {"input": "SkillLab\nl", "output": "2"}
+  ],
+  "testCases": [
+    {"input": "hello world\nl", "output": "3"},
+    {"input": "banana\na", "output": "3"},
+    {"input": "SkillLab\nl", "output": "2"},
+    {"input": "abcdef\nz", "output": "0"},
+    {"input": "aaaaaa\na", "output": "6"},
+    {"input": "AaaA\nA", "output": "2"},
+    {"input": "one two three\n ", "output": "2"},
+    {"input": "程式設計程式\n程", "output": "2"},
+    {"input": "x\nx", "output": "1"},
+    {"input": "1234512345\n5", "output": "2"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p19_count_char",
+    "sourceTitle": "19. 計算字元出現次數",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明確規定大小寫與空格的比較語義，並補齊零次、全部相同、空格、中文與單字元測資。"
+  }
+}

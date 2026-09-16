@@ -1,0 +1,45 @@
+{
+  "id": 45,
+  "title": "計算兩數之積",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["基本運算", "乘法", "輸入輸出"],
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取兩個整數並計算乘積"],
+  "prerequisites": ["整數輸入", "變數", "乘法"],
+  "description": "<p class='problem-lead'>計算兩個整數相乘的結果。</p><p>給定整數 <code>A</code> 與 <code>B</code>，請輸出 <code>A × B</code>。</p>",
+  "hint": "<p>在程式中，乘法運算使用 <code>*</code>。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>A</code>，第二行包含整數 <code>B</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示 <code>A × B</code>。</p>",
+  "constraints": "<ul><li>-10000 ≤ A, B ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6\n7",
+  "sampleOutput": "42",
+  "samples": [
+    {"input": "6\n7", "output": "42"},
+    {"input": "-5\n8", "output": "-40"},
+    {"input": "0\n999", "output": "0"}
+  ],
+  "testCases": [
+    {"input": "6\n7", "output": "42"},
+    {"input": "-5\n8", "output": "-40"},
+    {"input": "0\n999", "output": "0"},
+    {"input": "-10\n-10", "output": "100"},
+    {"input": "1\n10000", "output": "10000"},
+    {"input": "-1\n1", "output": "-1"},
+    {"input": "10000\n10000", "output": "100000000"},
+    {"input": "-10000\n10000", "output": "-100000000"},
+    {"input": "123\n45", "output": "5535"},
+    {"input": "-999\n0", "output": "0"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p03_multiplication",
+    "sourceTitle": "03. 計算兩數之積",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明確限定整數輸入，並補齊零、正負號組合及上下界測資。"
+  }
+}

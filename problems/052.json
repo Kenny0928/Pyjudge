@@ -1,0 +1,45 @@
+{
+  "id": 52,
+  "title": "迴文判斷",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["字串", "迴文", "條件判斷"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["比較字串正序與反序以判斷迴文"],
+  "prerequisites": ["字串", "索引或反轉", "條件判斷"],
+  "description": "<p class='problem-lead'>判斷一行文字正讀與反讀是否相同。</p><p>給定字串 <code>S</code>，若它是迴文則輸出小寫 <code>true</code>，否則輸出小寫 <code>false</code>。判斷時區分大小寫，空格與符號也都算字元。</p>",
+  "hint": "<p>將原字串和反轉後的字串比較，或從左右兩端逐一比較字元。</p>",
+  "inputFormat": "<p>一行，包含非空字串 <code>S</code>。</p>",
+  "outputFormat": "<p>若 <code>S</code> 是迴文，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "level",
+  "sampleOutput": "true",
+  "samples": [
+    {"input": "level", "output": "true"},
+    {"input": "hello", "output": "false"},
+    {"input": "1221", "output": "true"}
+  ],
+  "testCases": [
+    {"input": "level", "output": "true"},
+    {"input": "hello", "output": "false"},
+    {"input": "1221", "output": "true"},
+    {"input": "a", "output": "true"},
+    {"input": "abba", "output": "true"},
+    {"input": "abcba", "output": "true"},
+    {"input": "Level", "output": "false"},
+    {"input": "ab ba", "output": "true"},
+    {"input": "上海自來水來自海上", "output": "true"},
+    {"input": "123421", "output": "false"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p22_palindrome",
+    "sourceTitle": "22. 迴文判斷",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "保留小寫 true/false 輸出，明確規定大小寫、空格與符號均參與比較，並補齊奇偶長度與 Unicode 測資。"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": 53,
+  "title": "找出清單最小值",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "最值尋找", "迴圈"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整數清單並維護目前最小值"],
+  "prerequisites": ["清單輸入", "for 迴圈", "比較運算"],
+  "description": "<p class='problem-lead'>從整數清單中找出最小的數字。</p><p>給定 <code>N</code> 個整數，請輸出其中的最小值。清單可能包含負數與重複值。</p>",
+  "hint": "<p>可以先把第一個數字當作目前最小值，再逐一和後面的數字比較。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出一個整數，表示清單中的最小值。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-10000 ≤ 每個整數 ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n5 2 8 1 9",
+  "sampleOutput": "1",
+  "samples": [
+    {"input": "5\n5 2 8 1 9", "output": "1"},
+    {"input": "4\n-3 0 -10 5", "output": "-10"},
+    {"input": "3\n7 7 7", "output": "7"}
+  ],
+  "testCases": [
+    {"input": "5\n5 2 8 1 9", "output": "1"},
+    {"input": "4\n-3 0 -10 5", "output": "-10"},
+    {"input": "3\n7 7 7", "output": "7"},
+    {"input": "1\n42", "output": "42"},
+    {"input": "5\n-1 -2 -3 -4 -5", "output": "-5"},
+    {"input": "6\n0 3 2 1 4 5", "output": "0"},
+    {"input": "2\n10000 -10000", "output": "-10000"},
+    {"input": "8\n9 8 7 6 5 4 3 2", "output": "2"},
+    {"input": "6\n-8 4 -8 10 0 3", "output": "-8"},
+    {"input": "4\n100 50 75 25", "output": "25"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p27_find_min",
+    "sourceTitle": "27. 找出清單最小值",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站逐項輸入統一為 N 加一行空格分隔清單，並補齊單元素、全負數、重複最小值與上下界測資。"
+  }
+}
