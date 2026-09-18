@@ -270,6 +270,59 @@
       border-radius: var(--radius);
     }
 
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .pagination:empty {
+      margin-top: 0;
+    }
+
+    .page-btn {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+    }
+
+    .page-btn:focus-visible {
+      border-color: var(--accent);
+      outline: 2px solid rgba(59, 130, 246, 0.24);
+      outline-offset: 1px;
+    }
+
+    .page-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    .page-ellipsis {
+      padding: 0 4px;
+      color: var(--text-muted);
+    }
+
     .stat-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1320,6 +1373,7 @@
         <tbody id="problem-tbody"></tbody>
         </table>
       </div>
+      <nav class="pagination" id="problem-pagination" aria-label="題目列表分頁"></nav>
     </div>
   </div>
 
@@ -1691,6 +1745,8 @@
     let currentProblem = null;
     let problemManifest = [];           // 從 problems/index.json 載入
     let problemCache = {};           // id → 完整 JSON，避免重複 fetch
+    const PROBLEM_PAGE_SIZE = 50;
+    let problemListPage = 1;
     let solvedSet = new Set(JSON.parse(localStorage.getItem('solved') || '[]'));
 
     // ═══════════════════════════════════════════════
@@ -2125,7 +2181,16 @@ finally:
         return PROBLEM_CLASSIFICATION.matches(problem, { search, stage, difficulty, tag, status }, solved);
       });
 
-      document.getElementById('filter-result-count').textContent = `顯示 ${list.length} / ${problemManifest.length} 題`;
+      const totalPages = Math.max(1, Math.ceil(list.length / PROBLEM_PAGE_SIZE));
+      if (problemListPage > totalPages) problemListPage = totalPages;
+      if (problemListPage < 1) problemListPage = 1;
+      const pageStart = (problemListPage - 1) * PROBLEM_PAGE_SIZE;
+      const pageItems = list.slice(pageStart, pageStart + PROBLEM_PAGE_SIZE);
+
+      document.getElementById('filter-result-count').textContent = list.length
+        ? `顯示 ${pageStart + 1}–${pageStart + pageItems.length} / ${list.length} 題（第 ${problemListPage} / ${totalPages} 頁）`
+        : `顯示 0 / ${problemManifest.length} 題`;
+      renderProblemPagination(totalPages);
 
       // Table
       const tbody = document.getElementById('problem-tbody');
@@ -2141,7 +2206,7 @@ finally:
     </td></tr>`;
         return;
       }
-      tbody.innerHTML = list.map(p => {
+      tbody.innerHTML = pageItems.map(p => {
         const solved = solvedSet.has(p.id);
         const diff = p.difficulty.toLowerCase();
         const tags = p.tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
@@ -2157,6 +2222,40 @@ finally:
       <td>${solvedLabel}</td>
     </tr>`;
       }).join('');
+    }
+
+    function renderProblemPagination(totalPages) {
+      const el = document.getElementById('problem-pagination');
+      if (!el) return;
+      if (totalPages <= 1) {
+        el.innerHTML = '';
+        return;
+      }
+
+      const pages = [];
+      const addPage = p => { if (!pages.includes(p)) pages.push(p); };
+      addPage(1);
+      addPage(totalPages);
+      for (let p = problemListPage - 1; p <= problemListPage + 1; p++) {
+        if (p >= 1 && p <= totalPages) addPage(p);
+      }
+      pages.sort((a, b) => a - b);
+
+      let html = `<button class="page-btn" type="button" ${problemListPage <= 1 ? 'disabled' : ''} onclick="goToProblemPage(${problemListPage - 1})" aria-label="上一頁">←</button>`;
+      let prevPage = 0;
+      pages.forEach(p => {
+        if (p - prevPage > 1) html += `<span class="page-ellipsis">…</span>`;
+        html += `<button class="page-btn${p === problemListPage ? ' active' : ''}" type="button" onclick="goToProblemPage(${p})" ${p === problemListPage ? 'aria-current="page"' : ''}>${p}</button>`;
+        prevPage = p;
+      });
+      html += `<button class="page-btn" type="button" ${problemListPage >= totalPages ? 'disabled' : ''} onclick="goToProblemPage(${problemListPage + 1})" aria-label="下一頁">→</button>`;
+      el.innerHTML = html;
+    }
+
+    function goToProblemPage(page) {
+      problemListPage = page;
+      renderProblemList();
+      window.scrollTo(0, 0);
     }
 
     function resetProblemScroll() {
@@ -2379,13 +2478,14 @@ finally:
       };
       new ResizeObserver(resizeEditor).observe(editorArea);
 
-      document.getElementById('problem-search').addEventListener('input', renderProblemList);
+      const rerenderFromFirstPage = () => { problemListPage = 1; renderProblemList(); };
+      document.getElementById('problem-search').addEventListener('input', rerenderFromFirstPage);
       ['stage-filter', 'difficulty-filter', 'tag-filter', 'status-filter'].forEach(id => {
-        document.getElementById(id).addEventListener('change', renderProblemList);
+        document.getElementById(id).addEventListener('change', rerenderFromFirstPage);
       });
       document.getElementById('filter-reset').addEventListener('click', () => {
         document.getElementById('problem-filters').reset();
-        renderProblemList();
+        rerenderFromFirstPage();
         document.getElementById('problem-search').focus();
       });
 
