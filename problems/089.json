@@ -1,0 +1,53 @@
+{
+  "id": 89,
+  "title": "移除頭尾空白",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "空白處理"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "只移除字串前後的空白字元，保留中間的空白"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "變數"
+  ],
+  "description": "<p class='problem-lead'>移除字串前後多餘的空白。</p><p>請讀取字串 <code>a</code>，只移除它<strong>開頭與結尾</strong>的空白字元（包含空格與定位字元 <code>tab</code>）後輸出；字串<strong>中間</strong>的空白必須完整保留，不可移除。若 <code>a</code> 移除頭尾空白後變成空字串，就輸出一個空字串（也就是輸出空白的一行）。</p>",
+  "hint": "<p>Python 的字串有內建方法可以只移除前後空白，不會動到中間的空白。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>，可能含有前導或尾端空白。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 移除頭尾空白後的結果；若結果為空字串則輸出空白的一行。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數（含空白）≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "  hello  ",
+  "sampleOutput": "hello",
+  "samples": [
+    { "input": "  hello  ", "output": "hello" },
+    { "input": "world ", "output": "world" },
+    { "input": "   abc", "output": "abc" }
+  ],
+  "testCases": [
+    { "input": "  hello  ", "output": "hello" },
+    { "input": "world ", "output": "world" },
+    { "input": "   abc", "output": "abc" },
+    { "input": "  a b c  ", "output": "a b c" },
+    { "input": "a", "output": "a" },
+    { "input": "     ", "output": "" },
+    { "input": "\thello\t", "output": "hello" },
+    { "input": "no_spaces_here", "output": "no_spaces_here" },
+    { "input": "  程式設計  ", "output": "程式設計" },
+    { "input": "  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  ", "output": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p48_trim_whitespace",
+    "sourceTitle": "48. 移除兩端空白",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "依 raw_test_cases 確認只移除頭尾空白、中間空白須保留，並補齊只有前導、只有尾端、全空白變空字串、定位字元與中文等分支測資。"
+  }
+}

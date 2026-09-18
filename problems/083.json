@@ -1,0 +1,45 @@
+{
+  "id": 83,
+  "title": "回音字串",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["字串", "輸入輸出", "基本操作"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取一整行文字並原封不動輸出"],
+  "prerequisites": ["字串輸入", "print 輸出"],
+  "description": "<p class='problem-lead'>把讀進來的一行文字原封不動地輸出。</p><p>給定字串 <code>S</code>，請直接將它輸出，不做任何修改；<code>S</code> 可能包含開頭空白、數字、符號或中文字，但不會有結尾空白。</p>",
+  "hint": "<p>讀取一整行文字後，直接用輸出指令印出，不需要做任何轉換或處理。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，長度為 1 到 100 個字元，不含結尾空白。</p>",
+  "outputFormat": "<p>輸出與 <code>S</code> 完全相同的內容。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 100</li><li>S 不含結尾空白字元，但可能包含開頭空白</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Hello",
+  "sampleOutput": "Hello",
+  "samples": [
+    { "input": "Hello", "output": "Hello" },
+    { "input": "Blockly", "output": "Blockly" },
+    { "input": "a", "output": "a" }
+  ],
+  "testCases": [
+    { "input": "Hello", "output": "Hello" },
+    { "input": "Blockly", "output": "Blockly" },
+    { "input": "a", "output": "a" },
+    { "input": "1234567890", "output": "1234567890" },
+    { "input": "  Hello", "output": "  Hello" },
+    { "input": "!@#$%^&*()", "output": "!@#$%^&*()" },
+    { "input": "Hello World", "output": "Hello World" },
+    { "input": "程式設計", "output": "程式設計" },
+    { "input": "CaseSensitive", "output": "CaseSensitive" },
+    { "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "output": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p42_echo_string",
+    "sourceTitle": "42. 回音字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定不含結尾空白但可能有開頭空白，避免比對結尾空白造成的歧義，並補齊數字、符號、中文與最大長度邊界測資。"
+  }
+}

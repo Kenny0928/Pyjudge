@@ -1,0 +1,55 @@
+{
+  "id": 91,
+  "title": "判斷兩字串是否相等（忽略大小寫）",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "邏輯判斷",
+    "大小寫"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "先統一英文字母大小寫，再比較兩個字串是否相同"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "if/else",
+    "大小寫轉換"
+  ],
+  "description": "<p class='problem-lead'>忽略英文大小寫，判斷兩個字串是否相同。</p><p>請讀取字串 <code>a</code> 與 <code>b</code>，判斷兩者在<strong>忽略英文字母大小寫</strong>後是否完全相等（其餘字元，如數字、符號、空白與中文仍須逐字元一致）。相等請輸出 <code>true</code>，不相等請輸出 <code>false</code>。<code>a</code>、<code>b</code> 都可能是空字串。</p>",
+  "hint": "<p>可以先把兩個字串都轉成大寫或都轉成小寫，再用 <code>==</code> 比較。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>a</code>，第二行包含字串 <code>b</code>。</p>",
+  "outputFormat": "<p>若 <code>a</code> 與 <code>b</code> 忽略大小寫後相等輸出 <code>true</code>，否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ a、b 的字元數 ≤ 50</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Test\ntest",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "Test\ntest", "output": "true" },
+    { "input": "Hello\nHi", "output": "false" },
+    { "input": "APPLE\napple", "output": "true" }
+  ],
+  "testCases": [
+    { "input": "Test\ntest", "output": "true" },
+    { "input": "Hello\nHi", "output": "false" },
+    { "input": "APPLE\napple", "output": "true" },
+    { "input": "Apple\nApplE", "output": "true" },
+    { "input": "abc\nabd", "output": "false" },
+    { "input": "\n\n", "output": "true" },
+    { "input": " \n ", "output": "true" },
+    { "input": " \n", "output": "false" },
+    { "input": "程式\n程式", "output": "true" },
+    { "input": "程式\n程式設計", "output": "false" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p50_string_equals_ignore_case",
+    "sourceTitle": "50. 判斷字串是否相等(忽略大小寫)",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "改為兩行輸入以避免歧義，明訂僅忽略英文大小寫、其餘字元仍需精準比對，並補齊空字串、純空白字串與中文測資。"
+  }
+}

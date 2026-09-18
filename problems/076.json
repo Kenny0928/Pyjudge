@@ -1,0 +1,45 @@
+{
+  "id": 76,
+  "title": "標題式大寫",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["字串", "大小寫轉換", "走訪"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["切割字串為單字並分別處理每個單字的大小寫"],
+  "prerequisites": ["字串切割", "字串大小寫函式", "for 迴圈"],
+  "description": "<p class='problem-lead'>將一句英文文字轉成「標題式大寫」格式。</p><p>給定句子 <code>S</code>，由英文字母組成的單字構成，單字之間以單一空白分隔（沒有開頭、結尾空白，也沒有連續空白）。請將每個單字的第一個字母轉為大寫，其餘字母轉為小寫，單字之間仍以一個空白分隔後輸出。</p>",
+  "hint": "<p>先用空白切割成單字清單，對每個單字取第一個字元轉大寫、其餘轉小寫，再重新以空白組合。</p>",
+  "inputFormat": "<p>一行，包含句子 <code>S</code>，只由英文字母與單一空白組成。</p>",
+  "outputFormat": "<p>輸出轉換後的句子，格式與輸入相同，單字之間以一個空白分隔。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 100</li><li>S 由 1 個以上英文單字組成，單字間恰以一個空白分隔</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "hello world",
+  "sampleOutput": "Hello World",
+  "samples": [
+    { "input": "hello world", "output": "Hello World" },
+    { "input": "i love blockly", "output": "I Love Blockly" },
+    { "input": "PYTHON", "output": "Python" }
+  ],
+  "testCases": [
+    { "input": "hello world", "output": "Hello World" },
+    { "input": "i love blockly", "output": "I Love Blockly" },
+    { "input": "PYTHON", "output": "Python" },
+    { "input": "a", "output": "A" },
+    { "input": "already Title Case", "output": "Already Title Case" },
+    { "input": "ALL CAPS SENTENCE HERE", "output": "All Caps Sentence Here" },
+    { "input": "mixedCASE word", "output": "Mixedcase Word" },
+    { "input": "x y z", "output": "X Y Z" },
+    { "input": "the quick brown fox jumps", "output": "The Quick Brown Fox Jumps" },
+    { "input": "b", "output": "B" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p35_title_case",
+    "sourceTitle": "35. 標題式大寫",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "限定輸入僅為單一空白分隔的英文單字序列，明定字首大寫、其餘小寫的規則，並補齊單字、全大寫與混合大小寫測資。"
+  }
+}

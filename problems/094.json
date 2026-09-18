@@ -1,0 +1,54 @@
+{
+  "id": 94,
+  "title": "判斷字串開頭",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "條件判斷",
+    "字首"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用字串的開頭比對方法判斷字首是否符合指定內容"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "條件判斷"
+  ],
+  "description": "<p class='problem-lead'>判斷一個字串開頭是否為指定文字。</p><p>讀取字串 <code>a</code>，判斷它是否以 <code>Hello</code> 開頭。比對必須區分大小寫，且開頭之後可以接任何內容（包含沒有任何內容）。是則輸出小寫 <code>true</code>，否則輸出小寫 <code>false</code>。</p>",
+  "hint": "<p>Python 字串有直接判斷開頭的方法，可以比較前幾個字元是否相符。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>。</p>",
+  "outputFormat": "<p>若 <code>a</code> 以 <code>Hello</code> 開頭，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ a 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Hello World",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "Hello World", "output": "true" },
+    { "input": "Hi World", "output": "false" },
+    { "input": "Hello", "output": "true" }
+  ],
+  "testCases": [
+    { "input": "Hello World", "output": "true" },
+    { "input": "Hi World", "output": "false" },
+    { "input": "Hello", "output": "true" },
+    { "input": "Hell", "output": "false" },
+    { "input": "", "output": "false" },
+    { "input": "hello world", "output": "false" },
+    { "input": "HELLO", "output": "false" },
+    { "input": "HelloWorld", "output": "true" },
+    { "input": " Hello", "output": "false" },
+    { "input": "Hello!", "output": "true" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p53_starts_with_hello",
+    "sourceTitle": "53. 判斷是否以 Hello 開頭",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定比對區分大小寫並補上空字串、字首前綴不足、混合大小寫等測資，統一為 true/false 輸出。"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": 90,
+  "title": "判斷兩字串是否相等",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "邏輯判斷",
+    "條件"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 == 比較兩個字串是否完全相同（含大小寫）"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "if/else"
+  ],
+  "description": "<p class='problem-lead'>判斷兩個字串是否完全相同。</p><p>請讀取字串 <code>a</code> 與 <code>b</code>，判斷兩者是否<strong>逐字元完全相等</strong>（包含英文大小寫與空白都要一致）。相等請輸出 <code>true</code>，不相等請輸出 <code>false</code>，大小寫必須完全一致。<code>a</code>、<code>b</code> 都可能是空字串。</p>",
+  "hint": "<p>Python 可以直接用 <code>==</code> 比較兩個字串是否相等。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>a</code>，第二行包含字串 <code>b</code>。</p>",
+  "outputFormat": "<p>若 <code>a</code> 與 <code>b</code> 完全相等輸出 <code>true</code>，否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ a、b 的字元數 ≤ 50</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "apple\napple",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "apple\napple", "output": "true" },
+    { "input": "Apple\napple", "output": "false" },
+    { "input": "abc\nabcd", "output": "false" }
+  ],
+  "testCases": [
+    { "input": "apple\napple", "output": "true" },
+    { "input": "Apple\napple", "output": "false" },
+    { "input": "abc\nabcd", "output": "false" },
+    { "input": "\n\n", "output": "true" },
+    { "input": " \n ", "output": "true" },
+    { "input": " \n", "output": "false" },
+    { "input": "Hello\nHello ", "output": "false" },
+    { "input": "程式\n程式", "output": "true" },
+    { "input": "程式\n程式設計", "output": "false" },
+    { "input": "12345\n12345", "output": "true" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p49_string_equals",
+    "sourceTitle": "49. 判斷字串是否相等",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "改為兩行輸入以避免歧義，統一 true/false 小寫輸出，並補齊空字串、純空白字串、中文與長度不同等特殊狀態測資。"
+  }
+}

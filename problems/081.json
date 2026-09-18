@@ -1,0 +1,46 @@
+{
+  "id": 81,
+  "title": "簡易計算機",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["四則運算", "條件判斷", "字串"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["依據運算子字元選擇對應的四則運算"],
+  "prerequisites": ["變數", "if/elif/else", "四則運算"],
+  "description": "<p class='problem-lead'>依照指定的運算子，計算兩個整數的四則運算結果。</p><p>依序讀入整數 <code>a</code>、整數 <code>b</code>，以及運算子 <code>op</code>（恰為 <code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> 四個符號之一）。請輸出 <code>a op b</code> 的計算結果。若 <code>op</code> 為 <code>/</code>，測資保證 <code>b</code> 不為 0，且 <code>a</code> 一定能被 <code>b</code> 整除，結果請以整數形式輸出（不含小數點）。</p>",
+  "hint": "<p>用 <code>if/elif/else</code> 依序比對 <code>op</code> 的內容，選擇對應的運算並印出結果。</p>",
+  "inputFormat": "<p>第一行為整數 <code>a</code>。第二行為整數 <code>b</code>。第三行為運算子 <code>op</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，為 <code>a op b</code> 的計算結果。</p>",
+  "constraints": "<ul><li>-1000 ≤ a, b ≤ 1000</li><li>op ∈ {+, -, *, /}</li><li>當 op 為 / 時，b ≠ 0 且 a 能被 b 整除</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n3\n+",
+  "sampleOutput": "8",
+  "samples": [
+    { "input": "5\n3\n+", "output": "8" },
+    { "input": "10\n2\n/", "output": "5" },
+    { "input": "5\n3\n-", "output": "2" }
+  ],
+  "testCases": [
+    { "input": "5\n3\n+", "output": "8" },
+    { "input": "10\n2\n/", "output": "5" },
+    { "input": "5\n3\n-", "output": "2" },
+    { "input": "5\n3\n*", "output": "15" },
+    { "input": "-10\n5\n/", "output": "-2" },
+    { "input": "0\n100\n+", "output": "100" },
+    { "input": "0\n5\n*", "output": "0" },
+    { "input": "-5\n-5\n-", "output": "0" },
+    { "input": "1000\n1000\n*", "output": "1000000" },
+    { "input": "-1000\n1\n/", "output": "-1000" },
+    { "input": "7\n-7\n+", "output": "0" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p40_simple_calculator",
+    "sourceTitle": "40. 簡易計算機",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "限定輸入為整數並保證除法一定整除，避免浮點數輸出格式歧義，補齊四種運算子、負數與 0 的分支覆蓋測資。"
+  }
+}

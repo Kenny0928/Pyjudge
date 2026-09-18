@@ -1,0 +1,45 @@
+{
+  "id": 67,
+  "title": "FizzBuzz 清單輸出",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["迴圈", "條件判斷", "經典題目"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["結合迴圈與多重條件判斷輸出 FizzBuzz 結果"],
+  "prerequisites": ["for 迴圈", "取餘數", "if/elif/else"],
+  "description": "<p class='problem-lead'>從 1 數到 N，依規則輸出每個數字對應的結果。</p><p>對於 1 到 <code>N</code> 的每個數字：若同時是 3 與 5 的倍數，輸出 <code>FizzBuzz</code>；否則若是 3 的倍數，輸出 <code>Fizz</code>；否則若是 5 的倍數，輸出 <code>Buzz</code>；否則輸出數字本身。請把 1 到 <code>N</code> 的結果依序排在同一行，以空格分隔。</p>",
+  "hint": "<p>先判斷是否同時符合兩個倍數條件，再依序判斷單一倍數條件，最後才是預設情況。</p>",
+  "inputFormat": "<p>一行，包含正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>一行，依序輸出 1 到 <code>N</code> 的結果，以空格分隔。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5",
+  "sampleOutput": "1 2 Fizz 4 Buzz",
+  "samples": [
+    {"input": "5", "output": "1 2 Fizz 4 Buzz"},
+    {"input": "15", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"},
+    {"input": "1", "output": "1"}
+  ],
+  "testCases": [
+    {"input": "1", "output": "1"},
+    {"input": "2", "output": "1 2"},
+    {"input": "3", "output": "1 2 Fizz"},
+    {"input": "5", "output": "1 2 Fizz 4 Buzz"},
+    {"input": "10", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz"},
+    {"input": "15", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"},
+    {"input": "20", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz"},
+    {"input": "30", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz"},
+    {"input": "45", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz 31 32 Fizz 34 Buzz Fizz 37 38 Fizz Buzz 41 Fizz 43 44 FizzBuzz"},
+    {"input": "100", "output": "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz 31 32 Fizz 34 Buzz Fizz 37 38 Fizz Buzz 41 Fizz 43 44 FizzBuzz 46 47 Fizz 49 Buzz Fizz 52 53 Fizz Buzz 56 Fizz 58 59 FizzBuzz 61 62 Fizz 64 Buzz Fizz 67 68 Fizz Buzz 71 Fizz 73 74 FizzBuzz 76 77 Fizz 79 Buzz Fizz 82 83 Fizz Buzz 86 Fizz 88 89 FizzBuzz 91 92 Fizz 94 Buzz Fizz 97 98 Fizz Buzz"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p24_fizzbuzz",
+    "sourceTitle": "24. FizzBuzz 經典問題",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站以陣列回傳的結果改為單行空白分隔輸出，並補齊最小、無 Fizz/Buzz 命中、單一 FizzBuzz 與最大邊界測資。"
+  }
+}

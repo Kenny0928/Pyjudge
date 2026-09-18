@@ -567,7 +567,11 @@
     "audienceLevel": "E-MID",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["基本運算", "減法", "輸入輸出"]
+    "tags": [
+      "基本運算",
+      "減法",
+      "輸入輸出"
+    ]
   },
   {
     "id": 45,
@@ -576,7 +580,11 @@
     "audienceLevel": "E-MID",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["基本運算", "乘法", "輸入輸出"]
+    "tags": [
+      "基本運算",
+      "乘法",
+      "輸入輸出"
+    ]
   },
   {
     "id": 46,
@@ -585,7 +593,11 @@
     "audienceLevel": "E-UPPER",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["基本運算", "餘數", "數學"]
+    "tags": [
+      "基本運算",
+      "餘數",
+      "數學"
+    ]
   },
   {
     "id": 47,
@@ -594,7 +606,11 @@
     "audienceLevel": "E-MID",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["字串", "字串連接", "輸入輸出"]
+    "tags": [
+      "字串",
+      "字串連接",
+      "輸入輸出"
+    ]
   },
   {
     "id": 48,
@@ -603,7 +619,11 @@
     "audienceLevel": "E-UPPER",
     "apcsLevel": null,
     "difficulty": "Medium",
-    "tags": ["迴圈", "累乘器", "數學"]
+    "tags": [
+      "迴圈",
+      "累乘器",
+      "數學"
+    ]
   },
   {
     "id": 49,
@@ -612,7 +632,11 @@
     "audienceLevel": "M-7",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["清單", "迴圈", "累加器"]
+    "tags": [
+      "清單",
+      "迴圈",
+      "累加器"
+    ]
   },
   {
     "id": 50,
@@ -621,7 +645,11 @@
     "audienceLevel": "E-MID",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["條件判斷", "絕對值", "數學"]
+    "tags": [
+      "條件判斷",
+      "絕對值",
+      "數學"
+    ]
   },
   {
     "id": 51,
@@ -630,7 +658,11 @@
     "audienceLevel": "M-7",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["字串走訪", "計數器", "字元"]
+    "tags": [
+      "字串走訪",
+      "計數器",
+      "字元"
+    ]
   },
   {
     "id": 52,
@@ -639,7 +671,11 @@
     "audienceLevel": "M-7",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["字串", "迴文", "條件判斷"]
+    "tags": [
+      "字串",
+      "迴文",
+      "條件判斷"
+    ]
   },
   {
     "id": 53,
@@ -648,6 +684,647 @@
     "audienceLevel": "M-7",
     "apcsLevel": null,
     "difficulty": "Easy",
-    "tags": ["清單", "最值尋找", "迴圈"]
+    "tags": [
+      "清單",
+      "最值尋找",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "計算兩數之和",
+    "stage": "Beginner",
+    "audienceLevel": "E-MID",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "基本運算",
+      "加法",
+      "輸入輸出"
+    ]
+  },
+  {
+    "id": 55,
+    "title": "計算兩數之商",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "基本運算",
+      "除法",
+      "數學"
+    ]
+  },
+  {
+    "id": 56,
+    "title": "判斷是否為偶數",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "數學",
+      "布林輸出"
+    ]
+  },
+  {
+    "id": 57,
+    "title": "找出較大值",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "比較運算",
+      "數學"
+    ]
+  },
+  {
+    "id": 58,
+    "title": "1 加到 N",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "迴圈",
+      "累加器",
+      "數學"
+    ]
+  },
+  {
+    "id": 59,
+    "title": "找出清單最大值",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "清單",
+      "最值尋找",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 60,
+    "title": "計算清單長度",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "清單",
+      "計數"
+    ]
+  },
+  {
+    "id": 61,
+    "title": "檢查項目是否存在",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "清單",
+      "邏輯判斷",
+      "布林輸出"
+    ]
+  },
+  {
+    "id": 62,
+    "title": "反轉字串",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "迴圈",
+      "演算法"
+    ]
+  },
+  {
+    "id": 63,
+    "title": "成績等級判斷",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "多分支",
+      "數學"
+    ]
+  },
+  {
+    "id": 64,
+    "title": "費波那契數列第 N 項",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "迴圈",
+      "數學",
+      "遞推"
+    ]
+  },
+  {
+    "id": 65,
+    "title": "反轉清單",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "清單",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 66,
+    "title": "清單平均值",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "清單",
+      "數學",
+      "平均值"
+    ]
+  },
+  {
+    "id": 67,
+    "title": "FizzBuzz 清單輸出",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "迴圈",
+      "條件判斷",
+      "經典題目"
+    ]
+  },
+  {
+    "id": 68,
+    "title": "移除清單重複項",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "清單",
+      "迴圈",
+      "演算法"
+    ]
+  },
+  {
+    "id": 69,
+    "title": "質數判斷",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "數學",
+      "迴圈",
+      "邏輯判斷"
+    ]
+  },
+  {
+    "id": 70,
+    "title": "凱薩加密",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "字串",
+      "迴圈",
+      "演算法"
+    ]
+  },
+  {
+    "id": 71,
+    "title": "計算三角形面積",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "基本運算"
+    ]
+  },
+  {
+    "id": 72,
+    "title": "清單中位數",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "清單",
+      "排序",
+      "數學"
+    ]
+  },
+  {
+    "id": 73,
+    "title": "攝氏轉華氏",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "基本運算",
+      "單位轉換"
+    ]
+  },
+  {
+    "id": 74,
+    "title": "計算母音數量",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串走訪",
+      "計數器",
+      "母音"
+    ]
+  },
+  {
+    "id": 75,
+    "title": "數字範圍判斷",
+    "stage": "Intermediate",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "條件判斷",
+      "邏輯運算",
+      "範圍"
+    ]
+  },
+  {
+    "id": 76,
+    "title": "標題式大寫",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "大小寫轉換",
+      "走訪"
+    ]
+  },
+  {
+    "id": 77,
+    "title": "找出共同項目",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "清單",
+      "集合",
+      "演算法"
+    ]
+  },
+  {
+    "id": 78,
+    "title": "計算複利",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "公式",
+      "浮點數"
+    ]
+  },
+  {
+    "id": 79,
+    "title": "阿姆斯壯數判斷",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "數學",
+      "迴圈",
+      "數字"
+    ]
+  },
+  {
+    "id": 80,
+    "title": "找出第二大數",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "清單",
+      "排序",
+      "演算法"
+    ]
+  },
+  {
+    "id": 81,
+    "title": "簡易計算機",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "四則運算",
+      "條件判斷",
+      "字串"
+    ]
+  },
+  {
+    "id": 82,
+    "title": "便當訂單重新排序",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "字串",
+      "計數排序",
+      "演算法"
+    ]
+  },
+  {
+    "id": 83,
+    "title": "回音字串",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "輸入輸出",
+      "基本操作"
+    ]
+  },
+  {
+    "id": 84,
+    "title": "取得第一個字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "索引"
+    ]
+  },
+  {
+    "id": 85,
+    "title": "取得最後一個字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "索引"
+    ]
+  },
+  {
+    "id": 86,
+    "title": "取得指定位置的字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "索引",
+      "變數"
+    ]
+  },
+  {
+    "id": 87,
+    "title": "字串轉大寫",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "大小寫"
+    ]
+  },
+  {
+    "id": 88,
+    "title": "字串轉小寫",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "大小寫"
+    ]
+  },
+  {
+    "id": 89,
+    "title": "移除頭尾空白",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "空白處理"
+    ]
+  },
+  {
+    "id": 90,
+    "title": "判斷兩字串是否相等",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "邏輯判斷",
+      "條件"
+    ]
+  },
+  {
+    "id": 91,
+    "title": "判斷兩字串是否相等（忽略大小寫）",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "邏輯判斷",
+      "大小寫"
+    ]
+  },
+  {
+    "id": 92,
+    "title": "用連字號連接字串",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "字串連接"
+    ]
+  },
+  {
+    "id": 93,
+    "title": "重複字串",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 94,
+    "title": "判斷字串開頭",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "條件判斷",
+      "字首"
+    ]
+  },
+  {
+    "id": 95,
+    "title": "判斷字串結尾是否為驚嘆號",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "條件判斷",
+      "字尾"
+    ]
+  },
+  {
+    "id": 96,
+    "title": "檢查是否包含子字串",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "條件判斷",
+      "子字串"
+    ]
+  },
+  {
+    "id": 97,
+    "title": "擷取前三個字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "索引",
+      "擷取"
+    ]
+  },
+  {
+    "id": 98,
+    "title": "擷取末三個字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "索引",
+      "擷取"
+    ]
+  },
+  {
+    "id": 99,
+    "title": "擷取 M 到 N 的子字串",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "索引",
+      "擷取"
+    ]
+  },
+  {
+    "id": 100,
+    "title": "取代第一個出現的子字串",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "取代"
+    ]
+  },
+  {
+    "id": 101,
+    "title": "取代全部出現的子字串",
+    "stage": "Intermediate",
+    "audienceLevel": "M-7",
+    "apcsLevel": null,
+    "difficulty": "Medium",
+    "tags": [
+      "字串",
+      "取代",
+      "迴圈"
+    ]
+  },
+  {
+    "id": 102,
+    "title": "移除第一個字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "擷取"
+    ]
+  },
+  {
+    "id": 103,
+    "title": "移除最後一個字元",
+    "stage": "Beginner",
+    "audienceLevel": "E-UPPER",
+    "apcsLevel": null,
+    "difficulty": "Easy",
+    "tags": [
+      "字串",
+      "擷取"
+    ]
   }
 ]

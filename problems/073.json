@@ -1,0 +1,45 @@
+{
+  "id": 73,
+  "title": "攝氏轉華氏",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["數學", "基本運算", "單位轉換"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["套用溫度轉換公式並處理小數輸出"],
+  "prerequisites": ["變數", "四則運算"],
+  "description": "<p class='problem-lead'>將攝氏溫度轉換為華氏溫度。</p><p>給定攝氏溫度 <code>C</code>（整數，可能為負數），轉換公式為 <code>F = C × 9 ÷ 5 + 32</code>。由於乘除可能產生小數，請一律四捨五入至小數點後兩位輸出（固定顯示兩位小數，例如整數結果 32 要輸出 <code>32.00</code>）。</p>",
+  "hint": "<p>先計算 <code>C * 9 / 5</code>，再加上 32，並用固定兩位小數的格式輸出。</p>",
+  "inputFormat": "<p>一行，包含一個整數，代表攝氏溫度 <code>C</code>。</p>",
+  "outputFormat": "<p>輸出對應的華氏溫度，四捨五入至小數點後兩位。</p>",
+  "constraints": "<ul><li>-273 ≤ C ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "0",
+  "sampleOutput": "32.00",
+  "samples": [
+    {"input": "0", "output": "32.00"},
+    {"input": "100", "output": "212.00"},
+    {"input": "37", "output": "98.60"}
+  ],
+  "testCases": [
+    {"input": "0", "output": "32.00"},
+    {"input": "100", "output": "212.00"},
+    {"input": "-273", "output": "-459.40"},
+    {"input": "1000", "output": "1832.00"},
+    {"input": "37", "output": "98.60"},
+    {"input": "-40", "output": "-40.00"},
+    {"input": "1", "output": "33.80"},
+    {"input": "-17", "output": "1.40"},
+    {"input": "20", "output": "68.00"},
+    {"input": "-10", "output": "14.00"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p32_celsius_to_fahrenheit",
+    "sourceTitle": "32. 攝氏轉華氏",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定攝氏溫度為整數輸入、華氏結果一律四捨五入至小數點後兩位輸出，並補齊絕對零度、攝氏華氏相等點（-40）與最大邊界測資。"
+  }
+}

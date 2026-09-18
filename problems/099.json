@@ -1,0 +1,56 @@
+{
+  "id": 99,
+  "title": "擷取 M 到 N 的子字串",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "索引",
+    "擷取"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用起訖索引以切片擷取字串中間的子字串"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "字串切片",
+    "索引"
+  ],
+  "description": "<p class='problem-lead'>依照指定的起訖索引擷取子字串。</p><p>讀取字串 <code>a</code> 與兩個整數 <code>m</code>、<code>n</code>，輸出 <code>a</code> 中索引從 <code>m</code>（0-indexed，含）到 <code>n</code>（0-indexed，不含）的子字串。也就是說，結果包含索引 <code>m</code> 到 <code>n - 1</code> 的字元，共 <code>n - m</code> 個字元。若 <code>m</code> 等於 <code>n</code>，輸出空字串。</p>",
+  "hint": "<p>Python 的切片語法 <code>a[m:n]</code> 就是「從 m 到 n（不含）」的意思，可以直接使用。</p>",
+  "inputFormat": "<p>共三行：第一行是字串 <code>a</code>；第二行是整數 <code>m</code>；第三行是整數 <code>n</code>。</p>",
+  "outputFormat": "<p>輸出 <code>a[m:n]</code> 這段子字串；若 <code>m</code> 等於 <code>n</code>，輸出空字串。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 50</li><li>0 ≤ m ≤ n ≤ a 的字元數</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Programming\n3\n7",
+  "sampleOutput": "gram",
+  "samples": [
+    { "input": "Programming\n3\n7", "output": "gram" },
+    { "input": "Python\n0\n3", "output": "Pyt" },
+    { "input": "Hello\n0\n5", "output": "Hello" }
+  ],
+  "testCases": [
+    { "input": "Programming\n3\n7", "output": "gram" },
+    { "input": "Python\n0\n3", "output": "Pyt" },
+    { "input": "Hello\n0\n5", "output": "Hello" },
+    { "input": "Hello\n2\n2", "output": "" },
+    { "input": "Hello\n0\n0", "output": "" },
+    { "input": "abcdef\n1\n1", "output": "" },
+    { "input": "abcdefgh\n0\n8", "output": "abcdefgh" },
+    { "input": "abcdefgh\n7\n8", "output": "h" },
+    { "input": "Programming\n4\n10", "output": "rammin" },
+    { "input": "Hi\n0\n1", "output": "H" },
+    { "input": "Testing123\n4\n10", "output": "ing123" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p58_slice_from_m_to_n",
+    "sourceTitle": "58. 擷取 M 到 N 的子字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "依 raw_test_cases 推導出 0-indexed、n 不含的切片語意，將輸入拆為三行並以限制條件固定合法索引範圍，避免越界；補上 m 等於 n、索引到達字串長度等邊界測資。"
+  }
+}

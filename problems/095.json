@@ -1,0 +1,54 @@
+{
+  "id": 95,
+  "title": "判斷字串結尾是否為驚嘆號",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "條件判斷",
+    "字尾"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用字串的結尾比對方法判斷字尾是否符合指定符號"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "條件判斷"
+  ],
+  "description": "<p class='problem-lead'>判斷一個字串結尾是否為驚嘆號。</p><p>讀取字串 <code>a</code>，判斷它是否以 <code>!</code>（驚嘆號）結尾。是則輸出小寫 <code>true</code>，否則輸出小寫 <code>false</code>。若字串為空字串，視為不以驚嘆號結尾。</p>",
+  "hint": "<p>Python 字串有直接判斷結尾的方法，可以比較最後一個字元是否相符。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>，字串可能為空。</p>",
+  "outputFormat": "<p>若 <code>a</code> 以 <code>!</code> 結尾，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ a 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Wow!",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "Wow!", "output": "true" },
+    { "input": "Wow?", "output": "false" },
+    { "input": "!", "output": "true" }
+  ],
+  "testCases": [
+    { "input": "Wow!", "output": "true" },
+    { "input": "Wow?", "output": "false" },
+    { "input": "!", "output": "true" },
+    { "input": "", "output": "false" },
+    { "input": "Hello World!", "output": "true" },
+    { "input": "Hello!World", "output": "false" },
+    { "input": "!!!", "output": "true" },
+    { "input": "Wow! ", "output": "false" },
+    { "input": "123!", "output": "true" },
+    { "input": "abc", "output": "false" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p54_ends_with_exclamation",
+    "sourceTitle": "54. 判斷是否以 ! 結尾",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "補上空字串、僅含驚嘆號、結尾後接空白等邊界測資，並明定空字串視為不符合。"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": 72,
+  "title": "清單中位數",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["清單", "排序", "數學"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["排序清單並依長度奇偶取出中位數"],
+  "prerequisites": ["清單輸入", "排序", "索引"],
+  "description": "<p class='problem-lead'>找出一份整數清單排序後的中位數。</p><p>給定 <code>N</code> 個整數，請先將它們由小到大排序：若 <code>N</code> 是奇數，中位數是排序後正中間的數字；若 <code>N</code> 是偶數，中位數是排序後正中間兩個數字的平均值。無論結果是否為整數，一律四捨五入至小數點後兩位輸出（固定顯示兩位小數，例如整數結果 3 要輸出 <code>3.00</code>）。</p>",
+  "hint": "<p>先把清單排序，再依 <code>N</code> 是奇數或偶數，分別取正中間一個數字或中間兩個數字的平均。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出排序後的中位數，四捨五入至小數點後兩位。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n1 3 2 5 4",
+  "sampleOutput": "3.00",
+  "samples": [
+    {"input": "5\n1 3 2 5 4", "output": "3.00"},
+    {"input": "4\n1 4 2 5", "output": "3.00"},
+    {"input": "2\n1 2", "output": "1.50"}
+  ],
+  "testCases": [
+    {"input": "5\n1 3 2 5 4", "output": "3.00"},
+    {"input": "4\n1 4 2 5", "output": "3.00"},
+    {"input": "1\n10", "output": "10.00"},
+    {"input": "2\n1 2", "output": "1.50"},
+    {"input": "3\n5 5 5", "output": "5.00"},
+    {"input": "6\n1 2 3 4 5 6", "output": "3.50"},
+    {"input": "4\n-4 -3 -2 -1", "output": "-2.50"},
+    {"input": "7\n7 1 5 3 2 6 4", "output": "4.00"},
+    {"input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100", "output": "50.50"},
+    {"input": "2\n1000 -1000", "output": "0.00"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p31_median",
+    "sourceTitle": "31. 找出清單中位數",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定偶數長度清單取中間兩數平均、結果一律四捨五入至小數點後兩位輸出，並補齊單一元素、負數與最大長度邊界測資。"
+  }
+}

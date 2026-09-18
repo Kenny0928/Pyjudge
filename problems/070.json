@@ -1,0 +1,45 @@
+{
+  "id": 70,
+  "title": "凱薩加密",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["字串", "迴圈", "演算法"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪字串並依字元類型分別位移，實作簡單的凱薩加密"],
+  "prerequisites": ["字串走訪", "ASCII 編碼", "取餘數"],
+  "description": "<p class='problem-lead'>將一段英文字串以凱薩加密法位移後輸出。</p><p>給定字串 <code>S</code> 與非負整數位移量 <code>B</code>，請將 <code>S</code> 中每個英文字母往後位移 <code>B</code> 個位置（字母順序循環，例如 <code>z</code> 的下一個是 <code>a</code>，<code>Z</code> 的下一個是 <code>A</code>）。大寫字母位移後仍是大寫，小寫字母位移後仍是小寫；數字、標點符號與空格等非英文字母字元保持不變。<code>B</code> 可能大於 26，需視為對 26 取餘數後的位移量。</p>",
+  "hint": "<p>把英文字母轉成 0~25 的index（大寫用 <code>ord(ch)-ord('A')</code>，小寫用 <code>ord(ch)-ord('a')</code>），加上位移量後對 26 取餘數，再轉回字元。</p>",
+  "inputFormat": "<p>第一行為字串 <code>S</code>（可能包含英文字母、數字、標點符號與空格）。第二行為非負整數位移量 <code>B</code>。</p>",
+  "outputFormat": "<p>一行，輸出位移後的字串。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 200</li><li>0 ≤ B ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "xyz\n3",
+  "sampleOutput": "abc",
+  "samples": [
+    {"input": "xyz\n3", "output": "abc"},
+    {"input": "Hello, World!\n1", "output": "Ifmmp, Xpsme!"},
+    {"input": "abc\n0", "output": "abc"}
+  ],
+  "testCases": [
+    {"input": "xyz\n3", "output": "abc"},
+    {"input": "Hello, World!\n1", "output": "Ifmmp, Xpsme!"},
+    {"input": "abc\n0", "output": "abc"},
+    {"input": "ABC\n1", "output": "BCD"},
+    {"input": "abcXYZ\n26", "output": "abcXYZ"},
+    {"input": "z\n1", "output": "a"},
+    {"input": "Zebra-101\n2", "output": "Bgdtc-101"},
+    {"input": "abcxyz\n52", "output": "abcxyz"},
+    {"input": "y\n5", "output": "d"},
+    {"input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n1", "output": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p29_caesar_cipher",
+    "sourceTitle": "29. 凱薩加密",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定位移量可能超過 26 需先取模、大小寫需分別處理且非字母字元原樣保留，並補齊零位移、整輪位移與最大長度邊界測資。"
+  }
+}

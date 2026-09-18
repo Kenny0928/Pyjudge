@@ -1,0 +1,45 @@
+{
+  "id": 62,
+  "title": "反轉字串",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["字串", "迴圈", "演算法"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪字串並將字元順序反轉輸出"],
+  "prerequisites": ["字串輸入", "字串索引", "迴圈"],
+  "description": "<p class='problem-lead'>將一行文字反轉後輸出。</p><p>給定字串 <code>S</code>，請輸出把 <code>S</code> 的字元順序整個反過來的結果；字串中的空格也要一併反轉。字串不含前導或尾端空格。</p>",
+  "hint": "<p>可以用切片 <code>S[::-1]</code>，或用迴圈從最後一個字元往前走訪來組出反轉結果。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>。</p>",
+  "outputFormat": "<p>輸出 <code>S</code> 反轉後的結果。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "world",
+  "sampleOutput": "dlrow",
+  "samples": [
+    {"input": "world", "output": "dlrow"},
+    {"input": "12345", "output": "54321"},
+    {"input": "Hello World", "output": "dlroW olleH"}
+  ],
+  "testCases": [
+    {"input": "world", "output": "dlrow"},
+    {"input": "12345", "output": "54321"},
+    {"input": "Hello World", "output": "dlroW olleH"},
+    {"input": "a", "output": "a"},
+    {"input": "ab", "output": "ba"},
+    {"input": "racecar", "output": "racecar"},
+    {"input": "a b c", "output": "c b a"},
+    {"input": "!@#$%", "output": "%$#@!"},
+    {"input": "Python3", "output": "3nohtyP"},
+    {"input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "output": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p16_reverse_string",
+    "sourceTitle": "16. 反轉字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "擴充輸入為可含內部空格與大小寫混合的字串，明定空格也需反轉，並補齊單字元、迴文與上限長度測資。"
+  }
+}

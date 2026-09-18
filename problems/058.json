@@ -1,0 +1,45 @@
+{
+  "id": 58,
+  "title": "1 加到 N",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["迴圈", "累加器", "數學"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用迴圈或累加器計算 1 加到 N 的總和"],
+  "prerequisites": ["整數輸入", "for 迴圈", "累加器"],
+  "description": "<p class='problem-lead'>計算從 1 加到 N 的總和。</p><p>給定正整數 <code>N</code>，請輸出 <code>1 + 2 + 3 + ... + N</code> 的結果。</p>",
+  "hint": "<p>準備一個初始值為 0 的累加器，用迴圈從 1 走訪到 N 並逐一加總。</p>",
+  "inputFormat": "<p>一行，包含一個正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示 1 加到 <code>N</code> 的總和。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5",
+  "sampleOutput": "15",
+  "samples": [
+    {"input": "5", "output": "15"},
+    {"input": "10", "output": "55"},
+    {"input": "1", "output": "1"}
+  ],
+  "testCases": [
+    {"input": "5", "output": "15"},
+    {"input": "10", "output": "55"},
+    {"input": "1", "output": "1"},
+    {"input": "2", "output": "3"},
+    {"input": "100", "output": "5050"},
+    {"input": "99", "output": "4950"},
+    {"input": "1000", "output": "500500"},
+    {"input": "99999", "output": "4999950000"},
+    {"input": "100000", "output": "5000050000"},
+    {"input": "7", "output": "28"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p10_sum_1_to_n",
+    "sourceTitle": "10. 1加到N",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "保留原題語意，將 N 的上限提高至 100000 以驗證累加邏輯而非硬編碼，並補齊最小值與大數測資。"
+  }
+}

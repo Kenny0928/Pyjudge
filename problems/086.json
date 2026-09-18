@@ -1,0 +1,55 @@
+{
+  "id": 86,
+  "title": "取得指定位置的字元",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "索引",
+    "變數"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "以 0-based 索引取出字串中指定位置的字元"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "索引",
+    "整數輸入"
+  ],
+  "description": "<p class='problem-lead'>取出字串中指定位置的字元。</p><p>請讀取字串 <code>a</code> 與一個整數 <code>b</code>，輸出 <code>a</code> 中第 <code>b</code> 個字元。索引採 <code>0-based</code>：<code>b = 0</code> 代表第一個字元，<code>b = 1</code> 代表第二個字元，以此類推。<code>b</code> 保證是 <code>a</code> 的合法索引，不會超出範圍。</p>",
+  "hint": "<p>字串可以用中括號加上索引取出單一字元，例如 <code>a[b]</code>。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>a</code>，第二行包含一個整數 <code>b</code>（0-based 索引）。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 中索引為 <code>b</code> 的字元。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 50</li><li>0 ≤ b ≤ a 的字元數 - 1</li><li>a 不含前導或尾端空白字元</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "banana\n2",
+  "sampleOutput": "n",
+  "samples": [
+    { "input": "banana\n2", "output": "n" },
+    { "input": "world\n0", "output": "w" },
+    { "input": "a\n0", "output": "a" }
+  ],
+  "testCases": [
+    { "input": "banana\n2", "output": "n" },
+    { "input": "world\n0", "output": "w" },
+    { "input": "a\n0", "output": "a" },
+    { "input": "Hello\n4", "output": "o" },
+    { "input": "Hello\n0", "output": "H" },
+    { "input": "Python\n3", "output": "h" },
+    { "input": "abcdef\n5", "output": "f" },
+    { "input": "112233\n2", "output": "2" },
+    { "input": "程式設計\n1", "output": "式" },
+    { "input": "Test123\n6", "output": "3" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p45_get_nth_char",
+    "sourceTitle": "45. 取得第N個字元",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "依 raw_test_cases（world,0→w）確認索引為 0-based，明訂合法索引範圍以避免越界，並補齊頭尾索引、中文與內部空白字元測資。"
+  }
+}

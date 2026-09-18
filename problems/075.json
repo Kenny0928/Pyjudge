@@ -1,0 +1,46 @@
+{
+  "id": 75,
+  "title": "數字範圍判斷",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "邏輯運算", "範圍"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用複合條件判斷數值是否落在指定範圍內"],
+  "prerequisites": ["變數", "比較運算", "if/else"],
+  "description": "<p class='problem-lead'>判斷一個整數是否落在指定範圍之內。</p><p>給定整數 <code>a</code>，判斷它是否介於 10 和 20 之間（包含 10 與 20 本身）。符合請輸出小寫 <code>true</code>，否則輸出小寫 <code>false</code>。</p>",
+  "hint": "<p>可以用一個條件同時檢查「大於等於 10」且「小於等於 20」。</p>",
+  "inputFormat": "<p>一行，包含一個整數 <code>a</code>。</p>",
+  "outputFormat": "<p>若 <code>10 ≤ a ≤ 20</code>，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>-1000 ≤ a ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "15",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "15", "output": "true" },
+    { "input": "5", "output": "false" },
+    { "input": "10", "output": "true" }
+  ],
+  "testCases": [
+    { "input": "15", "output": "true" },
+    { "input": "5", "output": "false" },
+    { "input": "10", "output": "true" },
+    { "input": "20", "output": "true" },
+    { "input": "9", "output": "false" },
+    { "input": "21", "output": "false" },
+    { "input": "0", "output": "false" },
+    { "input": "-5", "output": "false" },
+    { "input": "1000", "output": "false" },
+    { "input": "-1000", "output": "false" },
+    { "input": "16", "output": "true" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p34_in_range",
+    "sourceTitle": "34. 數字範圍判斷",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將輸入限定為整數並補上完整邊界（10、20）與遠離範圍的極值測資，保留 true/false 輸出約定。"
+  }
+}

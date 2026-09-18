@@ -4,9 +4,9 @@
   "sourceSnapshotFetchedAt": "2026-09-15T13:43:18+00:00",
   "problemCount": 200,
   "statusCounts": {
-    "imported": 13,
+    "imported": 63,
     "source_changed": 0,
-    "unreviewed": 187
+    "unreviewed": 137
   },
   "problems": [
     {
@@ -21,8 +21,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "c9a8325a16fc89ca731c39bdd176160aa7c762c4dc81273a36fd38d10a74df2d",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 54,
       "sourceAvailable": true
     },
     {
@@ -69,8 +69,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "6178405ddd3d3ba0451d234a29608fa6923a33dd4d95c1e8162d423a7674f327",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 55,
       "sourceAvailable": true
     },
     {
@@ -103,8 +103,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "c39c38d33893d19fce200fc490c33a60cc1d859572f40bd828328c704996ba0a",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 56,
       "sourceAvailable": true
     },
     {
@@ -120,8 +120,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "839ea33b0142baaee4489e508478ed308dcad6f57bf59b18124ffa0b70279252",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 57,
       "sourceAvailable": true
     },
     {
@@ -168,8 +168,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "5d4701e2eb5529240e18198f9bd8ad309e1dee471373df066e56bb5b3b3f240d",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 58,
       "sourceAvailable": true
     },
     {
@@ -218,8 +218,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "227a8c06dc17cc2d9cf58ea42c0082e017abbb918b473b8e899c28a832809a42",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 59,
       "sourceAvailable": true
     },
     {
@@ -233,8 +233,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "c67f292762bec2dc4c7675c4b4314dce63ada42f11ea07def3f586c99611fb8e",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 60,
       "sourceAvailable": true
     },
     {
@@ -249,8 +249,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "5baec123cb55b957a5cea7f2a2dc0354a01fba22430a29f613ed1c06afa08bc2",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 61,
       "sourceAvailable": true
     },
     {
@@ -266,8 +266,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "053cb892d95f87f538c33fdfe2c63d50ee35f111698c3cc41bedfdfb9a7ad867",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 62,
       "sourceAvailable": true
     },
     {
@@ -299,8 +299,8 @@
       ],
       "candidateCaseCount": 3,
       "sourceContentHash": "3a24a083c52bae7d2b35b956af023578860442e67eb84cd3bc3c4b8e1f9525df",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 63,
       "sourceAvailable": true
     },
     {
@@ -334,8 +334,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "6ad4c400db2f98b6ef2e82f78665342fe7f5c43e86084e8941d3ed088e53e6d6",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 64,
       "sourceAvailable": true
     },
     {
@@ -350,8 +350,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "47c19e564c4baf963b5f6ffb9147b1c96c8a61d87fcb3c9426ef4b3466614c15",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 65,
       "sourceAvailable": true
     },
     {
@@ -385,8 +385,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "d5c210d6436ecf2a8e017372ee33971919373eeba08935f4bb47b4e5b93b7355",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 66,
       "sourceAvailable": true
     },
     {
@@ -403,8 +403,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "7abdbedb1cb9be61fe89fadb62eb12062f94caf376837ef65829098cf51b8e8e",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 67,
       "sourceAvailable": true
     },
     {
@@ -437,8 +437,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "29c835420ac287b79767069b746b88f82a1567a1589d8b7791a5ad8e15e0bf09",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 68,
       "sourceAvailable": true
     },
     {
@@ -473,8 +473,8 @@
       ],
       "candidateCaseCount": 3,
       "sourceContentHash": "b7b37c18d8fd2133b8778b7e9223a18e57201754c683620dbd21fa9bf3bf90e7",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 69,
       "sourceAvailable": true
     },
     {
@@ -491,8 +491,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "6af3c9ed472c30dc6d67162ffd4d0e258c9c5e7ac9435871f4fe6e3dddfc2334",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 70,
       "sourceAvailable": true
     },
     {
@@ -508,8 +508,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "1e987dcc9b31391dbea30955696e93287dbe8770c9e75819ae6a7220ddc6ad07",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 71,
       "sourceAvailable": true
     },
     {
@@ -526,8 +526,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "4c9057c57da702ac1ed85919be5c87acdd81c3e88e8ca2283a7f8cffb74c0626",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 72,
       "sourceAvailable": true
     },
     {
@@ -543,8 +543,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "2d3975b37b7bda8d0a55aa554b0720aaeb1a52094eaae7caa78277896743ffa4",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 73,
       "sourceAvailable": true
     },
     {
@@ -560,8 +560,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "6ea06e121e457f9a54cc2efbe10b6e9f346fe9cbd420834577431a5a323114b1",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 74,
       "sourceAvailable": true
     },
     {
@@ -576,8 +576,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "62256b91959c5f08d7dbe54d7c6b650c5c6423b8b239d5f94b6db1f68f635ff1",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 75,
       "sourceAvailable": true
     },
     {
@@ -593,8 +593,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "cee5f71dba9b70c6ae9bf0171e66de342d6d3e8286c826a22267d4008501a875",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 76,
       "sourceAvailable": true
     },
     {
@@ -611,8 +611,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "9c248bea29fd9a1d53214c42cf578aee5d54600dea44c2c6ce3e620c4e4d6f1a",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 77,
       "sourceAvailable": true
     },
     {
@@ -629,8 +629,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "5a87a71c614be70c4cd1849a132e0cf59a19d163f90943b16e783288a519ff98",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 78,
       "sourceAvailable": true
     },
     {
@@ -647,8 +647,8 @@
       ],
       "candidateCaseCount": 3,
       "sourceContentHash": "1b0d256c403316df27a5133c42ae9afbd18fa04641e53230fd9365f5407c5f25",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 79,
       "sourceAvailable": true
     },
     {
@@ -664,8 +664,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "913624658398a4961c1d94ac7b9cddcca616c44bfee857a30680c6fdb46194e6",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 80,
       "sourceAvailable": true
     },
     {
@@ -682,8 +682,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "fa7cadd06e4d167f2e18bacd7439e96b17a7abef5b0337724ab9c12c9fc5372d",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 81,
       "sourceAvailable": true
     },
     {
@@ -701,8 +701,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "cec7525f4a5511eed489d72328d92d9731923532efbb8a600d62ba2bf4895ffb",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 82,
       "sourceAvailable": true
     },
     {
@@ -717,8 +717,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "f80574b448c587d61c5eda0076fb0373d9b17808d75812f9b4ce03620769c582",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 83,
       "sourceAvailable": true
     },
     {
@@ -733,8 +733,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "66d14fe95bec932e8160f6a26c7bd855805cb6ae5e8ddc616334c98f2b5d3d65",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 84,
       "sourceAvailable": true
     },
     {
@@ -749,8 +749,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "fcfe00c6e2b7d7619095192104a5b8a3fc7c64b831b05aa6e9a5d2b3ace47569",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 85,
       "sourceAvailable": true
     },
     {
@@ -766,8 +766,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "b9ce50dac9745f5174c7e5948a90dcaad789970b6482ddd1fbcce82050e09ade",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 86,
       "sourceAvailable": true
     },
     {
@@ -782,8 +782,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "a3818d97eddedc3b80a2efbaa1bb0e3fac8ec7f412b4a600fd7f4133498e5548",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 87,
       "sourceAvailable": true
     },
     {
@@ -798,8 +798,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "21b11234b507e8f06552070500635fdb70b99dc6cde5083b032ed2cef63e758a",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 88,
       "sourceAvailable": true
     },
     {
@@ -814,8 +814,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "74bc041fe839b76bc8852421ce8f17afc3646efd6e9000740c2877c105e00157",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 89,
       "sourceAvailable": true
     },
     {
@@ -831,8 +831,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "ab31b62540634fd6f040f2be5cbbf29fec421ca14f39df134120e4d964791df6",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 90,
       "sourceAvailable": true
     },
     {
@@ -848,8 +848,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "dfe12a04ee352607a084931b711c482d08ff6751213dd717f7c4b6c751d67781",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 91,
       "sourceAvailable": true
     },
     {
@@ -864,8 +864,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "0df93d97420d3bd2bfe1e956632273eefeb224915aebb22b64f0dbf7ea732e65",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 92,
       "sourceAvailable": true
     },
     {
@@ -880,8 +880,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "a5723322e57229f282a25ceaa3c9fface10256841c23051b58abc9c30e346267",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 93,
       "sourceAvailable": true
     },
     {
@@ -896,8 +896,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "4e3cddabf0922f914f2287858bb3600a9da14387b9de34e25fde33083925fe51",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 94,
       "sourceAvailable": true
     },
     {
@@ -912,8 +912,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "237f792d09f3e22a114886fd3f595f2e45f1b33748f41b16778e6638a73b1284",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 95,
       "sourceAvailable": true
     },
     {
@@ -928,8 +928,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "d2ca08c277aea061419279a243f7172e26cea60c0c5395db673bffc12cd6184b",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 96,
       "sourceAvailable": true
     },
     {
@@ -945,8 +945,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "bd3a47e6c1b1dc5cb1d929cc1ef0827215a365c5e1634aff95565588e482493a",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 97,
       "sourceAvailable": true
     },
     {
@@ -962,8 +962,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "2ccae77b83976937d3995e78ce18ea9b0ca7362b597d9ffdb6ac8fe674d7a700",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 98,
       "sourceAvailable": true
     },
     {
@@ -979,8 +979,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "15c48709e9dfc31566835847b9fa2a2b4dd014997807b7f45cdb541a61f651bd",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 99,
       "sourceAvailable": true
     },
     {
@@ -995,8 +995,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "ab03f05ea93a2ad824a7bd14488aab1cf441b7e972802d3b61ef7fc6cbc1fe26",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 100,
       "sourceAvailable": true
     },
     {
@@ -1012,8 +1012,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "21c16fcf883783c8e7f33585d113083698c6949ab4a9d221b88f3cc7921c2d31",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 101,
       "sourceAvailable": true
     },
     {
@@ -1028,8 +1028,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "3dac2e2ca8dfbaf854de566d49839478ba2f59f6a6a7a71be1d7c2af0d245296",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 102,
       "sourceAvailable": true
     },
     {
@@ -1044,8 +1044,8 @@
       ],
       "candidateCaseCount": 2,
       "sourceContentHash": "0f00d18e1210f91553df0da7eaab4561581d3b42133ac3ad42e1e30be2c0267b",
-      "status": "unreviewed",
-      "pyjudgeId": null,
+      "status": "imported",
+      "pyjudgeId": 103,
       "sourceAvailable": true
     },
     {

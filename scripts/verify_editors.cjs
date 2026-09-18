@@ -21,7 +21,7 @@ test('Judge stage filters combine with difficulty, search and completion status'
     result[problem.stage] = (result[problem.stage] || 0) + 1;
     return result;
   }, {});
-  assert.deepEqual(counts, { Beginner: 25, Intermediate: 23, Advanced: 5, Challenge: 1 });
+  assert.deepEqual(counts, { Beginner: 49, Intermediate: 49, Advanced: 5, Challenge: 1 });
 
   const filter = (filters, solvedIds = []) => {
     const solved = new Set(solvedIds);

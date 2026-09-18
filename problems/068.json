@@ -1,0 +1,45 @@
+{
+  "id": 68,
+  "title": "移除清單重複項",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["清單", "迴圈", "演算法"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用集合記錄已出現過的元素，移除清單中的重複項目"],
+  "prerequisites": ["清單輸入", "集合", "迴圈"],
+  "description": "<p class='problem-lead'>移除清單中的重複項目，只保留每個項目第一次出現的位置。</p><p>給定 <code>N</code> 個項目，請輸出一個新清單：清單中每個項目只出現一次，且保留它們原本第一次出現的先後順序。項目可能是整數或不含空白的英文字母字串。</p>",
+  "hint": "<p>用一個集合記錄看過的項目，走訪時只有第一次遇到的項目才放進結果清單。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個項目。</p>",
+  "outputFormat": "<p>一行，輸出移除重複項目後的清單，項目之間以空格分隔，並保留原本第一次出現的順序。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>每個項目為長度 1 至 10 且不含空白的英文字母或數字字串</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6\n1 2 2 3 1 4",
+  "sampleOutput": "1 2 3 4",
+  "samples": [
+    {"input": "6\n1 2 2 3 1 4", "output": "1 2 3 4"},
+    {"input": "4\na b a c", "output": "a b c"},
+    {"input": "1\n5", "output": "5"}
+  ],
+  "testCases": [
+    {"input": "6\n1 2 2 3 1 4", "output": "1 2 3 4"},
+    {"input": "4\na b a c", "output": "a b c"},
+    {"input": "1\n5", "output": "5"},
+    {"input": "5\n1 1 1 1 1", "output": "1"},
+    {"input": "5\n1 2 3 4 5", "output": "1 2 3 4 5"},
+    {"input": "4\nx y x y", "output": "x y"},
+    {"input": "2\n-1 -1", "output": "-1"},
+    {"input": "7\na b c a b c a", "output": "a b c"},
+    {"input": "8\n1 2 1 3 2 4 3 5", "output": "1 2 3 4 5"},
+    {"input": "100\n7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7", "output": "7"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p26_remove_duplicates",
+    "sourceTitle": "26. 移除清單重複項",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "統一為 N 加一行清單輸入格式，明定以「第一次出現順序」保留元素並單行空白分隔輸出，補齊全重複、無重複與最大長度邊界測資。"
+  }
+}

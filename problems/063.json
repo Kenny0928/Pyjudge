@@ -1,0 +1,47 @@
+{
+  "id": 63,
+  "title": "成績等級判斷",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "多分支", "數學"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用多個 if/elif 分支依範圍判斷成績等級"],
+  "prerequisites": ["整數輸入", "if/elif/else", "比較運算"],
+  "description": "<p class='problem-lead'>依分數判斷成績等級。</p><p>給定一個 0 到 100 之間的整數分數 <code>A</code>，請依下列規則輸出對應的等級：分數 <code>&gt;= 90</code> 輸出 <code>A</code>；<code>80</code> 到 <code>89</code> 輸出 <code>B</code>；<code>70</code> 到 <code>79</code> 輸出 <code>C</code>；<code>60</code> 到 <code>69</code> 輸出 <code>D</code>；其餘（<code>60</code> 分以下）輸出 <code>F</code>。輸出只有一個大寫英文字母，區間邊界皆為整數且互不重疊。</p>",
+  "hint": "<p>用一連串的 <code>if/elif/else</code>，由分數最高的區間開始依序判斷。</p>",
+  "inputFormat": "<p>一行，包含一個整數分數 <code>A</code>。</p>",
+  "outputFormat": "<p>輸出一個大寫英文字母：<code>A</code>、<code>B</code>、<code>C</code>、<code>D</code> 或 <code>F</code>，代表對應的成績等級。</p>",
+  "constraints": "<ul><li>0 ≤ A ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "95",
+  "sampleOutput": "A",
+  "samples": [
+    {"input": "95", "output": "A"},
+    {"input": "72", "output": "C"},
+    {"input": "59", "output": "F"}
+  ],
+  "testCases": [
+    {"input": "95", "output": "A"},
+    {"input": "72", "output": "C"},
+    {"input": "59", "output": "F"},
+    {"input": "100", "output": "A"},
+    {"input": "90", "output": "A"},
+    {"input": "89", "output": "B"},
+    {"input": "80", "output": "B"},
+    {"input": "79", "output": "C"},
+    {"input": "70", "output": "C"},
+    {"input": "69", "output": "D"},
+    {"input": "60", "output": "D"},
+    {"input": "0", "output": "F"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p18_grade_checker",
+    "sourceTitle": "18. 成績等級判斷",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "去除原題輸出中的多餘單引號，明定五個等級區間的整數邊界，並補齊每一級距上下界的完整分支測資。"
+  }
+}

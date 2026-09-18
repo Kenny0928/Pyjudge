@@ -1,0 +1,45 @@
+{
+  "id": 74,
+  "title": "計算母音數量",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["字串走訪", "計數器", "母音"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪字串並統計符合條件的字元數量", "使用大小寫轉換統一比對條件"],
+  "prerequisites": ["字串", "for 迴圈", "條件判斷"],
+  "description": "<p class='problem-lead'>統計一段英文文字中母音字母出現的總次數。</p><p>給定字串 <code>S</code>，只包含英文字母與空白字元。請計算其中母音字母（<code>a</code>、<code>e</code>、<code>i</code>、<code>o</code>、<code>u</code>）共出現幾次，比較時不分大小寫（例如 <code>A</code> 與 <code>a</code> 都算母音）。</p>",
+  "hint": "<p>逐一走訪字串的每個字元，先轉成小寫再檢查是否屬於母音集合，符合就讓計數器加一。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，只由英文字母（大小寫皆可）與空白字元組成。</p>",
+  "outputFormat": "<p>輸出一個非負整數，表示 <code>S</code> 中母音字母的總數。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 200</li><li>S 只包含英文字母（a-z、A-Z）與空白字元</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Hello World",
+  "sampleOutput": "3",
+  "samples": [
+    { "input": "Hello World", "output": "3" },
+    { "input": "AEIOU", "output": "5" },
+    { "input": "bcdfg", "output": "0" }
+  ],
+  "testCases": [
+    { "input": "Hello World", "output": "3" },
+    { "input": "AEIOU", "output": "5" },
+    { "input": "aeiou", "output": "5" },
+    { "input": "bcdfg", "output": "0" },
+    { "input": "a", "output": "1" },
+    { "input": "b", "output": "0" },
+    { "input": "AaEeIiOoUu", "output": "10" },
+    { "input": "The Quick Brown Fox", "output": "5" },
+    { "input": "xyz XYZ", "output": "0" },
+    { "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "output": "200" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p33_count_vowels",
+    "sourceTitle": "33. 計算母音數量",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "限定輸入僅含英文字母與空白，明定大小寫不分的比對規則，並補齊零母音、全母音與最大長度邊界測資。"
+  }
+}

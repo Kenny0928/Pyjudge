@@ -1,0 +1,45 @@
+{
+  "id": 54,
+  "title": "計算兩數之和",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": ["基本運算", "加法", "輸入輸出"],
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取兩個整數並計算加法"],
+  "prerequisites": ["整數輸入", "變數", "加法"],
+  "description": "<p class='problem-lead'>計算兩個整數的總和。</p><p>給定整數 <code>A</code> 與 <code>B</code>，請輸出 <code>A + B</code>。</p>",
+  "hint": "<p>先讀取 <code>A</code>，再讀取 <code>B</code>，最後把兩個數字相加。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>A</code>，第二行包含整數 <code>B</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示 <code>A + B</code>。</p>",
+  "constraints": "<ul><li>-10000 ≤ A, B ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n3",
+  "sampleOutput": "8",
+  "samples": [
+    {"input": "5\n3", "output": "8"},
+    {"input": "-2\n7", "output": "5"},
+    {"input": "0\n0", "output": "0"}
+  ],
+  "testCases": [
+    {"input": "5\n3", "output": "8"},
+    {"input": "-2\n7", "output": "5"},
+    {"input": "0\n0", "output": "0"},
+    {"input": "-10000\n10000", "output": "0"},
+    {"input": "10000\n10000", "output": "20000"},
+    {"input": "-10000\n-10000", "output": "-20000"},
+    {"input": "7\n7", "output": "14"},
+    {"input": "1\n-1", "output": "0"},
+    {"input": "9999\n1", "output": "10000"},
+    {"input": "-9999\n-1", "output": "-10000"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p01_addition",
+    "sourceTitle": "01. 計算兩數之和",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明確限定整數輸入與兩行輸入格式，並補齊零、正負抵消、相等與上下界測資。"
+  }
+}

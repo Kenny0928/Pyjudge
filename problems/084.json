@@ -1,0 +1,53 @@
+{
+  "id": 84,
+  "title": "取得第一個字元",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "索引"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用索引 0 取出字串的第一個字元"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "索引"
+  ],
+  "description": "<p class='problem-lead'>取出一個字串的第一個字元。</p><p>請讀取字串 <code>a</code>，輸出它的第一個字元。<code>a</code> 保證至少有一個字元，且不含前導或尾端空白。</p>",
+  "hint": "<p>字串的第一個字元可以用索引 <code>0</code> 取得，例如 <code>a[0]</code>。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 的第一個字元。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 100</li><li>a 不含前導或尾端空白字元</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "apple",
+  "sampleOutput": "a",
+  "samples": [
+    { "input": "apple", "output": "a" },
+    { "input": "Cat", "output": "C" },
+    { "input": "z", "output": "z" }
+  ],
+  "testCases": [
+    { "input": "apple", "output": "a" },
+    { "input": "Cat", "output": "C" },
+    { "input": "z", "output": "z" },
+    { "input": "Hello World", "output": "H" },
+    { "input": "1234567890", "output": "1" },
+    { "input": "!@#$%^&*", "output": "!" },
+    { "input": "程式設計", "output": "程" },
+    { "input": "Python", "output": "P" },
+    { "input": "AAAAA", "output": "A" },
+    { "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "output": "x" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p43_get_first_char",
+    "sourceTitle": "43. 取得第一個字元",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明確規定字串長度範圍與不含前導尾端空白，並補齊單字元、符號、數字、中文與最大長度邊界測資。"
+  }
+}

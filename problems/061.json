@@ -1,0 +1,47 @@
+{
+  "id": 61,
+  "title": "檢查項目是否存在",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "邏輯判斷", "布林輸出"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪清單並判斷指定項目是否存在其中"],
+  "prerequisites": ["清單輸入", "for 迴圈", "字串比較"],
+  "description": "<p class='problem-lead'>檢查某個項目是不是在清單裡面。</p><p>給定 <code>N</code> 個項目組成的清單，以及一個要檢查的目標項目 <code>B</code>，若 <code>B</code> 出現在清單中，輸出 <code>true</code>，否則輸出 <code>false</code>。比對採完全相同的文字（區分大小寫）。</p>",
+  "hint": "<p>走訪清單中的每個項目，只要有一個和 <code>B</code> 完全相同就代表存在。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個項目。第三行包含要檢查的項目 <code>B</code>。</p>",
+  "outputFormat": "<p>若 <code>B</code> 存在於清單中，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>清單項目與 B 皆不含空格</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\na b c\nb",
+  "sampleOutput": "true",
+  "samples": [
+    {"input": "3\na b c\nb", "output": "true"},
+    {"input": "3\n10 20 30\n5", "output": "false"},
+    {"input": "1\nx\nx", "output": "true"}
+  ],
+  "testCases": [
+    {"input": "3\na b c\nb", "output": "true"},
+    {"input": "3\n10 20 30\n5", "output": "false"},
+    {"input": "1\nx\nx", "output": "true"},
+    {"input": "1\nx\ny", "output": "false"},
+    {"input": "5\napple banana cherry date fig\ngrape", "output": "false"},
+    {"input": "5\napple banana cherry date fig\ncherry", "output": "true"},
+    {"input": "4\n1 2 3 2\n2", "output": "true"},
+    {"input": "4\nA B C D\na", "output": "false"},
+    {"input": "6\n-1 -2 -3 0 5 10\n0", "output": "true"},
+    {"input": "6\n-1 -2 -3 0 5 10\n7", "output": "false"},
+    {"input": "3\nfirst mid last\nfirst", "output": "true"},
+    {"input": "3\nfirst mid last\nlast", "output": "true"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p15_list_contains",
+    "sourceTitle": "15. 檢查項目是否存在",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站每項各佔一行的輸入統一為 N 加一行空格分隔清單、再加一行目標值，明定區分大小寫的完全比對規則，並補齊首尾項目、重複值、零與大小寫測資。"
+  }
+}

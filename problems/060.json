@@ -1,0 +1,45 @@
+{
+  "id": 60,
+  "title": "計算清單長度",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "計數"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取一份清單並計算其中的項目數量"],
+  "prerequisites": ["清單輸入", "len()"],
+  "description": "<p class='problem-lead'>計算一份清單裡有多少個項目。</p><p>給定 <code>N</code> 個項目（可能是數字或文字），請輸出這份清單的長度（項目數量）。</p>",
+  "hint": "<p>把第二行以空格切開後，用 <code>len()</code> 計算切出來的項目數量。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個項目。</p>",
+  "outputFormat": "<p>輸出一個整數，表示清單的項目數量。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\n1 2 3",
+  "sampleOutput": "3",
+  "samples": [
+    {"input": "3\n1 2 3", "output": "3"},
+    {"input": "2\napple banana", "output": "2"},
+    {"input": "1\nx", "output": "1"}
+  ],
+  "testCases": [
+    {"input": "3\n1 2 3", "output": "3"},
+    {"input": "2\napple banana", "output": "2"},
+    {"input": "1\nx", "output": "1"},
+    {"input": "5\na b c d e", "output": "5"},
+    {"input": "10\n1 2 3 4 5 6 7 8 9 10", "output": "10"},
+    {"input": "4\napple 2 true xyz", "output": "4"},
+    {"input": "6\n-1 -2 -3 0 5 10", "output": "6"},
+    {"input": "7\nred orange yellow green blue indigo violet", "output": "7"},
+    {"input": "1\n0", "output": "1"},
+    {"input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100", "output": "100"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p14_list_length",
+    "sourceTitle": "14. 計算清單長度",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站每項各佔一行的輸入統一為 N 加一行空格分隔清單；解答改以實際切割第二行計算長度而非直接複製 N，避免防呆漏洞，並補齊單一項目、文字項目、混合型別與上限長度測資。"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": 79,
+  "title": "阿姆斯壯數判斷",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["數學", "迴圈", "數字"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["拆解整數的每一位數字", "計算次方和並與原數比較"],
+  "prerequisites": ["整數運算", "字串與數字轉換", "for 迴圈"],
+  "description": "<p class='problem-lead'>判斷一個三位數是否為阿姆斯壯數。</p><p>給定三位數整數 <code>N</code>（<code>100 ≤ N ≤ 999</code>），阿姆斯壯數是指「各位數字的三次方相加後等於原數本身」的數，例如 <code>153 = 1³ + 5³ + 3³</code>。若 <code>N</code> 是阿姆斯壯數，輸出小寫 <code>true</code>；否則輸出小寫 <code>false</code>。</p>",
+  "hint": "<p>把 <code>N</code> 拆成百位、十位、個位三個數字，分別計算三次方後相加，再與 <code>N</code> 比較是否相等。</p>",
+  "inputFormat": "<p>一行，包含一個三位數整數 <code>N</code>。</p>",
+  "outputFormat": "<p>若 <code>N</code> 是阿姆斯壯數，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>100 ≤ N ≤ 999</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "153",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "153", "output": "true" },
+    { "input": "370", "output": "true" },
+    { "input": "123", "output": "false" }
+  ],
+  "testCases": [
+    { "input": "153", "output": "true" },
+    { "input": "370", "output": "true" },
+    { "input": "123", "output": "false" },
+    { "input": "371", "output": "true" },
+    { "input": "407", "output": "true" },
+    { "input": "100", "output": "false" },
+    { "input": "999", "output": "false" },
+    { "input": "200", "output": "false" },
+    { "input": "111", "output": "false" },
+    { "input": "555", "output": "false" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p38_armstrong_number",
+    "sourceTitle": "38. 阿姆斯壯數判斷",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "限定為三位數並明定判斷公式，補齊 100、999 邊界與多組真假測資，涵蓋常見與非阿姆斯壯數。"
+  }
+}

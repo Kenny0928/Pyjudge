@@ -1,0 +1,53 @@
+{
+  "id": 88,
+  "title": "字串轉小寫",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "大小寫"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "將英文字串中的大寫字母轉換為小寫"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "變數"
+  ],
+  "description": "<p class='problem-lead'>把英文字串轉換成全部小寫。</p><p>請讀取字串 <code>a</code>，將其中的英文字母全部轉換為小寫並輸出。數字、空白與標點符號維持原樣不變。</p>",
+  "hint": "<p>Python 的字串有內建方法可以直接把英文字母轉成小寫。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 轉換為小寫後的結果。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 100</li><li>a 不含前導或尾端空白字元</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "World",
+  "sampleOutput": "world",
+  "samples": [
+    { "input": "World", "output": "world" },
+    { "input": "BLOCKLY", "output": "blockly" },
+    { "input": "hello", "output": "hello" }
+  ],
+  "testCases": [
+    { "input": "World", "output": "world" },
+    { "input": "BLOCKLY", "output": "blockly" },
+    { "input": "hello", "output": "hello" },
+    { "input": "A", "output": "a" },
+    { "input": "PYTHON3", "output": "python3" },
+    { "input": "HELLO, WORLD!", "output": "hello, world!" },
+    { "input": "MixedCASE", "output": "mixedcase" },
+    { "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "output": "abcdefghijklmnopqrstuvwxyz" },
+    { "input": "aaaa", "output": "aaaa" },
+    { "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "output": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p47_to_lowercase",
+    "sourceTitle": "47. 轉換為小寫",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "說明數字與標點不受影響，並補齊全小寫、混合大小寫、標點與最大長度邊界測資。"
+  }
+}

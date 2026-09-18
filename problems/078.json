@@ -1,0 +1,45 @@
+{
+  "id": 78,
+  "title": "計算複利",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["數學", "公式", "浮點數"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["套用複利公式進行冪次運算", "以固定小數位數輸出浮點數結果"],
+  "prerequisites": ["變數", "指數運算", "浮點數輸出格式"],
+  "description": "<p class='problem-lead'>計算固定年利率下，本金經過數期複利後的本利和。</p><p>給定本金 <code>P</code>（整數）與期數 <code>N</code>（整數），假設年利率固定為 5%，計算 <code>N</code> 期後的本利和，公式為 <code>P × (1.05)^N</code>。結果須四捨五入到小數點後第 2 位，並固定輸出兩位小數（例如 <code>1050.00</code>、<code>1102.50</code>）。</p>",
+  "hint": "<p>可以用乘冪運算子（如 Python 的 <code>**</code>）直接計算 <code>1.05</code> 的 <code>N</code> 次方，再用固定兩位小數的格式輸出。</p>",
+  "inputFormat": "<p>第一行為整數 <code>P</code>，表示本金。第二行為整數 <code>N</code>，表示期數。</p>",
+  "outputFormat": "<p>輸出 <code>N</code> 期後的本利和，四捨五入到小數點後第 2 位，並固定顯示兩位小數。</p>",
+  "constraints": "<ul><li>1 ≤ P ≤ 1000000</li><li>0 ≤ N ≤ 30</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "1000\n1",
+  "sampleOutput": "1050.00",
+  "samples": [
+    { "input": "1000\n1", "output": "1050.00" },
+    { "input": "1000\n2", "output": "1102.50" },
+    { "input": "1000\n0", "output": "1000.00" }
+  ],
+  "testCases": [
+    { "input": "1000\n1", "output": "1050.00" },
+    { "input": "1000\n2", "output": "1102.50" },
+    { "input": "1000\n0", "output": "1000.00" },
+    { "input": "1\n0", "output": "1.00" },
+    { "input": "1\n1", "output": "1.05" },
+    { "input": "1000000\n1", "output": "1050000.00" },
+    { "input": "1000000\n30", "output": "4321942.38" },
+    { "input": "500\n3", "output": "578.81" },
+    { "input": "2000\n5", "output": "2552.56" },
+    { "input": "100\n10", "output": "162.89" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p37_compound_interest",
+    "sourceTitle": "37. 計算複利",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定四捨五入到小數第 2 位並固定輸出兩位小數，消除浮點數格式歧義，並補齊期數為 0 與本金上下界測資。"
+  }
+}

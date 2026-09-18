@@ -1,0 +1,45 @@
+{
+  "id": 59,
+  "title": "找出清單最大值",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "最值尋找", "迴圈"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整數清單並維護目前最大值"],
+  "prerequisites": ["清單輸入", "for 迴圈", "比較運算"],
+  "description": "<p class='problem-lead'>從整數清單中找出最大的數字。</p><p>給定 <code>N</code> 個整數，請輸出其中的最大值。清單可能包含負數與重複值。</p>",
+  "hint": "<p>可以先把第一個數字當作目前最大值，再逐一和後面的數字比較並更新。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出一個整數，表示清單中的最大值。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-10000 ≤ 每個整數 ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "4\n1 9 3 5",
+  "sampleOutput": "9",
+  "samples": [
+    {"input": "4\n1 9 3 5", "output": "9"},
+    {"input": "4\n-1 -8 -2 -5", "output": "-1"},
+    {"input": "3\n7 7 7", "output": "7"}
+  ],
+  "testCases": [
+    {"input": "4\n1 9 3 5", "output": "9"},
+    {"input": "4\n-1 -8 -2 -5", "output": "-1"},
+    {"input": "3\n7 7 7", "output": "7"},
+    {"input": "1\n42", "output": "42"},
+    {"input": "5\n-5 -4 -3 -2 -1", "output": "-1"},
+    {"input": "6\n0 3 2 1 4 5", "output": "5"},
+    {"input": "2\n10000 -10000", "output": "10000"},
+    {"input": "6\n-8 4 -8 10 0 3", "output": "10"},
+    {"input": "4\n100 50 75 25", "output": "100"},
+    {"input": "5\n9 1 2 3 4", "output": "9"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p13_list_find_max",
+    "sourceTitle": "13. 找出清單最大值",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站每項各佔一行的輸入統一為 N 加一行空格分隔清單，並補齊單元素、全負數、重複值與最大值出現於首尾等測資。"
+  }
+}

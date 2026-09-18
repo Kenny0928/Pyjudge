@@ -1,0 +1,47 @@
+{
+  "id": 55,
+  "title": "計算兩數之商",
+  "stage": "Beginner",
+  "difficulty": "Medium",
+  "tags": ["基本運算", "除法", "數學"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["計算兩數相除的商，並依規則輸出整數或小數"],
+  "prerequisites": ["整數輸入", "除法概念", "小數表示"],
+  "description": "<p class='problem-lead'>計算兩個整數相除的商。</p><p>給定整數 <code>A</code> 與 <code>B</code>（<code>B</code> 不為 0），請輸出 <code>A ÷ B</code> 的商。若商剛好是整數，輸出整數（例如 <code>5</code>，不寫成 <code>5.0</code>）；否則輸出到小數點後最少必要位數（去除多餘的尾端 0，例如 <code>2.5</code>、<code>2.25</code>）。測試資料保證商最多只到小數點後兩位，不會出現無窮小數。</p>",
+  "hint": "<p>先算出 <code>A / B</code>，四捨五入到小數點後兩位；若結果等於整數就輸出整數，否則去掉多餘的尾端 0。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>A</code>，第二行包含整數 <code>B</code>（<code>B</code> 不為 0）。</p>",
+  "outputFormat": "<p>輸出一個數字，表示 <code>A ÷ B</code> 的商；整數商不含小數點，小數商去除多餘的尾端 0。</p>",
+  "constraints": "<ul><li>-1000 ≤ A ≤ 1000</li><li>-1000 ≤ B ≤ 1000，且 B ≠ 0</li><li>測試資料保證 A ÷ B 最多只到小數點後兩位</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "20\n4",
+  "sampleOutput": "5",
+  "samples": [
+    {"input": "20\n4", "output": "5"},
+    {"input": "10\n4", "output": "2.5"},
+    {"input": "9\n4", "output": "2.25"}
+  ],
+  "testCases": [
+    {"input": "20\n4", "output": "5"},
+    {"input": "10\n4", "output": "2.5"},
+    {"input": "9\n4", "output": "2.25"},
+    {"input": "1\n4", "output": "0.25"},
+    {"input": "-9\n4", "output": "-2.25"},
+    {"input": "0\n5", "output": "0"},
+    {"input": "-20\n5", "output": "-4"},
+    {"input": "1000\n1", "output": "1000"},
+    {"input": "-1000\n1", "output": "-1000"},
+    {"input": "7\n2", "output": "3.5"},
+    {"input": "9\n-4", "output": "-2.25"},
+    {"input": "1\n1", "output": "1"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p04_division",
+    "sourceTitle": "04. 計算兩數之商",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原題候選測資出現整數與一位小數兩種輸出型態，因此明定「整數不寫小數點、小數去除尾端 0，且保證最多兩位小數」的輸出規則，並補齊負數、零被除數、除數為負與上下界測資。"
+  }
+}

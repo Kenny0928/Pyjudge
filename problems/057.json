@@ -1,0 +1,46 @@
+{
+  "id": 57,
+  "title": "找出較大值",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "比較運算", "數學"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用 if/else 比較兩個整數並輸出較大值"],
+  "prerequisites": ["整數輸入", "if/else", "比較運算"],
+  "description": "<p class='problem-lead'>找出兩個整數中較大的一個。</p><p>給定整數 <code>A</code> 與 <code>B</code>，請輸出其中較大的數字。若兩數相等，輸出該數字即可。</p>",
+  "hint": "<p>用一個 <code>if</code> 判斷 <code>A</code> 是否大於 <code>B</code>，決定要輸出哪一個。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>A</code>，第二行包含整數 <code>B</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示 <code>A</code> 與 <code>B</code> 之中較大的數字。</p>",
+  "constraints": "<ul><li>-10000 ≤ A, B ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "15\n8",
+  "sampleOutput": "15",
+  "samples": [
+    {"input": "15\n8", "output": "15"},
+    {"input": "-5\n0", "output": "0"},
+    {"input": "7\n7", "output": "7"}
+  ],
+  "testCases": [
+    {"input": "15\n8", "output": "15"},
+    {"input": "-5\n0", "output": "0"},
+    {"input": "7\n7", "output": "7"},
+    {"input": "-3\n-8", "output": "-3"},
+    {"input": "0\n0", "output": "0"},
+    {"input": "10000\n-10000", "output": "10000"},
+    {"input": "-10000\n10000", "output": "10000"},
+    {"input": "1\n2", "output": "2"},
+    {"input": "-1\n-2", "output": "-1"},
+    {"input": "9999\n10000", "output": "10000"},
+    {"input": "-10000\n-10000", "output": "-10000"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p07_find_max",
+    "sourceTitle": "07. 找出較大值",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定兩數相等時直接輸出該值的規則，並補齊相等、負數、上下界測資。"
+  }
+}

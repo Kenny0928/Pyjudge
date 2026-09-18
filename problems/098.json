@@ -1,0 +1,54 @@
+{
+  "id": 98,
+  "title": "擷取末三個字元",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "索引",
+    "擷取"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用切片取出字串結尾的固定長度子字串"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "字串切片"
+  ],
+  "description": "<p class='problem-lead'>擷取字串結尾的三個字元。</p><p>讀取字串 <code>a</code>，輸出它的最後三個字元。若 <code>a</code> 的長度不足三個字元（包含空字串），則輸出整個 <code>a</code>。</p>",
+  "hint": "<p>Python 的切片語法可以用負數索引直接取出字串末端的字元，長度不足時會自動回傳原本擁有的部分。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>，字串可能為空。</p>",
+  "outputFormat": "<p>輸出 <code>a</code> 的最後三個字元；若長度不足三個字元，輸出整個 <code>a</code>。</p>",
+  "constraints": "<ul><li>0 ≤ a 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Scratch",
+  "sampleOutput": "tch",
+  "samples": [
+    { "input": "Scratch", "output": "tch" },
+    { "input": "Hi", "output": "Hi" },
+    { "input": "ABC", "output": "ABC" }
+  ],
+  "testCases": [
+    { "input": "Scratch", "output": "tch" },
+    { "input": "Hi", "output": "Hi" },
+    { "input": "ABC", "output": "ABC" },
+    { "input": "", "output": "" },
+    { "input": "A", "output": "A" },
+    { "input": "AB", "output": "AB" },
+    { "input": "ABCD", "output": "BCD" },
+    { "input": "Hello World", "output": "rld" },
+    { "input": "12345", "output": "345" },
+    { "input": "X Y", "output": "X Y" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p57_slice_last_three",
+    "sourceTitle": "57. 擷取末三個字元",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "依原題「不足三個字元」樣例，明定不足長度時輸出整個字串，並補齊空字串、長度恰為三與略超過三的邊界測資。"
+  }
+}

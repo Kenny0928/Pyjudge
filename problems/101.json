@@ -1,0 +1,55 @@
+{
+  "id": 101,
+  "title": "取代全部出現的子字串",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": [
+    "字串",
+    "取代",
+    "迴圈"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "由左至右依序取代字串中所有不重疊出現的目標子字串"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "字串搜尋",
+    "迴圈"
+  ],
+  "description": "<p class='problem-lead'>將字串中所有出現的子字串取代成新內容。</p><p>讀取字串 <code>a</code>、要尋找的子字串 <code>b</code>、要取代成的字串 <code>c</code>，將 <code>a</code> 中所有出現的 <code>b</code> 都取代為 <code>c</code>。取代時由左至右依序尋找，每次找到 <code>b</code> 後從它結束的下一個字元繼續往後尋找（也就是說，同一段字元不會被重複用來配對兩次）。比對區分大小寫；若 <code>a</code> 中找不到 <code>b</code>，輸出原本的 <code>a</code>。</p>",
+  "hint": "<p>可以用迴圈重複尋找 <code>b</code> 目前出現的位置並取代，記得每次要從取代後的新位置往後繼續尋找，不要往回配對到已經用過的字元。</p>",
+  "inputFormat": "<p>共三行：第一行是字串 <code>a</code>；第二行是要尋找的字串 <code>b</code>；第三行是要取代成的字串 <code>c</code>（<code>c</code> 可能為空行）。</p>",
+  "outputFormat": "<p>輸出將 <code>a</code> 中所有 <code>b</code> 都取代為 <code>c</code> 後的結果。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 50</li><li>1 ≤ b 的字元數 ≤ 20</li><li>0 ≤ c 的字元數 ≤ 20</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "banana\na\no",
+  "sampleOutput": "bonono",
+  "samples": [
+    { "input": "banana\na\no", "output": "bonono" },
+    { "input": "mississippi\ni\nI", "output": "mIssIssIppI" },
+    { "input": "aaaa\naa\nb", "output": "bb" }
+  ],
+  "testCases": [
+    { "input": "banana\na\no", "output": "bonono" },
+    { "input": "mississippi\ni\nI", "output": "mIssIssIppI" },
+    { "input": "aaaa\naa\nb", "output": "bb" },
+    { "input": "test\nxyz\n123", "output": "test" },
+    { "input": "aaa\na\n", "output": "" },
+    { "input": "Hello World\no\n0", "output": "Hell0 W0rld" },
+    { "input": "abcabcabc\nabc\nX", "output": "XXX" },
+    { "input": "case\nCASE\nx", "output": "case" },
+    { "input": "aaa\na\naa", "output": "aaaaaa" },
+    { "input": "xyxyxy\nxy\nz", "output": "zzz" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p60_replace_all",
+    "sourceTitle": "60. 全部取代",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將輸入拆為三行，明定不重疊、由左至右的取代語意（與 Python str.replace 一致）並用 aaaa/aa/b 這類重疊樣式的測資驗證，另補上取代為空字串、找不到與整段重複相符等情境。"
+  }
+}

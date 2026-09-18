@@ -1,0 +1,53 @@
+{
+  "id": 85,
+  "title": "取得最後一個字元",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "索引"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用索引 -1 取出字串的最後一個字元"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "索引"
+  ],
+  "description": "<p class='problem-lead'>取出一個字串的最後一個字元。</p><p>請讀取字串 <code>a</code>，輸出它的最後一個字元。<code>a</code> 保證至少有一個字元，且不含前導或尾端空白。</p>",
+  "hint": "<p>字串的最後一個字元可以用索引 <code>-1</code> 取得，例如 <code>a[-1]</code>，也可以用 <code>len(a) - 1</code>。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 的最後一個字元。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 100</li><li>a 不含前導或尾端空白字元</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "apple",
+  "sampleOutput": "e",
+  "samples": [
+    { "input": "apple", "output": "e" },
+    { "input": "Dog", "output": "g" },
+    { "input": "z", "output": "z" }
+  ],
+  "testCases": [
+    { "input": "apple", "output": "e" },
+    { "input": "Dog", "output": "g" },
+    { "input": "z", "output": "z" },
+    { "input": "Hello World", "output": "d" },
+    { "input": "1234567890", "output": "0" },
+    { "input": "!@#$%^&*", "output": "*" },
+    { "input": "程式設計", "output": "計" },
+    { "input": "Python", "output": "n" },
+    { "input": "AAAAA", "output": "A" },
+    { "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "output": "x" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p44_get_last_char",
+    "sourceTitle": "44. 取得最後一個字元",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明確規定字串長度範圍與不含前導尾端空白，並補齊單字元、符號、數字、中文與最大長度邊界測資。"
+  }
+}

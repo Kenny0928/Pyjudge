@@ -1,0 +1,45 @@
+{
+  "id": 77,
+  "title": "找出共同項目",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["清單", "集合", "演算法"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪清單並判斷元素是否同時存在於另一份清單", "使用集合避免重複輸出"],
+  "prerequisites": ["清單輸入", "for 迴圈", "集合基本操作"],
+  "description": "<p class='problem-lead'>找出兩份整數清單中共同出現的數字。</p><p>依序讀入清單 <code>a</code> 與清單 <code>b</code>，請輸出同時出現在 <code>a</code> 與 <code>b</code> 中的整數所組成的新清單。若某個數字同時存在於兩份清單，只需輸出一次；輸出順序依照該數字在清單 <code>a</code> 中第一次出現的順序排列。若沒有共同的數字，輸出一個空白行。</p>",
+  "hint": "<p>先把清單 <code>b</code> 轉成集合方便查詢，再走訪清單 <code>a</code>，把「在 b 中出現過、且尚未輸出過」的數字依序收集起來。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>，表示清單 <code>a</code> 的長度。第二行為 <code>N</code> 個以空格分隔的整數，即清單 <code>a</code>。第三行為整數 <code>M</code>，表示清單 <code>b</code> 的長度。第四行為 <code>M</code> 個以空格分隔的整數，即清單 <code>b</code>。</p>",
+  "outputFormat": "<p>輸出一行，包含清單 <code>a</code> 與清單 <code>b</code> 的共同數字，依 <code>a</code> 中首次出現的順序排列，以空格分隔；若無共同數字，輸出空白行。</p>",
+  "constraints": "<ul><li>1 ≤ N, M ≤ 50</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\n1 2 3\n3\n2 3 4",
+  "sampleOutput": "2 3",
+  "samples": [
+    { "input": "3\n1 2 3\n3\n2 3 4", "output": "2 3" },
+    { "input": "2\n5 6\n2\n7 8", "output": "" },
+    { "input": "4\n3 3 3 3\n1\n3", "output": "3" }
+  ],
+  "testCases": [
+    { "input": "3\n1 2 3\n3\n2 3 4", "output": "2 3" },
+    { "input": "2\n5 6\n2\n7 8", "output": "" },
+    { "input": "4\n3 3 3 3\n1\n3", "output": "3" },
+    { "input": "3\n1 2 3\n3\n1 2 3", "output": "1 2 3" },
+    { "input": "3\n3 1 2\n3\n2 3 9", "output": "3 2" },
+    { "input": "3\n-5 0 5\n2\n0 -5", "output": "-5 0" },
+    { "input": "1\n7\n1\n7", "output": "7" },
+    { "input": "1\n7\n1\n8", "output": "" },
+    { "input": "5\n1 1 2 2 3\n4\n2 2 3 3", "output": "2 3" },
+    { "input": "6\n10 20 30 40 50 60\n3\n60 20 10", "output": "10 20 60" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p36_common_elements",
+    "sourceTitle": "36. 找出共同項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原題的通用清單元素改為整數，明定去重與依 a 首次出現順序輸出的規則，並改用 N/M 加空白分隔清單的標準輸入格式。"
+  }
+}

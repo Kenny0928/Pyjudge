@@ -1,0 +1,53 @@
+{
+  "id": 103,
+  "title": "移除最後一個字元",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "擷取"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用切片移除字串結尾的最後一個字元"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "字串切片"
+  ],
+  "description": "<p class='problem-lead'>移除字串的最後一個字元。</p><p>讀取字串 <code>a</code>，輸出移除最後一個字元後剩下的字串。若 <code>a</code> 的長度只有 1，輸出空字串。</p>",
+  "hint": "<p>Python 的切片語法可以用索引 -1 表示最後一個字元，取出前面不含它的部分。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>a</code>，長度至少為 1，字串結尾可能含空白字元。</p>",
+  "outputFormat": "<p>輸出移除最後一個字元後的 <code>a</code>；若 <code>a</code> 長度為 1，輸出空字串。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "house",
+  "sampleOutput": "hous",
+  "samples": [
+    { "input": "house", "output": "hous" },
+    { "input": "B", "output": "" },
+    { "input": "ab", "output": "a" }
+  ],
+  "testCases": [
+    { "input": "house", "output": "hous" },
+    { "input": "B", "output": "" },
+    { "input": "A", "output": "" },
+    { "input": "ab", "output": "a" },
+    { "input": "Hello World", "output": "Hello Worl" },
+    { "input": "abc ", "output": "abc" },
+    { "input": "1234567890", "output": "123456789" },
+    { "input": "#@!", "output": "#@" },
+    { "input": "aa", "output": "a" },
+    { "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "output": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p62_remove_last_char",
+    "sourceTitle": "62. 移除最後一個字元",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "依 raw_test_cases 中長度為 1 得到空字串的結果，明定該行為並以限制排除空字串輸入，補齊含尾端空白、符號與長度上限的測資。"
+  }
+}

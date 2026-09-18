@@ -1,0 +1,45 @@
+{
+  "id": 64,
+  "title": "費波那契數列第 N 項",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["迴圈", "數學", "遞推"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用迴圈以遞推方式計算費波那契數列的第 N 項"],
+  "prerequisites": ["變數", "for 迴圈", "累加"],
+  "description": "<p class='problem-lead'>計算費波那契數列的第 N 項。</p><p>費波那契數列定義為：<code>F(1) = 1</code>，<code>F(2) = 1</code>，當 <code>n ≥ 3</code> 時 <code>F(n) = F(n-1) + F(n-2)</code>。請讀取正整數 <code>N</code>，輸出 <code>F(N)</code>。</p>",
+  "hint": "<p>用兩個變數分別記錄前兩項，逐步往後推算到第 N 項，不需要用遞迴。</p>",
+  "inputFormat": "<p>一行，包含正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示費波那契數列的第 <code>N</code> 項 <code>F(N)</code>。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 30</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6",
+  "sampleOutput": "8",
+  "samples": [
+    {"input": "1", "output": "1"},
+    {"input": "6", "output": "8"},
+    {"input": "8", "output": "21"}
+  ],
+  "testCases": [
+    {"input": "1", "output": "1"},
+    {"input": "2", "output": "1"},
+    {"input": "3", "output": "2"},
+    {"input": "6", "output": "8"},
+    {"input": "8", "output": "21"},
+    {"input": "10", "output": "55"},
+    {"input": "15", "output": "610"},
+    {"input": "20", "output": "6765"},
+    {"input": "25", "output": "75025"},
+    {"input": "30", "output": "832040"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p20_fibonacci",
+    "sourceTitle": "20. 費波那契數列",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將迴圈遞推規則具體化為 F(1)=F(2)=1 起始的線性遞推，限制 N 上限以避免數值過大，並補齊起始邊界與最大邊界測資。"
+  }
+}

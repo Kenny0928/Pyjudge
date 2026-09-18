@@ -1,0 +1,54 @@
+{
+  "id": 93,
+  "title": "重複字串",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "迴圈"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "將字串重複串接指定次數"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "整數輸入",
+    "迴圈"
+  ],
+  "description": "<p class='problem-lead'>把字串重複接起來指定次數。</p><p>請讀取字串 <code>a</code> 與整數 <code>b</code>，輸出把 <code>a</code> 重複 <code>b</code> 次後直接相接的結果，重複之間不加任何分隔符號。當 <code>b = 0</code> 時，輸出空字串（也就是輸出空白的一行）。</p>",
+  "hint": "<p>Python 的字串可以直接用 <code>*</code> 乘上一個整數來重複。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>a</code>，第二行包含一個整數 <code>b</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 重複 <code>b</code> 次相接的結果；若 <code>b = 0</code> 則輸出空白的一行。</p>",
+  "constraints": "<ul><li>1 ≤ a 的字元數 ≤ 20</li><li>0 ≤ b ≤ 10</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Go\n3",
+  "sampleOutput": "GoGoGo",
+  "samples": [
+    { "input": "Go\n3", "output": "GoGoGo" },
+    { "input": "*\n5", "output": "*****" },
+    { "input": "a\n0", "output": "" }
+  ],
+  "testCases": [
+    { "input": "Go\n3", "output": "GoGoGo" },
+    { "input": "*\n5", "output": "*****" },
+    { "input": "a\n0", "output": "" },
+    { "input": "a\n1", "output": "a" },
+    { "input": "ab\n2", "output": "abab" },
+    { "input": "Hi\n10", "output": "HiHiHiHiHiHiHiHiHiHi" },
+    { "input": "x\n0", "output": "" },
+    { "input": "程式\n3", "output": "程式程式程式" },
+    { "input": "AB CD\n2", "output": "AB CDAB CD" },
+    { "input": "Z\n10", "output": "ZZZZZZZZZZ" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p52_repeat_string",
+    "sourceTitle": "52. 重複字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明訂重複次數範圍並定義 b=0 時輸出空字串，補齊次數為 0、1、上限與中文、內部空白等測資。"
+  }
+}

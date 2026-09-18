@@ -1,0 +1,47 @@
+{
+  "id": 56,
+  "title": "判斷是否為偶數",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["條件判斷", "數學", "布林輸出"],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用 % 2 取餘數判斷整數的奇偶性"],
+  "prerequisites": ["取餘數", "if/else"],
+  "description": "<p class='problem-lead'>判斷一個整數是不是偶數。</p><p>給定整數 <code>A</code>（可能是負數或 0），若 <code>A</code> 是偶數請輸出 <code>true</code>，否則輸出 <code>false</code>。大小寫必須完全一致，<code>0</code> 視為偶數。</p>",
+  "hint": "<p>用 <code>A % 2</code> 是否等於 0 來判斷奇偶，注意負數取餘數在 Python 中仍會得到 0 或 1。</p>",
+  "inputFormat": "<p>一行，包含一個整數 <code>A</code>。</p>",
+  "outputFormat": "<p>若 <code>A</code> 是偶數，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>-10000 ≤ A ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "10",
+  "sampleOutput": "true",
+  "samples": [
+    {"input": "10", "output": "true"},
+    {"input": "7", "output": "false"},
+    {"input": "0", "output": "true"}
+  ],
+  "testCases": [
+    {"input": "10", "output": "true"},
+    {"input": "7", "output": "false"},
+    {"input": "0", "output": "true"},
+    {"input": "-4", "output": "true"},
+    {"input": "-7", "output": "false"},
+    {"input": "1", "output": "false"},
+    {"input": "-1", "output": "false"},
+    {"input": "2", "output": "true"},
+    {"input": "-10000", "output": "true"},
+    {"input": "9999", "output": "false"},
+    {"input": "10000", "output": "true"},
+    {"input": "-9999", "output": "false"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p06_is_even",
+    "sourceTitle": "06. 判斷是否為偶數",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "保留原題 true/false 輸出約定，明定 0 為偶數並補齊負數、正負邊界測資。"
+  }
+}

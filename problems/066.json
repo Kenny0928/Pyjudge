@@ -1,0 +1,45 @@
+{
+  "id": 66,
+  "title": "清單平均值",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "數學", "平均值"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整數清單並計算平均值"],
+  "prerequisites": ["清單輸入", "for 迴圈", "累加器"],
+  "description": "<p class='problem-lead'>計算一份整數清單的平均值。</p><p>給定 <code>N</code> 個整數，請計算它們的平均值。無論結果是否為整數，一律四捨五入至小數點後兩位輸出（固定顯示兩位小數，例如整數結果 3 要輸出 <code>3.00</code>）。</p>",
+  "hint": "<p>先用累加器算出總和，再除以 <code>N</code>，最後用固定兩位小數的格式輸出。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出一個數字，表示清單的平均值，四捨五入至小數點後兩位。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n1 2 3 4 5",
+  "sampleOutput": "3.00",
+  "samples": [
+    {"input": "5\n1 2 3 4 5", "output": "3.00"},
+    {"input": "4\n10 20 30 40", "output": "25.00"},
+    {"input": "3\n1 2 4", "output": "2.33"}
+  ],
+  "testCases": [
+    {"input": "5\n1 2 3 4 5", "output": "3.00"},
+    {"input": "4\n10 20 30 40", "output": "25.00"},
+    {"input": "1\n7", "output": "7.00"},
+    {"input": "3\n1 2 4", "output": "2.33"},
+    {"input": "2\n1 2", "output": "1.50"},
+    {"input": "6\n0 0 0 0 0 0", "output": "0.00"},
+    {"input": "4\n-1 -2 -3 -4", "output": "-2.50"},
+    {"input": "2\n1000 -1000", "output": "0.00"},
+    {"input": "3\n1000 1000 1000", "output": "1000.00"},
+    {"input": "100\n2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2", "output": "2.00"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p23_list_average",
+    "sourceTitle": "23. 計算清單平均值",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "統一為 N 加一行清單輸入格式，並明定平均值一律四捨五入至小數點後兩位輸出，補齊單一元素、非整除、負數與最大長度邊界測資。"
+  }
+}

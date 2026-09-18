@@ -1,0 +1,53 @@
+{
+  "id": 92,
+  "title": "用連字號連接字串",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "字串連接"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "在兩個字串中間插入固定分隔符號後連接"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "字串連接"
+  ],
+  "description": "<p class='problem-lead'>把兩段文字用連字號接起來。</p><p>請讀取字串 <code>a</code> 與 <code>b</code>，輸出 <code>a</code>、一個連字號 <code>-</code>、再接上 <code>b</code>（也就是 <code>a-b</code>）。<code>a</code>、<code>b</code> 中間若原本含有空白，必須保留；<code>a</code>、<code>b</code> 都可能是空字串。</p>",
+  "hint": "<p>把 <code>a</code>、字元 <code>-</code>、<code>b</code> 三段依序連接起來即可。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>a</code>，第二行包含字串 <code>b</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 與 <code>b</code> 以 <code>-</code> 連接的結果。</p>",
+  "constraints": "<ul><li>0 ≤ a、b 的字元數 ≤ 50</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "John\nDoe",
+  "sampleOutput": "John-Doe",
+  "samples": [
+    { "input": "John\nDoe", "output": "John-Doe" },
+    { "input": "one\ntwo", "output": "one-two" },
+    { "input": "a\nb", "output": "a-b" }
+  ],
+  "testCases": [
+    { "input": "John\nDoe", "output": "John-Doe" },
+    { "input": "one\ntwo", "output": "one-two" },
+    { "input": "a\nb", "output": "a-b" },
+    { "input": "Hello World\nFoo Bar", "output": "Hello World-Foo Bar" },
+    { "input": "程式\n設計", "output": "程式-設計" },
+    { "input": "123\n456", "output": "123-456" },
+    { "input": "\n\n", "output": "-" },
+    { "input": "A\n", "output": "A-" },
+    { "input": "\nB", "output": "-B" },
+    { "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "output": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p51_concat_with_separator",
+    "sourceTitle": "51. 用分隔符號連接字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明訂分隔符號固定為連字號且需保留內部空白，並補齊空字串、單邊空字串、中文與最大長度邊界測資。"
+  }
+}

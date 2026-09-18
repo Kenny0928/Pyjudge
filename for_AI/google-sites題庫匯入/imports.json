@@ -9,8 +9,12 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "08. 計算字串長度",
-      "categories": ["📝 3. 字串操作 (基礎)"],
-      "tags": ["字串"],
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串"
+      ],
       "candidateCaseCount": 2,
       "notes": "保留空格計入長度的語義，補齊字元種類與長度邊界測資。"
     },
@@ -21,8 +25,14 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "25. 閏年判斷",
-      "categories": ["🤔 2. 邏輯判斷與條件"],
-      "tags": ["邏輯判斷", "條件", "數學"],
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "數學"
+      ],
       "candidateCaseCount": 3,
       "notes": "確認小寫 true/false 輸出，補齊四年、百年與四百年分支。"
     },
@@ -33,8 +43,14 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "166. 首尾相加",
-      "categories": ["📊 7. 清單操作 (基礎)"],
-      "tags": ["清單", "索引", "基本運算"],
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "基本運算"
+      ],
       "candidateCaseCount": 2,
       "notes": "統一成 N 與空格分隔清單格式，補齊負數、零與上下界測資。"
     },
@@ -45,8 +61,13 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "02. 計算兩數之差",
-      "categories": ["🌱 1. 基本運算與數學"],
-      "tags": ["基本運算", "數學"],
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
       "candidateCaseCount": 2,
       "notes": "明確限定整數與減法順序，補齊零、相等、負數及上下界測資。"
     },
@@ -57,8 +78,13 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "03. 計算兩數之積",
-      "categories": ["🌱 1. 基本運算與數學"],
-      "tags": ["基本運算", "數學"],
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
       "candidateCaseCount": 2,
       "notes": "明確限定整數輸入，補齊零、正負號組合及上下界測資。"
     },
@@ -69,8 +95,14 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "05. 計算餘數",
-      "categories": ["🌱 1. 基本運算與數學"],
-      "tags": ["基本運算", "數學", "演算法"],
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學",
+        "演算法"
+      ],
       "candidateCaseCount": 2,
       "notes": "限定非負被除數與正除數，排除跨語言負數餘數差異並補齊邊界。"
     },
@@ -81,8 +113,13 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "09. 字串相加",
-      "categories": ["📝 3. 字串操作 (基礎)"],
-      "tags": ["字串", "基本運算"],
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本運算"
+      ],
       "candidateCaseCount": 2,
       "notes": "明確規定直接連接且不加入分隔符號，補齊空格、符號與中文測資。"
     },
@@ -93,8 +130,14 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "11. 計算階乘",
-      "categories": ["🔁 6. 迴圈與數學演算法"],
-      "tags": ["迴圈", "演算法", "數學"],
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "數學"
+      ],
       "candidateCaseCount": 2,
       "notes": "補充階乘與 0! 定義，限定 N≤10 並補齊連續邊界測資。"
     },
@@ -105,8 +148,13 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "12. 清單總和",
-      "categories": ["📈 9. 清單演算法 (進階)"],
-      "tags": ["清單", "迴圈"],
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈"
+      ],
       "candidateCaseCount": 2,
       "notes": "統一為 N 加一行空格分隔清單，補齊單元素、負數、零與抵消測資。"
     },
@@ -117,8 +165,14 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "17. 計算絕對值",
-      "categories": ["🌱 1. 基本運算與數學"],
-      "tags": ["數學", "條件", "內建函式"],
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "條件",
+        "內建函式"
+      ],
       "candidateCaseCount": 2,
       "notes": "限定整數輸入，補充絕對值語義與正、負、零及上下界測資。"
     },
@@ -129,8 +183,14 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "19. 計算字元出現次數",
-      "categories": ["✍️ 5. 字串演算法 (進階)"],
-      "tags": ["字串", "迴圈", "演算法"],
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "演算法"
+      ],
       "candidateCaseCount": 2,
       "notes": "明確規定大小寫與空格語義，補齊零次、重複、中文與單字元測資。"
     },
@@ -141,8 +201,15 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "22. 迴文判斷",
-      "categories": ["✍️ 5. 字串演算法 (進階)"],
-      "tags": ["字串", "邏輯判斷", "演算法", "進階"],
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "演算法",
+        "進階"
+      ],
       "candidateCaseCount": 2,
       "notes": "保留小寫 true/false，明確規定大小寫與空格均參與比較並補齊邊界。"
     },
@@ -153,10 +220,906 @@
       "reviewedAt": "2026-09-16",
       "sourceRemovedAt": "2026-09-16",
       "sourceTitle": "27. 找出清單最小值",
-      "categories": ["📈 9. 清單演算法 (進階)"],
-      "tags": ["清單", "迴圈", "演算法"],
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "演算法"
+      ],
       "candidateCaseCount": 2,
       "notes": "統一為 N 加一行空格分隔清單，補齊單元素、全負數、重複值與上下界。"
+    },
+    {
+      "sourceId": "p01_addition",
+      "pyjudgeId": 54,
+      "sourceContentHash": "c9a8325a16fc89ca731c39bdd176160aa7c762c4dc81273a36fd38d10a74df2d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "01. 計算兩數之和",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明確限定整數輸入與兩行輸入格式，並補齊零、正負抵消、相等與上下界測資。"
+    },
+    {
+      "sourceId": "p04_division",
+      "pyjudgeId": 55,
+      "sourceContentHash": "6178405ddd3d3ba0451d234a29608fa6923a33dd4d95c1e8162d423a7674f327",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "04. 計算兩數之商",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "基本運算",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原候選測資同時出現整數與一位小數輸出，因此明定「商為整數則不寫小數點、否則四捨五入到小數點後兩位並去除多餘尾端0」的輸出規則，並補齊負數、零被除數、負除數與上下界測資。"
+    },
+    {
+      "sourceId": "p06_is_even",
+      "pyjudgeId": 56,
+      "sourceContentHash": "c39c38d33893d19fce200fc490c33a60cc1d859572f40bd828328c704996ba0a",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "06. 判斷是否為偶數",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留原題 true/false 輸出約定，明定 0 為偶數並補齊負數、正負邊界測資。"
+    },
+    {
+      "sourceId": "p07_find_max",
+      "pyjudgeId": 57,
+      "sourceContentHash": "839ea33b0142baaee4489e508478ed308dcad6f57bf59b18124ffa0b70279252",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "07. 找出較大值",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定兩數相等時直接輸出該值的 tie-break 規則（原題未說明），並補齊相等、負數、上下界測資。"
+    },
+    {
+      "sourceId": "p10_sum_1_to_n",
+      "pyjudgeId": 58,
+      "sourceContentHash": "5d4701e2eb5529240e18198f9bd8ad309e1dee471373df066e56bb5b3b3f240d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "10. 1加到N",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留原題語意，將 N 上限提高到 100000 以要求真正的累加邏輯而非可硬編碼的小範圍查表，並補齊最小值與大數測資。"
+    },
+    {
+      "sourceId": "p13_list_find_max",
+      "pyjudgeId": 59,
+      "sourceContentHash": "227a8c06dc17cc2d9cf58ea42c0082e017abbb918b473b8e899c28a832809a42",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "13. 找出清單最大值",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "將原站每項各佔一行的輸入格式統一為「N 一行 + 空格分隔清單一行」，並補齊單元素、全負數、重複值、最大值出現於首/尾等測資。"
+    },
+    {
+      "sourceId": "p14_list_length",
+      "pyjudgeId": 60,
+      "sourceContentHash": "c67f292762bec2dc4c7675c4b4314dce63ada42f11ea07def3f586c99611fb8e",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "14. 計算清單長度",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "統一為 N + 空格分隔清單格式；解答重新切割第二行以 len() 實際計數而非直接回傳輸入的 N，並補齊單一項目、混合型別項目與 N=100 上限長度測資。"
+    },
+    {
+      "sourceId": "p15_list_contains",
+      "pyjudgeId": 61,
+      "sourceContentHash": "5baec123cb55b957a5cea7f2a2dc0354a01fba22430a29f613ed1c06afa08bc2",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "15. 檢查項目是否存在",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "統一為 N + 空格分隔清單 + 目標值三行格式，明定比對規則為區分大小寫的完全字串相等，並補齊首/尾項目、重複值、大小寫不匹配等測資。"
+    },
+    {
+      "sourceId": "p16_reverse_string",
+      "pyjudgeId": 62,
+      "sourceContentHash": "053cb892d95f87f538c33fdfe2c63d50ee35f111698c3cc41bedfdfb9a7ad867",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "16. 反轉字串",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "擴充輸入允許含內部空格與大小寫混合的字串，明定空格也需一併反轉，並補齊單字元、迴文、標點與上限長度測資。"
+    },
+    {
+      "sourceId": "p18_grade_checker",
+      "pyjudgeId": 63,
+      "sourceContentHash": "3a24a083c52bae7d2b35b956af023578860442e67eb84cd3bc3c4b8e1f9525df",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "18. 成績等級判斷",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "去除原題輸出中多餘的單引號，明定五個等級為互不重疊的整數區間，並補齊每一級距上下邊界的完整分支覆蓋測資。"
+    },
+    {
+      "sourceId": "p20_fibonacci",
+      "pyjudgeId": 64,
+      "sourceContentHash": "6ad4c400db2f98b6ef2e82f78665342fe7f5c43e86084e8941d3ed088e53e6d6",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "20. 費波那契數列",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "演算法",
+        "數學",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "具體化 F(1)=F(2)=1 起始的線性遞推規則，限制 N≤30 避免數值過大，補齊 1~30 全區間邊界與連續值測資。"
+    },
+    {
+      "sourceId": "p21_list_reverse",
+      "pyjudgeId": 65,
+      "sourceContentHash": "47c19e564c4baf963b5f6ffb9147b1c96c8a61d87fcb3c9426ef4b3466614c15",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "21. 反轉清單",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站逐行輸入改為 SkillLab 標準「N + 一行空白分隔清單」格式，輸出改為單行空白分隔字串，補齊重複值/負數/字母混合/N=100 最大邊界測資。"
+    },
+    {
+      "sourceId": "p23_list_average",
+      "pyjudgeId": 66,
+      "sourceContentHash": "d5c210d6436ecf2a8e017372ee33971919373eeba08935f4bb47b4e5b93b7355",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "23. 計算清單平均值",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "數學",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "統一為 N+清單輸入格式；明定平均值一律四捨五入至小數點後兩位固定輸出，解決浮點精度歧義。"
+    },
+    {
+      "sourceId": "p24_fizzbuzz",
+      "pyjudgeId": 67,
+      "sourceContentHash": "7abdbedb1cb9be61fe89fadb62eb12062f94caf376837ef65829098cf51b8e8e",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "24. FizzBuzz 經典問題",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "迴圈",
+        "邏輯判斷",
+        "演算法",
+        "經典題目"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站以 JSON 陣列回傳結果，改為單行空白分隔輸出；重新計算涵蓋純數字/單一Fizz/單一Buzz/FizzBuzz/最大邊界。"
+    },
+    {
+      "sourceId": "p26_remove_duplicates",
+      "pyjudgeId": 68,
+      "sourceContentHash": "29c835420ac287b79767069b746b88f82a1567a1589d8b7791a5ad8e15e0bf09",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "26. 移除清單重複項",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "統一為 N+清單輸入格式，明定保留規則為「第一次出現順序」，單行空白分隔輸出，補齊全重複/全不重複/N=100 極端重複邊界測資。"
+    },
+    {
+      "sourceId": "p28_is_prime",
+      "pyjudgeId": 69,
+      "sourceContentHash": "b7b37c18d8fd2133b8778b7e9223a18e57201754c683620dbd21fa9bf3bf90e7",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "28. 質數判斷",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法",
+        "邏輯判斷",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "明定輸入下限為 2，解法改用平方根上界試除；補入完全平方數、最小質數、較大質數與偶數上界測資。"
+    },
+    {
+      "sourceId": "p29_caesar_cipher",
+      "pyjudgeId": 70,
+      "sourceContentHash": "6af3c9ed472c30dc6d67162ffd4d0e258c9c5e7ac9435871f4fe6e3dddfc2334",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "29. 凱薩加密",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "演算法",
+        "迴圈",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定位移量可能大於 26 需先對 26 取模、大小寫分別位移、非字母字元原樣保留；補齊零位移/整輪位移/雙倍位移/單字元回捲測資。"
+    },
+    {
+      "sourceId": "p30_triangle_area",
+      "pyjudgeId": 71,
+      "sourceContentHash": "1e987dcc9b31391dbea30955696e93287dbe8770c9e75819ae6a7220ddc6ad07",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "30. 計算三角形面積",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "基本運算",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定面積結果一律四捨五入至小數點後兩位固定輸出，補齊最小(a=b=1)與最大(a=b=1000)邊界測資。"
+    },
+    {
+      "sourceId": "p31_median",
+      "pyjudgeId": 72,
+      "sourceContentHash": "4c9057c57da702ac1ed85919be5c87acdd81c3e88e8ca2283a7f8cffb74c0626",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "31. 找出清單中位數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "數學",
+        "排序"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定偶數長度取排序後中間兩數之平均，結果一律四捨五入至小數點後兩位固定輸出；補齊單一元素/負數/N=100邊界測資。"
+    },
+    {
+      "sourceId": "p32_celsius_to_fahrenheit",
+      "pyjudgeId": 73,
+      "sourceContentHash": "2d3975b37b7bda8d0a55aa554b0720aaeb1a52094eaae7caa78277896743ffa4",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "32. 攝氏轉華氏",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "基本運算",
+        "公式"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定 C 為整數輸入、F 結果一律四捨五入至小數點後兩位固定輸出，補齊絕對零度、攝氏華氏相等點與最大邊界測資。"
+    },
+    {
+      "sourceId": "p33_count_vowels",
+      "pyjudgeId": 74,
+      "sourceContentHash": "6ea06e121e457f9a54cc2efbe10b6e9f346fe9cbd420834577431a5a323114b1",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "33. 計算母音數量",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "限定輸入僅含英文字母與空白以消除歧義，明定大小寫不分的母音比對規則，補齊零母音、全母音與200字最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p34_in_range",
+      "pyjudgeId": 75,
+      "sourceContentHash": "62256b91959c5f08d7dbe54d7c6b650c5c6423b8b239d5f94b6db1f68f635ff1",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "34. 數字範圍判斷",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "將輸入限定為整數，補齊10/20兩端邊界、剛好偏離邊界及遠端極值測資。"
+    },
+    {
+      "sourceId": "p35_title_case",
+      "pyjudgeId": 76,
+      "sourceContentHash": "cee5f71dba9b70c6ae9bf0171e66de342d6d3e8286c826a22267d4008501a875",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "35. 標題式大寫",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "限定輸入僅為單一空白分隔、無頭尾空白的英文單字序列，明定字首轉大寫、其餘轉小寫規則，補齊單字元、全大寫、混合大小寫測資。"
+    },
+    {
+      "sourceId": "p36_common_elements",
+      "pyjudgeId": 77,
+      "sourceContentHash": "9c248bea29fd9a1d53214c42cf578aee5d54600dea44c2c6ce3e620c4e4d6f1a",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "36. 找出共同項目",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原題清單元素型別不定，改採整數清單以維持輸出唯一確定；改用「N + 空白分隔清單」標準輸入格式，明定去重與依清單首次出現順序輸出、無共同元素輸出空行的規則。"
+    },
+    {
+      "sourceId": "p37_compound_interest",
+      "pyjudgeId": 78,
+      "sourceContentHash": "5a87a71c614be70c4cd1849a132e0cf59a19d163f90943b16e783288a519ff98",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "37. 計算複利",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "公式",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原始候選測資的小數位數不一致，明定為四捨五入到小數點後2位並固定輸出兩位小數；用實際運算重新算出全部期望值，補齊N=0、本金上下界與最大期數測資。"
+    },
+    {
+      "sourceId": "p38_armstrong_number",
+      "pyjudgeId": 79,
+      "sourceContentHash": "1b0d256c403316df27a5133c42ae9afbd18fa04641e53230fd9365f5407c5f25",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "38. 阿姆斯壯數判斷",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法",
+        "數字"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "明定限定為三位數並寫出各位數字三次方和的判斷公式，補齊100/999邊界、多組已知阿姆斯壯數與非阿姆斯壯數測資。"
+    },
+    {
+      "sourceId": "p39_second_largest",
+      "pyjudgeId": 80,
+      "sourceContentHash": "913624658398a4961c1d94ac7b9cddcca616c44bfee857a30680c6fdb46194e6",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "39. 找出第二大數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "演算法",
+        "排序"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "由raw_test_cases反推「第二大」為排序後取索引1，非去重後第二相異值；於description明文規定此並列規則，補齊全相等、負數、N=2邊界測資。"
+    },
+    {
+      "sourceId": "p40_simple_calculator",
+      "pyjudgeId": 81,
+      "sourceContentHash": "fa7cadd06e4d167f2e18bacd7439e96b17a7abef5b0337724ab9c12c9fc5372d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "40. 簡易計算機",
+      "categories": [
+        "🤔 2. 邏輯判斷與條件"
+      ],
+      "tags": [
+        "邏輯判斷",
+        "條件",
+        "基本運算",
+        "字串"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "輸入格式定為三行a、b、op；限定a,b為整數，並保證除法時b≠0且a必可被b整除以避免浮點數格式歧義；補齊四種運算子分支、負數、零運算元測資。"
+    },
+    {
+      "sourceId": "p41_bento_ordering",
+      "pyjudgeId": 82,
+      "sourceContentHash": "cec7525f4a5511eed489d72328d92d9731923532efbb8a600d62ba2bf4895ffb",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "41. 可口便當",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "演算法",
+        "字串",
+        "迴圈",
+        "排序",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原題僅有含糊的便當情境敘述；由兩組raw_test_cases反推出精確規則：依priority順序把orderCode中每個數字的全部出現次數依序串接輸出；改寫為規則精確的計數排序題，補齊涵蓋全部10個數字的邊界測資。"
+    },
+    {
+      "sourceId": "p42_echo_string",
+      "pyjudgeId": 83,
+      "sourceContentHash": "f80574b448c587d61c5eda0076fb0373d9b17808d75812f9b4ce03620769c582",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "42. 回音字串",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本輸出"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定S可能含開頭空白但不含結尾空白（避免judge trimEnd比對造成的歧義），補齊數字、符號、中文字與100字最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p43_get_first_char",
+      "pyjudgeId": 84,
+      "sourceContentHash": "66d14fe95bec932e8160f6a26c7bd855805cb6ae5e8ddc616334c98f2b5d3d65",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "43. 取得第一個字元",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明確規定字串長度範圍（1–100）且不含前導/尾端空白以消除歧義，補齊單字元、符號、數字、中文與最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p44_get_last_char",
+      "pyjudgeId": 85,
+      "sourceContentHash": "fcfe00c6e2b7d7619095192104a5b8a3fc7c64b831b05aa6e9a5d2b3ace47569",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "44. 取得最後一個字元",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "與p43對稱處理，明訂長度範圍與無前導/尾端空白，補齊單字元、符號、數字、中文與最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p45_get_nth_char",
+      "pyjudgeId": 86,
+      "sourceContentHash": "b9ce50dac9745f5174c7e5948a90dcaad789970b6482ddd1fbcce82050e09ade",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "45. 取得第N個字元",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases確認索引為0-based並在description明文寫出，限制0≤b≤len(a)-1避免越界，補齊頭尾索引、中文與長度邊界測資。"
+    },
+    {
+      "sourceId": "p46_to_uppercase",
+      "pyjudgeId": 87,
+      "sourceContentHash": "a3818d97eddedc3b80a2efbaa1bb0e3fac8ec7f412b4a600fd7f4133498e5548",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "46. 轉換為大寫",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "大小寫"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂數字與標點不受影響，補齊已全大寫（不變分支）、混合大小寫、標點符號與最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p47_to_lowercase",
+      "pyjudgeId": 88,
+      "sourceContentHash": "21b11234b507e8f06552070500635fdb70b99dc6cde5083b032ed2cef63e758a",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "47. 轉換為小寫",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "大小寫"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "與p46對稱處理，補齊已全小寫（不變分支）、混合大小寫、標點與最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p48_trim_whitespace",
+      "pyjudgeId": 89,
+      "sourceContentHash": "74bc041fe839b76bc8852421ce8f17afc3646efd6e9000740c2877c105e00157",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "48. 移除兩端空白",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "清理"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases確認只移除頭尾空白、中間空白須保留；補齊只有前導、只有尾端、頭尾皆有、全空白變空字串、tab字元、已無空白等分支測資。"
+    },
+    {
+      "sourceId": "p49_string_equals",
+      "pyjudgeId": 90,
+      "sourceContentHash": "ab31b62540634fd6f040f2be5cbbf29fec421ca14f39df134120e4d964791df6",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "49. 判斷字串是否相等",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "條件"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原題boolean輸出改為明確兩行字串輸入以消除歧義；輸出統一小寫true/false；補齊空字串、純空白字串、中文相等/不相等、長度不同等特殊狀態測資。"
+    },
+    {
+      "sourceId": "p50_string_equals_ignore_case",
+      "pyjudgeId": 91,
+      "sourceContentHash": "dfe12a04ee352607a084931b711c482d08ff6751213dd717f7c4b6c751d67781",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "50. 判斷字串是否相等(忽略大小寫)",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "大小寫"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "改為兩行輸入避免歧義，明訂僅忽略英文大小寫、其餘字元（含中文、空白）仍需精準比對；補齊空字串、純空白字串與中文相等/不相等測資。"
+    },
+    {
+      "sourceId": "p51_concat_with_separator",
+      "pyjudgeId": 92,
+      "sourceContentHash": "0df93d97420d3bd2bfe1e956632273eefeb224915aebb22b64f0dbf7ea732e65",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "51. 用分隔符號連接字串",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本運算"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂分隔符固定為連字號「-」且需保留兩字串內部原有空白，補齊雙邊空字串、單邊空字串、中文與最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p52_repeat_string",
+      "pyjudgeId": 93,
+      "sourceContentHash": "a5723322e57229f282a25ceaa3c9fface10256841c23051b58abc9c30e346267",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "52. 重複字串",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂重複次數範圍0–10並定義b=0時輸出空字串（特殊狀態），補齊次數為0、1、上限10、中文與內部空白等測資。"
+    },
+    {
+      "sourceId": "p53_starts_with_hello",
+      "pyjudgeId": 94,
+      "sourceContentHash": "4e3cddabf0922f914f2287858bb3600a9da14387b9de34e25fde33083925fe51",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "53. 判斷是否以 Hello 開頭",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明定比對區分大小寫並補上空字串、字首前綴不足、混合大小寫等測資，統一為true/false輸出。"
+    },
+    {
+      "sourceId": "p54_ends_with_exclamation",
+      "pyjudgeId": 95,
+      "sourceContentHash": "237f792d09f3e22a114886fd3f595f2e45f1b33748f41b16778e6638a73b1284",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "54. 判斷是否以 ! 結尾",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "補上空字串、僅含驚嘆號、結尾後接空白等邊界測資，並明定空字串視為不符合。"
+    },
+    {
+      "sourceId": "p55_contains_string",
+      "pyjudgeId": 96,
+      "sourceContentHash": "d2ca08c277aea061419279a243f7172e26cea60c0c5395db673bffc12cd6184b",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "55. 檢查是否包含子字串",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "拆分原本單一陣列輸入為兩行輸入，明定大小寫敏感與空子字串必定包含的規則，並補齊前綴、後綴與重疊字元測資。"
+    },
+    {
+      "sourceId": "p56_slice_first_three",
+      "pyjudgeId": 97,
+      "sourceContentHash": "bd3a47e6c1b1dc5cb1d929cc1ef0827215a365c5e1634aff95565588e482493a",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "56. 擷取前三個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依原題「不足三個字元」樣例，明定不足長度時輸出整個字串，補齊空字串、長度恰為三與略超過三的邊界測資。"
+    },
+    {
+      "sourceId": "p57_slice_last_three",
+      "pyjudgeId": 98,
+      "sourceContentHash": "2ccae77b83976937d3995e78ce18ea9b0ca7362b597d9ffdb6ac8fe674d7a700",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "57. 擷取末三個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依原題「不足三個字元」樣例，明定不足長度時輸出整個字串，補齊空字串、長度恰為三與略超過三的邊界測資。"
+    },
+    {
+      "sourceId": "p58_slice_from_m_to_n",
+      "pyjudgeId": 99,
+      "sourceContentHash": "15c48709e9dfc31566835847b9fa2a2b4dd014997807b7f45cdb541a61f651bd",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "58. 擷取 M 到 N 的子字串",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases推導出0-indexed、n不含的切片語意，將輸入拆為三行並以限制條件固定合法索引範圍避免越界；補上m等於n、索引到達字串長度等邊界測資。"
+    },
+    {
+      "sourceId": "p59_replace_first",
+      "pyjudgeId": 100,
+      "sourceContentHash": "ab03f05ea93a2ad824a7bd14488aab1cf441b7e972802d3b61ef7fc6cbc1fe26",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "59. 取代第一個",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "將輸入拆為三行、明定只取代第一次出現且區分大小寫，限制b非空以避免空搜尋字串的未定義情境，並補上找不到、整段相符、取代成空字串等測資。"
+    },
+    {
+      "sourceId": "p60_replace_all",
+      "pyjudgeId": 101,
+      "sourceContentHash": "21c16fcf883783c8e7f33585d113083698c6949ab4a9d221b88f3cc7921c2d31",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "60. 全部取代",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "將輸入拆為三行，明定不重疊、由左至右的取代語意（與Python str.replace一致）並用重疊樣式的測資驗證，另補上取代為空字串、找不到與整段重複相符等情境。"
+    },
+    {
+      "sourceId": "p61_remove_first_char",
+      "pyjudgeId": 102,
+      "sourceContentHash": "3dac2e2ca8dfbaf854de566d49839478ba2f59f6a6a7a71be1d7c2af0d245296",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "61. 移除第一個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases中長度為1得到空字串的結果，明定該行為並以限制排除空字串輸入，補齊含前導空白、符號與長度上限的測資。"
+    },
+    {
+      "sourceId": "p62_remove_last_char",
+      "pyjudgeId": 103,
+      "sourceContentHash": "0f00d18e1210f91553df0da7eaab4561581d3b42133ac3ad42e1e30be2c0267b",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "62. 移除最後一個字元",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "擷取"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases中長度為1得到空字串的結果，明定該行為並以限制排除空字串輸入，補齊含尾端空白、符號與長度上限的測資。"
     }
   ]
 }

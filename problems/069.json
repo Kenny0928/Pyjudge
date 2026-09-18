@@ -1,0 +1,46 @@
+{
+  "id": 69,
+  "title": "質數判斷",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["數學", "迴圈", "邏輯判斷"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用迴圈搭配平方根上界判斷一個數是否為質數"],
+  "prerequisites": ["整數輸入", "for/while 迴圈", "取餘數"],
+  "description": "<p class='problem-lead'>判斷一個大於 1 的正整數是否為質數。</p><p>質數是指只能被 1 與自己整除的大於 1 的整數。請讀取整數 <code>N</code>（<code>N &gt; 1</code>），判斷它是不是質數。是質數請輸出 <code>true</code>，否則輸出 <code>false</code>，大小寫必須完全一致。</p>",
+  "hint": "<p>只需要檢查從 2 到 <code>N</code> 的平方根之間有沒有因數，若都沒有就是質數。</p>",
+  "inputFormat": "<p>一行，包含一個大於 1 的正整數 <code>N</code>。</p>",
+  "outputFormat": "<p>若 <code>N</code> 是質數，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>2 ≤ N ≤ 100000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "7",
+  "sampleOutput": "true",
+  "samples": [
+    {"input": "7", "output": "true"},
+    {"input": "10", "output": "false"},
+    {"input": "29", "output": "true"}
+  ],
+  "testCases": [
+    {"input": "7", "output": "true"},
+    {"input": "10", "output": "false"},
+    {"input": "29", "output": "true"},
+    {"input": "2", "output": "true"},
+    {"input": "4", "output": "false"},
+    {"input": "9", "output": "false"},
+    {"input": "49", "output": "false"},
+    {"input": "97", "output": "true"},
+    {"input": "100", "output": "false"},
+    {"input": "99991", "output": "true"},
+    {"input": "100000", "output": "false"}
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p28_is_prime",
+    "sourceTitle": "28. 質數判斷",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明定輸入下限為 2，改用迴圈搭配平方根上界判斷質數，並補齊完全平方數、最小質數與較大質數/合數的邊界測資。"
+  }
+}

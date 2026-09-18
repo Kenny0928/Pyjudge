@@ -1,0 +1,54 @@
+{
+  "id": 96,
+  "title": "檢查是否包含子字串",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "條件判斷",
+    "子字串"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 in 運算子判斷一個字串是否包含另一個子字串"
+  ],
+  "prerequisites": [
+    "字串輸入",
+    "條件判斷"
+  ],
+  "description": "<p class='problem-lead'>判斷字串 <code>a</code> 是否包含子字串 <code>b</code>。</p><p>讀取兩個字串 <code>a</code>、<code>b</code>，判斷 <code>a</code> 之中是否出現過完整的 <code>b</code>（可以在任何位置，不限開頭或結尾）。比對必須區分大小寫。特別規定：當 <code>b</code> 是空字串時，視為必定包含，一律輸出 <code>true</code>。是則輸出小寫 <code>true</code>，否則輸出小寫 <code>false</code>。</p>",
+  "hint": "<p>Python 可以用 <code>in</code> 運算子直接判斷一個字串是否包含另一個字串。</p>",
+  "inputFormat": "<p>共兩行：第一行是字串 <code>a</code>，第二行是字串 <code>b</code>；<code>b</code> 可能為空行。</p>",
+  "outputFormat": "<p>若 <code>a</code> 包含 <code>b</code>，輸出 <code>true</code>；否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ a 的字元數 ≤ 100</li><li>0 ≤ b 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "banana\nana",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "banana\nana", "output": "true" },
+    { "input": "apple\npie", "output": "false" },
+    { "input": "hello\nhello", "output": "true" }
+  ],
+  "testCases": [
+    { "input": "banana\nana", "output": "true" },
+    { "input": "apple\npie", "output": "false" },
+    { "input": "hello\nhello", "output": "true" },
+    { "input": "banana\nxyz", "output": "false" },
+    { "input": "hello\n", "output": "true" },
+    { "input": "abc\nabcd", "output": "false" },
+    { "input": "Hello\nhello", "output": "false" },
+    { "input": "aaaa\naa", "output": "true" },
+    { "input": "start\nst", "output": "true" },
+    { "input": "end\nnd", "output": "true" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p55_contains_string",
+    "sourceTitle": "55. 檢查是否包含子字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "拆分原本單一 a 陣列輸入為兩行輸入，明定大小寫敏感與空子字串必定包含的規則，並補齊前綴、後綴與重疊字元測資。"
+  }
+}
