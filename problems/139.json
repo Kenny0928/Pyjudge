@@ -1,0 +1,45 @@
+{
+  "id": 139,
+  "title": "清單數字加十",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "迴圈", "數學", "轉換"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整數清單並對每個元素套用轉換規則產生新清單"],
+  "prerequisites": ["清單輸入", "for 迴圈", "算術運算"],
+  "description": "<p class='problem-lead'>將清單中每個數字都加上 10。</p><p>給定 <code>N</code> 個整數，請建立一個新清單，其中每個數字都是原清單中對應數字加上 <code>10</code> 之後的結果，並依原順序輸出。</p>",
+  "hint": "<p>走訪清單，把每個數字加上 10 後放進新清單，最後用空格把新清單接起來輸出。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出一行，包含 <code>N</code> 個整數，依原順序以空格分隔，為原清單每個數字加上 10 的結果。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\n1 5 10",
+  "sampleOutput": "11 15 20",
+  "samples": [
+    { "input": "3\n1 5 10", "output": "11 15 20" },
+    { "input": "2\n0 -5", "output": "10 5" },
+    { "input": "1\n-10", "output": "0" }
+  ],
+  "testCases": [
+    { "input": "3\n1 5 10", "output": "11 15 20" },
+    { "input": "2\n0 -5", "output": "10 5" },
+    { "input": "1\n-10", "output": "0" },
+    { "input": "1\n0", "output": "10" },
+    { "input": "1\n1000", "output": "1010" },
+    { "input": "1\n-1000", "output": "-990" },
+    { "input": "5\n0 0 0 0 0", "output": "10 10 10 10 10" },
+    { "input": "5\n-10 -10 -10 -10 -10", "output": "0 0 0 0 0" },
+    { "input": "4\n-15 -5 5 15", "output": "-5 5 15 25" },
+    { "input": "8\n1 2 3 4 5 6 7 8", "output": "11 12 13 14 15 16 17 18" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p98_list_map_add_ten",
+    "sourceTitle": "98. 將清單中所有數字加10",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站逐行輸入與 JSON 陣列輸出改為 N 加空格分隔清單、輸出空格分隔，並補齊加總後變號、變零與極值測資。"
+  }
+}

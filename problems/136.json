@@ -1,0 +1,46 @@
+{
+  "id": 136,
+  "title": "篩選負數清單",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "迴圈", "條件判斷", "篩選"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整數清單並依條件篩選出符合的子清單"],
+  "prerequisites": ["清單輸入", "for 迴圈", "條件判斷"],
+  "description": "<p class='problem-lead'>從一份整數清單中篩選出所有負數。</p><p>給定 <code>N</code> 個整數，請依照原本的順序找出其中所有小於 0 的負數，組成新清單並輸出；<code>0</code> 與正數都不算負數。若沒有任何負數，輸出空白的一行即可。</p>",
+  "hint": "<p>走訪清單時用 <code>if 數字 < 0</code> 判斷，符合的數字依序加入結果清單，最後把結果清單用空格接起來輸出。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出一行，包含所有負數，依原順序以空格分隔；若沒有負數則輸出空行。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n1 -2 0 3 -4",
+  "sampleOutput": "-2 -4",
+  "samples": [
+    { "input": "5\n1 -2 0 3 -4", "output": "-2 -4" },
+    { "input": "3\n1 2 3", "output": "" },
+    { "input": "1\n-5", "output": "-5" }
+  ],
+  "testCases": [
+    { "input": "5\n1 -2 0 3 -4", "output": "-2 -4" },
+    { "input": "3\n1 2 3", "output": "" },
+    { "input": "1\n-5", "output": "-5" },
+    { "input": "1\n0", "output": "" },
+    { "input": "1\n1000", "output": "" },
+    { "input": "1\n-1000", "output": "-1000" },
+    { "input": "4\n0 0 0 0", "output": "" },
+    { "input": "5\n-1 -2 -3 -4 -5", "output": "-1 -2 -3 -4 -5" },
+    { "input": "6\n-3 2 -1 0 7 -5", "output": "-3 -1 -5" },
+    { "input": "8\n1 -1 2 -2 3 -3 4 -4", "output": "-1 -2 -3 -4" },
+    { "input": "2\n-1000 1000", "output": "-1000" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p95_list_filter_negatives",
+    "sourceTitle": "95. 篩選出所有負數",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站逐行輸入與 JSON 陣列輸出改為 N 加空格分隔清單、輸出空格分隔（0 不列入負數），並補齊全零、全正、全負與極值測資。"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": 113,
+  "title": "建立空清單",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "基本操作"
+  ],
+  "audienceLevel": "E-MID",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "理解空清單的表示方式，並學會直接輸出固定結果"
+  ],
+  "prerequisites": [
+    "print() 輸出"
+  ],
+  "description": "<p class='problem-lead'>建立一個空的清單並輸出。</p><p>這一題不需要讀取任何輸入，只需要建立一個「空清單」（裡面沒有任何項目）並輸出。本站的清單一律以「一行、項目之間以一個空格分隔」的格式表示；當清單是空的、沒有任何項目時，就直接輸出一行空白（不印出任何文字），代表這一行沒有任何項目。</p>",
+  "hint": "<p>Python 可以先建立一個空清單 <code>[]</code>，再用 <code>print(' '.join(空清單))</code> 或直接 <code>print()</code> 輸出空白的一行。</p>",
+  "inputFormat": "<p>無任何輸入。</p>",
+  "outputFormat": "<p>輸出一行空白，代表一個沒有任何項目的空清單。</p>",
+  "constraints": "",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "",
+  "sampleOutput": "",
+  "samples": [
+    {
+      "input": "",
+      "output": ""
+    }
+  ],
+  "testCases": [
+    {
+      "input": "",
+      "output": ""
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p72_create_empty_list",
+    "sourceTitle": "72. 建立空清單",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站以 JSON 的 [] 表示空清單；依 SkillLab 清單以空格分隔單行輸出的慣例，改為輸出空白的一行，屬於無輸入的固定輸出題，僅需 1 組測資與範例。"
+  }
+}

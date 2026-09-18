@@ -1,0 +1,45 @@
+{
+  "id": 153,
+  "title": "找出最長單字",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["字串", "清單", "迴圈"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪切割後的單字清單並記錄目前最長的單字"],
+  "prerequisites": ["字串切割", "for 迴圈", "比較運算"],
+  "description": "<p class='problem-lead'>在一句英文句子中找出最長的單字。</p><p>給定一個以空格分隔單字的英文句子，請輸出其中長度最長的單字（保留原本的大小寫）。若有多個單字長度並列最長，輸出<strong>最早出現</strong>的那一個。</p>",
+  "hint": "<p>用一個變數記錄目前看過最長的單字，走訪每個單字時，只有嚴格比目前紀錄更長才更新，這樣並列時就會保留先出現的那個。</p>",
+  "inputFormat": "<p>一行，一個英文句子，單字之間以一個半形空格分隔。</p>",
+  "outputFormat": "<p>一行，輸出句子中最長的單字；若有並列，輸出最早出現的那一個。</p>",
+  "constraints": "<ul><li>句子只包含英文字母與空格</li><li>至少包含 1 個單字，句子長度 ≤ 200</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "I love programming",
+  "sampleOutput": "programming",
+  "samples": [
+    { "input": "I love programming", "output": "programming" },
+    { "input": "The cat is fat", "output": "The" },
+    { "input": "single", "output": "single" }
+  ],
+  "testCases": [
+    { "input": "I love programming", "output": "programming" },
+    { "input": "The cat is fat", "output": "The" },
+    { "input": "single", "output": "single" },
+    { "input": "a bb ccc", "output": "ccc" },
+    { "input": "aa bb cc dd", "output": "aa" },
+    { "input": "Hello World", "output": "Hello" },
+    { "input": "cat dog elephant ant", "output": "elephant" },
+    { "input": "x", "output": "x" },
+    { "input": "the quick brown fox jumps", "output": "quick" },
+    { "input": "apple Banana cherry", "output": "Banana" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p112_longest_word",
+    "sourceTitle": "112. 找出最長單字",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站範例（The cat is fat -> The）已隱含「並列取最早出現者」的規則，於題目中明確補述此 tie-break 規則，並補齊單字數、多重並列與大小寫混合等測資。"
+  }
+}

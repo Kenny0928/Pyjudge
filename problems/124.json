@@ -1,0 +1,45 @@
+{
+  "id": 124,
+  "title": "判斷清單是否為空",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "邏輯判斷", "布林值"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取清單長度並判斷清單是否為空"],
+  "prerequisites": ["清單輸入", "if/else", "布林值輸出"],
+  "description": "<p class='problem-lead'>判斷一份清單是不是空清單。</p><p>第一行輸入清單長度 <code>N</code>；若 <code>N</code> 大於 0，第二行會接著給出 <code>N</code> 個以空白分隔的項目。若清單是空的（<code>N = 0</code>），請輸出 <code>true</code>；否則輸出 <code>false</code>。大小寫必須完全一致。</p>",
+  "hint": "<p>不需要真的檢查清單內容，只要判斷 <code>N</code> 是否等於 0 即可。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>，表示清單長度。若 <code>N &gt; 0</code>，第二行為 <code>N</code> 個以空白分隔的項目（可能是文字或數字，項目本身不含空白）；若 <code>N = 0</code> 則沒有第二行。</p>",
+  "outputFormat": "<p>清單為空輸出 <code>true</code>，否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 20</li><li>每個項目為長度不超過 20 的英數字串，不含空白</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "1\nhello",
+  "sampleOutput": "false",
+  "samples": [
+    { "input": "1\nhello", "output": "false" },
+    { "input": "0", "output": "true" },
+    { "input": "5\n1 2 3 4 5", "output": "false" }
+  ],
+  "testCases": [
+    { "input": "0", "output": "true" },
+    { "input": "1\nhello", "output": "false" },
+    { "input": "3\na b c", "output": "false" },
+    { "input": "5\n1 2 3 4 5", "output": "false" },
+    { "input": "2\nx y", "output": "false" },
+    { "input": "4\napple banana cherry date", "output": "false" },
+    { "input": "1\n0", "output": "false" },
+    { "input": "6\n1 1 1 1 1 1", "output": "false" },
+    { "input": "10\n1 2 3 4 5 6 7 8 9 10", "output": "false" },
+    { "input": "20\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20", "output": "false" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p83_list_is_empty",
+    "sourceTitle": "83. 判斷清單是否為空",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題 N 加項目的輸入設計，改為 SkillLab 單行空白分隔清單格式，並補齊多種非零長度與最大長度測資防止硬編碼。"
+  }
+}

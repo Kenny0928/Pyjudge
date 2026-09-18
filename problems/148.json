@@ -1,0 +1,45 @@
+{
+  "id": 148,
+  "title": "質因數分解",
+  "stage": "Advanced",
+  "difficulty": "Medium",
+  "tags": ["數學", "質數", "迴圈"],
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用試除法將正整數分解成質因數的乘積"],
+  "prerequisites": ["while 迴圈", "質數概念", "整數除法"],
+  "description": "<p class='problem-lead'>將一個正整數分解成質因數的乘積。</p><p>給定一個整數 <code>a</code>（<code>a ≥ 2</code>），請找出所有質因數（可重複），由小到大輸出。例如 <code>12 = 2 × 2 × 3</code>，應輸出 <code>2 2 3</code>；若 <code>a</code> 本身就是質數（例如 13），則只輸出它自己。</p>",
+  "hint": "<p>從最小的因數 2 開始，只要能整除就不斷除盡並記錄，再嘗試下一個因數；最後若剩下的數大於 1，它本身也是一個質因數。</p>",
+  "inputFormat": "<p>一行，包含一個整數 <code>a</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 的所有質因數（由小到大，可重複），以空格分隔。</p>",
+  "constraints": "<ul><li>2 ≤ a ≤ 10000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "12",
+  "sampleOutput": "2 2 3",
+  "samples": [
+    { "input": "12", "output": "2 2 3" },
+    { "input": "30", "output": "2 3 5" },
+    { "input": "13", "output": "13" }
+  ],
+  "testCases": [
+    { "input": "2", "output": "2" },
+    { "input": "3", "output": "3" },
+    { "input": "9", "output": "3 3" },
+    { "input": "12", "output": "2 2 3" },
+    { "input": "13", "output": "13" },
+    { "input": "30", "output": "2 3 5" },
+    { "input": "97", "output": "97" },
+    { "input": "100", "output": "2 2 5 5" },
+    { "input": "1024", "output": "2 2 2 2 2 2 2 2 2 2" },
+    { "input": "10000", "output": "2 2 2 2 5 5 5 5" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p107_prime_factorization",
+    "sourceTitle": "107. 質因數分解",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "限定輸入 a≥2 以避開質因數分解對 1 未定義的爭議；補齊最小邊界、質數本身、完全冪與最大邊界（10000=2^4*5^4）等測資。"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": 145,
+  "title": "矩陣轉置",
+  "stage": "Advanced",
+  "difficulty": "Medium",
+  "tags": ["二維陣列", "矩陣", "巢狀迴圈"],
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取二維矩陣並交換列與行索引產生轉置矩陣"],
+  "prerequisites": ["二維清單", "巢狀迴圈", "矩陣"],
+  "description": "<p class='problem-lead'>將一個 R 列 C 行的矩陣轉置。</p><p>轉置矩陣是把原矩陣的列與行互換：原矩陣第 <code>i</code> 列第 <code>j</code> 行的元素，會變成新矩陣第 <code>j</code> 列第 <code>i</code> 行的元素。轉置後的矩陣共有 <code>C</code> 列、每列 <code>R</code> 個元素。</p>",
+  "hint": "<p>先把整個矩陣讀進二維清單，再用雙層迴圈依 <code>matrix[i][j]</code> 對應到轉置後的 <code>[j][i]</code> 輸出。</p>",
+  "inputFormat": "<p>第一行：兩個正整數 <code>R</code> 和 <code>C</code>，以空格分隔，分別代表原矩陣的列數與行數。</p><p>接下來 <code>R</code> 行：每行包含 <code>C</code> 個整數，以空格分隔。</p>",
+  "outputFormat": "<p>共 <code>C</code> 行，每行輸出 <code>R</code> 個整數（轉置後矩陣的一列），以空格分隔。</p>",
+  "constraints": "<ul><li>1 ≤ R, C ≤ 20</li><li>-1000 ≤ 每個矩陣元素 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "2 3\n1 2 3\n4 5 6",
+  "sampleOutput": "1 4\n2 5\n3 6",
+  "samples": [
+    { "input": "2 3\n1 2 3\n4 5 6", "output": "1 4\n2 5\n3 6" },
+    { "input": "2 2\n1 2\n3 4", "output": "1 3\n2 4" },
+    { "input": "1 1\n5", "output": "5" }
+  ],
+  "testCases": [
+    { "input": "2 3\n1 2 3\n4 5 6", "output": "1 4\n2 5\n3 6" },
+    { "input": "2 2\n1 2\n3 4", "output": "1 3\n2 4" },
+    { "input": "1 1\n5", "output": "5" },
+    { "input": "1 4\n1 2 3 4", "output": "1\n2\n3\n4" },
+    { "input": "4 1\n1\n2\n3\n4", "output": "1 2 3 4" },
+    { "input": "3 3\n-1 0 1\n2 -2 3\n4 5 -3", "output": "-1 2 4\n0 -2 5\n1 3 -3" },
+    { "input": "3 2\n1 2\n3 4\n5 6", "output": "1 3 5\n2 4 6" },
+    { "input": "2 2\n0 0\n0 0", "output": "0 0\n0 0" },
+    { "input": "1 1\n-7", "output": "-7" },
+    { "input": "2 5\n1 2 3 4 5\n6 7 8 9 10", "output": "1 6\n2 7\n3 8\n4 9\n5 10" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p104_matrix_transpose",
+    "sourceTitle": "104. 矩陣轉置",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站輸入為每個數字獨立一行、輸出為攤平陣列字面值；改採本站標準二維矩陣輸入（R C 一行，再 R 行各 C 個數字）與逐列輸出格式，並補齊方陣、長寬不等、含負數與零矩陣等測資。"
+  }
+}

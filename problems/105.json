@@ -1,0 +1,98 @@
+{
+  "id": 105,
+  "title": "計算單字數量",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "計數器",
+    "迴圈"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 split 依空白切割句子並計算單字數量"
+  ],
+  "prerequisites": [
+    "字串",
+    "split 方法",
+    "計數器"
+  ],
+  "description": "<p class='problem-lead'>計算一句話中包含幾個單字。</p><p>給定字串 <code>S</code>，單字之間以一個或多個半形空白分隔，請輸出 <code>S</code> 中的單字數量。<code>S</code> 開頭與結尾可能有多餘的空白，這些空白不算入任何單字；若整行只包含空白字元或完全沒有字元，單字數量為 <code>0</code>。</p>",
+  "hint": "<p>Python 的 <code>split()</code>（不帶參數）會自動忽略多餘空白並回傳單字清單，配合 <code>len()</code> 即可得到單字數量。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，該行也可能是空行或只包含空白。</p>",
+  "outputFormat": "<p>一行，輸出一個整數，表示 <code>S</code> 中的單字數量。</p>",
+  "constraints": "<ul><li>0 ≤ S 的字元數 ≤ 200</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Hello World",
+  "sampleOutput": "2",
+  "samples": [
+    {
+      "input": "Hello World",
+      "output": "2"
+    },
+    {
+      "input": "I love Blockly",
+      "output": "3"
+    },
+    {
+      "input": "one",
+      "output": "1"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "Hello World",
+      "output": "2"
+    },
+    {
+      "input": "I love Blockly",
+      "output": "3"
+    },
+    {
+      "input": "one",
+      "output": "1"
+    },
+    {
+      "input": "a b c d e",
+      "output": "5"
+    },
+    {
+      "input": "a   b",
+      "output": "2"
+    },
+    {
+      "input": " hello world ",
+      "output": "2"
+    },
+    {
+      "input": "",
+      "output": "0"
+    },
+    {
+      "input": " ",
+      "output": "0"
+    },
+    {
+      "input": "cat cat cat",
+      "output": "3"
+    },
+    {
+      "input": "123 456 789",
+      "output": "3"
+    },
+    {
+      "input": "the quick brown fox jumps over the lazy dog and runs away fast today",
+      "output": "14"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p64_count_words",
+    "sourceTitle": "64. 計算單字數量",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明訂多重空白、開頭結尾空白與全空白/空字串的計數規則為 0，並補齊對應邊界測資。"
+  }
+}

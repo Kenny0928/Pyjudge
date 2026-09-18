@@ -1,0 +1,46 @@
+{
+  "id": 140,
+  "title": "清單字串長度轉換",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "迴圈", "字串", "轉換"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪字串清單並將每個元素轉換為其長度組成新清單"],
+  "prerequisites": ["清單輸入", "for 迴圈", "len() 字串長度"],
+  "description": "<p class='problem-lead'>將一份字串清單轉換成對應的長度清單。</p><p>給定 <code>N</code> 個字串（每個字串不含空白字元），請建立一個新清單，其中每個位置存放對應字串的字元數量，並依原順序輸出。</p>",
+  "hint": "<p>走訪字串清單，對每個字串使用 <code>len()</code> 取得長度後放入新清單，最後用空格把長度清單接起來輸出。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個字串，字串本身不含空白字元。</p>",
+  "outputFormat": "<p>輸出一行，包含 <code>N</code> 個整數，依原順序以空格分隔，為每個字串的長度。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>1 ≤ 每個字串長度 ≤ 50</li><li>字串僅由英文字母與數字組成，不含空白</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\napple banana cat",
+  "sampleOutput": "5 6 3",
+  "samples": [
+    { "input": "3\napple banana cat", "output": "5 6 3" },
+    { "input": "2\nhi world", "output": "2 5" },
+    { "input": "1\na", "output": "1" }
+  ],
+  "testCases": [
+    { "input": "3\napple banana cat", "output": "5 6 3" },
+    { "input": "2\nhi world", "output": "2 5" },
+    { "input": "1\na", "output": "1" },
+    { "input": "1\nabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv", "output": "48" },
+    { "input": "4\na bb ccc dddd", "output": "1 2 3 4" },
+    { "input": "5\nx y z w v", "output": "1 1 1 1 1" },
+    { "input": "3\n123 4567 89", "output": "3 4 2" },
+    { "input": "6\ncat dog bird fish ant bee", "output": "3 3 4 4 3 3" },
+    { "input": "2\nsame same", "output": "4 4" },
+    { "input": "1\nz", "output": "1" },
+    { "input": "8\na ab abc abcd abcde abcdef abcdefg abcdefgh", "output": "1 2 3 4 5 6 7 8" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p99_list_map_lengths",
+    "sourceTitle": "99. 計算清單中所有字串的長度",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站逐行字串輸入與 JSON 陣列輸出改為 N 加一行空格分隔字串（限制字串本身不含空白）、輸出空格分隔的長度清單，並補齊最短、最長與長度相同字串測資。"
+  }
+}

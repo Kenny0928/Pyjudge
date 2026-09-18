@@ -1,0 +1,102 @@
+{
+  "id": 107,
+  "title": "判斷是否全為字母",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "邏輯判斷",
+    "迴圈"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "走訪字串每個字元，判斷是否全部為英文字母"
+  ],
+  "prerequisites": [
+    "字串走訪",
+    "條件判斷",
+    "布林值"
+  ],
+  "description": "<p class='problem-lead'>判斷一個字串是否只包含英文字母。</p><p>給定字串 <code>S</code>，請判斷其中「每一個字元」是否都是英文字母（<code>a</code>-<code>z</code> 或 <code>A</code>-<code>Z</code>）。若 <code>S</code> 是空字串（長度為 0），視為不符合條件。符合條件請輸出 <code>true</code>，否則輸出 <code>false</code>，大小寫必須完全一致。</p>",
+  "hint": "<p>Python 字串的 <code>isalpha()</code> 可以一次判斷整個字串是否全為英文字母；記得先處理空字串的情況。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，該行也可能為空行。</p>",
+  "outputFormat": "<p>輸出 <code>true</code> 或 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ S 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "abcde",
+  "sampleOutput": "true",
+  "samples": [
+    {
+      "input": "abcde",
+      "output": "true"
+    },
+    {
+      "input": "ab123",
+      "output": "false"
+    },
+    {
+      "input": "Hello",
+      "output": "true"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "abcde",
+      "output": "true"
+    },
+    {
+      "input": "ab123",
+      "output": "false"
+    },
+    {
+      "input": "Hello",
+      "output": "true"
+    },
+    {
+      "input": "",
+      "output": "false"
+    },
+    {
+      "input": "A",
+      "output": "true"
+    },
+    {
+      "input": "abcXYZ",
+      "output": "true"
+    },
+    {
+      "input": "abc def",
+      "output": "false"
+    },
+    {
+      "input": "abc-def",
+      "output": "false"
+    },
+    {
+      "input": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "output": "true"
+    },
+    {
+      "input": "hello_world",
+      "output": "false"
+    },
+    {
+      "input": "H",
+      "output": "true"
+    },
+    {
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "output": "true"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p66_is_all_letters",
+    "sourceTitle": "66. 判斷是否全為字母",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原題未定義空字串情況，明訂空字串視為 false，並補齊底線、空格、混合大小寫與最大長度等邊界測資。"
+  }
+}

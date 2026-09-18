@@ -1,0 +1,45 @@
+{
+  "id": 128,
+  "title": "用逗號組合清單成字串",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "字串", "join"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用 join 將清單元素組合成以逗號分隔的字串"],
+  "prerequisites": ["清單輸入", "字串join"],
+  "description": "<p class='problem-lead'>把清單中的項目用逗號串接成一個字串。</p><p>第一行輸入清單長度 <code>N</code>；第二行（若 <code>N &gt; 0</code>）給出 <code>N</code> 個以空白分隔的項目。請將這些項目依原本順序用單一逗號 <code>,</code> 串接輸出，項目之間<b>不加任何空格</b>，字串開頭與結尾也不能有逗號。若 <code>N = 0</code>，輸出空白行。</p>",
+  "hint": "<p>Python 的 <code>','.join(items)</code> 可以一次完成串接，不需要自己判斷是否加逗號。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>；若 <code>N &gt; 0</code> 則第二行為 <code>N</code> 個以空白分隔的項目，項目本身不含空白或逗號。</p>",
+  "outputFormat": "<p>輸出以逗號分隔、不含空格的單行字串；清單為空時輸出空白行。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 20</li><li>每個項目的長度不超過 20，且不含空白或逗號</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\napple banana cherry",
+  "sampleOutput": "apple,banana,cherry",
+  "samples": [
+    { "input": "3\napple banana cherry", "output": "apple,banana,cherry" },
+    { "input": "2\n1 2", "output": "1,2" },
+    { "input": "0", "output": "" }
+  ],
+  "testCases": [
+    { "input": "3\napple banana cherry", "output": "apple,banana,cherry" },
+    { "input": "2\n1 2", "output": "1,2" },
+    { "input": "1\nhello", "output": "hello" },
+    { "input": "0", "output": "" },
+    { "input": "4\na b c d", "output": "a,b,c,d" },
+    { "input": "5\n1 1 1 1 1", "output": "1,1,1,1,1" },
+    { "input": "2\nx y", "output": "x,y" },
+    { "input": "6\n10 20 30 40 50 60", "output": "10,20,30,40,50,60" },
+    { "input": "1\nz", "output": "z" },
+    { "input": "10\na b c d e f g h i j", "output": "a,b,c,d,e,f,g,h,i,j" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p87_list_join_with_comma",
+    "sourceTitle": "87. 用逗號組合清單成字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題無空格逗號串接的輸出格式（依 raw_test_cases 的 'apple,banana,cherry'、'1,2' 確認無空格），改為 SkillLab 空白分隔清單輸入，並補齊單元素、空清單與重複值測資。"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": 114,
+  "title": "建立固定清單",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "輸出",
+    "基本操作"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "認識清單（list）是可以一次存放多個數值的容器",
+    "練習輸出清單內容"
+  ],
+  "prerequisites": [
+    "print 輸出",
+    "整數"
+  ],
+  "description": "<p class='problem-lead'>建立一個固定內容的清單並輸出。</p><p>不需要讀取任何輸入。請直接建立一個依序包含 <code>1</code>、<code>2</code>、<code>3</code> 這三個整數的清單，並依序輸出清單中的每個元素。</p>",
+  "hint": "<p>可以先建立清單 <code>[1, 2, 3]</code>，再用一個迴圈依序印出每個元素；積木則可用「建立清單」積木加入三個數字後逐一顯示。</p>",
+  "inputFormat": "<p>無任何輸入。</p>",
+  "outputFormat": "<p>一行，依序輸出清單中的三個整數，元素之間以一個空白分隔：<code>1 2 3</code>。</p>",
+  "constraints": "",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "",
+  "sampleOutput": "1 2 3",
+  "testCases": [
+    {
+      "input": "",
+      "output": "1 2 3"
+    }
+  ],
+  "samples": [
+    {
+      "input": "",
+      "output": "1 2 3"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p73_list_with_three_items",
+    "sourceTitle": "73. 建立固定清單",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原題無輸入、固定輸出清單 [1,2,3]；依 SkillLab 清單輸出慣例改為空白分隔單行輸出 1 2 3，比照 000 號固定輸出題僅需 1 組測資與 1 組範例。"
+  }
+}

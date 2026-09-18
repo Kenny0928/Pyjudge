@@ -1,0 +1,93 @@
+{
+  "id": 112,
+  "title": "HTML 標籤包裝",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "字串樣板",
+    "基本運算"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用字串連接，把文字包裝進固定的標籤樣板中"
+  ],
+  "prerequisites": [
+    "字串",
+    "字串連接"
+  ],
+  "description": "<p class='problem-lead'>把一段文字包裝進 <code>&lt;p&gt;</code> 標籤中。</p><p>給定字串 <code>S</code>，請直接在 <code>S</code> 前面加上 <code>&lt;p&gt;</code>、後面加上 <code>&lt;/p&gt;</code> 並輸出，不需要對 <code>S</code> 的內容做任何額外處理或跳脫。例如 <code>S</code> 為 <code>Hi</code> 時，輸出 <code>&lt;p&gt;Hi&lt;/p&gt;</code>。<code>S</code> 開頭或結尾的空白也必須原樣保留。</p>",
+  "hint": "<p>用字串連接或格式化字串，把 <code>&lt;p&gt;</code>、<code>S</code>、<code>&lt;/p&gt;</code> 依序接在一起即可。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，該行也可能完全是空行。</p>",
+  "outputFormat": "<p>一行，輸出 <code>&lt;p&gt;</code> + <code>S</code> + <code>&lt;/p&gt;</code> 組合後的結果。</p>",
+  "constraints": "<ul><li>0 ≤ S 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Title",
+  "sampleOutput": "<p>Title</p>",
+  "samples": [
+    {
+      "input": "Title",
+      "output": "<p>Title</p>"
+    },
+    {
+      "input": "This is a test.",
+      "output": "<p>This is a test.</p>"
+    },
+    {
+      "input": "",
+      "output": "<p></p>"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "Title",
+      "output": "<p>Title</p>"
+    },
+    {
+      "input": "This is a test.",
+      "output": "<p>This is a test.</p>"
+    },
+    {
+      "input": "",
+      "output": "<p></p>"
+    },
+    {
+      "input": "A",
+      "output": "<p>A</p>"
+    },
+    {
+      "input": "Hello World",
+      "output": "<p>Hello World</p>"
+    },
+    {
+      "input": "Wow!!!",
+      "output": "<p>Wow!!!</p>"
+    },
+    {
+      "input": "12345",
+      "output": "<p>12345</p>"
+    },
+    {
+      "input": " padded ",
+      "output": "<p> padded </p>"
+    },
+    {
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "output": "<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>"
+    },
+    {
+      "input": "<b>bold</b>",
+      "output": "<p><b>bold</b></p>"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p71_wrap_tags",
+    "sourceTitle": "71. HTML 標籤包裝",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "補齊空字串、含空白與含既有標籤等邊界與防硬編碼測資，並明訂不對內容做跳脫處理。"
+  }
+}

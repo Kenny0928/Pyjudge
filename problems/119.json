@@ -1,0 +1,95 @@
+{
+  "id": 119,
+  "title": "在清單指定位置插入項目",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "修改",
+    "索引"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 insert 在清單指定位置插入新項目",
+    "理解插入位置與清單長度的邊界關係"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "索引",
+    "清單方法"
+  ],
+  "description": "<p class='problem-lead'>在清單指定位置插入一個新項目。</p><p>給定一份清單、一個 0-based 索引 <code>idx</code> 與一個新項目 <code>item</code>，請將 <code>item</code> 插入到清單中索引 <code>idx</code> 的位置（原本在該位置及之後的項目依序往後移一格），並輸出插入後的新清單。當 <code>idx</code> 等於清單長度時，代表插入到清單最末端。</p>",
+  "hint": "<p>Python 可以使用 <code>items.insert(idx, item)</code> 直接在指定位置插入新項目。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>N</code>，代表原始清單長度。第二行包含以空白分隔的 <code>N</code> 個項目（若 <code>N</code> 為 <code>0</code>，此行為空行）。第三行包含整數 <code>idx</code>。第四行包含要插入的新項目 <code>item</code>。</p>",
+  "outputFormat": "<p>一行，輸出插入 <code>item</code> 後的新清單，元素之間以一個空白分隔。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 100</li><li>0 ≤ idx ≤ N（保證為合法插入位置）</li><li>每個項目（含新項目）是不含空白的字串，長度介於 1 到 10 個字元之間</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\na b c\n0\nz",
+  "sampleOutput": "z a b c",
+  "samples": [
+    {
+      "input": "3\na b c\n0\nz",
+      "output": "z a b c"
+    },
+    {
+      "input": "3\na b c\n2\nx",
+      "output": "a b x c"
+    },
+    {
+      "input": "3\na b c\n3\ny",
+      "output": "a b c y"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "3\na b c\n0\nz",
+      "output": "z a b c"
+    },
+    {
+      "input": "3\na b c\n2\nx",
+      "output": "a b x c"
+    },
+    {
+      "input": "3\na b c\n3\ny",
+      "output": "a b c y"
+    },
+    {
+      "input": "0\n\n0\nz",
+      "output": "z"
+    },
+    {
+      "input": "1\nonly\n0\nx",
+      "output": "x only"
+    },
+    {
+      "input": "1\nonly\n1\nx",
+      "output": "only x"
+    },
+    {
+      "input": "5\n1 2 3 4 5\n2\n99",
+      "output": "1 2 99 3 4 5"
+    },
+    {
+      "input": "4\nw1 w2 w3 w4\n2\nww",
+      "output": "w1 w2 ww w3 w4"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100\n0\n0",
+      "output": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100\n100\n101",
+      "output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p78_list_insert_item",
+    "sourceTitle": "78. 在清單指定位置插入項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原題以固定清單 ['a','b','c'] 為插入對象；為與同批清單修改題一致並涵蓋更多邊界，改為讀取任意長度清單（含 N=0 空清單與 idx=N 尾端插入）再進行插入，語意與原題插入開頭/中間案例一致。"
+  }
+}

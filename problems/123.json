@@ -1,0 +1,95 @@
+{
+  "id": 123,
+  "title": "修改清單第 N 個項目",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "修改",
+    "索引"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用索引賦值修改清單中指定位置的項目",
+    "輸出修改後的清單"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "索引",
+    "清單方法"
+  ],
+  "description": "<p class='problem-lead'>修改清單中指定位置的項目。</p><p>給定一份清單、一個 0-based 索引 <code>idx</code> 與一個新項目 <code>item</code>，請將清單中位於 <code>idx</code> 位置的項目改成 <code>item</code>（清單長度不變），並輸出修改後的新清單。</p>",
+  "hint": "<p>Python 可以直接用索引賦值 <code>items[idx] = item</code> 修改指定位置的元素。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>，代表清單長度。第二行包含以空白分隔的 <code>N</code> 個項目。第三行包含整數 <code>idx</code>，代表要修改的 0-based 索引。第四行包含新項目 <code>item</code>。</p>",
+  "outputFormat": "<p>一行，輸出將 <code>idx</code> 位置項目改為 <code>item</code> 後的新清單，元素之間以一個空白分隔。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>0 ≤ idx ≤ N-1（保證為合法索引）</li><li>每個項目（含新項目）是不含空白的字串，長度介於 1 到 10 個字元之間</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\na b c\n1\nz",
+  "sampleOutput": "a z c",
+  "samples": [
+    {
+      "input": "3\na b c\n1\nz",
+      "output": "a z c"
+    },
+    {
+      "input": "2\n10 20\n0\n99",
+      "output": "99 20"
+    },
+    {
+      "input": "1\nonly\n0\nx",
+      "output": "x"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "3\na b c\n1\nz",
+      "output": "a z c"
+    },
+    {
+      "input": "2\n10 20\n0\n99",
+      "output": "99 20"
+    },
+    {
+      "input": "1\nonly\n0\nx",
+      "output": "x"
+    },
+    {
+      "input": "5\n1 2 3 4 5\n4\n99",
+      "output": "1 2 3 4 99"
+    },
+    {
+      "input": "4\napple banana cherry date\n2\ngrape",
+      "output": "apple banana grape date"
+    },
+    {
+      "input": "6\naa bb cc dd ee ff\n0\nZZ",
+      "output": "ZZ bb cc dd ee ff"
+    },
+    {
+      "input": "2\n-5 10\n1\n100",
+      "output": "-5 100"
+    },
+    {
+      "input": "3\n7 8 9\n2\n0",
+      "output": "7 8 0"
+    },
+    {
+      "input": "10\nw1 w2 w3 w4 w5 w6 w7 w8 w9 w10\n5\nNEW",
+      "output": "w1 w2 w3 w4 w5 NEW w7 w8 w9 w10"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100\n99\n999",
+      "output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 999"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p82_list_set_nth",
+    "sourceTitle": "82. 修改清單第N個項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題 0-based 索引語意，改為 N、清單、idx、item 四行輸入；補上 idx 落於起點/終點與 N=1 的邊界測資。"
+  }
+}

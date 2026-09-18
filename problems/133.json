@@ -1,0 +1,45 @@
+{
+  "id": 133,
+  "title": "清單中所有偶數的和",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "迴圈", "條件判斷", "數學"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪清單並累加符合條件（偶數）的元素"],
+  "prerequisites": ["清單輸入", "for 迴圈", "取餘數", "累加器"],
+  "description": "<p class='problem-lead'>計算一份整數清單中所有偶數的總和。</p><p>第一行輸入清單長度 <code>N</code>；第二行（若 <code>N &gt; 0</code>）給出 <code>N</code> 個以空白分隔的整數。請計算並輸出清單中所有偶數（包含 0 與負偶數）的總和；若清單中沒有偶數，輸出 <code>0</code>。</p>",
+  "hint": "<p>準備一個初始值為 0 的累加器，走訪清單時只把餘數為 0 的數字加進去；判斷偶數時 <code>x % 2 == 0</code> 對負數同樣成立。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>；若 <code>N &gt; 0</code> 則第二行為 <code>N</code> 個以空白分隔的整數。</p>",
+  "outputFormat": "<p>輸出一個整數，表示清單中所有偶數的總和；若沒有偶數則輸出 <code>0</code>。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6\n1 2 3 4 5 6",
+  "sampleOutput": "12",
+  "samples": [
+    { "input": "6\n1 2 3 4 5 6", "output": "12" },
+    { "input": "3\n1 3 5", "output": "0" },
+    { "input": "0", "output": "0" }
+  ],
+  "testCases": [
+    { "input": "6\n1 2 3 4 5 6", "output": "12" },
+    { "input": "3\n1 3 5", "output": "0" },
+    { "input": "0", "output": "0" },
+    { "input": "1\n2", "output": "2" },
+    { "input": "1\n3", "output": "0" },
+    { "input": "4\n-2 -4 3 5", "output": "-6" },
+    { "input": "5\n0 1 2 3 4", "output": "6" },
+    { "input": "6\n2 2 2 2 2 2", "output": "12" },
+    { "input": "7\n1000 -1000 999 -999 500 -500 1", "output": "0" },
+    { "input": "2\n-1 -3", "output": "0" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p92_list_sum_even",
+    "sourceTitle": "92. 計算清單中所有偶數的和",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題偶數求和語意，改為 SkillLab 空白分隔清單輸入，並補齊 0、負偶數、全為奇數與正負邊界值測資。"
+  }
+}

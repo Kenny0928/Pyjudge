@@ -21,7 +21,7 @@ test('Judge stage filters combine with difficulty, search and completion status'
     result[problem.stage] = (result[problem.stage] || 0) + 1;
     return result;
   }, {});
-  assert.deepEqual(counts, { Beginner: 49, Intermediate: 49, Advanced: 5, Challenge: 1 });
+  assert.deepEqual(counts, { Beginner: 56, Intermediate: 85, Advanced: 12, Challenge: 1 });
 
   const filter = (filters, solvedIds = []) => {
     const solved = new Set(solvedIds);
@@ -30,7 +30,7 @@ test('Judge stage filters combine with difficulty, search and completion status'
       .map(problem => problem.id);
   };
   assert.deepEqual(filter({ stage: 'Challenge' }), [7]);
-  assert.deepEqual(filter({ stage: 'Advanced', difficulty: 'Medium' }), [4]);
+  assert.deepEqual(filter({ stage: 'Advanced', difficulty: 'Medium' }), [4, 145, 148, 151]);
   assert.deepEqual(filter({ search: 'APCS 實作' }), [7]);
   assert.deepEqual(filter({ stage: 'Beginner', status: 'solved' }, [0, 2, 11]), [0, 11]);
   assert.ok(filter({ stage: 'Intermediate', tag: '字串' }).every(id => manifest[id].stage === 'Intermediate'));

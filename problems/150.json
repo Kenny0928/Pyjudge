@@ -1,0 +1,43 @@
+{
+  "id": 150,
+  "title": "二進位轉十進位（進階）",
+  "stage": "Advanced",
+  "difficulty": "Easy",
+  "tags": ["數學", "進位轉換", "字串"],
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["由左到右走訪二進位字串並累乘 2 求出對應的十進位值"],
+  "prerequisites": ["字串走訪", "for 迴圈", "累加器"],
+  "description": "<p class='problem-lead'>將一個二進位字串轉換成十進位整數。</p><p>給定一個只包含字元 <code>0</code> 和 <code>1</code> 的字串，請輸出它所代表的十進位整數。輸入保證是合法的二進位字串，不含前導零（僅 <code>0</code> 本身例外）。</p>",
+  "hint": "<p>從左到右走訪每個字元，每走一步把目前結果乘以 2，再加上這一位的數字。</p>",
+  "inputFormat": "<p>一行，一串只包含 <code>0</code> 和 <code>1</code> 的字串，長度 <code>1 ≤ L ≤ 20</code>。</p>",
+  "outputFormat": "<p>一行，輸出對應的十進位整數。</p>",
+  "constraints": "<ul><li>1 ≤ 字串長度 ≤ 20</li><li>輸入保證是合法二進位字串，不含前導零（僅 '0' 本身例外）</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "1010",
+  "sampleOutput": "10",
+  "samples": [
+    { "input": "1010", "output": "10" },
+    { "input": "111", "output": "7" },
+    { "input": "0", "output": "0" }
+  ],
+  "testCases": [
+    { "input": "0", "output": "0" },
+    { "input": "1", "output": "1" },
+    { "input": "1010", "output": "10" },
+    { "input": "111", "output": "7" },
+    { "input": "11111111", "output": "255" },
+    { "input": "10000000000", "output": "1024" },
+    { "input": "11111111111111111111", "output": "1048575" },
+    { "input": "10000000000000000000", "output": "524288" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p109_binary_to_decimal",
+    "sourceTitle": "109. 二進位轉十進位",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "與既有題號 009（長度上限 10，Intermediate 層級）為不同題目：延續不含前導零的規則，將字串長度上限擴大到 20 並歸類為 Advanced 層級，補齊全 1 與最大長度等邊界測資。"
+  }
+}

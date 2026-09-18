@@ -1,0 +1,98 @@
+{
+  "id": 104,
+  "title": "切割字串成清單",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "清單",
+    "分割"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 split 依指定分隔符號將字串切割成清單並依序輸出"
+  ],
+  "prerequisites": [
+    "字串",
+    "清單",
+    "split 方法"
+  ],
+  "description": "<p class='problem-lead'>將一行以逗號分隔的文字切割成多個項目。</p><p>給定字串 <code>S</code>，其中的項目以半形逗號 <code>,</code> 分隔（逗號前後不含空格），請把 <code>S</code> 依逗號切割成清單，並依原本順序輸出。本站的清單一律以「一行、項目之間以一個空格分隔」的格式表示，因此輸出時請把切割後的項目以空格重新連接。</p>",
+  "hint": "<p>Python 的 <code>split(',')</code> 可以直接把字串依逗號切成清單，再用空格重新組合輸出。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，由 1 個以上以逗號分隔的項目組成。</p>",
+  "outputFormat": "<p>一行，輸出切割後的清單，項目之間以一個空格分隔。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 200</li><li>項目數量為 1 至 20 個</li><li>每個項目只包含英文字母與數字，長度 1 至 20</li><li>逗號前後不含空格</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "apple,banana,cherry",
+  "sampleOutput": "apple banana cherry",
+  "samples": [
+    {
+      "input": "apple,banana,cherry",
+      "output": "apple banana cherry"
+    },
+    {
+      "input": "one,two",
+      "output": "one two"
+    },
+    {
+      "input": "a",
+      "output": "a"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "apple,banana,cherry",
+      "output": "apple banana cherry"
+    },
+    {
+      "input": "one,two",
+      "output": "one two"
+    },
+    {
+      "input": "a",
+      "output": "a"
+    },
+    {
+      "input": "a,b,c,d,e",
+      "output": "a b c d e"
+    },
+    {
+      "input": "1,2,3",
+      "output": "1 2 3"
+    },
+    {
+      "input": "hello",
+      "output": "hello"
+    },
+    {
+      "input": "x,x,x",
+      "output": "x x x"
+    },
+    {
+      "input": "a1,b2,c3",
+      "output": "a1 b2 c3"
+    },
+    {
+      "input": "aa,bb,cc,dd,ee,ff,gg,hh,ii,jj",
+      "output": "aa bb cc dd ee ff gg hh ii jj"
+    },
+    {
+      "input": "ab,cd,ef,gh",
+      "output": "ab cd ef gh"
+    },
+    {
+      "input": "kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk,kkkkkkkkkkkkkkkkkkkk",
+      "output": "kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p63_split_to_array",
+    "sourceTitle": "63. 切割字串成清單",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站以 JSON 陣列比對輸出；依 SkillLab 清單一律以空格分隔單行輸出的慣例重新定義輸出格式，並補齊單一項目、重複項目與最大長度測資。"
+  }
+}

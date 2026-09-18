@@ -1,0 +1,45 @@
+{
+  "id": 138,
+  "title": "清單數字平方",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "迴圈", "數學", "轉換"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整數清單並對每個元素套用轉換規則產生新清單"],
+  "prerequisites": ["清單輸入", "for 迴圈", "算術運算"],
+  "description": "<p class='problem-lead'>將清單中每個數字都變成它的平方。</p><p>給定 <code>N</code> 個整數，請建立一個新清單，其中每個數字都是原清單中對應數字的平方，並依原順序輸出。</p>",
+  "hint": "<p>走訪清單，把每個數字乘以自己（或用 <code>** 2</code>）後放進新清單，最後用空格把新清單接起來輸出。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個整數。</p>",
+  "outputFormat": "<p>輸出一行，包含 <code>N</code> 個整數，依原順序以空格分隔，為原清單每個數字的平方。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "4\n1 2 3 4",
+  "sampleOutput": "1 4 9 16",
+  "samples": [
+    { "input": "4\n1 2 3 4", "output": "1 4 9 16" },
+    { "input": "3\n0 5 -2", "output": "0 25 4" },
+    { "input": "1\n0", "output": "0" }
+  ],
+  "testCases": [
+    { "input": "4\n1 2 3 4", "output": "1 4 9 16" },
+    { "input": "3\n0 5 -2", "output": "0 25 4" },
+    { "input": "1\n0", "output": "0" },
+    { "input": "1\n1000", "output": "1000000" },
+    { "input": "1\n-1000", "output": "1000000" },
+    { "input": "5\n0 0 0 0 0", "output": "0 0 0 0 0" },
+    { "input": "5\n-1 -2 -3 -4 -5", "output": "1 4 9 16 25" },
+    { "input": "6\n1 -1 2 -2 3 -3", "output": "1 1 4 4 9 9" },
+    { "input": "1\n-1", "output": "1" },
+    { "input": "8\n1 2 3 4 5 6 7 8", "output": "1 4 9 16 25 36 49 64" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p97_list_map_square",
+    "sourceTitle": "97. 將清單中所有數字平方",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站逐行輸入與 JSON 陣列輸出改為 N 加空格分隔清單、輸出空格分隔，並補齊零、正負極值與正負對稱平方相等測資。"
+  }
+}

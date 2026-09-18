@@ -1,0 +1,46 @@
+{
+  "id": 152,
+  "title": "異位構詞判斷",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["字串", "排序", "邏輯判斷"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["透過排序字元比較兩字串是否互為異位構詞"],
+  "prerequisites": ["字串", "排序", "大小寫轉換"],
+  "description": "<p class='problem-lead'>判斷兩個字串是否互為異位構詞（anagram）。</p><p>給定兩個只包含英文字母的字串 <code>a</code> 和 <code>b</code>，請判斷它們是否由完全相同的字母組成（可以不同順序，且忽略英文字母大小寫）。例如 <code>Listen</code> 和 <code>Silent</code> 互為異位構詞。是則輸出 <code>true</code>，否則輸出 <code>false</code>。</p>",
+  "hint": "<p>把兩個字串都轉成小寫並排序，若排序後的結果完全相同，就代表兩者是異位構詞。</p>",
+  "inputFormat": "<p>兩行，第一行是字串 <code>a</code>，第二行是字串 <code>b</code>，皆只包含英文字母。</p>",
+  "outputFormat": "<p>一行，若 <code>a</code> 和 <code>b</code> 互為異位構詞輸出 <code>true</code>，否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>1 ≤ 字串長度 ≤ 50</li><li>字串只包含英文字母（大小寫皆可能出現）</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "listen\nsilent",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "listen\nsilent", "output": "true" },
+    { "input": "hello\nworld", "output": "false" },
+    { "input": "Race\nCare", "output": "true" }
+  ],
+  "testCases": [
+    { "input": "listen\nsilent", "output": "true" },
+    { "input": "hello\nworld", "output": "false" },
+    { "input": "Race\nCare", "output": "true" },
+    { "input": "anagram\nnagaram", "output": "true" },
+    { "input": "rat\ncar", "output": "false" },
+    { "input": "a\na", "output": "true" },
+    { "input": "ab\nba", "output": "true" },
+    { "input": "abc\nabd", "output": "false" },
+    { "input": "AaBb\nbBAa", "output": "true" },
+    { "input": "aabbcc\nabcabc", "output": "true" },
+    { "input": "aabbcc\naabbc", "output": "false" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p111_is_anagram",
+    "sourceTitle": "111. 異位構詞 (Anagram)",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "依原站範例（Race/Care 判定為 true）確立忽略英文字母大小寫的規則，限定輸入僅含英文字母，並補齊等長不同字元、長度不同、多重重複字母與大小寫混合等測資。"
+  }
+}

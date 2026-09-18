@@ -1,0 +1,45 @@
+{
+  "id": 127,
+  "title": "尋找項目最後出現的位置",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "搜尋", "索引"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪整個清單找出目標值最後一次出現的索引"],
+  "prerequisites": ["清單輸入", "for 迴圈", "索引"],
+  "description": "<p class='problem-lead'>找出目標項目在清單中最後一次出現的位置。</p><p>第一行輸入清單長度 <code>N</code>；第二行（若 <code>N &gt; 0</code>）給出 <code>N</code> 個以空白分隔的項目；最後一行給出目標項目 <code>item</code>。請輸出 <code>item</code> 在清單中最後一次出現的索引，索引從 <b>0</b> 開始計算；若清單中找不到 <code>item</code>，輸出 <code>-1</code>。</p>",
+  "hint": "<p>從頭到尾走訪整個清單，每次符合條件就更新答案，走訪完後保留的就是最後一次出現的索引。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>；若 <code>N &gt; 0</code> 則第二行為 <code>N</code> 個以空白分隔的項目；最後一行為要尋找的目標項目 <code>item</code>。項目與目標皆為不含空白的英數字串。</p>",
+  "outputFormat": "<p>輸出一個整數：找到時為最後一次出現的 0-based 索引；找不到時為 <code>-1</code>。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 50</li><li>每個項目與目標的長度不超過 20，且不含空白</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\na b c b a\nb",
+  "sampleOutput": "3",
+  "samples": [
+    { "input": "5\na b c b a\nb", "output": "3" },
+    { "input": "3\nx y z\nw", "output": "-1" },
+    { "input": "0\nz", "output": "-1" }
+  ],
+  "testCases": [
+    { "input": "5\na b c b a\nb", "output": "3" },
+    { "input": "3\nx y z\nw", "output": "-1" },
+    { "input": "1\nx\nx", "output": "0" },
+    { "input": "1\nx\ny", "output": "-1" },
+    { "input": "0\nz", "output": "-1" },
+    { "input": "6\n1 2 3 2 1 2\n2", "output": "5" },
+    { "input": "4\na a a a\na", "output": "3" },
+    { "input": "5\na b c d e\ne", "output": "4" },
+    { "input": "7\na b c d e f g\na", "output": "0" },
+    { "input": "5\n5 4 3 2 1\n1", "output": "4" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p86_list_find_last_index",
+    "sourceTitle": "86. 尋找項目最後出現位置",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題 0-based 最後出現索引與找不到輸出 -1 的判題語意（以 raw_test_cases 交叉驗證），改為 SkillLab 空白分隔清單輸入，並刻意保留與 p85 相同的重複值測資以突顯『首次』與『最後』的差異。"
+  }
+}

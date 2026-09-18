@@ -1,0 +1,45 @@
+{
+  "id": 129,
+  "title": "清單排序（升冪）",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "排序", "演算法"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["將整數清單由小到大排序後輸出"],
+  "prerequisites": ["清單輸入", "排序"],
+  "description": "<p class='problem-lead'>將一份整數清單由小到大排序。</p><p>第一行輸入清單長度 <code>N</code>；第二行（若 <code>N &gt; 0</code>）給出 <code>N</code> 個以空白分隔的整數。請將這些整數由小到大（升冪）排序後輸出。</p>",
+  "hint": "<p>Python 的清單方法 <code>sort()</code> 預設就是由小到大排序。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>；若 <code>N &gt; 0</code> 則第二行為 <code>N</code> 個以空白分隔的整數。</p>",
+  "outputFormat": "<p>輸出排序後的整數，以空白分隔排在同一行；清單為空時輸出空白行。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 100</li><li>-1000 ≤ 每個整數 ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "5\n5 1 4 2 3",
+  "sampleOutput": "1 2 3 4 5",
+  "samples": [
+    { "input": "5\n5 1 4 2 3", "output": "1 2 3 4 5" },
+    { "input": "3\n10 5 100", "output": "5 10 100" },
+    { "input": "0", "output": "" }
+  ],
+  "testCases": [
+    { "input": "5\n5 1 4 2 3", "output": "1 2 3 4 5" },
+    { "input": "3\n10 5 100", "output": "5 10 100" },
+    { "input": "0", "output": "" },
+    { "input": "1\n7", "output": "7" },
+    { "input": "4\n-3 -1 -2 0", "output": "-3 -2 -1 0" },
+    { "input": "6\n1 1 1 1 1 1", "output": "1 1 1 1 1 1" },
+    { "input": "5\n5 4 3 2 1", "output": "1 2 3 4 5" },
+    { "input": "5\n1 2 3 4 5", "output": "1 2 3 4 5" },
+    { "input": "7\n1000 -1000 0 500 -500 250 -250", "output": "-1000 -500 -250 0 250 500 1000" },
+    { "input": "2\n2 2", "output": "2 2" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p88_list_sort_ascending",
+    "sourceTitle": "88. 清單排序 (升冪)",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題升冪排序語意，改為 SkillLab 空白分隔清單輸出，並擴充負數、重複值、已排序、逆序與正負邊界值測資。"
+  }
+}

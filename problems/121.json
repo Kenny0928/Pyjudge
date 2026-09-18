@@ -1,0 +1,94 @@
+{
+  "id": 121,
+  "title": "移除清單第一個項目",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "修改",
+    "pop"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 pop(0) 移除清單第一個項目",
+    "輸出移除後的清單，並處理清單變空的情況"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "清單方法"
+  ],
+  "description": "<p class='problem-lead'>移除清單中的第一個項目。</p><p>給定一份清單，請移除清單中第一個項目，並輸出移除後剩下的清單。若原清單只有一個項目，移除後清單會變成空清單。</p>",
+  "hint": "<p>Python 可以使用 <code>items.pop(0)</code> 移除並取出清單第一個元素。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>，代表清單長度。第二行包含以空白分隔的 <code>N</code> 個項目。</p>",
+  "outputFormat": "<p>一行，輸出移除第一個項目後的新清單，元素之間以一個空白分隔；若新清單為空則輸出空白的一行。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>每個項目是不含空白的字串，長度介於 1 到 10 個字元之間</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\na b c",
+  "sampleOutput": "b c",
+  "samples": [
+    {
+      "input": "3\na b c",
+      "output": "b c"
+    },
+    {
+      "input": "1\nonly",
+      "output": ""
+    },
+    {
+      "input": "2\n10 20",
+      "output": "20"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "3\na b c",
+      "output": "b c"
+    },
+    {
+      "input": "1\nonly",
+      "output": ""
+    },
+    {
+      "input": "2\n10 20",
+      "output": "20"
+    },
+    {
+      "input": "5\n1 2 3 4 5",
+      "output": "2 3 4 5"
+    },
+    {
+      "input": "4\napple banana cherry date",
+      "output": "banana cherry date"
+    },
+    {
+      "input": "6\naa bb cc dd ee ff",
+      "output": "bb cc dd ee ff"
+    },
+    {
+      "input": "2\n-5 10",
+      "output": "10"
+    },
+    {
+      "input": "3\n7 8 9",
+      "output": "8 9"
+    },
+    {
+      "input": "10\nw1 w2 w3 w4 w5 w6 w7 w8 w9 w10",
+      "output": "w2 w3 w4 w5 w6 w7 w8 w9 w10"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100",
+      "output": "2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p80_list_pop_first",
+    "sourceTitle": "80. 移除清單第一個項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題 N≥1 的清單長度限制，輸出改為 SkillLab 空白分隔慣例；納入 N=1 造成空清單的必要邊界測資。"
+  }
+}

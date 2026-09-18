@@ -1,0 +1,94 @@
+{
+  "id": 118,
+  "title": "在清單末尾新增項目",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "修改",
+    "append"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用 append 在清單末尾加入新項目",
+    "輸出修改後的清單"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "清單方法"
+  ],
+  "description": "<p class='problem-lead'>在清單末尾加入一個新項目。</p><p>給定一份清單與一個新項目 <code>item</code>，請將 <code>item</code> 加到清單的最末端，並輸出加入後的完整新清單。</p>",
+  "hint": "<p>Python 可以使用 <code>items.append(item)</code> 將新項目加到清單最後面。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>N</code>，代表原始清單長度。第二行包含以空白分隔的 <code>N</code> 個項目（若 <code>N</code> 為 <code>0</code>，此行為空行）。第三行包含要加入的新項目 <code>item</code>。</p>",
+  "outputFormat": "<p>一行，輸出加入 <code>item</code> 後的新清單，元素之間以一個空白分隔；若原清單為空則新清單只含 <code>item</code> 一項。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 100</li><li>每個項目（含新項目）是不含空白的字串，長度介於 1 到 10 個字元之間</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "2\na b\nc",
+  "sampleOutput": "a b c",
+  "samples": [
+    {
+      "input": "2\na b\nc",
+      "output": "a b c"
+    },
+    {
+      "input": "1\n10\n20",
+      "output": "10 20"
+    },
+    {
+      "input": "0\n\nz",
+      "output": "z"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "2\na b\nc",
+      "output": "a b c"
+    },
+    {
+      "input": "1\n10\n20",
+      "output": "10 20"
+    },
+    {
+      "input": "0\n\nz",
+      "output": "z"
+    },
+    {
+      "input": "1\nonly\nx",
+      "output": "only x"
+    },
+    {
+      "input": "5\n1 2 3 4 5\n6",
+      "output": "1 2 3 4 5 6"
+    },
+    {
+      "input": "3\napple banana cherry\ndate",
+      "output": "apple banana cherry date"
+    },
+    {
+      "input": "2\n-5 10\n99",
+      "output": "-5 10 99"
+    },
+    {
+      "input": "4\nw1 w2 w3 w4\nw5",
+      "output": "w1 w2 w3 w4 w5"
+    },
+    {
+      "input": "6\naa bb cc dd ee ff\ngg",
+      "output": "aa bb cc dd ee ff gg"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100\n101",
+      "output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p77_list_append_item",
+    "sourceTitle": "77. 在清單末尾新增項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "改為 N、清單、新項目三行輸入，輸出依 SkillLab 清單慣例以空白分隔單行呈現；補上 N=0（空清單）、N=100（上限）等邊界測資。"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": 111,
+  "title": "移除所有空白",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "取代",
+    "迴圈"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "移除字串中所有的半形空白字元"
+  ],
+  "prerequisites": [
+    "字串",
+    "replace 方法"
+  ],
+  "description": "<p class='problem-lead'>移除文字中所有的空白，讓文字緊密相連。</p><p>給定字串 <code>S</code>，請移除其中所有的半形空白字元（<code>space</code>，不含跳格或其他空白），包含開頭、中間與結尾的空白，並輸出剩餘的文字。若移除後沒有任何字元，輸出空白的一行。</p>",
+  "hint": "<p>Python 字串的 <code>replace(' ', '')</code> 可以把所有半形空白換成空字串。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，開頭或結尾可能含有空白，該行也可能完全是空行或只有空白。</p>",
+  "outputFormat": "<p>一行，輸出移除所有空白後的字串；若結果沒有任何字元，輸出空白的一行。</p>",
+  "constraints": "<ul><li>0 ≤ S 的字元數 ≤ 200</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "Hello World",
+  "sampleOutput": "HelloWorld",
+  "samples": [
+    {
+      "input": "Hello World",
+      "output": "HelloWorld"
+    },
+    {
+      "input": "a b c",
+      "output": "abc"
+    },
+    {
+      "input": "   leading",
+      "output": "leading"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "Hello World",
+      "output": "HelloWorld"
+    },
+    {
+      "input": "a b c",
+      "output": "abc"
+    },
+    {
+      "input": "   leading",
+      "output": "leading"
+    },
+    {
+      "input": "trailing   ",
+      "output": "trailing"
+    },
+    {
+      "input": "nospaceshere",
+      "output": "nospaceshere"
+    },
+    {
+      "input": "",
+      "output": ""
+    },
+    {
+      "input": "   ",
+      "output": ""
+    },
+    {
+      "input": "a  b   c",
+      "output": "abc"
+    },
+    {
+      "input": " ",
+      "output": ""
+    },
+    {
+      "input": "Hi, World!",
+      "output": "Hi,World!"
+    },
+    {
+      "input": "1 2 3",
+      "output": "123"
+    },
+    {
+      "input": "a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a ",
+      "output": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p70_remove_all_spaces",
+    "sourceTitle": "70. 移除所有空白",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明訂『空白』僅指半形空格字元，並補齊開頭/結尾空白、全空白與空字串等邊界測資；解答改用 rstrip(\\\"\\\\n\\\") 保留原始空格語意。"
+  }
+}

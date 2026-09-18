@@ -1,0 +1,45 @@
+{
+  "id": 149,
+  "title": "十進位轉二進位（進階）",
+  "stage": "Advanced",
+  "difficulty": "Easy",
+  "tags": ["數學", "進位轉換", "迴圈"],
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["使用反覆除以 2 取餘數的方法，將十進位整數轉換為二進位字串"],
+  "prerequisites": ["while 迴圈", "取餘數", "字串串接"],
+  "description": "<p class='problem-lead'>將一個非負整數轉換成二進位字串。</p><p>給定一個非負整數 <code>N</code>，請輸出它的二進位表示法。<code>N = 0</code> 時輸出 <code>0</code>；其餘情況輸出的二進位字串不含前導零。</p>",
+  "hint": "<p>反覆將 <code>N</code> 除以 2，把每次的餘數接在目前結果的最前面，直到 <code>N</code> 變成 0。</p>",
+  "inputFormat": "<p>一行，包含一個非負整數 <code>N</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>N</code> 的二進位表示（不含前導零，僅 <code>0</code> 本身例外）。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 100000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "10",
+  "sampleOutput": "1010",
+  "samples": [
+    { "input": "10", "output": "1010" },
+    { "input": "5", "output": "101" },
+    { "input": "0", "output": "0" }
+  ],
+  "testCases": [
+    { "input": "0", "output": "0" },
+    { "input": "1", "output": "1" },
+    { "input": "2", "output": "10" },
+    { "input": "5", "output": "101" },
+    { "input": "7", "output": "111" },
+    { "input": "10", "output": "1010" },
+    { "input": "255", "output": "11111111" },
+    { "input": "1024", "output": "10000000000" },
+    { "input": "99999", "output": "11000011010011111" },
+    { "input": "100000", "output": "11000011010100000" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p108_decimal_to_binary",
+    "sourceTitle": "108. 十進位轉二進位",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "與既有題號 010（0~1023，Intermediate 層級）為不同題目：維持非負整數、0 輸出 0、不含前導零的相同規則，但將數值範圍擴大到 100000 並歸類為 Advanced 層級，補齊最大邊界與 2 的整數次方等測資。"
+  }
+}

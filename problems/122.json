@@ -1,0 +1,95 @@
+{
+  "id": 122,
+  "title": "移除清單第 N 個項目",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "修改",
+    "索引"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "使用索引移除清單中指定位置的項目",
+    "輸出移除後的清單，並處理清單變空的情況"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "索引",
+    "清單方法"
+  ],
+  "description": "<p class='problem-lead'>移除清單中指定位置的項目。</p><p>給定一份清單與一個 0-based 索引 <code>idx</code>，請移除清單中位於 <code>idx</code> 位置的項目，並輸出移除後剩下的清單。若原清單只有一個項目，移除後清單會變成空清單。</p>",
+  "hint": "<p>Python 可以使用 <code>items.pop(idx)</code> 移除並取出指定位置的元素。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>，代表清單長度。第二行包含以空白分隔的 <code>N</code> 個項目。第三行包含整數 <code>idx</code>，代表要移除的 0-based 索引。</p>",
+  "outputFormat": "<p>一行，輸出移除 <code>idx</code> 位置項目後的新清單，元素之間以一個空白分隔；若新清單為空則輸出空白的一行。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>0 ≤ idx ≤ N-1（保證為合法索引）</li><li>每個項目是不含空白的字串，長度介於 1 到 10 個字元之間</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "4\na b c d\n1",
+  "sampleOutput": "a c d",
+  "samples": [
+    {
+      "input": "4\na b c d\n1",
+      "output": "a c d"
+    },
+    {
+      "input": "3\n1 2 3\n0",
+      "output": "2 3"
+    },
+    {
+      "input": "1\nonly\n0",
+      "output": ""
+    }
+  ],
+  "testCases": [
+    {
+      "input": "4\na b c d\n1",
+      "output": "a c d"
+    },
+    {
+      "input": "3\n1 2 3\n0",
+      "output": "2 3"
+    },
+    {
+      "input": "1\nonly\n0",
+      "output": ""
+    },
+    {
+      "input": "5\n1 2 3 4 5\n4",
+      "output": "1 2 3 4"
+    },
+    {
+      "input": "4\napple banana cherry date\n3",
+      "output": "apple banana cherry"
+    },
+    {
+      "input": "6\naa bb cc dd ee ff\n2",
+      "output": "aa bb dd ee ff"
+    },
+    {
+      "input": "2\n-5 10\n1",
+      "output": "-5"
+    },
+    {
+      "input": "3\n7 8 9\n1",
+      "output": "7 9"
+    },
+    {
+      "input": "10\nw1 w2 w3 w4 w5 w6 w7 w8 w9 w10\n5",
+      "output": "w1 w2 w3 w4 w5 w7 w8 w9 w10"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100\n50",
+      "output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p81_list_pop_nth",
+    "sourceTitle": "81. 移除清單第N個項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題 N≥1、0-based 索引語意，改為 N、清單、idx 三行輸入；補上 idx 落於起點/終點的邊界與 N=1 造成空清單的測資。"
+  }
+}

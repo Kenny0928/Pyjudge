@@ -1,0 +1,94 @@
+{
+  "id": 116,
+  "title": "取得清單最後一個項目",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "清單",
+    "索引",
+    "輸入輸出"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "讀取清單長度與內容",
+    "使用索引 -1 或 N-1 取得清單的最後一個元素"
+  ],
+  "prerequisites": [
+    "清單輸入",
+    "索引"
+  ],
+  "description": "<p class='problem-lead'>取得清單中的最後一個項目。</p><p>給定一份清單，請輸出清單中的最後一個項目。</p>",
+  "hint": "<p>清單的最後一個元素可以用索引 <code>-1</code>，或用 <code>N-1</code> 取得。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>，代表清單長度。第二行包含以空白分隔的 <code>N</code> 個項目。</p>",
+  "outputFormat": "<p>一行，輸出清單中的最後一個項目，原樣照印（不含額外符號）。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>每個項目是不含空白的字串，長度介於 1 到 10 個字元之間</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\na b c",
+  "sampleOutput": "c",
+  "samples": [
+    {
+      "input": "3\na b c",
+      "output": "c"
+    },
+    {
+      "input": "2\n10 20",
+      "output": "20"
+    },
+    {
+      "input": "1\nonly",
+      "output": "only"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "3\na b c",
+      "output": "c"
+    },
+    {
+      "input": "2\n10 20",
+      "output": "20"
+    },
+    {
+      "input": "1\nonly",
+      "output": "only"
+    },
+    {
+      "input": "4\napple banana cherry date",
+      "output": "date"
+    },
+    {
+      "input": "5\nx1 x2 x3 x4 x5",
+      "output": "x5"
+    },
+    {
+      "input": "2\n-5 10",
+      "output": "10"
+    },
+    {
+      "input": "6\naa bb cc dd ee ee",
+      "output": "ee"
+    },
+    {
+      "input": "3\n7 8 9",
+      "output": "9"
+    },
+    {
+      "input": "10\nw1 w2 w3 w4 w5 w6 w7 w8 w9 w10",
+      "output": "w10"
+    },
+    {
+      "input": "100\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100",
+      "output": "100"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p75_get_list_last_item",
+    "sourceTitle": "75. 取得清單最後一個項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "將原站逐行輸入改為 SkillLab 慣例（N 一行、清單一行空白分隔），輸出保留原樣字串，並補齊 N=1、N=100 邊界與重複值、負數等測資。"
+  }
+}

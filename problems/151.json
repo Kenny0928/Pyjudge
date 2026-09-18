@@ -1,0 +1,46 @@
+{
+  "id": 151,
+  "title": "N 的次方檢查",
+  "stage": "Advanced",
+  "difficulty": "Medium",
+  "tags": ["數學", "迴圈", "邏輯判斷"],
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["透過反覆整除判斷一個整數是否為另一個整數的整數次方"],
+  "prerequisites": ["while 迴圈", "取餘數", "特殊情況處理"],
+  "description": "<p class='problem-lead'>判斷 <code>num</code> 是否為 <code>base</code> 的整數次方。</p><p>給定兩個正整數 <code>num</code> 和 <code>base</code>，請判斷是否存在非負整數 <code>k</code> 使得 <code>base<sup>k</sup> = num</code>（例如 <code>8</code> 是 <code>2</code> 的次方，因為 <code>2³ = 8</code>）。是則輸出 <code>true</code>，否則輸出 <code>false</code>。</p><p>特別規則：任何正整數的 0 次方都是 1，因此 <code>num = 1</code> 時一律輸出 <code>true</code>；當 <code>base = 1</code> 時，因為 <code>1</code> 的任何次方恆為 <code>1</code>，只有 <code>num = 1</code> 才會輸出 <code>true</code>，其餘情況輸出 <code>false</code>。</p>",
+  "hint": "<p>先處理 <code>base = 1</code> 的特例；其餘情況可以反覆將 <code>num</code> 除以 <code>base</code>，若最後能剛好除到 1，就代表 <code>num</code> 是 <code>base</code> 的整數次方。</p>",
+  "inputFormat": "<p>兩行，第一行是正整數 <code>num</code>，第二行是正整數 <code>base</code>。</p>",
+  "outputFormat": "<p>一行，若 <code>num</code> 是 <code>base</code> 的整數次方輸出 <code>true</code>，否則輸出 <code>false</code>。</p>",
+  "constraints": "<ul><li>1 ≤ num ≤ 10<sup>9</sup></li><li>1 ≤ base ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "8\n2",
+  "sampleOutput": "true",
+  "samples": [
+    { "input": "8\n2", "output": "true" },
+    { "input": "27\n3", "output": "true" },
+    { "input": "10\n2", "output": "false" }
+  ],
+  "testCases": [
+    { "input": "8\n2", "output": "true" },
+    { "input": "27\n3", "output": "true" },
+    { "input": "10\n2", "output": "false" },
+    { "input": "1\n5", "output": "true" },
+    { "input": "1\n1", "output": "true" },
+    { "input": "5\n1", "output": "false" },
+    { "input": "1000000000\n10", "output": "true" },
+    { "input": "100\n100", "output": "true" },
+    { "input": "2\n2", "output": "true" },
+    { "input": "3\n9", "output": "false" },
+    { "input": "64\n4", "output": "true" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p110_power_of_n",
+    "sourceTitle": "110. N 的次方檢查",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站僅示範一般情況；額外定義並補上 base=1 與 num=1 兩個原站未涵蓋的邊界規則與對應測資，避免次方定義產生歧義。"
+  }
+}

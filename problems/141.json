@@ -1,0 +1,46 @@
+{
+  "id": 141,
+  "title": "計算項目出現次數",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "迴圈", "條件判斷", "計數"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["走訪清單並計算特定項目出現的次數"],
+  "prerequisites": ["清單輸入", "for 迴圈", "計數器"],
+  "description": "<p class='problem-lead'>計算某個指定項目在清單中出現的次數。</p><p>給定 <code>N</code> 個項目組成的清單，接著再給定一個目標項目 <code>item</code>，請計算 <code>item</code> 在清單中總共出現了幾次。比對採<strong>完全比對且區分英文字母大小寫</strong>（例如 <code>a</code> 與 <code>A</code> 視為不同項目）。若清單中完全沒有 <code>item</code>，輸出 <code>0</code>。</p>",
+  "hint": "<p>準備一個計數器，走訪清單時如果目前項目與 <code>item</code> 完全相同（字串比對）就將計數器加一。</p>",
+  "inputFormat": "<p>第一行包含正整數 <code>N</code>。第二行包含以空格分隔的 <code>N</code> 個項目（不含空白字元）。第三行包含目標項目 <code>item</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示 <code>item</code> 在清單中出現的次數。</p>",
+  "constraints": "<ul><li>1 ≤ N ≤ 100</li><li>1 ≤ 每個項目長度 ≤ 20</li><li>項目僅由英文字母與數字組成，不含空白</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "6\na b a c a b\na",
+  "sampleOutput": "3",
+  "samples": [
+    { "input": "6\na b a c a b\na", "output": "3" },
+    { "input": "3\n1 2 3\n4", "output": "0" },
+    { "input": "1\nx\nx", "output": "1" }
+  ],
+  "testCases": [
+    { "input": "6\na b a c a b\na", "output": "3" },
+    { "input": "3\n1 2 3\n4", "output": "0" },
+    { "input": "1\nx\nx", "output": "1" },
+    { "input": "1\nx\ny", "output": "0" },
+    { "input": "5\na a a a a\na", "output": "5" },
+    { "input": "5\napple banana cat dog egg\ncat", "output": "1" },
+    { "input": "3\nA a A\na", "output": "1" },
+    { "input": "5\n10 20 10 30 10\n10", "output": "3" },
+    { "input": "4\na b a b\nb", "output": "2" },
+    { "input": "2\na b\nab", "output": "0" },
+    { "input": "8\nz a b a c a b z\nz", "output": "2" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p100_list_count_item",
+    "sourceTitle": "100. 計算清單中某項目出現次數",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站候選測資 1 的期望值（4）與依 N 切出清單再比對目標項目的直觀語意不一致（實際重算應為 3），研判為原站資料標註誤差；本題改依題目敘述本身重新設計並自行驗證一致的測資，並明定大小寫需完全相符與子字串不視為相符。"
+  }
+}

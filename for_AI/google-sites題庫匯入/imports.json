@@ -1120,6 +1120,905 @@
       ],
       "candidateCaseCount": 2,
       "notes": "依raw_test_cases中長度為1得到空字串的結果，明定該行為並以限制排除空字串輸入，補齊含尾端空白、符號與長度上限的測資。"
+    },
+    {
+      "sourceId": "p63_split_to_array",
+      "pyjudgeId": 104,
+      "sourceContentHash": "9518b751b275bb65a855a02517e82065c28fe723589c65b0b08fce6d93c95e6d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "63. 切割字串成清單",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站以 JSON 陣列比對輸出，改採本站清單「單行、空格分隔」慣例輸出切割結果，並補齊單一項目、重複項目、數字項目與最大長度測資。"
+    },
+    {
+      "sourceId": "p64_count_words",
+      "pyjudgeId": 105,
+      "sourceContentHash": "bade005fc2e556788486eb37eeed71b84651f7712b5a989487b6752e141f6d24",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "64. 計算單字數量",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂以 split() 語意（多重空白視為一個分隔、忽略頭尾空白、全空白或空字串記為0個單字），補齊空字串、純空白、連續空白等測資。"
+    },
+    {
+      "sourceId": "p65_is_all_digits",
+      "pyjudgeId": 106,
+      "sourceContentHash": "4b00c786e09dbda6be3d8ed1ba6f45f55dfb87c6b004d600c8c9dc61559d339c",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "65. 判斷是否全為數字",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原題未定義空字串情形，明訂空字串一律視為 false，補齊含空格、負號、全數字最大長度測資，含 true/false 兩分支全覆蓋。"
+    },
+    {
+      "sourceId": "p66_is_all_letters",
+      "pyjudgeId": 107,
+      "sourceContentHash": "d75ea3943350568f89a11bbb787804efda290fbe344a49e23ca14ff3e7b4419d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "66. 判斷是否全為字母",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷",
+        "迴圈"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "同樣明訂空字串視為 false，補齊底線、空格、混合大小寫與最大長度測資。"
+    },
+    {
+      "sourceId": "p67_is_empty_string",
+      "pyjudgeId": 108,
+      "sourceContentHash": "a2ce11a02d3fe20e5d50d210c4e0d4da15b5cabda43cc1dd60e99c661a2d5038",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "67. 判斷是否為空字串",
+      "categories": [
+        "🔍 4. 字串判斷與擷取"
+      ],
+      "tags": [
+        "字串",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "沿用原站語義（長度剛好 0 才算空字串，純空白字串為 false），依此語意補齊多空白與最大長度測資。"
+    },
+    {
+      "sourceId": "p68_find_first_index",
+      "pyjudgeId": 109,
+      "sourceContentHash": "392aa552be2c3a50c000136b5dd8c0004b1ddae464224f3590d3d7bab2cd339a",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "68. 找出字元首次出現位置",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂 C 恰為單一字元（含空格）且比較區分大小寫，補齊唯一字元、大小寫不符、以空格為目標與最大長度測資。"
+    },
+    {
+      "sourceId": "p69_find_last_index",
+      "pyjudgeId": 110,
+      "sourceContentHash": "1be2d3b95606ab2ff3d8f766336fc4a9c7c0bec2dcd5c874300f5fb99abe932a",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "69. 找出字元最後出現位置",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "發現原站第二筆候選測資與「最後出現索引」語義不符（實際應為10），改依正確語義（rfind）重新設計自洽測資，含唯一字元、大小寫與最大長度邊界。"
+    },
+    {
+      "sourceId": "p70_remove_all_spaces",
+      "pyjudgeId": 111,
+      "sourceContentHash": "abc888f1a59cb3b086069db00b79968e24dd77165ad9e0759d5507187626517f",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "70. 移除所有空白",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "取代",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂「空白」僅指半形空格（不含 tab），解答保留原始空格讀取，補齊開頭/結尾空白、全空白、空字串與最大長度測資。"
+    },
+    {
+      "sourceId": "p71_wrap_tags",
+      "pyjudgeId": 112,
+      "sourceContentHash": "d948c9dc757f44a7a242e291069985efed9a9690c2ba83531605d0e3271633e8",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "71. HTML 標籤包裝",
+      "categories": [
+        "📝 3. 字串操作 (基礎)"
+      ],
+      "tags": [
+        "字串",
+        "基本運算",
+        "範本"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "明訂不對內容做跳脫或特殊處理，補齊空字串、含空白、含既有 HTML 標籤（防硬編碼）與最大長度測資。"
+    },
+    {
+      "sourceId": "p72_create_empty_list",
+      "pyjudgeId": 113,
+      "sourceContentHash": "6058fd8463fe00506f9d86363b7dcad4a7dfcc099cc7c9d6d39b9d42eace8c14",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "72. 建立空清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 1,
+      "notes": "依 000.json（Hello World）先例列為無輸入的固定輸出題；依本站清單慣例，將原站 JSON 的 [] 改為輸出空白的一行，僅需1組testCase/sample。"
+    },
+    {
+      "sourceId": "p73_list_with_three_items",
+      "pyjudgeId": 114,
+      "sourceContentHash": "bee29e853e5580d09cee66f3270a6297cdd0d9be2931e43b6ce613a0f56c4079",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "73. 建立固定清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 1,
+      "notes": "原題無輸入、固定輸出 [1,2,3]，比照 000 號固定輸出題，輸出依專案清單慣例改為空白分隔單行「1 2 3」。"
+    },
+    {
+      "sourceId": "p74_get_list_first_item",
+      "pyjudgeId": 115,
+      "sourceContentHash": "2d5f89072bb9bd2c8ac08629596dbd4987694cb4664f26dc3e7f63a16833529d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "74. 取得清單第一個項目",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "輸入改為 SkillLab 慣例（N 一行、清單一行空白分隔），輸出原樣照印第一項；補齊 N=1、N=100 上限、負號字串、重複值等測資。"
+    },
+    {
+      "sourceId": "p75_get_list_last_item",
+      "pyjudgeId": 116,
+      "sourceContentHash": "2dc8706a5a4a5e2b7a40a5e7e0a0f6b09f18da9a83ed48f51d48a879a1fc3c54",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "75. 取得清單最後一個項目",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "與115同源改法，改輸出最後一項；同樣涵蓋N=1、N=100邊界與重複值/負號測資。"
+    },
+    {
+      "sourceId": "p76_get_list_nth_item",
+      "pyjudgeId": 117,
+      "sourceContentHash": "3625ba5180bea4885957719873bcac916794234c17995cbe1eaef804e252ba47",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "76. 取得清單第N個項目",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "沿用原題0-based索引語意，輸入改為N、清單、idx三行；限定idx恆為合法範圍(0..N-1)避免越界定義問題。"
+    },
+    {
+      "sourceId": "p77_list_append_item",
+      "pyjudgeId": 118,
+      "sourceContentHash": "226fe8f5a88b5b557bbb009e6b28acf74ebc51fe6c76b7f924e892d0fd723ee1",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "77. 在清單末尾新增項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "輸入改為N、清單（N=0時該行留空）、新項目三行；輸出以空白分隔完整新清單，額外放寬允許N=0作為特殊狀態測資。"
+    },
+    {
+      "sourceId": "p78_list_insert_item",
+      "pyjudgeId": 119,
+      "sourceContentHash": "163e682ed47e7be2bfd30e384430bfaffa7b5595c5222fd4314882ece245ef06",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "78. 在清單指定位置插入項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原題插入對象是寫死的['a','b','c']；改為讀取任意長度清單（含N=0空清單）後於0..N範圍的idx插入新項目，涵蓋原題插入開頭/中間兩案例。"
+    },
+    {
+      "sourceId": "p79_list_pop_last",
+      "pyjudgeId": 120,
+      "sourceContentHash": "24fef9b4a8f9b99561b3b4fa48f38d3daa499f275b432672b6b9dd5659373242",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "79. 移除清單最後一個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "沿用原題N≥1限制，輸出移除最後一項後的清單（空清單輸出空行），必含N=1（結果為空清單）邊界測資。"
+    },
+    {
+      "sourceId": "p80_list_pop_first",
+      "pyjudgeId": 121,
+      "sourceContentHash": "e4f292fb2994c1c17c45923e11f140d21a9bde3d9d811599b0c02a8fd0c7a57f",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "80. 移除清單第一個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "與120同源改法，改移除第一項；同樣含N=1（結果為空清單）邊界。"
+    },
+    {
+      "sourceId": "p81_list_pop_nth",
+      "pyjudgeId": 122,
+      "sourceContentHash": "a1755877a8359246e1e77babf91ca8ab7234cd987c0764b2180112c4df546072",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "81. 移除清單第N個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "沿用原題N≥1、0-based索引語意，輸入改為N、清單、idx三行；idx限定為合法範圍0..N-1，補齊邊界與N=1（結果為空清單）。"
+    },
+    {
+      "sourceId": "p82_list_set_nth",
+      "pyjudgeId": 123,
+      "sourceContentHash": "aa43f06cb39d45684a66d6eae0d355b8cbab1fd866fcf268f77ae1edbe870579",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "82. 修改清單第N個項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "修改",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "沿用原題0-based索引語意，輸入改為N、清單、idx、item四行；idx限定為合法範圍0..N-1，補齊起點/終點與N=1、N=100邊界。"
+    },
+    {
+      "sourceId": "p83_list_is_empty",
+      "pyjudgeId": 124,
+      "sourceContentHash": "bcad0d3782f76ec100f200e7c7f6524359eb2e6f9a78645a56017270a49453ef",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "83. 判斷清單是否為空",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "邏輯判斷"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "沿用原題「N=0則清單為空」的判題邏輯，改用SkillLab單行空白分隔清單輸入，補齊非零長度、重複值與最大長度測資防止硬編碼。"
+    },
+    {
+      "sourceId": "p84_list_slice",
+      "pyjudgeId": 125,
+      "sourceContentHash": "61b9a0bc26726cafba39b9f9044c7f7f38b0d95bbd5722663c61b0ce3a0015e5",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "84. 擷取子清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "擷取",
+        "索引"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留原題固定清單[1,2,3,4,5]與「含m不含n」切片語意，輸出改為空白分隔而非JSON陣列，補齊空區間(m=n)、單元素、全範圍等邊界測資。"
+    },
+    {
+      "sourceId": "p85_list_find_index",
+      "pyjudgeId": 126,
+      "sourceContentHash": "77e4973f700e683ddbed6a34463690d13796f27cb6e4c014bccf3cbe72bc40f2",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "85. 尋找項目首次出現位置",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases還原正確欄位切分（N後接N個項目、再接1個target），確認0-based首次索引與找不到輸出-1；補齊單元素、空清單、重複值等測資。"
+    },
+    {
+      "sourceId": "p86_list_find_last_index",
+      "pyjudgeId": 127,
+      "sourceContentHash": "cded01ffb2241f1722a7640b71684a5288c7a6ffe242f7603aa8990c975d5160",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "86. 尋找項目最後出現位置",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "與p85同源資料驗證（同一輸入下first與last不同，證實語意差異），0-based最後出現索引、找不到輸出-1。"
+    },
+    {
+      "sourceId": "p87_list_join_with_comma",
+      "pyjudgeId": 128,
+      "sourceContentHash": "1b9cb7aa47e003ba4fb8d6c2680b0c46605f56b908eae4aec425b0169478bd58",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "87. 用逗號組合清單成字串",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "字串",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases核對輸出為逗號分隔無空格、頭尾無逗號，description明確寫出無空格規則；補齊N=1、N=0(空字串)、重複值測資。"
+    },
+    {
+      "sourceId": "p88_list_sort_ascending",
+      "pyjudgeId": 129,
+      "sourceContentHash": "006b92e7ee1d129f0ee8d60596970735d16affd646c24170424aa5f3245a46d6",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "88. 清單排序 (升冪)",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "排序",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留升冪排序語意，輸出改為空白分隔而非JSON陣列；擴充負數、全相同、已排序、逆序與±1000邊界值測資。"
+    },
+    {
+      "sourceId": "p89_list_sort_descending",
+      "pyjudgeId": 130,
+      "sourceContentHash": "8f6ac4b3f77896725be3a63f52de69e203d31d1670af7aeb0db653e2515a370e",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "89. 清單排序 (降冪)",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "排序",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留降冪排序語意，輸出改為空白分隔；採用與129對應的測資組合便於交叉驗證兩題邏輯正確。"
+    },
+    {
+      "sourceId": "p90_list_concat",
+      "pyjudgeId": 131,
+      "sourceContentHash": "107972521c5466ccfd46e64c1eb38d3391ede4f05e63dc34139ba6490a2d1420",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "90. 合併兩個清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "基本操作"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留「先讀a再讀b、b接在a後」的合併語意，輸出改為空白分隔清單；補齊a或b任一為空、雙空、重複值、負數等邊界測資。"
+    },
+    {
+      "sourceId": "p91_list_copy",
+      "pyjudgeId": 132,
+      "sourceContentHash": "72ab30d3445be69dbd63ac7e202502674c274cea0220666739e358a6a0550e07",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "91. 複製清單",
+      "categories": [
+        "📊 7. 清單操作 (基礎)"
+      ],
+      "tags": [
+        "清單",
+        "變數"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原題測資僅為「讀清單、原樣輸出」，stdin/stdout無法直接觀察物件別名，因此重新設計為「複製b、修改原清單a、輸出b與修改後a」的可測規格，教學重點是list(a)/a[:]的複製語意。"
+    },
+    {
+      "sourceId": "p92_list_sum_even",
+      "pyjudgeId": 133,
+      "sourceContentHash": "7ad777a5e899507cfe472e2836ca350c713a9280daa2676b992a852e4b20c3c0",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "92. 計算清單中所有偶數的和",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "保留偶數求和語意，補齊0(視為偶數)、負偶數、全為奇數、正負抵消(±1000邊界)等測資。"
+    },
+    {
+      "sourceId": "p93_list_sum_odd",
+      "pyjudgeId": 134,
+      "sourceContentHash": "1f522140a951f43479303f7eaf1e3a820afaadac58270531398a085b3e6b5370",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "93. 計算清單中所有奇數的和",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "逐行輸入改為N+空格分隔清單格式，並依「1+3+5=9」語意補齊負奇數、全零、正負抵消與邊界值等測資。"
+    },
+    {
+      "sourceId": "p94_list_filter_positives",
+      "pyjudgeId": 135,
+      "sourceContentHash": "b81290036f1ff64a5eac2e36e6379398542e0bf8b8779cee46c9c7cb546c2028",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "94. 篩選出所有正數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "篩選"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站JSON陣列輸出改為空格分隔（空清單輸出空行），0不算正數，補齊全零/全正/全負/極值測資。"
+    },
+    {
+      "sourceId": "p95_list_filter_negatives",
+      "pyjudgeId": 136,
+      "sourceContentHash": "000e083ddccde45615302ddb379681eaf59d33c818de4280e20da05e4e9a40f4",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "95. 篩選出所有負數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "篩選"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "同135的輸出格式統一，0不算負數，補齊全零/全正/全負/極值測資。"
+    },
+    {
+      "sourceId": "p96_list_map_double",
+      "pyjudgeId": 137,
+      "sourceContentHash": "5462a1b7a05540a003f517ff15c47eb04224c2940ee0dfaf9e38403e25d74f5c",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "96. 將清單中所有數字加倍",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "JSON陣列輸出改為空格分隔，補齊零、正負極值與正負混合測資。"
+    },
+    {
+      "sourceId": "p97_list_map_square",
+      "pyjudgeId": 138,
+      "sourceContentHash": "f5f8d093f67a2bfbd1dde3bbbfb2745c2ebbe5a4c342442b7d6ec5da2e6ac227",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "97. 將清單中所有數字平方",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "同上輸出格式統一，補齊零、正負極值與正負對稱平方相等測資。"
+    },
+    {
+      "sourceId": "p98_list_map_add_ten",
+      "pyjudgeId": 139,
+      "sourceContentHash": "2fc525b42179a9ea4c8bd35f7fa9589bd7c8ff701c4e95e374adf8e6deee9be4",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "98. 將清單中所有數字加10",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "數學",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "同上輸出格式統一，補齊加總後變號、變零與極值測資。"
+    },
+    {
+      "sourceId": "p99_list_map_lengths",
+      "pyjudgeId": 140,
+      "sourceContentHash": "f7744d4762aa238746529c131b2f396db494cc7fceeac4bfa0be8f78033a35cc",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "99. 計算清單中所有字串的長度",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "字串",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依規定將輸入改為N後接一行以空格分隔、本身不含空白的字串清單，輸出對應長度清單；補齊最短/最長/長度相同字串等測資。"
+    },
+    {
+      "sourceId": "p100_list_count_item",
+      "pyjudgeId": 141,
+      "sourceContentHash": "f73b408eb84b98b8f8ad3b6617a5f3458abb00046122b9a6ac424df047d1b0c0",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "100. 計算清單中某項目出現次數",
+      "categories": [
+        "📈 9. 清單演算法 (進階)"
+      ],
+      "tags": [
+        "清單",
+        "迴圈",
+        "條件",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "發現原站候選測資的期望值與直觀語意不一致，研判為原站標註誤差；改依題目敘述本身重新設計並自行驗證一致的測資，並明定比對需完全比對、區分大小寫。"
+    },
+    {
+      "sourceId": "p101_list_of_lists_get_item",
+      "pyjudgeId": 142,
+      "sourceContentHash": "f68790201d836701edb00228c091438329e35f8218651b48c0d10d05f3999247",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "101. 取得巢狀清單的項目",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "索引",
+        "巢狀",
+        "進階"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "固定巢狀清單[['a','b'],['c','d']]寫死於題目敘述與解答中（非輸入），僅idx1/idx2兩行作為輸入；合法索引組合僅4種，重複湊足8組正式測資。"
+    },
+    {
+      "sourceId": "p102_flatten_list",
+      "pyjudgeId": 143,
+      "sourceContentHash": "c4282d06c5bea8b6ed69062e717f9c72dec47e6bcf028c4a8c55f2f2b6cbd98e",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "102. 攤平巢狀清單",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "巢狀迴圈",
+        "轉換"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依candidate_test_cases核對，確認鋸齒二維清單的輸入編碼為「第一行R；之後每一列各輸出一行C，再接C行、每行一個項目」；統一將每個項目視為純文字token原樣輸出，避開型別歧義；補齊R=0、單列空列、全部列皆空列、列間夾空列等邊界。"
+    },
+    {
+      "sourceId": "p103_multiplication_table",
+      "pyjudgeId": 144,
+      "sourceContentHash": "af98355729a5a5830eb0c2bec2865fee8f0b067dc406633d7aee238e6cfd1f21",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "103. 產生九九乘法表",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "巢狀迴圈",
+        "數學"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站輸出為JSON陣列字面值，改採空格分隔單行清單，並補齊N=1~9全部邊界測資。"
+    },
+    {
+      "sourceId": "p104_matrix_transpose",
+      "pyjudgeId": 145,
+      "sourceContentHash": "3b0c03a432c01a485b0d50e9d8522c07c3e7f01dc5e254f417c85c2731d637be",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "104. 矩陣轉置",
+      "categories": [
+        "🔧 8. 清單修改與進階結構"
+      ],
+      "tags": [
+        "清單",
+        "巢狀迴圈",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站輸入為逐行單數字、輸出為攤平陣列字面值；改採本站標準2D矩陣輸入慣例與逐列輸出格式，補齊方陣/非方陣/1x1/含負數/零矩陣測資。"
+    },
+    {
+      "sourceId": "p105_gcd",
+      "pyjudgeId": 146,
+      "sourceContentHash": "fa095ec92d257cd2f9e823718e870131acab02761e8a5989cb318a0babf690ec",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "105. 最大公因數 (GCD)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "演算法",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "與既有題號003（同行空格分隔）區隔，改用原站每行一數輸入慣例；限制1≤a,b≤1000與003(1e9)區隔難度層級，補齊等值、互質、與1搭配等測資。"
+    },
+    {
+      "sourceId": "p106_lcm",
+      "pyjudgeId": 147,
+      "sourceContentHash": "97da34f0a25da620742e352c24e579ae8d6fd30f40b4f1fafdd39e93fab7ccb5",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "106. 最小公倍數 (LCM)",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "演算法"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "延續原站每行一數輸入慣例，數值上限訂為1000以避免LCM過度膨脹，補齊等值、與1搭配、互質等測資。"
+    },
+    {
+      "sourceId": "p107_prime_factorization",
+      "pyjudgeId": 148,
+      "sourceContentHash": "67794a02a367bd8031fd9572daa6dd54f36c5714e7aab02ad23132f218888d96",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "107. 質因數分解",
+      "categories": [
+        "🔁 6. 迴圈與數學演算法"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "限定輸入a≥2（明確排除1無質因數的爭議情況），補上質數本身、完全冪、多重平方與最大邊界測資。"
+    },
+    {
+      "sourceId": "p108_decimal_to_binary",
+      "pyjudgeId": 149,
+      "sourceContentHash": "82e841921408f5cfec58ec9450dbe23bb4e7184d465194a5c20d60b5e9c0c540",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "108. 十進位轉二進位",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "字串",
+        "演算法"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "依raw_test_cases核對確認0/正整數皆無負數、無前導零情形，與既有題號010規則相同但擴大值域至100000並歸為Advanced層級（比照fibonacci 5/64雙軌並存模式），補齊最大邊界與2的次方測資。"
+    },
+    {
+      "sourceId": "p109_binary_to_decimal",
+      "pyjudgeId": 150,
+      "sourceContentHash": "b0d88ba5e46afbc2474b605352fd21fac04cc891661c250d0f19ccd08da09da0",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "109. 二進位轉十進位",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "數學",
+        "字串",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "依raw_test_cases核對僅含0/1、無負數；與既有題號009規則相同但字串長度上限擴大到20並歸為Advanced層級，補齊全1與最大長度邊界測資。"
+    },
+    {
+      "sourceId": "p110_power_of_n",
+      "pyjudgeId": 151,
+      "sourceContentHash": "ad0af5d1ec59095e8ce0c845238a9447132382095293b6595b6dbea9c1845202",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "110. N 的次方檢查",
+      "categories": [
+        "🌱 1. 基本運算與數學"
+      ],
+      "tags": [
+        "數學",
+        "迴圈",
+        "邏輯"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "原站raw_test_cases未涵蓋base=1或num=1；依規則推導base=1時僅num=1為true、num=1恆為true（因base^0=1），並在description中明確定義後補上對應測資。"
+    },
+    {
+      "sourceId": "p111_is_anagram",
+      "pyjudgeId": 152,
+      "sourceContentHash": "32f4a3fc2a817b70e945a7e48638d4bd6c62745870d9381fbc0c6d9421620829",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "111. 異位構詞 (Anagram)",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "排序",
+        "演算法",
+        "進階"
+      ],
+      "candidateCaseCount": 3,
+      "notes": "依raw_test_cases（Race/Care→true）確立忽略大小寫規則；限定輸入僅含英文字母，補齊等長不同字元、長度不同、重複字母與大小寫混合測資。"
+    },
+    {
+      "sourceId": "p112_longest_word",
+      "pyjudgeId": 153,
+      "sourceContentHash": "59d4ea135a2715779cc697f9134411248f6edcedf3ca5e18e7e456632ce17c2d",
+      "reviewedAt": "2026-09-18",
+      "sourceRemovedAt": "2026-09-18",
+      "sourceTitle": "112. 找出最長單字",
+      "categories": [
+        "✍️ 5. 字串演算法 (進階)"
+      ],
+      "tags": [
+        "字串",
+        "清單",
+        "迴圈"
+      ],
+      "candidateCaseCount": 2,
+      "notes": "原站範例隱含「並列取最早出現者」規則，於description中明確補述並以「僅嚴格更長才更新」的實作驗證此規則，補齊單字數、多重並列、大小寫混合測資。"
     }
   ]
 }

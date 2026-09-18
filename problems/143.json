@@ -1,0 +1,46 @@
+{
+  "id": 143,
+  "title": "攤平二維清單",
+  "stage": "Intermediate",
+  "difficulty": "Medium",
+  "tags": ["清單", "巢狀迴圈", "轉換"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["讀取長度不固定的二維清單並攤平成一維清單"],
+  "prerequisites": ["清單", "巢狀迴圈", "字串輸入"],
+  "description": "<p class='problem-lead'>將一個列長度可能不同的二維清單攤平成一維清單。</p><p>先讀取列數 <code>R</code>；接著對每一列，先讀取該列的項目數 <code>C</code>，再讀取 <code>C</code> 個項目（每個項目本身不含空白字元，且視為一般文字處理）。請依照列的順序，將所有項目依序合併成一個一維清單並輸出。若某一列的 <code>C</code> 為 <code>0</code>，代表該列是空列，直接跳過即可；若 <code>R</code> 為 <code>0</code> 或所有列都是空列，輸出空白的一行。</p>",
+  "hint": "<p>用一個結果清單，讀完每一列的 <code>C</code> 個項目後，直接用 <code>extend()</code>（或迴圈逐一 <code>append</code>）加進結果清單，最後把結果清單用空格接起來輸出。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>R</code>，代表列數。接著對每一列重複：一行包含該列的項目數 <code>C</code>，之後 <code>C</code> 行，每行一個項目。</p>",
+  "outputFormat": "<p>輸出一行，為攤平後的一維清單，項目依原順序以空格分隔；若攤平後沒有任何項目，輸出空行。</p>",
+  "constraints": "<ul><li>0 ≤ R ≤ 20</li><li>0 ≤ 每列的 C ≤ 20</li><li>每個項目長度 1 ≤ 長度 ≤ 20，僅由英文字母與數字組成</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "2\n2\na\nb\n3\nc\nd\ne",
+  "sampleOutput": "a b c d e",
+  "samples": [
+    { "input": "2\n2\na\nb\n3\nc\nd\ne", "output": "a b c d e" },
+    { "input": "3\n1\n1\n0\n1\n2", "output": "1 2" },
+    { "input": "0", "output": "" }
+  ],
+  "testCases": [
+    { "input": "2\n2\na\nb\n3\nc\nd\ne", "output": "a b c d e" },
+    { "input": "3\n1\n1\n0\n1\n2", "output": "1 2" },
+    { "input": "0", "output": "" },
+    { "input": "1\n0", "output": "" },
+    { "input": "2\n0\n0", "output": "" },
+    { "input": "1\n3\nx\ny\nz", "output": "x y z" },
+    { "input": "4\n1\na\n1\nb\n1\nc\n1\nd", "output": "a b c d" },
+    { "input": "2\n2\n10\n20\n2\n30\n40", "output": "10 20 30 40" },
+    { "input": "3\n2\na\nb\n0\n2\nc\nd", "output": "a b c d" },
+    { "input": "1\n5\n1\n2\n3\n4\n5", "output": "1 2 3 4 5" },
+    { "input": "5\n0\n1\nsolo\n0\n0\n2\nlast\nitem", "output": "solo last item" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p102_flatten_list",
+    "sourceTitle": "102. 攤平巢狀清單",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原站 candidate_test_cases 顯示逐列格式為「C，接著 C 行各一個項目」；為避開原站測資中整數與字串型別混用（[\"a\",...] 與 [1,2]）的歧義，統一將每個項目視為純文字 token 原樣輸出，攤平結果以單行空格分隔，並補上 R=0、全空列與列間夾空列等邊界測資。"
+  }
+}

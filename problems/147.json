@@ -1,0 +1,45 @@
+{
+  "id": 147,
+  "title": "最小公倍數",
+  "stage": "Advanced",
+  "difficulty": "Easy",
+  "tags": ["數學", "迴圈"],
+  "audienceLevel": "M-8",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["利用最大公因數推導出最小公倍數的公式"],
+  "prerequisites": ["最大公因數", "整數除法"],
+  "description": "<p class='problem-lead'>計算兩個正整數的最小公倍數（LCM）。</p><p>給定兩個正整數 <code>a</code> 和 <code>b</code>，請求出能同時被兩者整除的最小正整數。可利用公式 <code>LCM(a, b) = a × b ÷ GCD(a, b)</code> 求解。</p>",
+  "hint": "<p>先求出 <code>a</code> 和 <code>b</code> 的最大公因數，再用 <code>a * b // gcd</code> 得到最小公倍數，避免直接列舉倍數。</p>",
+  "inputFormat": "<p>兩行，第一行是正整數 <code>a</code>，第二行是正整數 <code>b</code>。</p>",
+  "outputFormat": "<p>一行，輸出 <code>a</code> 和 <code>b</code> 的最小公倍數。</p>",
+  "constraints": "<ul><li>1 ≤ a, b ≤ 1000</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "4\n6",
+  "sampleOutput": "12",
+  "samples": [
+    { "input": "4\n6", "output": "12" },
+    { "input": "3\n7", "output": "21" },
+    { "input": "1\n1", "output": "1" }
+  ],
+  "testCases": [
+    { "input": "4\n6", "output": "12" },
+    { "input": "3\n7", "output": "21" },
+    { "input": "1\n1", "output": "1" },
+    { "input": "1000\n1000", "output": "1000" },
+    { "input": "1\n1000", "output": "1000" },
+    { "input": "7\n13", "output": "91" },
+    { "input": "6\n8", "output": "24" },
+    { "input": "9\n12", "output": "36" },
+    { "input": "17\n19", "output": "323" },
+    { "input": "500\n600", "output": "3000" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p106_lcm",
+    "sourceTitle": "106. 最小公倍數 (LCM)",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "延續原站每行一數的輸入慣例，將數值上限訂為 1000 以避免 LCM 過度膨脹，並補齊等值、與 1 搭配及互質等邊界測資。"
+  }
+}

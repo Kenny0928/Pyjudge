@@ -1,0 +1,102 @@
+{
+  "id": 109,
+  "title": "找出字元首次出現位置",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "索引",
+    "迴圈"
+  ],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "走訪字串找出指定字元第一次出現的索引位置"
+  ],
+  "prerequisites": [
+    "字串走訪",
+    "索引",
+    "條件判斷"
+  ],
+  "description": "<p class='problem-lead'>找出某個字元在字串中第一次出現的位置。</p><p>給定字串 <code>S</code> 與一個字元 <code>C</code>（<code>C</code> 恰好一個字元，也可能是半形空格），請輸出 <code>C</code> 在 <code>S</code> 中第一次出現的索引位置，索引從 <code>0</code> 開始計算。比較時區分英文大小寫。若 <code>C</code> 沒有在 <code>S</code> 中出現過，輸出 <code>-1</code>。</p>",
+  "hint": "<p>Python 字串的 <code>find()</code> 會直接回傳第一次出現的索引，找不到時回傳 -1。</p>",
+  "inputFormat": "<p>第一行包含字串 <code>S</code>。第二行包含字元 <code>C</code>。</p>",
+  "outputFormat": "<p>輸出一個整數，表示 <code>C</code> 在 <code>S</code> 中第一次出現的索引，找不到時輸出 <code>-1</code>。</p>",
+  "constraints": "<ul><li>1 ≤ S 的字元數 ≤ 100</li><li>C 恰好包含一個非換行字元（可能是半形空格）</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "banana\na",
+  "sampleOutput": "1",
+  "samples": [
+    {
+      "input": "banana\na",
+      "output": "1"
+    },
+    {
+      "input": "apple\nz",
+      "output": "-1"
+    },
+    {
+      "input": "banana\nb",
+      "output": "0"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "banana\na",
+      "output": "1"
+    },
+    {
+      "input": "apple\nz",
+      "output": "-1"
+    },
+    {
+      "input": "banana\nb",
+      "output": "0"
+    },
+    {
+      "input": "hello\no",
+      "output": "4"
+    },
+    {
+      "input": "aaaaa\na",
+      "output": "0"
+    },
+    {
+      "input": "abcabc\nc",
+      "output": "2"
+    },
+    {
+      "input": "x\nx",
+      "output": "0"
+    },
+    {
+      "input": "Mississippi\ns",
+      "output": "2"
+    },
+    {
+      "input": "Mississippi\nS",
+      "output": "-1"
+    },
+    {
+      "input": "a b c\n ",
+      "output": "1"
+    },
+    {
+      "input": "12321\n2",
+      "output": "1"
+    },
+    {
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz\nz",
+      "output": "99"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p68_find_first_index",
+    "sourceTitle": "68. 找出字元首次出現位置",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "明訂 C 恰為單一字元（含空格）且比較區分大小寫，並補齊唯一字元、大小寫不符與最大長度等邊界測資。"
+  }
+}

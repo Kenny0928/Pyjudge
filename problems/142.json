@@ -1,0 +1,43 @@
+{
+  "id": 142,
+  "title": "巢狀清單取值",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "索引", "巢狀清單"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["理解巢狀清單的兩層索引方式"],
+  "prerequisites": ["清單", "索引", "巢狀資料"],
+  "description": "<p class='problem-lead'>從固定的巢狀清單中取出指定位置的項目。</p><p>題目固定使用以下巢狀清單（索引由 <code>0</code> 開始）：</p><pre>grid = [['a', 'b'], ['c', 'd']]</pre><p>也就是 <code>grid[0][0]='a'</code>、<code>grid[0][1]='b'</code>、<code>grid[1][0]='c'</code>、<code>grid[1][1]='d'</code>。請讀入兩個索引 <code>idx1</code>、<code>idx2</code>，輸出 <code>grid[idx1][idx2]</code> 的值。這份巢狀清單本身<strong>不會出現在輸入中</strong>，是題目固定給定的資料。</p>",
+  "hint": "<p>先用 <code>idx1</code> 取出外層清單中的其中一個子清單，再用 <code>idx2</code> 從該子清單中取出項目。</p>",
+  "inputFormat": "<p>第一行包含整數 <code>idx1</code>。第二行包含整數 <code>idx2</code>。</p>",
+  "outputFormat": "<p>輸出一個字元，為固定巢狀清單 <code>grid[idx1][idx2]</code> 位置的值。</p>",
+  "constraints": "<ul><li>idx1 ∈ {0, 1}</li><li>idx2 ∈ {0, 1}</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "0\n0",
+  "sampleOutput": "a",
+  "samples": [
+    { "input": "0\n0", "output": "a" },
+    { "input": "0\n1", "output": "b" },
+    { "input": "1\n0", "output": "c" }
+  ],
+  "testCases": [
+    { "input": "0\n0", "output": "a" },
+    { "input": "0\n1", "output": "b" },
+    { "input": "1\n0", "output": "c" },
+    { "input": "1\n1", "output": "d" },
+    { "input": "0\n0", "output": "a" },
+    { "input": "1\n1", "output": "d" },
+    { "input": "0\n1", "output": "b" },
+    { "input": "1\n0", "output": "c" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p101_list_of_lists_get_item",
+    "sourceTitle": "101. 取得巢狀清單的項目",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "保留原站固定巢狀清單 [['a','b'],['c','d']] 直接寫死於題目與解答中（不作為輸入），僅將兩個索引作為輸入，並依 0-indexed 語意涵蓋全部 4 種索引組合、各重複一次以補足測資數量。"
+  }
+}

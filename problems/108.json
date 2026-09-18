@@ -1,0 +1,93 @@
+{
+  "id": 108,
+  "title": "判斷是否為空字串",
+  "stage": "Beginner",
+  "difficulty": "Easy",
+  "tags": [
+    "字串",
+    "邏輯判斷"
+  ],
+  "audienceLevel": "E-UPPER",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": [
+    "判斷讀入的字串長度是否為 0"
+  ],
+  "prerequisites": [
+    "字串",
+    "len()",
+    "條件判斷"
+  ],
+  "description": "<p class='problem-lead'>判斷讀入的字串是不是空字串。</p><p>給定字串 <code>S</code>（該行可能完全沒有字元），請判斷 <code>S</code> 的長度是否為 <code>0</code>。只有長度剛好為 0 時才算是空字串；只包含空白字元（例如一個或多個半形空格）的字串長度不為 0，不算空字串。符合條件請輸出 <code>true</code>，否則輸出 <code>false</code>，大小寫必須完全一致。</p>",
+  "hint": "<p>用 <code>len(S) == 0</code> 就能判斷字串是否為空。</p>",
+  "inputFormat": "<p>一行，包含字串 <code>S</code>，該行也可能完全是空行。</p>",
+  "outputFormat": "<p>輸出 <code>true</code> 或 <code>false</code>。</p>",
+  "constraints": "<ul><li>0 ≤ S 的字元數 ≤ 100</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "",
+  "sampleOutput": "true",
+  "samples": [
+    {
+      "input": "",
+      "output": "true"
+    },
+    {
+      "input": " ",
+      "output": "false"
+    },
+    {
+      "input": "a",
+      "output": "false"
+    }
+  ],
+  "testCases": [
+    {
+      "input": "",
+      "output": "true"
+    },
+    {
+      "input": " ",
+      "output": "false"
+    },
+    {
+      "input": "a",
+      "output": "false"
+    },
+    {
+      "input": "  ",
+      "output": "false"
+    },
+    {
+      "input": "ab",
+      "output": "false"
+    },
+    {
+      "input": "0",
+      "output": "false"
+    },
+    {
+      "input": "hello world",
+      "output": "false"
+    },
+    {
+      "input": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "output": "false"
+    },
+    {
+      "input": "!",
+      "output": "false"
+    },
+    {
+      "input": "   ",
+      "output": "false"
+    }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p67_is_empty_string",
+    "sourceTitle": "67. 判斷是否為空字串",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "沿用原題「只有長度為 0 才算空字串」的語義（純空白字串視為 false），並補齊多空白與最大長度等邊界測資。"
+  }
+}

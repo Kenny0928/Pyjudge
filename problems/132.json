@@ -1,0 +1,45 @@
+{
+  "id": 132,
+  "title": "複製清單並驗證獨立性",
+  "stage": "Intermediate",
+  "difficulty": "Easy",
+  "tags": ["清單", "複製", "變數參照"],
+  "audienceLevel": "M-7",
+  "apcsLevel": null,
+  "platformMode": "Python",
+  "learningObjectives": ["理解清單複製會建立獨立物件，修改原清單不影響複製結果"],
+  "prerequisites": ["清單輸入", "清單切片"],
+  "description": "<p class='problem-lead'>建立一份清單的獨立複製，並驗證修改原清單不會影響複製結果。</p><p>第一行輸入清單長度 <code>N</code>；第二行（若 <code>N &gt; 0</code>）給出清單 <code>a</code> 的 <code>N</code> 個以空白分隔的整數。請先建立 <code>a</code> 的一份複製 <code>b</code>，接著讀取一組索引 <code>i</code> 與新值 <code>v</code>（只有在 <code>N &gt; 0</code> 時才會提供），把 <code>a[i]</code> 修改成 <code>v</code>（<code>b</code> 不受影響）。最後輸出兩行：第一行是複製 <code>b</code> 目前的內容，第二行是修改後 <code>a</code> 目前的內容。</p>",
+  "hint": "<p>使用切片 <code>a[:]</code>（或 <code>list(a)</code>）才能建立真正獨立的新清單；如果直接寫 <code>b = a</code>，兩個名稱會指向同一份清單，修改 <code>a</code> 也會一併改到 <code>b</code>。</p>",
+  "inputFormat": "<p>第一行為整數 <code>N</code>；若 <code>N &gt; 0</code>，第二行為 <code>N</code> 個以空白分隔的整數（清單 <code>a</code>），接著一行給出兩個以空白分隔的整數 <code>i</code> 與 <code>v</code>，表示要把 <code>a[i]</code>（0-based）改成 <code>v</code>；若 <code>N = 0</code> 則沒有後續輸入。</p>",
+  "outputFormat": "<p>輸出兩行：第一行為複製 <code>b</code> 的內容（維持修改前的原始值），第二行為修改後 <code>a</code> 的內容；每行元素以空白分隔，清單為空時該行輸出空白行。</p>",
+  "constraints": "<ul><li>0 ≤ N ≤ 50</li><li>-1000 ≤ 每個整數（含新值 v）≤ 1000</li><li>當 N &gt; 0 時，0 ≤ i &lt; N</li></ul>",
+  "timeLimit": 1,
+  "memoryLimit": 256,
+  "sampleInput": "3\n1 2 3\n1 99",
+  "sampleOutput": "1 2 3\n1 99 3",
+  "samples": [
+    { "input": "3\n1 2 3\n1 99", "output": "1 2 3\n1 99 3" },
+    { "input": "0", "output": "\n" },
+    { "input": "1\n5\n0 100", "output": "5\n100" }
+  ],
+  "testCases": [
+    { "input": "3\n1 2 3\n1 99", "output": "1 2 3\n1 99 3" },
+    { "input": "0", "output": "\n" },
+    { "input": "1\n5\n0 100", "output": "5\n100" },
+    { "input": "5\n1 1 1 1 1\n2 9", "output": "1 1 1 1 1\n1 1 9 1 1" },
+    { "input": "4\n10 20 30 40\n0 -1", "output": "10 20 30 40\n-1 20 30 40" },
+    { "input": "4\n10 20 30 40\n3 -1", "output": "10 20 30 40\n10 20 30 -1" },
+    { "input": "2\n7 8\n1 0", "output": "7 8\n7 0" },
+    { "input": "6\n1 2 3 4 5 6\n5 999", "output": "1 2 3 4 5 6\n1 2 3 4 5 999" },
+    { "input": "3\n-5 -10 -15\n0 100", "output": "-5 -10 -15\n100 -10 -15" },
+    { "input": "1\n0\n0 1", "output": "0\n1" }
+  ],
+  "source": {
+    "site": "google_sites",
+    "sourceId": "p91_list_copy",
+    "sourceTitle": "91. 複製清單",
+    "sourceUrl": "https://script.google.com/macros/s/AKfycbysmpNDQVtu_nax9QfChcb5gyitAcl3u0-LLo3Gsb7E3BoeeB8qoMA5LGs4RFK7OO-F/exec",
+    "adaptation": "原題測資僅『讀清單、原樣輸出』，透過 stdin/stdout 無法直接觀察複製與原清單是否為獨立物件；因此重新設計為『建立複製後修改原清單、輸出複製與原清單兩者現況』的可測規格，讓輸出差異具體驗證複製的獨立性，並在解答註解中說明教學重點與常見錯誤（b = a 造成的別名問題）。"
+  }
+}
